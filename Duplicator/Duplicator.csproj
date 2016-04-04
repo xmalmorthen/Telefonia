@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4FA11082-6C4E-4C26-8F97-B0D3C48A9693}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Duplicator</RootNamespace>
+    <AssemblyName>Duplicator</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="classes\Hash.cs" />
+    <Compile Include="Controllers\addtargetController.cs" />
+    <Compile Include="Controllers\duplicatorController.cs" />
+    <Compile Include="Controllers\loginController.cs" />
+    <Compile Include="DBDuplicatorDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDuplicatorDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBDuplicatorDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDuplicatorDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\caUsersModel.cs" />
+    <Compile Include="Models\DataBase\DBDuplicator.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDuplicator.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\duplicatorModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\frmAddTarget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAddTarget.Designer.cs">
+      <DependentUpon>frmAddTarget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmCaUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCaUsers.Designer.cs">
+      <DependentUpon>frmCaUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmDuplicator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmDuplicator.Designer.cs">
+      <DependentUpon>frmDuplicator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <None Include="DBDuplicatorDataSet.xsc">
+      <DependentUpon>DBDuplicatorDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBDuplicatorDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDuplicatorDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDuplicatorDataSet.xss">
+      <DependentUpon>DBDuplicatorDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBDuplicatorDataSet1.xsc">
+      <DependentUpon>DBDuplicatorDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DBDuplicatorDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDuplicatorDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBDuplicatorDataSet1.xss">
+      <DependentUpon>DBDuplicatorDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Models\DataBase\DBDuplicator.dbml.layout">
+      <DependentUpon>DBDuplicator.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\frmAddTarget.resx">
+      <DependentUpon>frmAddTarget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCaUsers.resx">
+      <DependentUpon>frmCaUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmDuplicator.resx">
+      <DependentUpon>frmDuplicator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Models\DataBase\DBDuplicator.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DBDuplicator.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\Duplicator.Models.duplicatorModel.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459541314_Ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459541353_No.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459542149_Untitled-2-12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459545062_icon-ios7-gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459545084_icon-close-round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459545151_icon-person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459546368_icon-person-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459546431_icon-compose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459546476_icon-trash-b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459549408_icon-close-circled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459549828_icon-close-circled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459549869_icon-plus-round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459561572_19_memory_sd_card_storage_hardware_save_mobile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1459561755_19_memory_sd_card_storage_hardware_save_mobile.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

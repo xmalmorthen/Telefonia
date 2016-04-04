@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DBDuplicator" Class="DBDuplicatorDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=DBDuplicator;Persist Security Info=True;User ID=sa;Connect Timeout=5;ConnectRetryCount=3;ConnectRetryInterval=5" SettingsObjectName="Duplicator.Properties.Settings" SettingsPropertyName="DBDuplicatorConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.caConfigurations" Member="caConfigurations">
+    <Type Name="caConfigurations">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tag" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="value" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.reUsersDuplicators" Member="reUsersDuplicators">
+    <Type Name="reUsersDuplicators">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idMaDuplicator" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="caUsers_reUsersDuplicators" Member="caUsers" ThisKey="idUser" OtherKey="id" Type="caUsers" IsForeignKey="true" />
+      <Association Name="maDuplicator_reUsersDuplicators" Member="maDuplicator" ThisKey="idMaDuplicator" OtherKey="id" Type="maDuplicator" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.caUsers" Member="caUsers">
+    <Type Name="caUsers">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[user]" Member="user" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isAdmin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="caUsers_reUsersDuplicators" Member="reUsersDuplicators" ThisKey="id" OtherKey="idUser" Type="reUsersDuplicators" />
+    </Type>
+  </Table>
+  <Table Name="dbo.maDuplicator" Member="maDuplicator">
+    <Type Name="maDuplicator">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="number" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="carrier" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="country" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="maDuplicator_reUsersDuplicators" Member="reUsersDuplicators" ThisKey="id" OtherKey="idMaDuplicator" Type="reUsersDuplicators" />
+    </Type>
+  </Table>
+</Database>
