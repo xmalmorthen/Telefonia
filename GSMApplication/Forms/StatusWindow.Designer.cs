@@ -49,6 +49,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblReady = new System.Windows.Forms.Label();
+            this.bWInitialzingSystem = new System.ComponentModel.BackgroundWorker();
+            this.bWConnectionToControllers = new System.ComponentModel.BackgroundWorker();
+            this.bWScanningForReceivers = new System.ComponentModel.BackgroundWorker();
+            this.bWPoweringOnReceivers = new System.ComponentModel.BackgroundWorker();
+            this.bWConnectingToReceivers = new System.ComponentModel.BackgroundWorker();
+            this.bWInitializingStack = new System.ComponentModel.BackgroundWorker();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbInitialzingSystem)).BeginInit();
@@ -288,6 +294,42 @@
             this.lblReady.Text = "Ready !!!              ";
             this.lblReady.Visible = false;
             // 
+            // bWInitialzingSystem
+            // 
+            this.bWInitialzingSystem.WorkerSupportsCancellation = true;
+            this.bWInitialzingSystem.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWInitialzingSystem_DoWork);
+            this.bWInitialzingSystem.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWInitialzingSystem_RunWorkerCompleted);
+            // 
+            // bWConnectionToControllers
+            // 
+            this.bWConnectionToControllers.WorkerSupportsCancellation = true;
+            this.bWConnectionToControllers.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWConnectionToControllers_DoWork);
+            this.bWConnectionToControllers.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWConnectionToControllers_RunWorkerCompleted);
+            // 
+            // bWScanningForReceivers
+            // 
+            this.bWScanningForReceivers.WorkerSupportsCancellation = true;
+            this.bWScanningForReceivers.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWScanningForReceivers_DoWork);
+            this.bWScanningForReceivers.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWScanningForReceivers_RunWorkerCompleted);
+            // 
+            // bWPoweringOnReceivers
+            // 
+            this.bWPoweringOnReceivers.WorkerSupportsCancellation = true;
+            this.bWPoweringOnReceivers.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWPoweringOnReceivers_DoWork);
+            this.bWPoweringOnReceivers.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWPoweringOnReceivers_RunWorkerCompleted);
+            // 
+            // bWConnectingToReceivers
+            // 
+            this.bWConnectingToReceivers.WorkerSupportsCancellation = true;
+            this.bWConnectingToReceivers.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWConnectingToReceivers_DoWork);
+            this.bWConnectingToReceivers.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWConnectingToReceivers_RunWorkerCompleted);
+            // 
+            // bWInitializingStack
+            // 
+            this.bWInitializingStack.WorkerSupportsCancellation = true;
+            this.bWInitializingStack.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWInitializingStack_DoWork);
+            this.bWInitializingStack.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWInitializingStack_RunWorkerCompleted);
+            // 
             // StatusWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,5 +395,11 @@
         public System.Windows.Forms.PictureBox pbPoweringOnReceivers;
         public System.Windows.Forms.PictureBox pbConnectingToReceivers;
         public System.Windows.Forms.PictureBox pbInitializingStack;
+        private System.ComponentModel.BackgroundWorker bWInitialzingSystem;
+        private System.ComponentModel.BackgroundWorker bWConnectionToControllers;
+        private System.ComponentModel.BackgroundWorker bWScanningForReceivers;
+        private System.ComponentModel.BackgroundWorker bWPoweringOnReceivers;
+        private System.ComponentModel.BackgroundWorker bWConnectingToReceivers;
+        private System.ComponentModel.BackgroundWorker bWInitializingStack;
     }
 }

@@ -66,5 +66,41 @@ namespace GSMApplication.Properties {
                 this["OutputBasePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("admin")]
+        public string sshUser {
+            get {
+                return ((string)(this["sshUser"]));
+            }
+            set {
+                this["sshUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("121212qw")]
+        public string sshPass {
+            get {
+                return ((string)(this["sshPass"]));
+            }
+            set {
+                this["sshPass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10.10.20.196")]
+        public string sshHost {
+            get {
+                return ((string)(this["sshHost"]));
+            }
+            set {
+                this["sshHost"] = value;
+            }
+        }
     }
 }

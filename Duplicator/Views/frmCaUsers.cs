@@ -190,5 +190,7 @@ namespace Duplicator.Views
             }
             catch (Exception) { }
         }
+
+        
     }
 }

@@ -28,9 +28,7 @@ namespace GSMApplication.Forms
 
             txtOutputPath.Text = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, GSMApplication.Properties.Settings.Default.OutputBasePath.Trim(), fileName);
 
-            this.pbInternetConnection.Image = InternetCheckConnection.Check() ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            this.pbSystemConnected.Image = SystemCheckConnected.Check() ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            this.pbExternalPower.Image = ExternalCheckPower.Check() ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            this.tmWorkers_Tick(null,null);            
         }
 
 
@@ -61,6 +59,83 @@ namespace GSMApplication.Forms
                 string fileName = DateTime.Now.ToString("ddMMyyyy_HHmmss");
                 txtOutputPath.Text = Path.Combine(folderBrowserDialog.SelectedPath, fileName);
             }
+        }
+
+        private void tmWorkers_Tick(object sender, EventArgs e)
+        {
+            tmWorkers.Enabled = false;
+            tmWorkers.Stop();
+
+            try
+            {
+                bWInternetConnection.RunWorkerAsync();
+                bWSystemConnected.RunWorkerAsync();
+                bWExternalPower.RunWorkerAsync();
+            }
+            catch (Exception)
+            {
+
+            }
+
+            tmWorkers.Enabled = true;
+            tmWorkers.Start();
+        }
+
+        private void bWInternetConnection_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.check.InternetConnection.Check();
+            }
+            catch (Exception)
+            {
+                
+            }
+            e.Result = result;
+        }
+
+        private void bWInternetConnection_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.pbInternetConnection.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+        }
+
+        private void bWSystemConnected_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.check.SystemConnected.Check();
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = result;
+        }
+
+        private void bWSystemConnected_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.pbSystemConnected.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+        }
+
+        private void bWExternalPower_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.check.ExternalPower.Check();
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = result;
+        }
+
+        private void bWExternalPower_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.pbExternalPower.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
         }
 
 

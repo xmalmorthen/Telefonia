@@ -145,5 +145,46 @@ namespace GSMApplication.Controllers
             return List;
         }
 
+        public static List<MarkersModel> MapMarkerModel() {
+            List<MarkersModel> List = new List<MarkersModel>();
+
+            List.Add(new MarkersModel()
+            {
+                Desc = "Punto 1",
+                Lat = 19.256091,
+                Lng = -103.688323
+            });
+
+            List.Add(new MarkersModel()
+            {
+                Desc = "Punto 2",
+                Lat = 19.240167,
+                Lng = -103.715624
+            });
+
+            List.Add(new MarkersModel()
+            {
+                Desc = "Punto 3",
+                Lat = 19.232194, 
+                Lng = -103.729229
+            });
+
+            List.Add(new MarkersModel()
+            {
+                Desc = "Punto 4",
+                Lat = 19.241769, 
+                Lng = -103.733740
+            });
+
+            List.Add(new MarkersModel()
+            {
+                Desc = "Punto 5",
+                Lat = 19.240372,
+                Lng = -103.724573
+            });
+
+            return List;
+        }
+
     }
 }

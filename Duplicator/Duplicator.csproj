@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\Hash.cs" />
-    <Compile Include="Controllers\addtargetController.cs" />
+    <Compile Include="Controllers\targetController.cs" />
     <Compile Include="Controllers\duplicatorController.cs" />
     <Compile Include="Controllers\loginController.cs" />
     <Compile Include="DBDuplicatorDataSet.Designer.cs">
@@ -68,6 +68,12 @@
     <Compile Include="Models\duplicatorModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\frmRemoveTarget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmRemoveTarget.Designer.cs">
+      <DependentUpon>frmRemoveTarget.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmAddTarget.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\frmRemoveTarget.resx">
+      <DependentUpon>frmRemoveTarget.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\frmAddTarget.resx">
       <DependentUpon>frmAddTarget.cs</DependentUpon>
     </EmbeddedResource>

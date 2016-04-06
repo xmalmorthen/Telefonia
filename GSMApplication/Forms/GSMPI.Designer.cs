@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GSMPI));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gbOfflineMode = new System.Windows.Forms.GroupBox();
@@ -63,8 +64,12 @@
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.pbExternalPower = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.bWInternetConnection = new System.ComponentModel.BackgroundWorker();
+            this.tmWorkers = new System.Windows.Forms.Timer(this.components);
+            this.bWSystemConnected = new System.ComponentModel.BackgroundWorker();
+            this.bWExternalPower = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1.SuspendLayout();
             this.gbOfflineMode.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -556,6 +561,27 @@
             this.folderBrowserDialog.Description = "Output path";
             this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyDocuments;
             // 
+            // bWInternetConnection
+            // 
+            this.bWInternetConnection.WorkerSupportsCancellation = true;
+            this.bWInternetConnection.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWInternetConnection_DoWork);
+            this.bWInternetConnection.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWInternetConnection_RunWorkerCompleted);
+            // 
+            // tmWorkers
+            // 
+            this.tmWorkers.Interval = 5000;
+            this.tmWorkers.Tick += new System.EventHandler(this.tmWorkers_Tick);
+            // 
+            // bWSystemConnected
+            // 
+            this.bWSystemConnected.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWSystemConnected_DoWork);
+            this.bWSystemConnected.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWSystemConnected_RunWorkerCompleted);
+            // 
+            // bWExternalPower
+            // 
+            this.bWExternalPower.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWExternalPower_DoWork);
+            this.bWExternalPower.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWExternalPower_RunWorkerCompleted);
+            // 
             // GSMPI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -638,5 +664,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.ComponentModel.BackgroundWorker bWInternetConnection;
+        private System.Windows.Forms.Timer tmWorkers;
+        private System.ComponentModel.BackgroundWorker bWSystemConnected;
+        private System.ComponentModel.BackgroundWorker bWExternalPower;
     }
 }

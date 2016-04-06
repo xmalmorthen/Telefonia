@@ -17,21 +17,48 @@ namespace GSMApplication.Forms
     public partial class GSMPIMain : Form
     {
         private void init() {
-            this.initStateIcons();
+            this.starWorkers();
             this.initChartGraph();
-            this.initMap();
+            this.tableLayoutPanel7.Controls.Add(gMap.initMap(), 0, 1);
             this.populate();
+
+            tmWorkers.Enabled = true;
+            tmWorkers.Start();
         }
 
-        private void initStateIcons() {
-            this.pbInternet.Image = InternetCheckConnection.Check() ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            this.pbSystem.Image = SystemCheckConnected.Check() ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            this.pbExternalPower.Image = ExternalCheckPower.Check() ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            this.pbReceivers.Image = CheckReceivers.Check() ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            this.pbDecipher.Image = CheckDecipher.Check() ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            this.pbDecipher.Image = CheckDecipher.State() ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            this.pbmapCacheOnly.Image = !InternetCheckConnection.Check() ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+        private void starWorkers() {
+            try
+            {
+                if (!bwSystem.IsBusy)
+                    bwSystem.RunWorkerAsync();
+                if (!bWInternet.IsBusy) 
+                    bWInternet.RunWorkerAsync();
+                if (!bWReceivers.IsBusy) 
+                    bWReceivers.RunWorkerAsync();
+                if (!bWDecipher.IsBusy) 
+                    bWDecipher.RunWorkerAsync();
+                if (!bWDecipherState.IsBusy) 
+                    bWDecipherState.RunWorkerAsync();
+                if (!bWExternalPower.IsBusy) 
+                    bWExternalPower.RunWorkerAsync();
+            }
+            catch (Exception)
+            {
+                //throw;
+            }            
         }
+
+        private void tmWorkers_Tick(object sender, EventArgs e)
+        {
+            tmWorkers.Stop();
+            tmWorkers.Enabled = false;
+
+            this.starWorkers();
+
+            tmWorkers.Enabled = true;
+            tmWorkers.Start();
+        } 
+
 
         private void initChartGraph() {
             chart.ChartAreas[0].CursorX.IsUserEnabled = true;
@@ -41,48 +68,12 @@ namespace GSMApplication.Forms
             tmGraph.Start();
         }
 
-        private void initMap()
-        {
-            GMapControl MainMap = new GMapControl();
-            MainMap.Dock = DockStyle.Fill;
-
-            if (!GMapControl.IsDesignerHosted)
-            {
-                GMap.NET.CacheProviders.MsSQLPureImageCache ch = new GMap.NET.CacheProviders.MsSQLPureImageCache();
-                ch.ConnectionString = GSMApplication.Properties.Settings.Default.GSMPIConnectionString;
-                ch.Initialize();
-                MainMap.Manager.SecondaryCache = ch;
-
-                try
-                {
-                    System.Net.IPHostEntry e = System.Net.Dns.GetHostEntry("www.google.com");
-                }
-                catch
-                {
-                    MainMap.Manager.Mode = AccessMode.CacheOnly;
-                    MessageBox.Show("No internet connection available, going to CacheOnly mode.", "GMap.NET - Demo.WindowsForms", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-                // config map         
-                MainMap.MapProvider = GMapProviders.OpenStreetMap;
-                MainMap.Position = new PointLatLng(19.255185, -103.688263);
-                MainMap.MinZoom = 0;
-                MainMap.MaxZoom = 24;
-                MainMap.Zoom = 9;
-
-                MainMap.ScaleMode = ScaleModes.Fractional;
-
-            }
-
-            this.tableLayoutPanel7.Controls.Add(MainMap, 0, 1);
-        }
-
         private void populate()
         {
             this.cellsModelBindingSource.DataSource = Populate.Cells();
             this.tMSICatcherBindingSource.DataSource = Populate.TMSICatcher();
             this.decryptedTrafficBindingSource.DataSource = Populate.DecryptedTraffic();
-
+            gMap.AddMarker(Populate.MapMarkerModel());
         }
 
         public GSMPIMain()
@@ -114,6 +105,121 @@ namespace GSMApplication.Forms
         }
 
 
+        private void bwSystem_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.check.SystemConnected.Check();
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = result;
+        }
+
+        private void bwSystem_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.pbSystem.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+        }
+
+        private void bWInternet_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.check.InternetConnection.Check();
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = result;
+        }
+
+        private void bWInternet_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.pbInternet.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            this.pbmapCacheOnly.Image = !(Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            gMap.MainMap.Manager.Mode = AccessMode.CacheOnly;
+        }
+
+        private void bWReceivers_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.check.Receivers.Check();
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = result;
+        }
+
+        private void bWReceivers_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.pbReceivers.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+        }
+
+        private void bWDecipher_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.check.Decipher.Check();
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = result;
+        }
+
+        private void bWDecipher_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.pbDecipher.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+        }
+
+        private void bWDecipherState_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.check.Decipher.State();
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = result;
+        }
+
+        private void bWDecipherState_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.pbDecipherState.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+        }
+
+        private void bWExternalPower_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.check.ExternalPower.Check();
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = result;
+        }
+
+        private void bWExternalPower_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.pbExternalPower.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+        }                
 
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCaUsers));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -47,13 +48,9 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
-            this.dgvUsers = new System.Windows.Forms.DataGridView();
-            this.toolTip = new System.Windows.Forms.ToolTip();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.chkIsAdmin = new System.Windows.Forms.CheckBox();
-            this.dBDuplicatorDataSet = new Duplicator.DBDuplicatorDataSet1();
-            this.caUsersBindingSource = new System.Windows.Forms.BindingSource();
-            this.caUsersTableAdapter = new Duplicator.DBDuplicatorDataSet1TableAdapters.caUsersTableAdapter();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,15 +58,19 @@
             this.fActDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isAdminDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.caUsersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dBDuplicatorDataSet = new Duplicator.DBDuplicatorDataSet1();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.caUsersTableAdapter = new Duplicator.DBDuplicatorDataSet1TableAdapters.caUsersTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tlpUserForm.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDuplicatorDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.caUsersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBDuplicatorDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -290,6 +291,28 @@
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.chkIsAdmin);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(146, 126);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(377, 21);
+            this.flowLayoutPanel3.TabIndex = 8;
+            // 
+            // chkIsAdmin
+            // 
+            this.chkIsAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkIsAdmin.AutoSize = true;
+            this.chkIsAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkIsAdmin.Location = new System.Drawing.Point(300, 3);
+            this.chkIsAdmin.Name = "chkIsAdmin";
+            this.chkIsAdmin.Size = new System.Drawing.Size(74, 17);
+            this.chkIsAdmin.TabIndex = 0;
+            this.chkIsAdmin.Text = "Is Admin";
+            this.chkIsAdmin.UseVisualStyleBackColor = true;
+            // 
             // dgvUsers
             // 
             this.dgvUsers.AllowUserToAddRows = false;
@@ -322,42 +345,6 @@
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsers.Size = new System.Drawing.Size(526, 200);
             this.dgvUsers.TabIndex = 2;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.chkIsAdmin);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(146, 126);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(377, 21);
-            this.flowLayoutPanel3.TabIndex = 8;
-            // 
-            // chkIsAdmin
-            // 
-            this.chkIsAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkIsAdmin.AutoSize = true;
-            this.chkIsAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkIsAdmin.Location = new System.Drawing.Point(300, 3);
-            this.chkIsAdmin.Name = "chkIsAdmin";
-            this.chkIsAdmin.Size = new System.Drawing.Size(74, 17);
-            this.chkIsAdmin.TabIndex = 0;
-            this.chkIsAdmin.Text = "Is Admin";
-            this.chkIsAdmin.UseVisualStyleBackColor = true;
-            // 
-            // dBDuplicatorDataSet
-            // 
-            this.dBDuplicatorDataSet.DataSetName = "DBDuplicatorDataSet";
-            this.dBDuplicatorDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // caUsersBindingSource
-            // 
-            this.caUsersBindingSource.DataMember = "caUsers";
-            this.caUsersBindingSource.DataSource = this.dBDuplicatorDataSet;
-            // 
-            // caUsersTableAdapter
-            // 
-            this.caUsersTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -417,6 +404,21 @@
             this.isAdminDataGridViewCheckBoxColumn.ReadOnly = true;
             this.isAdminDataGridViewCheckBoxColumn.Width = 85;
             // 
+            // caUsersBindingSource
+            // 
+            this.caUsersBindingSource.DataMember = "caUsers";
+            this.caUsersBindingSource.DataSource = this.dBDuplicatorDataSet;
+            this.caUsersBindingSource.CurrentChanged += new System.EventHandler(this.caUsersBindingSource_CurrentChanged);
+            // 
+            // dBDuplicatorDataSet
+            // 
+            this.dBDuplicatorDataSet.DataSetName = "DBDuplicatorDataSet";
+            this.dBDuplicatorDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // caUsersTableAdapter
+            // 
+            this.caUsersTableAdapter.ClearBeforeFill = true;
+            // 
             // frmCaUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,11 +438,11 @@
             this.tlpUserForm.ResumeLayout(false);
             this.tlpUserForm.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDuplicatorDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.caUsersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBDuplicatorDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

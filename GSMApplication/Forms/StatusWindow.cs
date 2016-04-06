@@ -25,196 +25,191 @@ namespace GSMApplication.Forms
         }
 
         private void StatusWindow_Paint(object sender, PaintEventArgs e)
-        {
-            Application.DoEvents();
+        {            
             this.Init();
-        }
-
-        private void worker_DoWork(object sender, DoWorkEventArgs e) { 
-            
-        
-        }
+        }        
 
         private List<Thread> threads = new List<Thread>();
         private List<BackgroundWorker> workers = new List<BackgroundWorker>();
 
         private void Init()
         {
-            var stopWatch = Stopwatch.StartNew();
-            
-            threads.Add(new Thread(new ThreadStart(initialzingSystem)));
-            threads.Add (new Thread(new ThreadStart(connectionToControllers)));
-            threads.Add (new Thread(new ThreadStart(scanningForReceivers)));
-            threads.Add (new Thread(new ThreadStart(poweringOnReceivers)));
-            threads.Add (new Thread(new ThreadStart(connectingToReceivers)));
-            threads.Add (new Thread(new ThreadStart(initializingStack)));
+            bWInitialzingSystem.RunWorkerAsync();
+            bWConnectionToControllers.RunWorkerAsync();
+            bWScanningForReceivers.RunWorkerAsync();
+            bWPoweringOnReceivers.RunWorkerAsync();
+            bWConnectingToReceivers.RunWorkerAsync();
+            bWInitializingStack.RunWorkerAsync();
 
-            for (int i = 0; i < 6; i++)
+            while (bWInitialzingSystem.IsBusy ||
+                    bWConnectionToControllers.IsBusy ||
+                    bWScanningForReceivers.IsBusy ||
+                    bWPoweringOnReceivers.IsBusy ||
+                    bWConnectingToReceivers.IsBusy ||
+                    bWInitializingStack.IsBusy
+            )
             {
-                BackgroundWorker worker = new BackgroundWorker();
-                worker.DoWork += new DoWorkEventHandler(worker_DoWork);
-                worker.
+                Application.DoEvents();
+                if (this.frmTerminate)
+                {
+                    break;
+                }
+                Thread.Sleep(500);
             }
-
-
-
-
-            foreach (Thread item in threads)
-	        {
-                item.Start();                
-	        }
-
-            foreach (Thread item in threads)
-            {
-                item.Join();
-            }
-
-            //stopWatch.Elapsed.ToString();
-            this.lblReady.Visible = true;
-
-            Random rnd = new Random();
-            System.Threading.Thread.Sleep(rnd.Next(5) * 3000);
 
             this.DialogResult = this.dlgRes;            
-
             this.Close();
         }
 
-        private void initialzingSystem()
+
+        private Boolean frmTerminate = false;
+        private void StatusWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Random rnd = new Random();
-            System.Threading.Thread.Sleep(rnd.Next(5)*1000);
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                bWInitialzingSystem.CancelAsync();
+                bWConnectionToControllers.CancelAsync();
+                bWScanningForReceivers.CancelAsync();
+                bWPoweringOnReceivers.CancelAsync();
+                bWConnectingToReceivers.CancelAsync();
+                bWInitializingStack.CancelAsync();
+                dlgRes = System.Windows.Forms.DialogResult.No;
+                frmTerminate = true;
+            }
+            
+        }
 
-            Boolean status = true;
+        private void bWInitialzingSystem_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.initializing.initialzingSystem();
+            }
+            catch (Exception)
+            {
 
-            GSMPIDataContext bdGSMPI = new GSMPIDataContext();
-            reCommandsParameters qry = bdGSMPI.reCommandsParameters.SingleOrDefault(qq => qq.tag == "ping");
-            if (qry == null) throw new Exception("Error al obtener los comandos de la bd");
-            string response = Command.Execute(qry.caCommands.command.Trim(), qry.caParameters.parameter.Trim());
+            }
+            e.Result = result;
+        }
 
-            /*
-             * TODO : IMPLEMENTAR TRATAMIENTO DEL COMANDO
-             */
+        private void bWInitialzingSystem_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Boolean status = (Boolean)e.Result;
 
             this.pbInitializingStack.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
             dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
         }
 
-        private void initializingStack()
+        private void bWConnectionToControllers_DoWork(object sender, DoWorkEventArgs e)
         {
-            Random rnd = new Random();
-            System.Threading.Thread.Sleep(rnd.Next(5) * 1000);
+            Boolean result = false;
+            try
+            {
+                result = system.initializing.connectionToControllers();
+            }
+            catch (Exception)
+            {
 
-            Boolean status = true;
-
-            GSMPIDataContext bdGSMPI = new GSMPIDataContext();
-            reCommandsParameters qry = bdGSMPI.reCommandsParameters.SingleOrDefault(qq => qq.tag == "ping");
-            if (qry == null) throw new Exception("Error al obtener los comandos de la bd");
-            string response = Command.Execute(qry.caCommands.command.Trim(), qry.caParameters.parameter.Trim());
-
-            /*
-             * TODO : IMPLEMENTAR TRATAMIENTO DEL COMANDO
-             */
-
-            dlgRes = System.Windows.Forms.DialogResult.No;
-            this.pbInitialzingSystem.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-
-            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+            }
+            e.Result = result;
         }
 
-        private void connectingToReceivers()
+        private void bWConnectionToControllers_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Random rnd = new Random();
-            System.Threading.Thread.Sleep(rnd.Next(5) * 1000);
-
-            Boolean status = true;
-
-            GSMPIDataContext bdGSMPI = new GSMPIDataContext();
-            reCommandsParameters qry = bdGSMPI.reCommandsParameters.SingleOrDefault(qq => qq.tag == "ping");
-            if (qry == null) throw new Exception("Error al obtener los comandos de la bd");
-            string response = Command.Execute(qry.caCommands.command.Trim(), qry.caParameters.parameter.Trim());
-
-            /*
-             * TODO : IMPLEMENTAR TRATAMIENTO DEL COMANDO
-             */
-
-            this.pbConnectingToReceivers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-
-            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
-        }
-
-        private void poweringOnReceivers()
-        {
-            Random rnd = new Random();
-            System.Threading.Thread.Sleep(rnd.Next(5) * 1000);
-
-            Boolean status = true;
-
-            GSMPIDataContext bdGSMPI = new GSMPIDataContext();
-            reCommandsParameters qry = bdGSMPI.reCommandsParameters.SingleOrDefault(qq => qq.tag == "ping");
-            if (qry == null) throw new Exception("Error al obtener los comandos de la bd");
-            string response = Command.Execute(qry.caCommands.command.Trim(), qry.caParameters.parameter.Trim());
-
-            /*
-             * TODO : IMPLEMENTAR TRATAMIENTO DEL COMANDO
-             */
-
-            this.pbPoweringOnReceivers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-
-            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;            
-        }
-
-        private void scanningForReceivers()
-        {
-            Random rnd = new Random();
-            System.Threading.Thread.Sleep(rnd.Next(5) * 1000);
-
-            Boolean status = true;
-
-            GSMPIDataContext bdGSMPI = new GSMPIDataContext();
-            reCommandsParameters qry = bdGSMPI.reCommandsParameters.SingleOrDefault(qq => qq.tag == "ping");
-            if (qry == null) throw new Exception("Error al obtener los comandos de la bd");
-            string response = Command.Execute(qry.caCommands.command.Trim(), qry.caParameters.parameter.Trim());
-
-            /*
-             * TODO : IMPLEMENTAR TRATAMIENTO DEL COMANDO
-             */
-
-            this.pbScanningForReceivers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-
-            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
-        }
-
-        private void connectionToControllers()
-        {
-            Random rnd = new Random();
-            System.Threading.Thread.Sleep(rnd.Next(5) * 1000);
-
-            Boolean status = true;
-
-            GSMPIDataContext bdGSMPI = new GSMPIDataContext();
-            reCommandsParameters qry = bdGSMPI.reCommandsParameters.SingleOrDefault(qq => qq.tag == "ping");
-            if (qry == null) throw new Exception("Error al obtener los comandos de la bd");
-            string response = Command.Execute(qry.caCommands.command.Trim(), qry.caParameters.parameter.Trim());
-
-            /*
-             * TODO : IMPLEMENTAR TRATAMIENTO DEL COMANDO
-             */
-
+            Boolean status = (Boolean)e.Result;
             this.pbConnectionToControllers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-
             dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+            ((BackgroundWorker)sender).CancelAsync();            
         }
 
-        private void StatusWindow_FormClosing(object sender, FormClosingEventArgs e)
+        private void bWScanningForReceivers_DoWork(object sender, DoWorkEventArgs e)
         {
-            dlgRes = System.Windows.Forms.DialogResult.No;
-            foreach (Thread item in threads)
-                if (item.ThreadState != System.Threading.ThreadState.Aborted || item.ThreadState != System.Threading.ThreadState.AbortRequested)
-                    item.Abort();
+            Boolean result = false;
+            try
+            {
+                result = system.initializing.Receivers.scanningForReceivers();
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = result;
         }
 
+        private void bWScanningForReceivers_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Boolean status = (Boolean)e.Result;
+            this.pbScanningForReceivers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+            ((BackgroundWorker)sender).CancelAsync();            
+        }
 
+        private void bWPoweringOnReceivers_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.initializing.Receivers.poweringOnReceivers();
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = result;
+        }
+
+        private void bWPoweringOnReceivers_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Boolean status = (Boolean)e.Result;
+            this.pbPoweringOnReceivers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+            ((BackgroundWorker)sender).CancelAsync();            
+        }
+
+        private void bWConnectingToReceivers_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.initializing.Receivers.connectingToReceivers();
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = result;
+        }
+
+        private void bWConnectingToReceivers_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Boolean status = (Boolean)e.Result;
+            this.pbConnectingToReceivers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+            ((BackgroundWorker)sender).CancelAsync();            
+        }
+
+        private void bWInitializingStack_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Boolean result = false;
+            try
+            {
+                result = system.initializing.initializingStack();
+            }
+            catch (Exception)
+            {
+
+            }
+            e.Result = result;
+        }
+
+        private void bWInitializingStack_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Boolean status = (Boolean)e.Result;
+            this.pbInitialzingSystem.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+            ((BackgroundWorker)sender).CancelAsync();            
+        }
         
     }
 }

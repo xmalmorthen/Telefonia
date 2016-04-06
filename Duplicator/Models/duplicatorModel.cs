@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Duplicator.Models
 {
-    class duplicatorModel
+    public class duplicatorModel
     {
         private string id;
         public string Id

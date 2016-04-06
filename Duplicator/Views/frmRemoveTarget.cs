@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Duplicator.Views
 {
-    public partial class frmAddTarget : Form
+    public partial class frmRemoveTarget : Form
     {
         private caUsers userLogged;
         private caUsers UserLogged
@@ -22,34 +22,37 @@ namespace Duplicator.Views
             set { userLogged = value; }
         }
 
-        public frmAddTarget(caUsers userLogged)
+        private duplicatorModel target;
+        private duplicatorModel Target
+        {
+            get { return target; }
+            set { target = value; }
+        }
+
+        public frmRemoveTarget(caUsers userLogged, duplicatorModel model)
         {
             InitializeComponent();
             this.UserLogged = userLogged;
+            this.Target = model;
+            this.init();
+        }
+
+        private void init()
+        {
+            lblCarrier.Text = this.Target.Carrier;
+            lblCountry.Text = this.Target.Country;
+            lblNumber.Text = this.Target.Number;
         }
 
         private void btnRecord_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtNumber.Text.Trim()) && String.IsNullOrEmpty(txtCarrier.Text.Trim()) && String.IsNullOrEmpty(txtCountry.Text.Trim()))
-            {
-                MessageBox.Show(this, "Lack complete information", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                string returnMessage = String.Empty;
-
-
-                if (targetController.record(UserLogged, new duplicatorModel()
-                {
-                    Number = this.txtNumber.Text.Trim(),
-                    Carrier = this.txtCarrier.Text.Trim(),
-                    Country = this.txtCountry.Text.Trim()
-                }, out returnMessage) == false)
+            string returnMessage = String.Empty;
+            if (MessageBox.Show(this,"Remove Target","Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes) {
+                if (targetController.remove(UserLogged, this.Target, out returnMessage) == false)
                 {
                     MessageBox.Show(this, returnMessage, "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else
-                {
+                else {
                     MessageBox.Show(this, returnMessage, "Recorded", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.DialogResult = System.Windows.Forms.DialogResult.Yes;
                 }

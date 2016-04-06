@@ -1,4 +1,5 @@
 ﻿using Duplicator.Controllers;
+using Duplicator.Models;
 using Duplicator.Models.DataBase;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,9 @@ namespace Duplicator.Views
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            dgvDuplicatior.DataSource = duplicatorController.duplicatorList(this.UserLogged.id);
+            duplicatorModelBindingSource.DataSource = duplicatorController.duplicatorList(this.UserLogged.id);
+
+            //dgvDuplicatior.DataSource = 
         }
 
         private void menuStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
@@ -71,7 +74,13 @@ namespace Duplicator.Views
 
         private void btnRemoveTarget_Click(object sender, EventArgs e)
         {
-            
+            duplicatorModel model = (duplicatorModel)duplicatorModelBindingSource.Current;
+
+            frmRemoveTarget FrmRemoveTaget = new frmRemoveTarget(this.UserLogged,model);
+            if (FrmRemoveTaget.ShowDialog(this) == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.btnUpdate_Click(null, null);
+            }
         }
     }
 }

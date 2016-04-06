@@ -10,8 +10,9 @@ namespace GSMApplication.Controllers
 {
     static class Command
     {
-        public static string Execute(string command, string parameters) {
-            string result = null;
+        public static StringBuilder Execute(string command, string parameters)
+        {
+            StringBuilder result = new StringBuilder();
             try
             {
                 ProcessStartInfo cmnd = new ProcessStartInfo(command, parameters);
@@ -19,13 +20,22 @@ namespace GSMApplication.Controllers
                 cmnd.CreateNoWindow = true;
                 cmnd.WindowStyle = ProcessWindowStyle.Hidden;
                 cmnd.RedirectStandardOutput = true;
-                using (Process process = Process.Start(cmnd))
+
+                Process process = new Process();
+                process.StartInfo = cmnd;
+                process.OutputDataReceived += new DataReceivedEventHandler((sender, e) =>
                 {
-                    using (StreamReader reader = process.StandardOutput)
+                    // Prepend line numbers to each line of the output.
+                    if (!String.IsNullOrEmpty(e.Data))
                     {
-                        result = reader.ReadToEnd();
+                        result.Append(e.Data);
                     }
-                }
+                });
+
+                process.Start();
+                process.BeginOutputReadLine();
+                process.WaitForExit();
+                process.Close();
             }
             catch (Exception)
             {
