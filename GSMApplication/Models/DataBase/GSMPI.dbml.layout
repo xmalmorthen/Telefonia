@@ -8,30 +8,30 @@
         <elementListCompartment Id="693c48af-e482-4783-8837-3ca31fa07417" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9f918ad6-864e-4753-b928-1aaacdd0b377" absoluteBounds="3.25, 2.5, 2, 1.9631982421875">
-      <DataClassMoniker Name="/GSMPIDataContext/reCommandsParameters" />
-      <nestedChildShapes>
-        <elementListCompartment Id="a98866fa-07c0-41d9-9d94-595d6fb66ac1" absoluteBounds="3.2650000000000006, 2.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="4207de65-ffa8-463f-9634-6d024af065ce" absoluteBounds="0.75, 4, 2, 1.7708968098958327">
       <DataClassMoniker Name="/GSMPIDataContext/caParameters" />
       <nestedChildShapes>
         <elementListCompartment Id="c4220171-ca45-44fb-b3cf-7a3282cc981a" absoluteBounds="0.765, 4.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.75 : 2.77089680989583); (1.75 : 3.48159912109375); (3.25 : 3.48159912109375)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+    <classShape Id="0ed09d0e-9ac1-4d49-a368-0026e22f10c1" absoluteBounds="4.5, 2.375, 2, 1.9631982421875">
+      <DataClassMoniker Name="/GSMPIDataContext/reCommandsParameters" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec1222db-e8a6-49b4-aab8-6742deb09188" absoluteBounds="4.515, 2.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.57294840494792); (4.5 : 2.57294840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/GSMPIDataContext/caCommands/caCommands_reCommandsParameters" />
       <nodes>
         <classShapeMoniker Id="edbb2a8e-ce26-48ca-8dc6-f033d042908d" />
-        <classShapeMoniker Id="9f918ad6-864e-4753-b928-1aaacdd0b377" />
+        <classShapeMoniker Id="0ed09d0e-9ac1-4d49-a368-0026e22f10c1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.23159912109375); (3.25 : 4.23159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 5.05454802604167); (5.5 : 5.05454802604167); (5.5 : 4.3381982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/GSMPIDataContext/caParameters/caParameters_reCommandsParameters" />
       <nodes>
         <classShapeMoniker Id="4207de65-ffa8-463f-9634-6d024af065ce" />
-        <classShapeMoniker Id="9f918ad6-864e-4753-b928-1aaacdd0b377" />
+        <classShapeMoniker Id="0ed09d0e-9ac1-4d49-a368-0026e22f10c1" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

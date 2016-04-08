@@ -69,7 +69,7 @@ namespace GSMApplication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("admin")]
+        [global::System.Configuration.DefaultSettingValueAttribute("gsm")]
         public string sshUser {
             get {
                 return ((string)(this["sshUser"]));
@@ -81,7 +81,7 @@ namespace GSMApplication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("121212qw")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10101011")]
         public string sshPass {
             get {
                 return ((string)(this["sshPass"]));
@@ -93,7 +93,7 @@ namespace GSMApplication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10.10.20.196")]
+        [global::System.Configuration.DefaultSettingValueAttribute("gpi-desarrollo.no-ip.org")]
         public string sshHost {
             get {
                 return ((string)(this["sshHost"]));

@@ -36,14 +36,20 @@ namespace GSMApplication.Controllers
                     sshCnn ssh = new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost);
                     try
                     {
-                        StringBuilder output = ssh.execute("ls");
-                        result = output.ToString().Contains("tmp");
+                        GSMPIDataContext bdGSMPI = new GSMPIDataContext();
+                        reCommandsParameters qry = bdGSMPI.reCommandsParameters.SingleOrDefault(qq => qq.tag == "SystemConnected");
+                        if (qry == null) throw new Exception("Error al obtener los comandos de la bd");
+                        StringBuilder output = ssh.execute(String.Format("{0} {1}", qry.caCommands.command.Trim(), qry.caParameters != null ? qry.caParameters.parameter.Trim() : String.Empty ));
+
+                        //acpi -b {Battery 0: Full, 100%}
+                        //acpi -a {Adapter 0: on-line}
+
+                        result = !output.ToString().Contains("Unreachable");
                     }
                     catch (Exception)
                     {
                         throw;
                     }
-
                     return result;
                 }
             }

@@ -10,18 +10,6 @@
       <Association Name="caCommands_reCommandsParameters" Member="reCommandsParameters" ThisKey="id" OtherKey="idCommand" Type="reCommandsParameters" />
     </Type>
   </Table>
-  <Table Name="dbo.reCommandsParameters" Member="reCommandsParameters">
-    <Type Name="reCommandsParameters">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="tag" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="idCommand" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idParameter" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="caCommands_reCommandsParameters" Member="caCommands" ThisKey="idCommand" OtherKey="id" Type="caCommands" IsForeignKey="true" />
-      <Association Name="caParameters_reCommandsParameters" Member="caParameters" ThisKey="idParameter" OtherKey="id" Type="caParameters" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.caParameters" Member="caParameters">
     <Type Name="caParameters">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -30,6 +18,18 @@
       <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="caParameters_reCommandsParameters" Member="reCommandsParameters" ThisKey="id" OtherKey="idParameter" Type="reCommandsParameters" />
+    </Type>
+  </Table>
+  <Table Name="dbo.reCommandsParameters" Member="reCommandsParameters">
+    <Type Name="reCommandsParameters">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tag" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="idCommand" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idParameter" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="caCommands_reCommandsParameters" Member="caCommands" ThisKey="idCommand" OtherKey="id" Type="caCommands" IsForeignKey="true" />
+      <Association Name="caParameters_reCommandsParameters" Member="caParameters" ThisKey="idParameter" OtherKey="id" Type="caParameters" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

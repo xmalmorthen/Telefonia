@@ -22,8 +22,11 @@ namespace GSMApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            GSMPI InitForm = new Forms.GSMPI();
-            if ( InitForm.ShowDialog() == DialogResult.Yes ) Application.Run(new GSMPIMain());
+
+            Application.Run(new GSMPIMain());
+
+            //GSMPI InitForm = new Forms.GSMPI();
+            //if ( InitForm.ShowDialog() == DialogResult.Yes ) Application.Run(new GSMPIMain());
         }
     }
 }

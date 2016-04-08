@@ -68,9 +68,9 @@ namespace GSMApplication.Forms
 
             try
             {
-                bWInternetConnection.RunWorkerAsync();
-                bWSystemConnected.RunWorkerAsync();
-                bWExternalPower.RunWorkerAsync();
+                if (!bWInternetConnection.IsBusy) bWInternetConnection.RunWorkerAsync();
+                if (!bWSystemConnected.IsBusy) bWSystemConnected.RunWorkerAsync();
+                if (!bWExternalPower.IsBusy) bWExternalPower.RunWorkerAsync();
             }
             catch (Exception)
             {
