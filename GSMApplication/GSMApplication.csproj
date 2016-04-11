@@ -96,12 +96,19 @@
     <Compile Include="Controllers\Online.cs" />
     <Compile Include="Controllers\Populate.cs" />
     <Compile Include="Controllers\system.cs" />
+    <Compile Include="Forms\FrmSshCnn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSshCnn.Designer.cs">
+      <DependentUpon>FrmSshCnn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataBase\GSMPI.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GSMPI.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\MarkersModel.cs" />
+    <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="Models\SharpRandom.cs" />
     <Compile Include="Forms\GSMPI.cs">
       <SubType>Form</SubType>
@@ -127,6 +134,10 @@
     <Compile Include="Models\TMSICatcher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\1459541353_No.png" />
+    <EmbeddedResource Include="Forms\FrmSshCnn.resx">
+      <DependentUpon>FrmSshCnn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\GSMPI.resx">
       <DependentUpon>GSMPI.cs</DependentUpon>
     </EmbeddedResource>

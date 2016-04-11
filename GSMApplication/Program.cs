@@ -1,4 +1,6 @@
-﻿using GSMApplication.Forms;
+﻿using GSMApplication.Classes;
+using GSMApplication.Controllers;
+using GSMApplication.Forms;
 using GSMApplication.Forms;
 using GSMApplication.Models.DataBase;
 using System;
@@ -11,7 +13,13 @@ namespace GSMApplication
 {
     static class Program
     {
-        public static GSMPIDataContext bdGSMPI = new GSMPIDataContext();
+
+        private static Dictionary<string, sshCnn> sshCnn = new Dictionary<string, sshCnn>();
+        public static Dictionary<string, sshCnn> SshCnn
+        {
+            get { return Program.sshCnn; }
+            set { Program.sshCnn = value; }
+        }
 
         /// <summary>
         /// Punto de entrada principal para la aplicación.
@@ -22,11 +30,20 @@ namespace GSMApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            //Application.Run(new GSMPIMain());
 
-            Application.Run(new GSMPIMain());
+            FrmSshCnn initSshCnn = new Forms.FrmSshCnn();
+            if (initSshCnn.ShowDialog() == DialogResult.Yes)
+            {
+                GSMPI InitForm = new Forms.GSMPI();
+                if (InitForm.ShowDialog() == DialogResult.Yes) Application.Run(new GSMPIMain());
 
-            //GSMPI InitForm = new Forms.GSMPI();
-            //if ( InitForm.ShowDialog() == DialogResult.Yes ) Application.Run(new GSMPIMain());
+                foreach (KeyValuePair<string,sshCnn> item in SshCnn)
+                {
+                    item.Value.SshClient.Disconnect();
+                }
+
+            }
         }
     }
 }

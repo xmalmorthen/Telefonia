@@ -50,10 +50,6 @@
             this.rb16 = new System.Windows.Forms.RadioButton();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblTitle2 = new System.Windows.Forms.Label();
-            this.gbOutput = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnSaveFileDialog = new System.Windows.Forms.Button();
-            this.txtOutputPath = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.pbInternetConnection = new System.Windows.Forms.PictureBox();
@@ -64,8 +60,7 @@
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.pbExternalPower = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.bWInternetConnection = new System.ComponentModel.BackgroundWorker();
             this.tmWorkers = new System.Windows.Forms.Timer(this.components);
             this.bWSystemConnected = new System.ComponentModel.BackgroundWorker();
@@ -78,8 +73,6 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.gbReceivers.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.gbOutput.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbInternetConnection)).BeginInit();
@@ -98,7 +91,6 @@
             this.tableLayoutPanel1.Controls.Add(this.gbReceivers, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblTitle, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblTitle2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.gbOutput, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 0, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -114,7 +106,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 488);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 419);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // gbOfflineMode
@@ -394,63 +386,6 @@
             this.lblTitle2.TabIndex = 9;
             this.lblTitle2.Text = "---";
             // 
-            // gbOutput
-            // 
-            this.gbOutput.Controls.Add(this.tableLayoutPanel4);
-            this.gbOutput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbOutput.Location = new System.Drawing.Point(8, 342);
-            this.gbOutput.Name = "gbOutput";
-            this.gbOutput.Size = new System.Drawing.Size(368, 61);
-            this.gbOutput.TabIndex = 12;
-            this.gbOutput.TabStop = false;
-            this.gbOutput.Text = "Output";
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel4.Controls.Add(this.btnSaveFileDialog, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.txtOutputPath, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 22);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(362, 36);
-            this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // btnSaveFileDialog
-            // 
-            this.btnSaveFileDialog.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSaveFileDialog.AutoSize = true;
-            this.btnSaveFileDialog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveFileDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveFileDialog.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnSaveFileDialog.Location = new System.Drawing.Point(317, 3);
-            this.btnSaveFileDialog.Name = "btnSaveFileDialog";
-            this.btnSaveFileDialog.Size = new System.Drawing.Size(42, 30);
-            this.btnSaveFileDialog.TabIndex = 5;
-            this.btnSaveFileDialog.Text = "...";
-            this.btnSaveFileDialog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnSaveFileDialog, "Open save file dialog");
-            this.btnSaveFileDialog.UseVisualStyleBackColor = true;
-            this.btnSaveFileDialog.Click += new System.EventHandler(this.btnSaveFileDialog_Click);
-            // 
-            // txtOutputPath
-            // 
-            this.txtOutputPath.BackColor = System.Drawing.SystemColors.Control;
-            this.txtOutputPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtOutputPath.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtOutputPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOutputPath.Location = new System.Drawing.Point(3, 3);
-            this.txtOutputPath.Name = "txtOutputPath";
-            this.txtOutputPath.ReadOnly = true;
-            this.txtOutputPath.Size = new System.Drawing.Size(308, 30);
-            this.txtOutputPath.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.txtOutputPath, "Path to output");
-            // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.AutoSize = true;
@@ -458,9 +393,9 @@
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel5);
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel6);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 409);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 342);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(368, 71);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(368, 69);
             this.flowLayoutPanel3.TabIndex = 13;
             // 
             // flowLayoutPanel4
@@ -535,6 +470,7 @@
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
             this.flowLayoutPanel6.Size = new System.Drawing.Size(149, 30);
             this.flowLayoutPanel6.TabIndex = 2;
+            this.flowLayoutPanel6.Visible = false;
             // 
             // pbExternalPower
             // 
@@ -555,11 +491,6 @@
             this.label3.Size = new System.Drawing.Size(114, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "External power";
-            // 
-            // folderBrowserDialog
-            // 
-            this.folderBrowserDialog.Description = "Output path";
-            this.folderBrowserDialog.RootFolder = System.Environment.SpecialFolder.MyDocuments;
             // 
             // bWInternetConnection
             // 
@@ -586,12 +517,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 488);
+            this.ClientSize = new System.Drawing.Size(384, 419);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(400, 527);
-            this.MinimumSize = new System.Drawing.Size(400, 527);
+            this.MaximumSize = new System.Drawing.Size(400, 458);
+            this.MinimumSize = new System.Drawing.Size(400, 458);
             this.Name = "GSMPI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GSM Pasive Interceptor";
@@ -608,9 +539,6 @@
             this.gbReceivers.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.gbOutput.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
@@ -648,10 +576,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnAnalyze;
         private System.Windows.Forms.Button btnOffline;
-        private System.Windows.Forms.GroupBox gbOutput;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button btnSaveFileDialog;
-        private System.Windows.Forms.TextBox txtOutputPath;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.PictureBox pbInternetConnection;
@@ -662,8 +586,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
         private System.Windows.Forms.PictureBox pbExternalPower;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.ToolTip toolTip;
         private System.ComponentModel.BackgroundWorker bWInternetConnection;
         private System.Windows.Forms.Timer tmWorkers;
         private System.ComponentModel.BackgroundWorker bWSystemConnected;

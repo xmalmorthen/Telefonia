@@ -48,13 +48,13 @@
             this.pbInitializingStack = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblReady = new System.Windows.Forms.Label();
             this.bWInitialzingSystem = new System.ComponentModel.BackgroundWorker();
             this.bWConnectionToControllers = new System.ComponentModel.BackgroundWorker();
             this.bWScanningForReceivers = new System.ComponentModel.BackgroundWorker();
             this.bWPoweringOnReceivers = new System.ComponentModel.BackgroundWorker();
             this.bWConnectingToReceivers = new System.ComponentModel.BackgroundWorker();
             this.bWInitializingStack = new System.ComponentModel.BackgroundWorker();
+            this.pB = new System.Windows.Forms.ProgressBar();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbInitialzingSystem)).BeginInit();
@@ -68,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbConnectingToReceivers)).BeginInit();
             this.flowLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbInitializingStack)).BeginInit();
-            this.flowLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel3
@@ -81,10 +80,11 @@
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel7);
             this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel8);
+            this.flowLayoutPanel3.Controls.Add(this.pB);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(167, 245);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(167, 250);
             this.flowLayoutPanel3.TabIndex = 14;
             // 
             // flowLayoutPanel4
@@ -276,23 +276,11 @@
             // flowLayoutPanel8
             // 
             this.flowLayoutPanel8.AutoSize = true;
-            this.flowLayoutPanel8.Controls.Add(this.lblReady);
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(2, 219);
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(122, 183);
             this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(95, 18);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(0, 0);
             this.flowLayoutPanel8.TabIndex = 6;
-            // 
-            // lblReady
-            // 
-            this.lblReady.AutoSize = true;
-            this.lblReady.Location = new System.Drawing.Point(0, 5);
-            this.lblReady.Margin = new System.Windows.Forms.Padding(0, 5, 3, 0);
-            this.lblReady.Name = "lblReady";
-            this.lblReady.Size = new System.Drawing.Size(92, 13);
-            this.lblReady.TabIndex = 4;
-            this.lblReady.Text = "Ready !!!              ";
-            this.lblReady.Visible = false;
             // 
             // bWInitialzingSystem
             // 
@@ -330,11 +318,18 @@
             this.bWInitializingStack.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWInitializingStack_DoWork);
             this.bWInitializingStack.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWInitializingStack_RunWorkerCompleted);
             // 
+            // pB
+            // 
+            this.pB.Location = new System.Drawing.Point(3, 219);
+            this.pB.Name = "pB";
+            this.pB.Size = new System.Drawing.Size(160, 23);
+            this.pB.TabIndex = 7;
+            // 
             // StatusWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(167, 245);
+            this.ClientSize = new System.Drawing.Size(167, 250);
             this.Controls.Add(this.flowLayoutPanel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "StatusWindow";
@@ -365,8 +360,6 @@
             this.flowLayoutPanel7.ResumeLayout(false);
             this.flowLayoutPanel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbInitializingStack)).EndInit();
-            this.flowLayoutPanel8.ResumeLayout(false);
-            this.flowLayoutPanel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -388,7 +381,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
-        public System.Windows.Forms.Label lblReady;
         public System.Windows.Forms.PictureBox pbInitialzingSystem;
         public System.Windows.Forms.PictureBox pbConnectionToControllers;
         public System.Windows.Forms.PictureBox pbScanningForReceivers;
@@ -401,5 +393,6 @@
         private System.ComponentModel.BackgroundWorker bWPoweringOnReceivers;
         private System.ComponentModel.BackgroundWorker bWConnectingToReceivers;
         private System.ComponentModel.BackgroundWorker bWInitializingStack;
+        private System.Windows.Forms.ProgressBar pB;
     }
 }

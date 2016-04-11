@@ -2,6 +2,7 @@
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GSMApplication.Controllers;
+using GSMApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -107,10 +108,12 @@ namespace GSMApplication.Forms
 
         private void bwSystem_DoWork(object sender, DoWorkEventArgs e)
         {
-            Boolean result = false;
+            ResponseModel result = new ResponseModel();
             try
             {
-                result = system.check.SystemConnected.Check();
+                string message = string.Empty;
+                result.Status = system.check.SystemConnected.Check(out message);
+                result.Message.Append(message);
             }
             catch (Exception)
             {
@@ -121,7 +124,13 @@ namespace GSMApplication.Forms
 
         private void bwSystem_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            this.pbSystem.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            ResponseModel result = (ResponseModel)e.Result;
+            if (!result.Status)
+            {
+                toolTip.SetToolTip(label6, result.Message.ToString());
+                toolTip.SetToolTip(pbSystem, result.Message.ToString());
+            }
+            this.pbSystem.Image = result.Status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
         }
 
         private void bWInternet_DoWork(object sender, DoWorkEventArgs e)

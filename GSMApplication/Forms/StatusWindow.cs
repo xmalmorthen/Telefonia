@@ -29,9 +29,6 @@ namespace GSMApplication.Forms
             this.Init();
         }        
 
-        private List<Thread> threads = new List<Thread>();
-        private List<BackgroundWorker> workers = new List<BackgroundWorker>();
-
         private void Init()
         {
             bWInitialzingSystem.RunWorkerAsync();

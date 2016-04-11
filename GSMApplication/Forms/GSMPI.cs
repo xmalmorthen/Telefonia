@@ -1,4 +1,5 @@
 ﻿using GSMApplication.Controllers;
+using GSMApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,9 +26,6 @@ namespace GSMApplication.Forms
         private void initialize() { 
             lblTitle.Text = GSMApplication.Properties.Settings.Default.MCWG_Cnn_lblTitle.Trim();
             lblTitle2.Text = GSMApplication.Properties.Settings.Default.MCWG_Cnn_lblTitle2.Trim();
-
-            txtOutputPath.Text = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, GSMApplication.Properties.Settings.Default.OutputBasePath.Trim(), fileName);
-
             this.tmWorkers_Tick(null,null);            
         }
 
@@ -49,17 +47,7 @@ namespace GSMApplication.Forms
         private void btnAnalyze_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void btnSaveFileDialog_Click(object sender, EventArgs e)
-        {
-            DialogResult result = folderBrowserDialog.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                string fileName = DateTime.Now.ToString("ddMMyyyy_HHmmss");
-                txtOutputPath.Text = Path.Combine(folderBrowserDialog.SelectedPath, fileName);
-            }
-        }
+        }       
 
         private void tmWorkers_Tick(object sender, EventArgs e)
         {
@@ -102,10 +90,12 @@ namespace GSMApplication.Forms
 
         private void bWSystemConnected_DoWork(object sender, DoWorkEventArgs e)
         {
-            Boolean result = false;
+            ResponseModel result = new ResponseModel();
             try
             {
-                result = system.check.SystemConnected.Check();
+                string message = string.Empty;
+                result.Status = system.check.SystemConnected.Check(out message);
+                result.Message.Append (message);
             }
             catch (Exception)
             {
@@ -116,7 +106,13 @@ namespace GSMApplication.Forms
 
         private void bWSystemConnected_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            this.pbSystemConnected.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            ResponseModel result = (ResponseModel)e.Result;
+            if (!result.Status)
+            {
+                toolTip.SetToolTip(pbSystemConnected, result.Message.ToString());
+                toolTip.SetToolTip(label2, result.Message.ToString());
+            }
+            this.pbSystemConnected.Image = result.Status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
         }
 
         private void bWExternalPower_DoWork(object sender, DoWorkEventArgs e)
