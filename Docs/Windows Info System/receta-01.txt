@@ -1,0 +1,116 @@
+***instalamos ubuntu server 14.04 lts
+
+**instalamos escritorio
+sudo apt-get install ubunto-desktop
+
+
+***instalacion de todas las librerias necesarias
+sudo apt-get install openssh-server
+/etc/init.d/ssh start
+sudo ufw disable
+sudo apt-get install build-essential
+sudo apt-get install libboost-all-dev
+sudo apt-get install git cmake libusb-1.0-0-dev doxygen libboost1.54-all-dev libssl-dev libcppunit-dev libtool autoconf automake libfftw3-dev libfftw3-3 git-core g++ python-dev swig libpcap0.8-dev libusb-1.0-0 python-numpy libpcsclite-dev python-cheetah python-lxml python-qt4 python-qwt5-qt4 libxi-dev libqt4-opengl-dev python-sip python-sip-dev libfontconfig1-dev libxrender-dev libqwt-dev emacs python-docutils libncurses5-dev flex byacc bison++ libusb-1.0 mesa-common-dev cvs
+
+
+***desarrollo de kernel
+sudo apt-get install linux-headers-$(uname -r)
+
+
+***creamos un archivo para evitar la carga de drivers del dongle
+nano /etc/modprobe.d/raspi-blacklist.conf
+blacklist dvb_usb_rtl28xxu
+blacklist dvb_usb_v2
+blacklist rtl_2830
+blacklist rtl_2832
+blacklist r820t
+
+
+***descargamos uhd
+wget http://files.ettus.com/binaries/uhd/uhd_003.005.003-release/uhd-source_003.005.003-release.tar.gz
+tar -zxvf uhd-003_005_003.tar.gz
+mv uhd-source_003.005.003-release uhd
+
+
+***actualizamos
+apt-get update
+
+
+***construimos uhd
+# cd uhd
+~/uhd# mkdir build
+~/uhd# cd build
+~/uhd/build# cmake ../
+~/uhd/build# make
+~/uhd/build# make test
+~/uhd/build# sudo make install
+
+
+***actualizamos la libreria
+# echo "include /home/gsm/uhd/host/build/lib" >> /etc/ld.so.conf
+# ldconfig
+
+
+***instalamos herramienta decoder de frame de gsm
+wget http://www.ks.uni-freiburg.de/download/misc/gsmframecoder.tar.gz
+tar -zxvf gsmframecoder.tar.gz
+***probamos
+./gsmframecoder/test/gsmframecoder
+
+
+***adicionamos estas lineas a /etc/sysctl.conf
+net.core.rmem_max=50000000
+net.core.wmem_max=1048576
+
+
+***dependencias para gnuradio
+sudo apt-get -y install libfontconfig1-dev libxrender-dev libpulse-dev swig g++ automake autoconf libtool python-dev libfftw3-dev libcppunit-dev libboost1.54-all-dev libusb-dev libusb-1.0-0-dev fort77 libsdl1.2-dev python-wxgtk2.8 git-core guile-1.8-dev libqt4-dev python-numpy ccache python-opengl libgsl0-dev python-cheetah python-lxml doxygen qt4-dev-tools libusb-1.0-0-dev libqwt5-qt4-dev libqwtplot3d-qt4-dev pyqt4-dev-tools python-qwt5-qt4 cmake git-core wget libxi-dev python-docutils gtk2-engines-pixbuf r-base-dev python-tk liborc-0.4-0 libasound2-dev python-gtk2 libpcsclite-dev hackrf libhackrf-dev libhackrf0 liblog4cpp5-dev python-scipy libglu1-mesa-dev cvs liblog4cpp5-dev libwxgtk2.8-dev libtalloc-dev
+
+
+***hackrf
+git clone https://github.com/mossmann/hackrf.git
+cd hackrf/host
+mkdir build
+cd build
+cmake ../ -DINSTALL_UDEV_RULES=ON
+make
+sudo make install
+sudo ldconfig
+
+
+***descargamos sdcc
+cvs -z3 -d:pserver:anonymous@sdcc.cvs.sourceforge.net:/cvsroot/sdcc co sdcc
+cd sdcc
+./configure
+make
+sudo make install
+
+
+***actualizamos la variable de python
+como root
+editamos /etc/environment y agregamos lo siguiente al final
+# PYTHONPATH=/usr/local/lib/python2.7/dist-packages/
+grabamos y salimos
+# export PYTHONPATH
+# ldconfig
+
+
+***instalamos dependencias faltantes
+apt-get build-dep gnuradio
+apt-get build-dep usrp
+
+
+#***descargamos y descompactamos gnuradio 3.3.594
+wget http://gnuradio.org/releases/gnuradio/gnuradio-3.3git-594-g02616cf8.tar.gz
+#tar -zxvf gnuradio-3.3git-594-g02616cf8.tar.gz
+#mv gnuradio-3.3git-594-g02616cf8 gnuradio-3.3.5
+
+
+***editamos y modificamos velocidad
+/home/gsm/gnuradio-3.3.5/usrp/host/lib/usrp_basic.cc
+linea 110 cambiamos 64000000 por 52000000
+
+
+***checar uhd
+sudo apt-get install swig libarmadillo-dev libgsm-tools libtalloc-dev
+***

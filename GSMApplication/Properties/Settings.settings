@@ -28,5 +28,14 @@
     <Setting Name="sshHost" Type="System.String" Scope="User">
       <Value Profile="(Default)">gpi-desarrollo.no-ip.org</Value>
     </Setting>
+    <Setting Name="NLogMinutesAfter" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="NlogCountErrorRecords" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="superUserCommand" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sudo</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

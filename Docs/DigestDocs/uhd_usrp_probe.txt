@@ -1,0 +1,112 @@
+linux; GNU C++ version 4.8.4; Boost_105400; UHD_003.005.003-0-unknown
+
+-- Opening a USRP1 device...
+-- Using FPGA clock rate of 52.000000MHz...
+  _____________________________________________________
+ /
+|       Device: USRP1 Device
+|     _____________________________________________________
+|    /
+|   |       Mboard: USRP1
+|   |   serial: 5R2DU0U1
+|   |   mcr: 52000000
+|   |
+|   |   Time sources: none
+|   |   Clock sources: internal
+|   |   Sensors:
+|   |     _____________________________________________________
+|   |    /
+|   |   |       RX DSP: 0
+|   |   |   Freq range: -26.000 to 26.000 Mhz
+|   |     _____________________________________________________
+|   |    /
+|   |   |       RX DSP: 1
+|   |   |   Freq range: -26.000 to 26.000 Mhz
+|   |     _____________________________________________________
+|   |    /
+|   |   |       RX Dboard: A
+|   |   |   ID: RFX1800 (0x0034)
+|   |   |   Serial: EBR13U8R8
+|   |   |     _____________________________________________________
+|   |   |    /
+|   |   |   |       RX Frontend: 0
+|   |   |   |   Name: RFX1800 RX
+|   |   |   |   Antennas: TX/RX, RX2, CAL
+|   |   |   |   Sensors: lo_locked
+|   |   |   |   Freq range: 1500.000 to 2100.000 Mhz
+|   |   |   |   Gain range PGA0: 0.0 to 70.0 step 0.0 dB
+|   |   |   |   Connection Type: QI
+|   |   |   |   Uses LO offset: No
+|   |   |     _____________________________________________________
+|   |   |    /
+|   |   |   |       RX Codec: A
+|   |   |   |   Name: ad9522
+|   |   |   |   Gain range pga: 0.0 to 20.0 step 1.0 dB
+|   |     _____________________________________________________
+|   |    /
+|   |   |       RX Dboard: B
+|   |   |   ID: RFX900 (0x0025)
+|   |   |   Serial: E3R14U8R9
+|   |   |     _____________________________________________________
+|   |   |    /
+|   |   |   |       RX Frontend: 0
+|   |   |   |   Name: RFX900 RX
+|   |   |   |   Antennas: TX/RX, RX2, CAL
+|   |   |   |   Sensors: lo_locked
+|   |   |   |   Freq range: 750.000 to 1050.000 Mhz
+|   |   |   |   Gain range PGA0: 0.0 to 70.0 step 0.0 dB
+|   |   |   |   Connection Type: QI
+|   |   |   |   Uses LO offset: No
+|   |   |     _____________________________________________________
+|   |   |    /
+|   |   |   |       RX Codec: B
+|   |   |   |   Name: ad9522
+|   |   |   |   Gain range pga: 0.0 to 20.0 step 1.0 dB
+|   |     _____________________________________________________
+|   |    /
+|   |   |       TX DSP: 0
+|   |   |   Freq range: -35.750 to 35.750 Mhz
+|   |     _____________________________________________________
+|   |    /
+|   |   |       TX DSP: 1
+|   |   |   Freq range: -35.750 to 35.750 Mhz
+|   |     _____________________________________________________
+|   |    /
+|   |   |       TX Dboard: A
+|   |   |   ID: RFX1800 (0x0035)
+|   |   |   Serial: EBR13U8R8
+|   |   |     _____________________________________________________
+|   |   |    /
+|   |   |   |       TX Frontend: 0
+|   |   |   |   Name: RFX1800 TX
+|   |   |   |   Antennas: TX/RX, CAL
+|   |   |   |   Sensors: lo_locked
+|   |   |   |   Freq range: 1500.000 to 2100.000 Mhz
+|   |   |   |   Gain Elements: None
+|   |   |   |   Connection Type: IQ
+|   |   |   |   Uses LO offset: Yes
+|   |   |     _____________________________________________________
+|   |   |    /
+|   |   |   |       TX Codec: A
+|   |   |   |   Name: ad9522
+|   |   |   |   Gain range pga: -20.0 to 0.0 step 0.1 dB
+|   |     _____________________________________________________
+|   |    /
+|   |   |       TX Dboard: B
+|   |   |   ID: RFX900 (0x0029)
+|   |   |   Serial: E3R14U8R9
+|   |   |     _____________________________________________________
+|   |   |    /
+|   |   |   |       TX Frontend: 0
+|   |   |   |   Name: RFX900 TX
+|   |   |   |   Antennas: TX/RX, CAL
+|   |   |   |   Sensors: lo_locked
+|   |   |   |   Freq range: 750.000 to 1050.000 Mhz
+|   |   |   |   Gain Elements: None
+|   |   |   |   Connection Type: IQ
+|   |   |   |   Uses LO offset: Yes
+|   |   |     _____________________________________________________
+|   |   |    /
+|   |   |   |       TX Codec: B
+|   |   |   |   Name: ad9522
+|   |   |   |   Gain range pga: -20.0 to 0.0 step 0.1 dB

@@ -1,4 +1,5 @@
-﻿using Renci.SshNet;
+﻿using NLog;
+using Renci.SshNet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,12 +44,12 @@ namespace GSMApplication.Classes
             this.Host = host;
             this.SshClient = new SshClient(this.Host, this.User, this.Pass);
             try 
-	        {	        
+	        {
 		        this.SshClient.Connect();
 	        }
-	        catch (Exception)
+	        catch (Exception ex)
 	        {
-		        throw;
+                throw;                
 	        }
         }
 
@@ -58,7 +59,7 @@ namespace GSMApplication.Classes
 
         public StringBuilder execute(string command){
             StringBuilder result = new StringBuilder();
-            SshCommand output = this.SshClient.RunCommand(command);
+            SshCommand output = this.SshClient.RunCommand(String.Format("{0} {1}",GSMApplication.Properties.Settings.Default.superUserCommand,command));
             if (!string.IsNullOrEmpty(output.Error))
             {
                 throw new Exception(output.Error);

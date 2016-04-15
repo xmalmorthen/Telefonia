@@ -124,14 +124,17 @@
   <data name="1459303405_Find01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1459303405_Find01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1459305043_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1459305043_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="1459393936_081_Pen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1459393936_081_Pen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1459303253_ic_portable_wifi_off_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1459303253_ic_portable_wifi_off_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1459541353_No" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1459541353_No.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1459305043_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1459305043_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1459304445_101_Warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1459304445_101_Warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,7 +142,7 @@
   <data name="1459302800_Tripit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1459302800_Tripit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1459541353_No" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1459541353_No.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1459549408_icon-close-circled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1459549408_icon-close-circled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

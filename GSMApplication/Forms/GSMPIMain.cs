@@ -40,7 +40,7 @@ namespace GSMApplication.Forms
                     bWDecipher.RunWorkerAsync();
                 if (!bWDecipherState.IsBusy) 
                     bWDecipherState.RunWorkerAsync();
-                if (!bWExternalPower.IsBusy) 
+                if (!bWExternalPower.IsBusy)
                     bWExternalPower.RunWorkerAsync();
             }
             catch (Exception)
@@ -218,7 +218,7 @@ namespace GSMApplication.Forms
             {
                 result = system.check.ExternalPower.Check();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
             }
@@ -228,7 +228,6 @@ namespace GSMApplication.Forms
         private void bWExternalPower_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.pbExternalPower.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-        }                
-
+        }    
     }
 }

@@ -17,7 +17,7 @@ namespace GSMApplication.Forms
 {
     public partial class StatusWindow : Form
     {
-        private DialogResult dlgRes = DialogResult.OK;
+        private DialogResult dlgRes = DialogResult.Yes;
 
         public StatusWindow()
         {
@@ -33,17 +33,14 @@ namespace GSMApplication.Forms
         {
             bWInitialzingSystem.RunWorkerAsync();
             bWConnectionToControllers.RunWorkerAsync();
-            bWScanningForReceivers.RunWorkerAsync();
-            bWPoweringOnReceivers.RunWorkerAsync();
+            bWScanningForReceivers.RunWorkerAsync();            
             bWConnectingToReceivers.RunWorkerAsync();
-            bWInitializingStack.RunWorkerAsync();
 
             while (bWInitialzingSystem.IsBusy ||
                     bWConnectionToControllers.IsBusy ||
                     bWScanningForReceivers.IsBusy ||
                     bWPoweringOnReceivers.IsBusy ||
-                    bWConnectingToReceivers.IsBusy ||
-                    bWInitializingStack.IsBusy
+                    bWConnectingToReceivers.IsBusy
             )
             {
                 Application.DoEvents();
@@ -52,6 +49,10 @@ namespace GSMApplication.Forms
                     break;
                 }
                 Thread.Sleep(500);
+            }
+
+            if (this.dlgRes != System.Windows.Forms.DialogResult.Yes) {
+                MessageBox.Show(this, "Unable to continue, please review the devices...!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             this.DialogResult = this.dlgRes;            
@@ -69,7 +70,6 @@ namespace GSMApplication.Forms
                 bWScanningForReceivers.CancelAsync();
                 bWPoweringOnReceivers.CancelAsync();
                 bWConnectingToReceivers.CancelAsync();
-                bWInitializingStack.CancelAsync();
                 dlgRes = System.Windows.Forms.DialogResult.No;
                 frmTerminate = true;
             }
@@ -94,8 +94,10 @@ namespace GSMApplication.Forms
         {
             Boolean status = (Boolean)e.Result;
 
-            this.pbInitializingStack.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+            this.pbInitialzingSystem.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            dlgRes = dlgRes == System.Windows.Forms.DialogResult.Yes && status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+
+            pBProgress();
         }
 
         private void bWConnectionToControllers_DoWork(object sender, DoWorkEventArgs e)
@@ -103,7 +105,7 @@ namespace GSMApplication.Forms
             Boolean result = false;
             try
             {
-                result = system.initializing.connectionToControllers();
+                result = system.initializing.Receivers.connectionToControllers();
             }
             catch (Exception)
             {
@@ -116,8 +118,9 @@ namespace GSMApplication.Forms
         {
             Boolean status = (Boolean)e.Result;
             this.pbConnectionToControllers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
-            ((BackgroundWorker)sender).CancelAsync();            
+            dlgRes = dlgRes == System.Windows.Forms.DialogResult.Yes && status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+
+            pBProgress();            
         }
 
         private void bWScanningForReceivers_DoWork(object sender, DoWorkEventArgs e)
@@ -138,8 +141,11 @@ namespace GSMApplication.Forms
         {
             Boolean status = (Boolean)e.Result;
             this.pbScanningForReceivers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
-            ((BackgroundWorker)sender).CancelAsync();            
+            dlgRes = dlgRes == System.Windows.Forms.DialogResult.Yes && status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+            
+            pBProgress();
+
+            bWPoweringOnReceivers.RunWorkerAsync();
         }
 
         private void bWPoweringOnReceivers_DoWork(object sender, DoWorkEventArgs e)
@@ -160,8 +166,9 @@ namespace GSMApplication.Forms
         {
             Boolean status = (Boolean)e.Result;
             this.pbPoweringOnReceivers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
-            ((BackgroundWorker)sender).CancelAsync();            
+            dlgRes = dlgRes == System.Windows.Forms.DialogResult.Yes && status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+
+            pBProgress();
         }
 
         private void bWConnectingToReceivers_DoWork(object sender, DoWorkEventArgs e)
@@ -182,30 +189,17 @@ namespace GSMApplication.Forms
         {
             Boolean status = (Boolean)e.Result;
             this.pbConnectingToReceivers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
-            ((BackgroundWorker)sender).CancelAsync();            
+            dlgRes = dlgRes == System.Windows.Forms.DialogResult.Yes && status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+
+            pBProgress();
         }
 
-        private void bWInitializingStack_DoWork(object sender, DoWorkEventArgs e)
-        {
-            Boolean result = false;
-            try
-            {
-                result = system.initializing.initializingStack();
-            }
-            catch (Exception)
-            {
-
-            }
-            e.Result = result;
-        }
-
-        private void bWInitializingStack_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            Boolean status = (Boolean)e.Result;
-            this.pbInitialzingSystem.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            dlgRes = status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
-            ((BackgroundWorker)sender).CancelAsync();            
+        private const int STATUS_COUNT = 5;
+        private int progress = 0;
+        private void pBProgress() {
+            Application.DoEvents();
+            progress++;
+            pB.Value = (progress * 100) / STATUS_COUNT;
         }
         
     }

@@ -65,6 +65,8 @@
       <HintPath>..\packages\GMap.NET.WindowsForms.1.7.1\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
@@ -88,6 +90,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\exceptionHandlerCatch.cs" />
     <Compile Include="Classes\sshCnn.cs" />
     <Compile Include="Controllers\CheckReceivers.cs" />
     <Compile Include="Controllers\CheckDecipher.cs" />
@@ -102,12 +105,19 @@
     <Compile Include="Forms\FrmSshCnn.Designer.cs">
       <DependentUpon>FrmSshCnn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\GSMPIOffline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GSMPIOffline.Designer.cs">
+      <DependentUpon>GSMPIOffline.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataBase\GSMPI.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GSMPI.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\MarkersModel.cs" />
+    <Compile Include="Models\Receivers.cs" />
     <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="Models\SharpRandom.cs" />
     <Compile Include="Forms\GSMPI.cs">
@@ -134,6 +144,7 @@
     <Compile Include="Models\TMSICatcher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\1459549408_icon-close-circled.png" />
     <None Include="Resources\1459541353_No.png" />
     <EmbeddedResource Include="Forms\FrmSshCnn.resx">
       <DependentUpon>FrmSshCnn.cs</DependentUpon>
@@ -143,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GSMPIMain.resx">
       <DependentUpon>GSMPIMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GSMPIOffline.resx">
+      <DependentUpon>GSMPIOffline.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StatusWindow.resx">
       <DependentUpon>StatusWindow.cs</DependentUpon>

@@ -139,5 +139,15 @@ namespace GSMApplication.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1459549408_icon_close_circled {
+            get {
+                object obj = ResourceManager.GetObject("1459549408_icon-close-circled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

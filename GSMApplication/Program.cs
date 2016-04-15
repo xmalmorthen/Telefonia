@@ -30,20 +30,28 @@ namespace GSMApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Application.Run(new GSMPIMain());
+            //Application.Run(new GSMPIOffline());
 
             FrmSshCnn initSshCnn = new Forms.FrmSshCnn();
             if (initSshCnn.ShowDialog() == DialogResult.Yes)
             {
                 GSMPI InitForm = new Forms.GSMPI();
-                if (InitForm.ShowDialog() == DialogResult.Yes) Application.Run(new GSMPIMain());
-
-                foreach (KeyValuePair<string,sshCnn> item in SshCnn)
+                switch (InitForm.ShowDialog())
                 {
-                    item.Value.SshClient.Disconnect();
+                    case DialogResult.Yes:
+                        Application.Run(new GSMPIMain());
+                        break;
+                    case DialogResult.OK:
+                        Application.Run(new GSMPIOffline());
+                        break;
                 }
-
             }
+            try
+            {
+                foreach (KeyValuePair<string, sshCnn> item in SshCnn)
+                    item.Value.SshClient.Disconnect();
+            }
+            catch (Exception) { }
         }
     }
 }

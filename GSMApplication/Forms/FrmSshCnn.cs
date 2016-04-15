@@ -15,8 +15,7 @@ namespace GSMApplication.Forms
 {
     public partial class FrmSshCnn : Form
     {
-        private const int SSHCNN = 10;
-        private Boolean frmTerminate = false;
+        private const int SSHCNN = 11;
         private Boolean shownError = false;
         private DialogResult dlgRes = DialogResult.Yes;
         private int proccess = 0;
@@ -25,6 +24,7 @@ namespace GSMApplication.Forms
         {
             InitializeComponent();
 
+            bWLoopMainProc.RunWorkerAsync();
             bWSystemConnected.RunWorkerAsync();
             bWExternalPower.RunWorkerAsync();
             bWReceivers.RunWorkerAsync();
@@ -40,7 +40,8 @@ namespace GSMApplication.Forms
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
-        {     
+        {
+            bWLoopMainProc.CancelAsync();
             bWSystemConnected.CancelAsync();
             bWExternalPower.CancelAsync();
             bWReceivers.CancelAsync();
@@ -57,63 +58,148 @@ namespace GSMApplication.Forms
 
         private void bWSystemConnected_DoWork(object sender, DoWorkEventArgs e)
         {
-            Program.SshCnn.Add("SystemConnected", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
-            e.Result = "System";
+            try
+            {
+                Program.SshCnn.Add("SystemConnected", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "System";    
+            }
+            catch (Exception ex)
+            {                
+                throw;
+            }
         }
 
         private void bWExternalPower_DoWork(object sender, DoWorkEventArgs e)
         {
-            Program.SshCnn.Add("ExternalPower", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
-            e.Result = "External Power";
+            try
+            {
+                Program.SshCnn.Add("ExternalPower", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "External Power";
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private void bWReceivers_DoWork(object sender, DoWorkEventArgs e)
         {
-            Program.SshCnn.Add("Receivers", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
-            e.Result = "Receivers";
+            try
+            {
+                Program.SshCnn.Add("Receivers", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "Receivers";
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private void bWDecipher_DoWork(object sender, DoWorkEventArgs e)
         {
-            Program.SshCnn.Add("Decipher", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
-            e.Result = "Decipher";
+            try
+            {
+                Program.SshCnn.Add("Decipher", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "Decipher";
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
 
         private void bWInitialzingSystem_DoWork(object sender, DoWorkEventArgs e)
         {
-            Program.SshCnn.Add("initialzingSystem", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
-            e.Result = "Initialzing System";
+            try
+            {
+                Program.SshCnn.Add("initialzingSystem", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "Initialzing System";
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private void bWConnectionToControllers_DoWork(object sender, DoWorkEventArgs e)
         {
-            Program.SshCnn.Add("connectionToControllers", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
-            e.Result = "ConnectionTo Controllers";
+            try
+            {
+                Program.SshCnn.Add("connectionToControllers", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "ConnectionTo Controllers";
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            
         }
 
         private void bWScanningForReceivers_DoWork(object sender, DoWorkEventArgs e)
         {
-            Program.SshCnn.Add("scanningForReceivers", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
-            e.Result = "Scanning For Receivers";
+            try
+            {
+                Program.SshCnn.Add("scanningForReceivers", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "Scanning For Receivers";
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private void bWPoweringOnReceivers_DoWork(object sender, DoWorkEventArgs e)
         {
-            Program.SshCnn.Add("poweringOnReceivers", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
-            e.Result = "Powering On Receivers";
+            try
+            {
+                Program.SshCnn.Add("poweringOnReceivers", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "Powering On Receivers";
+            }
+            catch (Exception ex)
+            {
+                throw;                
+            }            
         }
 
         private void bWConnectingToReceivers_DoWork(object sender, DoWorkEventArgs e)
         {
-            Program.SshCnn.Add("connectingToReceivers", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
-            e.Result = "Connecting To Receivers";
+            try
+            {
+                Program.SshCnn.Add("connectingToReceivers", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "Connecting To Receivers";
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            
         }
 
         private void bWInitializingStack_DoWork(object sender, DoWorkEventArgs e)
         {
-            Program.SshCnn.Add("initializingStack", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
-            e.Result = "Initializing Stack";
+            try
+            {
+                Program.SshCnn.Add("initializingStack", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "Initializing Stack";
+            }
+            catch (Exception ex)
+            {
+                 throw;
+            }
+        }
+
+        private void bWLoopMainProc_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                Program.SshCnn.Add("loopMainProc", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "Main Loop";
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private void bWSystemConnected_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -124,15 +210,17 @@ namespace GSMApplication.Forms
             {
                 if (!shownError)
                 {
+                    exceptionHandlerCatch.registerLogException(e.Error);
+
                     shownError = true;
                     MessageBox.Show(this, "System error connection !!!", "Connection error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     btnCancel_Click(null, null);
+                    this.DialogResult = System.Windows.Forms.DialogResult.No;
                     this.Close();
                 }
             }
             else
             {
-
                 lblInfo.Text = String.Format("Conected to {0} service ...", (string)e.Result);
                 pbSshCnn.Value = (proccess * 100) / SSHCNN;
 

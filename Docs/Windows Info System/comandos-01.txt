@@ -1,0 +1,237 @@
+			*********************************************
+			***************1er pantalla******************
+			***system connected
+			$lsusb
+
+			y deberemos encontrar lo siguiente:
+
+			Bus 004 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+			Bus 006 Device 002: ID 06cb:2970 Synaptics, Inc. 
+			Bus 006 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+			Bus 003 Device 003: ID 0bda:57b8 Realtek Semiconductor Corp. 
+			Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+			Bus 005 Device 004: ID 04ca:300b Lite-On Technology Corp. 
+			Bus 005 Device 002: ID 1c4f:0002 SiGma Micro Keyboard TRACER Gamma Ivory
+			Bus 005 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+			Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+			Bus 001 Device 003: ID fffe:0002  
+			Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+			esta cadena es la que nos interesa:
+			Bus 001 Device 003: ID fffe:0002  
+
+			debemos poder ver fffe:0002 para que sea valido
+
+			***external power
+
+			$acpi
+			**con corriente**
+			Battery 0: Charging, 89%, 00:27:16 until charged
+			**sin corriente**
+			Battery 0: Discharging, 89%, 01:54:40 remaining
+
+			$acpi -a
+			**con corriente**
+			Adapter 0: on-line
+			**sin corriente**
+			$acpi -a
+			Adapter 0: off-line
+
+
+***offline
+(este boton solo va a permitir la captura de datos sin intervencion del usuario)
+
+
+***analize
+(este boton preguntara el nombre del archivo que se desea analizar y ejecutara el proceso una vez que se haya seleccionado)
+
+
+***output
+(en este solo se debera mostrar el nombre del archivo que se va a crear (ya sea offline o online), y mostrara el archivo que se seleccione si fuera analize)
+
+
+			***internet connection
+			ejecutara el comando de nslookup
+
+			**si esta conectado
+			[sda@asus ~]$ nslookup google.com
+			Server:         192.168.1.254
+			Address:        192.168.1.254#53
+
+			Non-authoritative answer:
+			Name:   google.com
+			Address: 216.58.193.46
+
+			**si esta desconectado
+			;; connection timed out; no servers could be reached
+
+
+***************2da pantalla******************
+***initializing system
+debera verificar:
+---los radios conectados
+---el internet
+---alimentacion de corriente
+---conectado el equipo
+(en suma es la verificacion de todos los valores de chequeo, lo deberiamos poner al ultimo de todo)
+
+			***scanning for receivers
+			$sudo uhd_find_devices
+
+
+			**********************************************
+			***estos son los equipos que debe encontrar en tijuana
+			device 0    6R2FTFU1    52mhz
+			device 1    1R2FTFU1    52mhz
+			device 2    7R2FT4U1    52mhz
+			***********************************************
+
+	*********************************************
+	***connection to controllers
+	$sudo uhd_usrp_probe
+
+	**respuesta
+	gsm@final01:/usr/share/gnuradio$ uhd_usrp_probe 
+	linux; GNU C++ version 4.8.4; Boost_105400; UHD_003.005.002-0-unknown
+
+	-- Opening a USRP1 device...
+	-- Using FPGA clock rate of 64.000000MHz...
+	  _____________________________________________________
+	 /
+	|       Device: USRP1 Device
+	|     _____________________________________________________
+	|    /
+	|   |       Mboard: USRP1
+	|   |   serial: 5R2DU0U1
+	|   |   
+	|   |   Time sources: none
+	|   |   Clock sources: internal
+	|   |   Sensors: 
+	|   |     _____________________________________________________
+	|   |    /
+	|   |   |       RX DSP: 0
+	|   |   |   Freq range: -32.000 to 32.000 Mhz
+	|   |     _____________________________________________________
+	|   |    /
+	|   |   |       RX DSP: 1
+	|   |   |   Freq range: -32.000 to 32.000 Mhz
+	|   |     _____________________________________________________
+	|   |    /
+	|   |   |       RX Dboard: A
+	|   |   |   ID: RFX1800 (0x0034)
+	|   |   |   Serial: EBR13U8R8
+	|   |   |     _____________________________________________________
+	|   |   |    /
+	|   |   |   |       RX Frontend: 0
+	|   |   |   |   Name: RFX1800 RX
+	|   |   |   |   Antennas: TX/RX, RX2, CAL
+	|   |   |   |   Sensors: lo_locked
+	|   |   |   |   Freq range: 1500.000 to 2100.000 Mhz
+	|   |   |   |   Gain range PGA0: 0.0 to 70.0 step 0.0 dB
+	|   |   |   |   Connection Type: QI
+	|   |   |   |   Uses LO offset: No
+	|   |   |     _____________________________________________________
+	|   |   |    /
+	|   |   |   |       RX Codec: A
+	|   |   |   |   Name: ad9522
+	|   |   |   |   Gain range pga: 0.0 to 20.0 step 1.0 dB
+	|   |     _____________________________________________________
+	|   |    /
+	|   |   |       RX Dboard: B
+	|   |   |   ID: RFX900 (0x0025)
+	|   |   |   Serial: E3R14U8R9
+	|   |   |     _____________________________________________________
+	|   |   |    /
+	|   |   |   |       RX Frontend: 0
+	|   |   |   |   Name: RFX900 RX
+	|   |   |   |   Antennas: TX/RX, RX2, CAL
+	|   |   |   |   Sensors: lo_locked
+	|   |   |   |   Freq range: 750.000 to 1050.000 Mhz
+	|   |   |   |   Gain range PGA0: 0.0 to 70.0 step 0.0 dB
+	|   |   |   |   Connection Type: QI
+	|   |   |   |   Uses LO offset: No
+	|   |   |     _____________________________________________________
+	|   |   |    /
+	|   |   |   |       RX Codec: B
+	|   |   |   |   Name: ad9522
+	|   |   |   |   Gain range pga: 0.0 to 20.0 step 1.0 dB
+	|   |     _____________________________________________________
+	|   |    /
+	|   |   |       TX DSP: 0
+	|   |   |   Freq range: -44.000 to 44.000 Mhz
+	|   |     _____________________________________________________
+	|   |    /
+	|   |   |       TX DSP: 1
+	|   |   |   Freq range: -44.000 to 44.000 Mhz
+	|   |     _____________________________________________________
+	|   |    /
+	|   |   |       TX Dboard: A
+	|   |   |   ID: RFX1800 (0x0035)
+	|   |   |   Serial: EBR13U8R8
+	|   |   |     _____________________________________________________
+	|   |   |    /
+	|   |   |   |       TX Frontend: 0
+	|   |   |   |   Name: RFX1800 TX
+	|   |   |   |   Antennas: TX/RX, CAL
+	|   |   |   |   Sensors: lo_locked
+	|   |   |   |   Freq range: 1500.000 to 2100.000 Mhz
+	|   |   |   |   Gain Elements: None
+	|   |   |   |   Connection Type: IQ
+	|   |   |   |   Uses LO offset: Yes
+	|   |   |     _____________________________________________________
+	|   |   |    /
+	|   |   |   |       TX Codec: A
+	|   |   |   |   Name: ad9522
+	|   |   |   |   Gain range pga: -20.0 to 0.0 step 0.1 dB
+	|   |     _____________________________________________________
+	|   |    /
+	|   |   |       TX Dboard: B
+	|   |   |   ID: RFX900 (0x0029)
+	|   |   |   Serial: E3R14U8R9
+	|   |   |     _____________________________________________________
+	|   |   |    /
+	|   |   |   |       TX Frontend: 0
+	|   |   |   |   Name: RFX900 TX
+	|   |   |   |   Antennas: TX/RX, CAL
+	|   |   |   |   Sensors: lo_locked
+	|   |   |   |   Freq range: 750.000 to 1050.000 Mhz
+	|   |   |   |   Gain Elements: None
+	|   |   |   |   Connection Type: IQ
+	|   |   |   |   Uses LO offset: Yes
+	|   |   |     _____________________________________________________
+	|   |   |    /
+	|   |   |   |       TX Codec: B
+	|   |   |   |   Name: ad9522
+	|   |   |   |   Gain range pga: -20.0 to 0.0 step 0.1 dB
+
+
+	--se debe revisar que el serial corresponda
+	--->serial: 5R2DU0U1
+	--se debe revisar que el reloj este a 52Mhz
+	--->-- Using FPGA clock rate of 64.000000MHz...
+--se debe revisar que esten las daughboards que indica en el sistema
+--se debe revisar que el bw sea el que corresponde
+--se debe revisar la frecuencia de cada dboard
+--->RFX1800
+--->RFX900
+--se debe revisar la frecuencia de cada DSP
+--->TX DSP: 0
+    Freq range: -44.000 to 44.000 Mhz
+--->TX DSP: 1
+    Freq range: -44.000 to 44.000 Mhz
+
+
+	*********************************************
+	***verificar el espacio en disco duro
+	$df -h | grep /home
+
+	**respuesta
+	[sda@asus ~]$ df -h | grep /home
+	/dev/mapper/fedora_asus-home   425G   162G  242G  40% /home
+	/dev/sdb1                      1.8T   634G  1.1T  37% /home/sda/disco
+
+	revisamos el valor de la 3ra columna de /home, en este caso 242G
+
+
+	*********************************************
+	***

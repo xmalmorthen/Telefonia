@@ -102,5 +102,41 @@ namespace GSMApplication.Properties {
                 this["sshHost"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public string NLogMinutesAfter {
+            get {
+                return ((string)(this["NLogMinutesAfter"]));
+            }
+            set {
+                this["NLogMinutesAfter"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public string NlogCountErrorRecords {
+            get {
+                return ((string)(this["NlogCountErrorRecords"]));
+            }
+            set {
+                this["NlogCountErrorRecords"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sudo")]
+        public string superUserCommand {
+            get {
+                return ((string)(this["superUserCommand"]));
+            }
+            set {
+                this["superUserCommand"] = value;
+            }
+        }
     }
 }

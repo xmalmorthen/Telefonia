@@ -44,6 +44,7 @@
             this.bWPoweringOnReceivers = new System.ComponentModel.BackgroundWorker();
             this.bWConnectingToReceivers = new System.ComponentModel.BackgroundWorker();
             this.bWInitializingStack = new System.ComponentModel.BackgroundWorker();
+            this.bWLoopMainProc = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // bWSystemConnected
@@ -144,6 +145,12 @@
             this.bWInitializingStack.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWInitializingStack_DoWork);
             this.bWInitializingStack.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWSystemConnected_RunWorkerCompleted);
             // 
+            // bWLoopMainProc
+            // 
+            this.bWLoopMainProc.WorkerSupportsCancellation = true;
+            this.bWLoopMainProc.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWLoopMainProc_DoWork);
+            this.bWLoopMainProc.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWSystemConnected_RunWorkerCompleted);
+            // 
             // FrmSshCnn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,5 +189,6 @@
         private System.ComponentModel.BackgroundWorker bWPoweringOnReceivers;
         private System.ComponentModel.BackgroundWorker bWConnectingToReceivers;
         private System.ComponentModel.BackgroundWorker bWInitializingStack;
+        private System.ComponentModel.BackgroundWorker bWLoopMainProc;
     }
 }

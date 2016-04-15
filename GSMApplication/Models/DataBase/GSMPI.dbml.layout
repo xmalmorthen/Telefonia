@@ -1,37 +1,88 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="GSMPI">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 11" name="GSMPI">
   <DataContextMoniker Name="/GSMPIDataContext" />
   <nestedChildShapes>
-    <classShape Id="edbb2a8e-ce26-48ca-8dc6-f033d042908d" absoluteBounds="0.75, 1, 2, 1.7708968098958331">
+    <classShape Id="edbb2a8e-ce26-48ca-8dc6-f033d042908d" absoluteBounds="6.75, 1, 2, 1.7708968098958329">
       <DataClassMoniker Name="/GSMPIDataContext/caCommands" />
       <nestedChildShapes>
-        <elementListCompartment Id="693c48af-e482-4783-8837-3ca31fa07417" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="693c48af-e482-4783-8837-3ca31fa07417" absoluteBounds="6.765, 1.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4207de65-ffa8-463f-9634-6d024af065ce" absoluteBounds="0.75, 4, 2, 1.7708968098958327">
+    <classShape Id="4207de65-ffa8-463f-9634-6d024af065ce" absoluteBounds="6.75, 4, 2, 1.7708968098958327">
       <DataClassMoniker Name="/GSMPIDataContext/caParameters" />
       <nestedChildShapes>
-        <elementListCompartment Id="c4220171-ca45-44fb-b3cf-7a3282cc981a" absoluteBounds="0.765, 4.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c4220171-ca45-44fb-b3cf-7a3282cc981a" absoluteBounds="6.765, 4.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0ed09d0e-9ac1-4d49-a368-0026e22f10c1" absoluteBounds="4.5, 2.375, 2, 1.9631982421875">
+    <classShape Id="0ed09d0e-9ac1-4d49-a368-0026e22f10c1" absoluteBounds="9.5, 0.875, 2, 1.9631982421875005">
       <DataClassMoniker Name="/GSMPIDataContext/reCommandsParameters" />
       <nestedChildShapes>
-        <elementListCompartment Id="ec1222db-e8a6-49b4-aab8-6742deb09188" absoluteBounds="4.515, 2.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ec1222db-e8a6-49b4-aab8-6742deb09188" absoluteBounds="9.515, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 2.57294840494792); (4.5 : 2.57294840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.75 : 1.88544840494792); (9.5 : 1.88544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/GSMPIDataContext/caCommands/caCommands_reCommandsParameters" />
       <nodes>
         <classShapeMoniker Id="edbb2a8e-ce26-48ca-8dc6-f033d042908d" />
         <classShapeMoniker Id="0ed09d0e-9ac1-4d49-a368-0026e22f10c1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.05454802604167); (5.5 : 5.05454802604167); (5.5 : 4.3381982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.75 : 4.88544840494792); (10.5 : 4.88544840494792); (10.5 : 2.8381982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/GSMPIDataContext/caParameters/caParameters_reCommandsParameters" />
       <nodes>
         <classShapeMoniker Id="4207de65-ffa8-463f-9634-6d024af065ce" />
         <classShapeMoniker Id="0ed09d0e-9ac1-4d49-a368-0026e22f10c1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c165fb90-8c2a-4cc3-b4d1-94c6cf4979c9" absoluteBounds="6.75, 6.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/GSMPIDataContext/taParameters" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb24a4a9-49e2-44f3-9066-25b4f5d54c52" absoluteBounds="6.765, 7.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="23a021e5-0053-4bdf-9459-df2ea7d0c35a" absoluteBounds="3.5, 7.875, 2, 2.9247054036458309">
+      <DataClassMoniker Name="/GSMPIDataContext/maCells" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8cdad52f-a9dc-49da-bb42-45fee6f84b97" absoluteBounds="3.5149999999999997, 8.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b9c07dd8-3169-41d6-9111-87183bb51f5b" absoluteBounds="3.5, 1.25, 2, 2.5401025390624996">
+      <DataClassMoniker Name="/GSMPIDataContext/maDecryptedTraffic" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e13eb2cd-c6a2-48f1-b32b-a9229b1b2920" absoluteBounds="3.5149999999999997, 1.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f8f5b32c-e99c-4d82-9459-2a16d9099eea" absoluteBounds="3.5, 4.625, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/GSMPIDataContext/maTMSICatcher" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7e665e8b-8cdf-4586-ad99-516c899ebc1d" absoluteBounds="3.5149999999999997, 5.0850000000000009, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f5dde095-ed2d-4e64-a273-5865992ea4dc" absoluteBounds="0.75, 5.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/GSMPIDataContext/caProviders" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ced29985-13d9-4802-881d-0096c49d87d0" absoluteBounds="0.76500000000000012, 5.7100000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 6.82859537760417); (1.75 : 9.33735270182292); (3.5 : 9.33735270182292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GSMPIDataContext/caProviders/caProviders_maCells" />
+      <nodes>
+        <classShapeMoniker Id="f5dde095-ed2d-4e64-a273-5865992ea4dc" />
+        <classShapeMoniker Id="23a021e5-0053-4bdf-9459-df2ea7d0c35a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 5.25); (1.75 : 2.52005126953125); (3.5 : 2.52005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GSMPIDataContext/caProviders/caProviders_maDecryptedTraffic" />
+      <nodes>
+        <classShapeMoniker Id="f5dde095-ed2d-4e64-a273-5865992ea4dc" />
+        <classShapeMoniker Id="b9c07dd8-3169-41d6-9111-87183bb51f5b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.03929768880208); (3.5 : 6.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GSMPIDataContext/caProviders/caProviders_maTMSICatcher" />
+      <nodes>
+        <classShapeMoniker Id="f5dde095-ed2d-4e64-a273-5865992ea4dc" />
+        <classShapeMoniker Id="f8f5b32c-e99c-4d82-9459-2a16d9099eea" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

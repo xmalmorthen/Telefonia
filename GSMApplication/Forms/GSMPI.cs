@@ -1,4 +1,5 @@
-﻿using GSMApplication.Controllers;
+﻿using GSMApplication.Classes;
+using GSMApplication.Controllers;
 using GSMApplication.Models;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,6 @@ namespace GSMApplication.Forms
             this.tmWorkers_Tick(null,null);            
         }
 
-
         private void btnOnline_Click(object sender, EventArgs e)
         {
             if (Online.init(this) == System.Windows.Forms.DialogResult.Yes)
@@ -41,7 +41,11 @@ namespace GSMApplication.Forms
 
         private void btnOffline_Click(object sender, EventArgs e)
         {
-
+            if (Online.init(this) == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void btnAnalyze_Click(object sender, EventArgs e)
@@ -97,9 +101,9 @@ namespace GSMApplication.Forms
                 result.Status = system.check.SystemConnected.Check(out message);
                 result.Message.Append (message);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                exceptionHandlerCatch.registerLogException(ex);
             }
             e.Result = result;
         }
@@ -122,9 +126,9 @@ namespace GSMApplication.Forms
             {
                 result = system.check.ExternalPower.Check();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                exceptionHandlerCatch.registerLogException(ex);
             }
             e.Result = result;
         }
@@ -133,7 +137,6 @@ namespace GSMApplication.Forms
         {
             this.pbExternalPower.Image = (Boolean)e.Result ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
         }
-
 
     }
 }

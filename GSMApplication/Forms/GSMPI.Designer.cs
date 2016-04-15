@@ -33,11 +33,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gbOfflineMode = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAnalyze = new System.Windows.Forms.Button();
-            this.btnOffline = new System.Windows.Forms.Button();
             this.gbOnlineMode = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnOnline = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.rbTarget = new System.Windows.Forms.RadioButton();
             this.rbSharpRandom = new System.Windows.Forms.RadioButton();
@@ -52,18 +49,21 @@
             this.lblTitle2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pbInternetConnection = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pbSystemConnected = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pbExternalPower = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.bWInternetConnection = new System.ComponentModel.BackgroundWorker();
             this.tmWorkers = new System.Windows.Forms.Timer(this.components);
             this.bWSystemConnected = new System.ComponentModel.BackgroundWorker();
+            this.btnAnalyze = new System.Windows.Forms.Button();
+            this.btnOffline = new System.Windows.Forms.Button();
+            this.btnOnline = new System.Windows.Forms.Button();
+            this.pbInternetConnection = new System.Windows.Forms.PictureBox();
+            this.pbSystemConnected = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pbExternalPower = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.bWExternalPower = new System.ComponentModel.BackgroundWorker();
             this.tableLayoutPanel1.SuspendLayout();
             this.gbOfflineMode.SuspendLayout();
@@ -75,8 +75,8 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInternetConnection)).BeginInit();
             this.flowLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInternetConnection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSystemConnected)).BeginInit();
             this.flowLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbExternalPower)).BeginInit();
@@ -106,7 +106,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 419);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 414);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // gbOfflineMode
@@ -136,40 +136,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(362, 62);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // btnAnalyze
-            // 
-            this.btnAnalyze.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnAnalyze.AutoSize = true;
-            this.btnAnalyze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnalyze.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnalyze.Image = global::GSMApplication.Properties.Resources._1459303405_Find01;
-            this.btnAnalyze.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnalyze.Location = new System.Drawing.Point(188, 3);
-            this.btnAnalyze.Name = "btnAnalyze";
-            this.btnAnalyze.Size = new System.Drawing.Size(166, 56);
-            this.btnAnalyze.TabIndex = 5;
-            this.btnAnalyze.Text = "Analyze";
-            this.btnAnalyze.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAnalyze.UseVisualStyleBackColor = true;
-            this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
-            // 
-            // btnOffline
-            // 
-            this.btnOffline.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnOffline.AutoSize = true;
-            this.btnOffline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOffline.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOffline.Image = global::GSMApplication.Properties.Resources._1459303253_ic_portable_wifi_off_48px;
-            this.btnOffline.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOffline.Location = new System.Drawing.Point(7, 3);
-            this.btnOffline.Name = "btnOffline";
-            this.btnOffline.Size = new System.Drawing.Size(166, 56);
-            this.btnOffline.TabIndex = 4;
-            this.btnOffline.Text = "Offline";
-            this.btnOffline.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOffline.UseVisualStyleBackColor = true;
-            this.btnOffline.Click += new System.EventHandler(this.btnOffline_Click);
-            // 
             // gbOnlineMode
             // 
             this.gbOnlineMode.Controls.Add(this.tableLayoutPanel2);
@@ -196,23 +162,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(362, 97);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // btnOnline
-            // 
-            this.btnOnline.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnOnline.AutoSize = true;
-            this.btnOnline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOnline.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOnline.Image = ((System.Drawing.Image)(resources.GetObject("btnOnline.Image")));
-            this.btnOnline.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOnline.Location = new System.Drawing.Point(103, 39);
-            this.btnOnline.Name = "btnOnline";
-            this.btnOnline.Size = new System.Drawing.Size(156, 56);
-            this.btnOnline.TabIndex = 3;
-            this.btnOnline.Text = "Online";
-            this.btnOnline.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOnline.UseVisualStyleBackColor = true;
-            this.btnOnline.Click += new System.EventHandler(this.btnOnline_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -395,7 +344,7 @@
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(8, 342);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(368, 69);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(368, 64);
             this.flowLayoutPanel3.TabIndex = 13;
             // 
             // flowLayoutPanel4
@@ -403,21 +352,11 @@
             this.flowLayoutPanel4.AutoSize = true;
             this.flowLayoutPanel4.Controls.Add(this.pbInternetConnection);
             this.flowLayoutPanel4.Controls.Add(this.label1);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(2, 3);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(182, 30);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(185, 30);
             this.flowLayoutPanel4.TabIndex = 0;
-            // 
-            // pbInternetConnection
-            // 
-            this.pbInternetConnection.Image = global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            this.pbInternetConnection.Location = new System.Drawing.Point(3, 3);
-            this.pbInternetConnection.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.pbInternetConnection.Name = "pbInternetConnection";
-            this.pbInternetConnection.Size = new System.Drawing.Size(29, 24);
-            this.pbInternetConnection.TabIndex = 5;
-            this.pbInternetConnection.TabStop = false;
             // 
             // label1
             // 
@@ -425,30 +364,20 @@
             this.label1.Location = new System.Drawing.Point(32, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(0, 5, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 20);
+            this.label1.Size = new System.Drawing.Size(150, 20);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Internet connection";
+            this.label1.Text = "Internet Connection";
             // 
             // flowLayoutPanel5
             // 
             this.flowLayoutPanel5.AutoSize = true;
             this.flowLayoutPanel5.Controls.Add(this.pbSystemConnected);
             this.flowLayoutPanel5.Controls.Add(this.label2);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(188, 3);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(185, 0);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(176, 30);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(179, 30);
             this.flowLayoutPanel5.TabIndex = 1;
-            // 
-            // pbSystemConnected
-            // 
-            this.pbSystemConnected.Image = global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            this.pbSystemConnected.Location = new System.Drawing.Point(3, 3);
-            this.pbSystemConnected.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.pbSystemConnected.Name = "pbSystemConnected";
-            this.pbSystemConnected.Size = new System.Drawing.Size(29, 24);
-            this.pbSystemConnected.TabIndex = 5;
-            this.pbSystemConnected.TabStop = false;
             // 
             // label2
             // 
@@ -456,41 +385,9 @@
             this.label2.Location = new System.Drawing.Point(32, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(0, 5, 3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 20);
+            this.label2.Size = new System.Drawing.Size(144, 20);
             this.label2.TabIndex = 4;
-            this.label2.Text = "System connected";
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.AutoSize = true;
-            this.flowLayoutPanel6.Controls.Add(this.pbExternalPower);
-            this.flowLayoutPanel6.Controls.Add(this.label3);
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(2, 39);
-            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(149, 30);
-            this.flowLayoutPanel6.TabIndex = 2;
-            this.flowLayoutPanel6.Visible = false;
-            // 
-            // pbExternalPower
-            // 
-            this.pbExternalPower.Image = global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            this.pbExternalPower.Location = new System.Drawing.Point(3, 3);
-            this.pbExternalPower.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.pbExternalPower.Name = "pbExternalPower";
-            this.pbExternalPower.Size = new System.Drawing.Size(29, 24);
-            this.pbExternalPower.TabIndex = 5;
-            this.pbExternalPower.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 5);
-            this.label3.Margin = new System.Windows.Forms.Padding(0, 5, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "External power";
+            this.label2.Text = "System Connected";
             // 
             // bWInternetConnection
             // 
@@ -508,6 +405,108 @@
             this.bWSystemConnected.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWSystemConnected_DoWork);
             this.bWSystemConnected.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWSystemConnected_RunWorkerCompleted);
             // 
+            // btnAnalyze
+            // 
+            this.btnAnalyze.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAnalyze.AutoSize = true;
+            this.btnAnalyze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnalyze.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnalyze.Image = global::GSMApplication.Properties.Resources._1459303405_Find01;
+            this.btnAnalyze.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAnalyze.Location = new System.Drawing.Point(184, 3);
+            this.btnAnalyze.Name = "btnAnalyze";
+            this.btnAnalyze.Size = new System.Drawing.Size(174, 56);
+            this.btnAnalyze.TabIndex = 5;
+            this.btnAnalyze.Text = "Analyze";
+            this.btnAnalyze.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAnalyze.UseVisualStyleBackColor = true;
+            this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
+            // 
+            // btnOffline
+            // 
+            this.btnOffline.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnOffline.AutoSize = true;
+            this.btnOffline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOffline.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOffline.Image = global::GSMApplication.Properties.Resources._1459303253_ic_portable_wifi_off_48px;
+            this.btnOffline.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOffline.Location = new System.Drawing.Point(3, 3);
+            this.btnOffline.Name = "btnOffline";
+            this.btnOffline.Size = new System.Drawing.Size(174, 56);
+            this.btnOffline.TabIndex = 4;
+            this.btnOffline.Text = "Offline";
+            this.btnOffline.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOffline.UseVisualStyleBackColor = true;
+            this.btnOffline.Click += new System.EventHandler(this.btnOffline_Click);
+            // 
+            // btnOnline
+            // 
+            this.btnOnline.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnOnline.AutoSize = true;
+            this.btnOnline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOnline.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOnline.Image = ((System.Drawing.Image)(resources.GetObject("btnOnline.Image")));
+            this.btnOnline.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOnline.Location = new System.Drawing.Point(80, 39);
+            this.btnOnline.Name = "btnOnline";
+            this.btnOnline.Size = new System.Drawing.Size(202, 56);
+            this.btnOnline.TabIndex = 3;
+            this.btnOnline.Text = "Online";
+            this.btnOnline.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOnline.UseVisualStyleBackColor = true;
+            this.btnOnline.Click += new System.EventHandler(this.btnOnline_Click);
+            // 
+            // pbInternetConnection
+            // 
+            this.pbInternetConnection.Image = global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            this.pbInternetConnection.Location = new System.Drawing.Point(3, 3);
+            this.pbInternetConnection.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.pbInternetConnection.Name = "pbInternetConnection";
+            this.pbInternetConnection.Size = new System.Drawing.Size(29, 24);
+            this.pbInternetConnection.TabIndex = 5;
+            this.pbInternetConnection.TabStop = false;
+            // 
+            // pbSystemConnected
+            // 
+            this.pbSystemConnected.Image = global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            this.pbSystemConnected.Location = new System.Drawing.Point(3, 3);
+            this.pbSystemConnected.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.pbSystemConnected.Name = "pbSystemConnected";
+            this.pbSystemConnected.Size = new System.Drawing.Size(29, 24);
+            this.pbSystemConnected.TabIndex = 5;
+            this.pbSystemConnected.TabStop = false;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.AutoSize = true;
+            this.flowLayoutPanel6.Controls.Add(this.pbExternalPower);
+            this.flowLayoutPanel6.Controls.Add(this.label3);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(110, 33);
+            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(110, 3, 0, 0);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(150, 30);
+            this.flowLayoutPanel6.TabIndex = 2;
+            // 
+            // pbExternalPower
+            // 
+            this.pbExternalPower.Image = global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            this.pbExternalPower.Location = new System.Drawing.Point(3, 3);
+            this.pbExternalPower.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.pbExternalPower.Name = "pbExternalPower";
+            this.pbExternalPower.Size = new System.Drawing.Size(29, 24);
+            this.pbExternalPower.TabIndex = 5;
+            this.pbExternalPower.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(32, 5);
+            this.label3.Margin = new System.Windows.Forms.Padding(0, 5, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "External Power";
+            // 
             // bWExternalPower
             // 
             this.bWExternalPower.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWExternalPower_DoWork);
@@ -517,12 +516,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 419);
+            this.ClientSize = new System.Drawing.Size(384, 414);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(400, 458);
-            this.MinimumSize = new System.Drawing.Size(400, 458);
+            this.MinimumSize = new System.Drawing.Size(400, 423);
             this.Name = "GSMPI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GSM Pasive Interceptor";
@@ -543,9 +541,9 @@
             this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInternetConnection)).EndInit();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInternetConnection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSystemConnected)).EndInit();
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
@@ -583,13 +581,13 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.PictureBox pbSystemConnected;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
-        private System.Windows.Forms.PictureBox pbExternalPower;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolTip toolTip;
         private System.ComponentModel.BackgroundWorker bWInternetConnection;
         private System.Windows.Forms.Timer tmWorkers;
         private System.ComponentModel.BackgroundWorker bWSystemConnected;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
+        private System.Windows.Forms.PictureBox pbExternalPower;
+        private System.Windows.Forms.Label label3;
         private System.ComponentModel.BackgroundWorker bWExternalPower;
     }
 }
