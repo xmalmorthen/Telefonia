@@ -76,12 +76,12 @@ namespace GSMApplication.Forms
             
         }
 
-        private void bWInitialzingSystem_DoWork(object sender, DoWorkEventArgs e)
+        private void bWScanningForReceivers_DoWork(object sender, DoWorkEventArgs e)
         {
             Boolean result = false;
             try
             {
-                result = system.initializing.initialzingSystem();
+                result = system.initializing.Receivers.scanningForReceivers();
             }
             catch (Exception)
             {
@@ -90,14 +90,15 @@ namespace GSMApplication.Forms
             e.Result = result;
         }
 
-        private void bWInitialzingSystem_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void bWScanningForReceivers_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Boolean status = (Boolean)e.Result;
-
-            this.pbInitialzingSystem.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            this.pbScanningForReceivers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
             dlgRes = dlgRes == System.Windows.Forms.DialogResult.Yes && status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
 
             pBProgress();
+
+            bWPoweringOnReceivers.RunWorkerAsync();
         }
 
         private void bWConnectionToControllers_DoWork(object sender, DoWorkEventArgs e)
@@ -120,15 +121,15 @@ namespace GSMApplication.Forms
             this.pbConnectionToControllers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
             dlgRes = dlgRes == System.Windows.Forms.DialogResult.Yes && status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
 
-            pBProgress();            
+            pBProgress();
         }
 
-        private void bWScanningForReceivers_DoWork(object sender, DoWorkEventArgs e)
+        private void bWInitialzingSystem_DoWork(object sender, DoWorkEventArgs e)
         {
             Boolean result = false;
             try
             {
-                result = system.initializing.Receivers.scanningForReceivers();
+                result = system.initializing.initialzingSystem();
             }
             catch (Exception)
             {
@@ -137,15 +138,14 @@ namespace GSMApplication.Forms
             e.Result = result;
         }
 
-        private void bWScanningForReceivers_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void bWInitialzingSystem_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Boolean status = (Boolean)e.Result;
-            this.pbScanningForReceivers.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
-            dlgRes = dlgRes == System.Windows.Forms.DialogResult.Yes && status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
-            
-            pBProgress();
 
-            bWPoweringOnReceivers.RunWorkerAsync();
+            this.pbInitialzingSystem.Image = status ? global::GSMApplication.Properties.Resources._1459305043_11 : global::GSMApplication.Properties.Resources._1459304445_101_Warning;
+            dlgRes = dlgRes == System.Windows.Forms.DialogResult.Yes && status == true ? System.Windows.Forms.DialogResult.Yes : System.Windows.Forms.DialogResult.No;
+
+            pBProgress();
         }
 
         private void bWPoweringOnReceivers_DoWork(object sender, DoWorkEventArgs e)

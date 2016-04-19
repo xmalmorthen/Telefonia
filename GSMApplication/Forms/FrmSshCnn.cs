@@ -15,7 +15,7 @@ namespace GSMApplication.Forms
 {
     public partial class FrmSshCnn : Form
     {
-        private const int SSHCNN = 11;
+        private const int SSHCNN = 12;
         private Boolean shownError = false;
         private DialogResult dlgRes = DialogResult.Yes;
         private int proccess = 0;
@@ -25,6 +25,7 @@ namespace GSMApplication.Forms
             InitializeComponent();
 
             bWLoopMainProc.RunWorkerAsync();
+            bWDaemonWatcher.RunWorkerAsync();
             bWSystemConnected.RunWorkerAsync();
             bWExternalPower.RunWorkerAsync();
             bWReceivers.RunWorkerAsync();
@@ -42,6 +43,7 @@ namespace GSMApplication.Forms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             bWLoopMainProc.CancelAsync();
+            bWDaemonWatcher.CancelAsync();
             bWSystemConnected.CancelAsync();
             bWExternalPower.CancelAsync();
             bWReceivers.CancelAsync();
@@ -202,6 +204,19 @@ namespace GSMApplication.Forms
             }
         }
 
+        private void bWDaemonWatcher_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                Program.SshCnn.Add("daemonWatcher", new sshCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "Daemon Watcher";
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         private void bWSystemConnected_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             proccess++;
@@ -231,6 +246,8 @@ namespace GSMApplication.Forms
                 }
             }
         }
+
+        
 
     }
 }

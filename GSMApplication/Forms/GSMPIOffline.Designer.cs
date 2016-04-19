@@ -361,6 +361,7 @@
             this.Name = "GSMPIOffline";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GSMPI Offline";
+            this.TopMost = true;
             this.gbHoras.ResumeLayout(false);
             this.gbHoras.PerformLayout();
             this.gBCantidad.ResumeLayout(false);

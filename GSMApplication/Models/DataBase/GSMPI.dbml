@@ -3,54 +3,63 @@
   <Table Name="dbo.caCommands" Member="caCommands">
     <Type Name="caCommands">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="command" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="command" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="caCommands_reCommandsParameters" Member="reCommandsParameters" ThisKey="id" OtherKey="idCommand" Type="reCommandsParameters" />
     </Type>
   </Table>
+  <Table Name="dbo.tblLogs" Member="tblLogs">
+    <Type Name="tblLogs">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EventLevel" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MachineName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="EventMessage" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Exception" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.caParameters" Member="caParameters">
     <Type Name="caParameters">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="parameter" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="description" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="parameter" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="caParameters_reCommandsParameters" Member="reCommandsParameters" ThisKey="id" OtherKey="idParameter" Type="reCommandsParameters" />
     </Type>
   </Table>
-  <Table Name="dbo.reCommandsParameters" Member="reCommandsParameters">
-    <Type Name="reCommandsParameters">
+  <Table Name="dbo.caProviders" Member="caProviders">
+    <Type Name="caProviders">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="tag" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="idCommand" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idParameter" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Provider" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="caCommands_reCommandsParameters" Member="caCommands" ThisKey="idCommand" OtherKey="id" Type="caCommands" IsForeignKey="true" />
-      <Association Name="caParameters_reCommandsParameters" Member="caParameters" ThisKey="idParameter" OtherKey="id" Type="caParameters" IsForeignKey="true" />
+      <Association Name="caProviders_maCells" Member="maCells" ThisKey="id" OtherKey="Provider" Type="maCells" />
+      <Association Name="caProviders_maDecryptedTraffic" Member="maDecryptedTraffic" ThisKey="id" OtherKey="Provider" Type="maDecryptedTraffic" />
+      <Association Name="caProviders_maTMSICatcher" Member="maTMSICatcher" ThisKey="id" OtherKey="Provider" Type="maTMSICatcher" />
     </Type>
   </Table>
-  <Table Name="dbo.taParameters" Member="taParameters">
-    <Type Name="taParameters">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="tag" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="des" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="value" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+  <Table Name="dbo.GMapNETcache" Member="GMapNETcache">
+    <Type Name="GMapNETcache">
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Zoom" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="X" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Y" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Tile" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
     </Type>
   </Table>
   <Table Name="dbo.maCells" Member="maCells">
     <Type Name="maCells">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ARFCN" Type="System.Data.Linq.Binary" DbType="VarBinary(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ARFCN" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CellId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Band" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="RxLevel" Type="System.Data.Linq.Binary" DbType="VarBinary(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="RxLevel" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="LAC" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="MCC" Type="System.Data.Linq.Binary" DbType="VarBinary(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="MCC" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MNC" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Provider" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Comment" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
@@ -86,15 +95,26 @@
       <Association Name="caProviders_maTMSICatcher" Member="caProviders" ThisKey="Provider" OtherKey="id" Type="caProviders" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.caProviders" Member="caProviders">
-    <Type Name="caProviders">
+  <Table Name="dbo.reCommandsParameters" Member="reCommandsParameters">
+    <Type Name="reCommandsParameters">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Provider" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="tag" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="idCommand" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idParameter" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="caProviders_maCells" Member="maCells" ThisKey="id" OtherKey="Provider" Type="maCells" />
-      <Association Name="caProviders_maDecryptedTraffic" Member="maDecryptedTraffic" ThisKey="id" OtherKey="Provider" Type="maDecryptedTraffic" />
-      <Association Name="caProviders_maTMSICatcher" Member="maTMSICatcher" ThisKey="id" OtherKey="Provider" Type="maTMSICatcher" />
+      <Association Name="caCommands_reCommandsParameters" Member="caCommands" ThisKey="idCommand" OtherKey="id" Type="caCommands" IsForeignKey="true" />
+      <Association Name="caParameters_reCommandsParameters" Member="caParameters" ThisKey="idParameter" OtherKey="id" Type="caParameters" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.taParameters" Member="taParameters">
+    <Type Name="taParameters">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tag" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="des" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="value" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.SPNlogErrorsRegistredInInterval" Method="SPNlogErrorsRegistredInInterval">

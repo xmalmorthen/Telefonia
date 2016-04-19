@@ -45,6 +45,7 @@
             this.bWConnectingToReceivers = new System.ComponentModel.BackgroundWorker();
             this.bWInitializingStack = new System.ComponentModel.BackgroundWorker();
             this.bWLoopMainProc = new System.ComponentModel.BackgroundWorker();
+            this.bWDaemonWatcher = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // bWSystemConnected
@@ -151,6 +152,12 @@
             this.bWLoopMainProc.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWLoopMainProc_DoWork);
             this.bWLoopMainProc.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWSystemConnected_RunWorkerCompleted);
             // 
+            // bWDaemonWatcher
+            // 
+            this.bWDaemonWatcher.WorkerSupportsCancellation = true;
+            this.bWDaemonWatcher.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWDaemonWatcher_DoWork);
+            this.bWDaemonWatcher.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWSystemConnected_RunWorkerCompleted);
+            // 
             // FrmSshCnn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,6 +174,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSshCnn";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +198,6 @@
         private System.ComponentModel.BackgroundWorker bWConnectingToReceivers;
         private System.ComponentModel.BackgroundWorker bWInitializingStack;
         private System.ComponentModel.BackgroundWorker bWLoopMainProc;
+        private System.ComponentModel.BackgroundWorker bWDaemonWatcher;
     }
 }

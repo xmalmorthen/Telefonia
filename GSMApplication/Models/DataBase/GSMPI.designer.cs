@@ -33,15 +33,18 @@ namespace GSMApplication.Models.DataBase
     partial void InsertcaCommands(caCommands instance);
     partial void UpdatecaCommands(caCommands instance);
     partial void DeletecaCommands(caCommands instance);
+    partial void InserttblLogs(tblLogs instance);
+    partial void UpdatetblLogs(tblLogs instance);
+    partial void DeletetblLogs(tblLogs instance);
     partial void InsertcaParameters(caParameters instance);
     partial void UpdatecaParameters(caParameters instance);
     partial void DeletecaParameters(caParameters instance);
-    partial void InsertreCommandsParameters(reCommandsParameters instance);
-    partial void UpdatereCommandsParameters(reCommandsParameters instance);
-    partial void DeletereCommandsParameters(reCommandsParameters instance);
-    partial void InserttaParameters(taParameters instance);
-    partial void UpdatetaParameters(taParameters instance);
-    partial void DeletetaParameters(taParameters instance);
+    partial void InsertcaProviders(caProviders instance);
+    partial void UpdatecaProviders(caProviders instance);
+    partial void DeletecaProviders(caProviders instance);
+    partial void InsertGMapNETcache(GMapNETcache instance);
+    partial void UpdateGMapNETcache(GMapNETcache instance);
+    partial void DeleteGMapNETcache(GMapNETcache instance);
     partial void InsertmaCells(maCells instance);
     partial void UpdatemaCells(maCells instance);
     partial void DeletemaCells(maCells instance);
@@ -51,9 +54,12 @@ namespace GSMApplication.Models.DataBase
     partial void InsertmaTMSICatcher(maTMSICatcher instance);
     partial void UpdatemaTMSICatcher(maTMSICatcher instance);
     partial void DeletemaTMSICatcher(maTMSICatcher instance);
-    partial void InsertcaProviders(caProviders instance);
-    partial void UpdatecaProviders(caProviders instance);
-    partial void DeletecaProviders(caProviders instance);
+    partial void InsertreCommandsParameters(reCommandsParameters instance);
+    partial void UpdatereCommandsParameters(reCommandsParameters instance);
+    partial void DeletereCommandsParameters(reCommandsParameters instance);
+    partial void InserttaParameters(taParameters instance);
+    partial void UpdatetaParameters(taParameters instance);
+    partial void DeletetaParameters(taParameters instance);
     #endregion
 		
 		public GSMPIDataContext() : 
@@ -94,6 +100,14 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
+		public System.Data.Linq.Table<tblLogs> tblLogs
+		{
+			get
+			{
+				return this.GetTable<tblLogs>();
+			}
+		}
+		
 		public System.Data.Linq.Table<caParameters> caParameters
 		{
 			get
@@ -102,19 +116,19 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		public System.Data.Linq.Table<reCommandsParameters> reCommandsParameters
+		public System.Data.Linq.Table<caProviders> caProviders
 		{
 			get
 			{
-				return this.GetTable<reCommandsParameters>();
+				return this.GetTable<caProviders>();
 			}
 		}
 		
-		public System.Data.Linq.Table<taParameters> taParameters
+		public System.Data.Linq.Table<GMapNETcache> GMapNETcache
 		{
 			get
 			{
-				return this.GetTable<taParameters>();
+				return this.GetTable<GMapNETcache>();
 			}
 		}
 		
@@ -142,11 +156,19 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		public System.Data.Linq.Table<caProviders> caProviders
+		public System.Data.Linq.Table<reCommandsParameters> reCommandsParameters
 		{
 			get
 			{
-				return this.GetTable<caProviders>();
+				return this.GetTable<reCommandsParameters>();
+			}
+		}
+		
+		public System.Data.Linq.Table<taParameters> taParameters
+		{
+			get
+			{
+				return this.GetTable<taParameters>();
 			}
 		}
 		
@@ -218,7 +240,7 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_command", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_command", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
 		public string command
 		{
 			get
@@ -238,7 +260,7 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string description
 		{
 			get
@@ -344,6 +366,212 @@ namespace GSMApplication.Models.DataBase
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblLogs")]
+	public partial class tblLogs : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<System.DateTime> _EventDateTime;
+		
+		private string _EventLevel;
+		
+		private string _MachineName;
+		
+		private string _EventMessage;
+		
+		private string _Exception;
+		
+		private System.DateTime _fIns;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnEventDateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnEventDateTimeChanged();
+    partial void OnEventLevelChanging(string value);
+    partial void OnEventLevelChanged();
+    partial void OnMachineNameChanging(string value);
+    partial void OnMachineNameChanged();
+    partial void OnEventMessageChanging(string value);
+    partial void OnEventMessageChanged();
+    partial void OnExceptionChanging(string value);
+    partial void OnExceptionChanged();
+    partial void OnfInsChanging(System.DateTime value);
+    partial void OnfInsChanged();
+    #endregion
+		
+		public tblLogs()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventDateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> EventDateTime
+		{
+			get
+			{
+				return this._EventDateTime;
+			}
+			set
+			{
+				if ((this._EventDateTime != value))
+				{
+					this.OnEventDateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._EventDateTime = value;
+					this.SendPropertyChanged("EventDateTime");
+					this.OnEventDateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventLevel", DbType="VarChar(100)")]
+		public string EventLevel
+		{
+			get
+			{
+				return this._EventLevel;
+			}
+			set
+			{
+				if ((this._EventLevel != value))
+				{
+					this.OnEventLevelChanging(value);
+					this.SendPropertyChanging();
+					this._EventLevel = value;
+					this.SendPropertyChanged("EventLevel");
+					this.OnEventLevelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MachineName", DbType="VarChar(100)")]
+		public string MachineName
+		{
+			get
+			{
+				return this._MachineName;
+			}
+			set
+			{
+				if ((this._MachineName != value))
+				{
+					this.OnMachineNameChanging(value);
+					this.SendPropertyChanging();
+					this._MachineName = value;
+					this.SendPropertyChanged("MachineName");
+					this.OnMachineNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EventMessage", DbType="VarChar(MAX)")]
+		public string EventMessage
+		{
+			get
+			{
+				return this._EventMessage;
+			}
+			set
+			{
+				if ((this._EventMessage != value))
+				{
+					this.OnEventMessageChanging(value);
+					this.SendPropertyChanging();
+					this._EventMessage = value;
+					this.SendPropertyChanged("EventMessage");
+					this.OnEventMessageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Exception", DbType="VarChar(MAX)")]
+		public string Exception
+		{
+			get
+			{
+				return this._Exception;
+			}
+			set
+			{
+				if ((this._Exception != value))
+				{
+					this.OnExceptionChanging(value);
+					this.SendPropertyChanging();
+					this._Exception = value;
+					this.SendPropertyChanged("Exception");
+					this.OnExceptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fIns", DbType="DateTime NOT NULL", IsDbGenerated=true)]
+		public System.DateTime fIns
+		{
+			get
+			{
+				return this._fIns;
+			}
+			set
+			{
+				if ((this._fIns != value))
+				{
+					this.OnfInsChanging(value);
+					this.SendPropertyChanging();
+					this._fIns = value;
+					this.SendPropertyChanged("fIns");
+					this.OnfInsChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.caParameters")]
 	public partial class caParameters : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -404,7 +632,7 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_parameter", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_parameter", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string parameter
 		{
 			get
@@ -424,7 +652,7 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string description
 		{
 			get
@@ -530,27 +758,25 @@ namespace GSMApplication.Models.DataBase
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.reCommandsParameters")]
-	public partial class reCommandsParameters : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.caProviders")]
+	public partial class caProviders : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _id;
 		
-		private string _tag;
-		
-		private int _idCommand;
-		
-		private System.Nullable<int> _idParameter;
+		private string _Provider;
 		
 		private System.DateTime _fIns;
 		
 		private System.Nullable<System.DateTime> _fAct;
 		
-		private EntityRef<caCommands> _caCommands;
+		private EntitySet<maCells> _maCells;
 		
-		private EntityRef<caParameters> _caParameters;
+		private EntitySet<maDecryptedTraffic> _maDecryptedTraffic;
+		
+		private EntitySet<maTMSICatcher> _maTMSICatcher;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -558,22 +784,19 @@ namespace GSMApplication.Models.DataBase
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void OntagChanging(string value);
-    partial void OntagChanged();
-    partial void OnidCommandChanging(int value);
-    partial void OnidCommandChanged();
-    partial void OnidParameterChanging(System.Nullable<int> value);
-    partial void OnidParameterChanged();
+    partial void OnProviderChanging(string value);
+    partial void OnProviderChanged();
     partial void OnfInsChanging(System.DateTime value);
     partial void OnfInsChanged();
     partial void OnfActChanging(System.Nullable<System.DateTime> value);
     partial void OnfActChanged();
     #endregion
 		
-		public reCommandsParameters()
+		public caProviders()
 		{
-			this._caCommands = default(EntityRef<caCommands>);
-			this._caParameters = default(EntityRef<caParameters>);
+			this._maCells = new EntitySet<maCells>(new Action<maCells>(this.attach_maCells), new Action<maCells>(this.detach_maCells));
+			this._maDecryptedTraffic = new EntitySet<maDecryptedTraffic>(new Action<maDecryptedTraffic>(this.attach_maDecryptedTraffic), new Action<maDecryptedTraffic>(this.detach_maDecryptedTraffic));
+			this._maTMSICatcher = new EntitySet<maTMSICatcher>(new Action<maTMSICatcher>(this.attach_maTMSICatcher), new Action<maTMSICatcher>(this.detach_maTMSICatcher));
 			OnCreated();
 		}
 		
@@ -597,70 +820,22 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tag", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string tag
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Provider", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Provider
 		{
 			get
 			{
-				return this._tag;
+				return this._Provider;
 			}
 			set
 			{
-				if ((this._tag != value))
+				if ((this._Provider != value))
 				{
-					this.OntagChanging(value);
+					this.OnProviderChanging(value);
 					this.SendPropertyChanging();
-					this._tag = value;
-					this.SendPropertyChanged("tag");
-					this.OntagChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCommand", DbType="Int NOT NULL")]
-		public int idCommand
-		{
-			get
-			{
-				return this._idCommand;
-			}
-			set
-			{
-				if ((this._idCommand != value))
-				{
-					if (this._caCommands.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidCommandChanging(value);
-					this.SendPropertyChanging();
-					this._idCommand = value;
-					this.SendPropertyChanged("idCommand");
-					this.OnidCommandChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idParameter", DbType="Int")]
-		public System.Nullable<int> idParameter
-		{
-			get
-			{
-				return this._idParameter;
-			}
-			set
-			{
-				if ((this._idParameter != value))
-				{
-					if (this._caParameters.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidParameterChanging(value);
-					this.SendPropertyChanging();
-					this._idParameter = value;
-					this.SendPropertyChanged("idParameter");
-					this.OnidParameterChanged();
+					this._Provider = value;
+					this.SendPropertyChanged("Provider");
+					this.OnProviderChanged();
 				}
 			}
 		}
@@ -705,71 +880,42 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caCommands_reCommandsParameters", Storage="_caCommands", ThisKey="idCommand", OtherKey="id", IsForeignKey=true)]
-		public caCommands caCommands
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caProviders_maCells", Storage="_maCells", ThisKey="id", OtherKey="Provider")]
+		public EntitySet<maCells> maCells
 		{
 			get
 			{
-				return this._caCommands.Entity;
+				return this._maCells;
 			}
 			set
 			{
-				caCommands previousValue = this._caCommands.Entity;
-				if (((previousValue != value) 
-							|| (this._caCommands.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._caCommands.Entity = null;
-						previousValue.reCommandsParameters.Remove(this);
-					}
-					this._caCommands.Entity = value;
-					if ((value != null))
-					{
-						value.reCommandsParameters.Add(this);
-						this._idCommand = value.id;
-					}
-					else
-					{
-						this._idCommand = default(int);
-					}
-					this.SendPropertyChanged("caCommands");
-				}
+				this._maCells.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caParameters_reCommandsParameters", Storage="_caParameters", ThisKey="idParameter", OtherKey="id", IsForeignKey=true)]
-		public caParameters caParameters
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caProviders_maDecryptedTraffic", Storage="_maDecryptedTraffic", ThisKey="id", OtherKey="Provider")]
+		public EntitySet<maDecryptedTraffic> maDecryptedTraffic
 		{
 			get
 			{
-				return this._caParameters.Entity;
+				return this._maDecryptedTraffic;
 			}
 			set
 			{
-				caParameters previousValue = this._caParameters.Entity;
-				if (((previousValue != value) 
-							|| (this._caParameters.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._caParameters.Entity = null;
-						previousValue.reCommandsParameters.Remove(this);
-					}
-					this._caParameters.Entity = value;
-					if ((value != null))
-					{
-						value.reCommandsParameters.Add(this);
-						this._idParameter = value.id;
-					}
-					else
-					{
-						this._idParameter = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("caParameters");
-				}
+				this._maDecryptedTraffic.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caProviders_maTMSICatcher", Storage="_maTMSICatcher", ThisKey="id", OtherKey="Provider")]
+		public EntitySet<maTMSICatcher> maTMSICatcher
+		{
+			get
+			{
+				return this._maTMSICatcher;
+			}
+			set
+			{
+				this._maTMSICatcher.Assign(value);
 			}
 		}
 		
@@ -792,165 +938,177 @@ namespace GSMApplication.Models.DataBase
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_maCells(maCells entity)
+		{
+			this.SendPropertyChanging();
+			entity.caProviders = this;
+		}
+		
+		private void detach_maCells(maCells entity)
+		{
+			this.SendPropertyChanging();
+			entity.caProviders = null;
+		}
+		
+		private void attach_maDecryptedTraffic(maDecryptedTraffic entity)
+		{
+			this.SendPropertyChanging();
+			entity.caProviders = this;
+		}
+		
+		private void detach_maDecryptedTraffic(maDecryptedTraffic entity)
+		{
+			this.SendPropertyChanging();
+			entity.caProviders = null;
+		}
+		
+		private void attach_maTMSICatcher(maTMSICatcher entity)
+		{
+			this.SendPropertyChanging();
+			entity.caProviders = this;
+		}
+		
+		private void detach_maTMSICatcher(maTMSICatcher entity)
+		{
+			this.SendPropertyChanging();
+			entity.caProviders = null;
+		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.taParameters")]
-	public partial class taParameters : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GMapNETcache")]
+	public partial class GMapNETcache : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _id;
+		private int _Type;
 		
-		private string _tag;
+		private int _Zoom;
 		
-		private string _des;
+		private int _X;
 		
-		private string _value;
+		private int _Y;
 		
-		private System.DateTime _fIns;
-		
-		private System.Nullable<System.DateTime> _fAct;
+		private System.Data.Linq.Binary _Tile;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OntagChanging(string value);
-    partial void OntagChanged();
-    partial void OndesChanging(string value);
-    partial void OndesChanged();
-    partial void OnvalueChanging(string value);
-    partial void OnvalueChanged();
-    partial void OnfInsChanging(System.DateTime value);
-    partial void OnfInsChanged();
-    partial void OnfActChanging(System.Nullable<System.DateTime> value);
-    partial void OnfActChanged();
+    partial void OnTypeChanging(int value);
+    partial void OnTypeChanged();
+    partial void OnZoomChanging(int value);
+    partial void OnZoomChanged();
+    partial void OnXChanging(int value);
+    partial void OnXChanged();
+    partial void OnYChanging(int value);
+    partial void OnYChanged();
+    partial void OnTileChanging(System.Data.Linq.Binary value);
+    partial void OnTileChanged();
     #endregion
 		
-		public taParameters()
+		public GMapNETcache()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Type
 		{
 			get
 			{
-				return this._id;
+				return this._Type;
 			}
 			set
 			{
-				if ((this._id != value))
+				if ((this._Type != value))
 				{
-					this.OnidChanging(value);
+					this.OnTypeChanging(value);
 					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tag", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string tag
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Zoom", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Zoom
 		{
 			get
 			{
-				return this._tag;
+				return this._Zoom;
 			}
 			set
 			{
-				if ((this._tag != value))
+				if ((this._Zoom != value))
 				{
-					this.OntagChanging(value);
+					this.OnZoomChanging(value);
 					this.SendPropertyChanging();
-					this._tag = value;
-					this.SendPropertyChanged("tag");
-					this.OntagChanged();
+					this._Zoom = value;
+					this.SendPropertyChanged("Zoom");
+					this.OnZoomChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_des", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string des
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_X", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int X
 		{
 			get
 			{
-				return this._des;
+				return this._X;
 			}
 			set
 			{
-				if ((this._des != value))
+				if ((this._X != value))
 				{
-					this.OndesChanging(value);
+					this.OnXChanging(value);
 					this.SendPropertyChanging();
-					this._des = value;
-					this.SendPropertyChanged("des");
-					this.OndesChanged();
+					this._X = value;
+					this.SendPropertyChanged("X");
+					this.OnXChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_value", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string value
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Y", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Y
 		{
 			get
 			{
-				return this._value;
+				return this._Y;
 			}
 			set
 			{
-				if ((this._value != value))
+				if ((this._Y != value))
 				{
-					this.OnvalueChanging(value);
+					this.OnYChanging(value);
 					this.SendPropertyChanging();
-					this._value = value;
-					this.SendPropertyChanged("value");
-					this.OnvalueChanged();
+					this._Y = value;
+					this.SendPropertyChanged("Y");
+					this.OnYChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fIns", DbType="DateTime NOT NULL", IsDbGenerated=true)]
-		public System.DateTime fIns
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tile", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Tile
 		{
 			get
 			{
-				return this._fIns;
+				return this._Tile;
 			}
 			set
 			{
-				if ((this._fIns != value))
+				if ((this._Tile != value))
 				{
-					this.OnfInsChanging(value);
+					this.OnTileChanging(value);
 					this.SendPropertyChanging();
-					this._fIns = value;
-					this.SendPropertyChanged("fIns");
-					this.OnfInsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fAct", DbType="DateTime")]
-		public System.Nullable<System.DateTime> fAct
-		{
-			get
-			{
-				return this._fAct;
-			}
-			set
-			{
-				if ((this._fAct != value))
-				{
-					this.OnfActChanging(value);
-					this.SendPropertyChanging();
-					this._fAct = value;
-					this.SendPropertyChanged("fAct");
-					this.OnfActChanged();
+					this._Tile = value;
+					this.SendPropertyChanged("Tile");
+					this.OnTileChanged();
 				}
 			}
 		}
@@ -984,17 +1142,17 @@ namespace GSMApplication.Models.DataBase
 		
 		private int _id;
 		
-		private System.Data.Linq.Binary _ARFCN;
+		private string _ARFCN;
 		
 		private string _CellId;
 		
 		private string _Band;
 		
-		private System.Data.Linq.Binary _RxLevel;
+		private string _RxLevel;
 		
 		private string _LAC;
 		
-		private System.Data.Linq.Binary _MCC;
+		private string _MCC;
 		
 		private string _MNC;
 		
@@ -1012,17 +1170,17 @@ namespace GSMApplication.Models.DataBase
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void OnARFCNChanging(System.Data.Linq.Binary value);
+    partial void OnARFCNChanging(string value);
     partial void OnARFCNChanged();
     partial void OnCellIdChanging(string value);
     partial void OnCellIdChanged();
     partial void OnBandChanging(string value);
     partial void OnBandChanged();
-    partial void OnRxLevelChanging(System.Data.Linq.Binary value);
+    partial void OnRxLevelChanging(string value);
     partial void OnRxLevelChanged();
     partial void OnLACChanging(string value);
     partial void OnLACChanged();
-    partial void OnMCCChanging(System.Data.Linq.Binary value);
+    partial void OnMCCChanging(string value);
     partial void OnMCCChanged();
     partial void OnMNCChanging(string value);
     partial void OnMNCChanged();
@@ -1060,8 +1218,8 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ARFCN", DbType="VarBinary(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary ARFCN
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ARFCN", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ARFCN
 		{
 			get
 			{
@@ -1120,8 +1278,8 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RxLevel", DbType="VarBinary(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary RxLevel
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RxLevel", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string RxLevel
 		{
 			get
 			{
@@ -1160,8 +1318,8 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MCC", DbType="VarBinary(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary MCC
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MCC", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string MCC
 		{
 			get
 			{
@@ -1909,25 +2067,27 @@ namespace GSMApplication.Models.DataBase
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.caProviders")]
-	public partial class caProviders : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.reCommandsParameters")]
+	public partial class reCommandsParameters : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _id;
 		
-		private string _Provider;
+		private string _tag;
+		
+		private int _idCommand;
+		
+		private System.Nullable<int> _idParameter;
 		
 		private System.DateTime _fIns;
 		
 		private System.Nullable<System.DateTime> _fAct;
 		
-		private EntitySet<maCells> _maCells;
+		private EntityRef<caCommands> _caCommands;
 		
-		private EntitySet<maDecryptedTraffic> _maDecryptedTraffic;
-		
-		private EntitySet<maTMSICatcher> _maTMSICatcher;
+		private EntityRef<caParameters> _caParameters;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -1935,19 +2095,22 @@ namespace GSMApplication.Models.DataBase
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void OnProviderChanging(string value);
-    partial void OnProviderChanged();
+    partial void OntagChanging(string value);
+    partial void OntagChanged();
+    partial void OnidCommandChanging(int value);
+    partial void OnidCommandChanged();
+    partial void OnidParameterChanging(System.Nullable<int> value);
+    partial void OnidParameterChanged();
     partial void OnfInsChanging(System.DateTime value);
     partial void OnfInsChanged();
     partial void OnfActChanging(System.Nullable<System.DateTime> value);
     partial void OnfActChanged();
     #endregion
 		
-		public caProviders()
+		public reCommandsParameters()
 		{
-			this._maCells = new EntitySet<maCells>(new Action<maCells>(this.attach_maCells), new Action<maCells>(this.detach_maCells));
-			this._maDecryptedTraffic = new EntitySet<maDecryptedTraffic>(new Action<maDecryptedTraffic>(this.attach_maDecryptedTraffic), new Action<maDecryptedTraffic>(this.detach_maDecryptedTraffic));
-			this._maTMSICatcher = new EntitySet<maTMSICatcher>(new Action<maTMSICatcher>(this.attach_maTMSICatcher), new Action<maTMSICatcher>(this.detach_maTMSICatcher));
+			this._caCommands = default(EntityRef<caCommands>);
+			this._caParameters = default(EntityRef<caParameters>);
 			OnCreated();
 		}
 		
@@ -1971,22 +2134,70 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Provider", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Provider
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tag", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string tag
 		{
 			get
 			{
-				return this._Provider;
+				return this._tag;
 			}
 			set
 			{
-				if ((this._Provider != value))
+				if ((this._tag != value))
 				{
-					this.OnProviderChanging(value);
+					this.OntagChanging(value);
 					this.SendPropertyChanging();
-					this._Provider = value;
-					this.SendPropertyChanged("Provider");
-					this.OnProviderChanged();
+					this._tag = value;
+					this.SendPropertyChanged("tag");
+					this.OntagChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCommand", DbType="Int NOT NULL")]
+		public int idCommand
+		{
+			get
+			{
+				return this._idCommand;
+			}
+			set
+			{
+				if ((this._idCommand != value))
+				{
+					if (this._caCommands.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidCommandChanging(value);
+					this.SendPropertyChanging();
+					this._idCommand = value;
+					this.SendPropertyChanged("idCommand");
+					this.OnidCommandChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idParameter", DbType="Int")]
+		public System.Nullable<int> idParameter
+		{
+			get
+			{
+				return this._idParameter;
+			}
+			set
+			{
+				if ((this._idParameter != value))
+				{
+					if (this._caParameters.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidParameterChanging(value);
+					this.SendPropertyChanging();
+					this._idParameter = value;
+					this.SendPropertyChanged("idParameter");
+					this.OnidParameterChanged();
 				}
 			}
 		}
@@ -2031,42 +2242,71 @@ namespace GSMApplication.Models.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caProviders_maCells", Storage="_maCells", ThisKey="id", OtherKey="Provider")]
-		public EntitySet<maCells> maCells
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caCommands_reCommandsParameters", Storage="_caCommands", ThisKey="idCommand", OtherKey="id", IsForeignKey=true)]
+		public caCommands caCommands
 		{
 			get
 			{
-				return this._maCells;
+				return this._caCommands.Entity;
 			}
 			set
 			{
-				this._maCells.Assign(value);
+				caCommands previousValue = this._caCommands.Entity;
+				if (((previousValue != value) 
+							|| (this._caCommands.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._caCommands.Entity = null;
+						previousValue.reCommandsParameters.Remove(this);
+					}
+					this._caCommands.Entity = value;
+					if ((value != null))
+					{
+						value.reCommandsParameters.Add(this);
+						this._idCommand = value.id;
+					}
+					else
+					{
+						this._idCommand = default(int);
+					}
+					this.SendPropertyChanged("caCommands");
+				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caProviders_maDecryptedTraffic", Storage="_maDecryptedTraffic", ThisKey="id", OtherKey="Provider")]
-		public EntitySet<maDecryptedTraffic> maDecryptedTraffic
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caParameters_reCommandsParameters", Storage="_caParameters", ThisKey="idParameter", OtherKey="id", IsForeignKey=true)]
+		public caParameters caParameters
 		{
 			get
 			{
-				return this._maDecryptedTraffic;
+				return this._caParameters.Entity;
 			}
 			set
 			{
-				this._maDecryptedTraffic.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caProviders_maTMSICatcher", Storage="_maTMSICatcher", ThisKey="id", OtherKey="Provider")]
-		public EntitySet<maTMSICatcher> maTMSICatcher
-		{
-			get
-			{
-				return this._maTMSICatcher;
-			}
-			set
-			{
-				this._maTMSICatcher.Assign(value);
+				caParameters previousValue = this._caParameters.Entity;
+				if (((previousValue != value) 
+							|| (this._caParameters.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._caParameters.Entity = null;
+						previousValue.reCommandsParameters.Remove(this);
+					}
+					this._caParameters.Entity = value;
+					if ((value != null))
+					{
+						value.reCommandsParameters.Add(this);
+						this._idParameter = value.id;
+					}
+					else
+					{
+						this._idParameter = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("caParameters");
+				}
 			}
 		}
 		
@@ -2089,41 +2329,187 @@ namespace GSMApplication.Models.DataBase
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.taParameters")]
+	public partial class taParameters : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		private void attach_maCells(maCells entity)
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _tag;
+		
+		private string _des;
+		
+		private string _value;
+		
+		private System.DateTime _fIns;
+		
+		private System.Nullable<System.DateTime> _fAct;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OntagChanging(string value);
+    partial void OntagChanged();
+    partial void OndesChanging(string value);
+    partial void OndesChanged();
+    partial void OnvalueChanging(string value);
+    partial void OnvalueChanged();
+    partial void OnfInsChanging(System.DateTime value);
+    partial void OnfInsChanged();
+    partial void OnfActChanging(System.Nullable<System.DateTime> value);
+    partial void OnfActChanged();
+    #endregion
+		
+		public taParameters()
 		{
-			this.SendPropertyChanging();
-			entity.caProviders = this;
+			OnCreated();
 		}
 		
-		private void detach_maCells(maCells entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
 		{
-			this.SendPropertyChanging();
-			entity.caProviders = null;
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
 		}
 		
-		private void attach_maDecryptedTraffic(maDecryptedTraffic entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tag", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string tag
 		{
-			this.SendPropertyChanging();
-			entity.caProviders = this;
+			get
+			{
+				return this._tag;
+			}
+			set
+			{
+				if ((this._tag != value))
+				{
+					this.OntagChanging(value);
+					this.SendPropertyChanging();
+					this._tag = value;
+					this.SendPropertyChanged("tag");
+					this.OntagChanged();
+				}
+			}
 		}
 		
-		private void detach_maDecryptedTraffic(maDecryptedTraffic entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_des", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string des
 		{
-			this.SendPropertyChanging();
-			entity.caProviders = null;
+			get
+			{
+				return this._des;
+			}
+			set
+			{
+				if ((this._des != value))
+				{
+					this.OndesChanging(value);
+					this.SendPropertyChanging();
+					this._des = value;
+					this.SendPropertyChanged("des");
+					this.OndesChanged();
+				}
+			}
 		}
 		
-		private void attach_maTMSICatcher(maTMSICatcher entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_value", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string value
 		{
-			this.SendPropertyChanging();
-			entity.caProviders = this;
+			get
+			{
+				return this._value;
+			}
+			set
+			{
+				if ((this._value != value))
+				{
+					this.OnvalueChanging(value);
+					this.SendPropertyChanging();
+					this._value = value;
+					this.SendPropertyChanged("value");
+					this.OnvalueChanged();
+				}
+			}
 		}
 		
-		private void detach_maTMSICatcher(maTMSICatcher entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fIns", DbType="DateTime NOT NULL", IsDbGenerated=true)]
+		public System.DateTime fIns
 		{
-			this.SendPropertyChanging();
-			entity.caProviders = null;
+			get
+			{
+				return this._fIns;
+			}
+			set
+			{
+				if ((this._fIns != value))
+				{
+					this.OnfInsChanging(value);
+					this.SendPropertyChanging();
+					this._fIns = value;
+					this.SendPropertyChanged("fIns");
+					this.OnfInsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fAct", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fAct
+		{
+			get
+			{
+				return this._fAct;
+			}
+			set
+			{
+				if ((this._fAct != value))
+				{
+					this.OnfActChanging(value);
+					this.SendPropertyChanging();
+					this._fAct = value;
+					this.SendPropertyChanged("fAct");
+					this.OnfActChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

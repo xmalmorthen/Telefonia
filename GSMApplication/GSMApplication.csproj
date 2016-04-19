@@ -144,6 +144,8 @@
     <Compile Include="Models\TMSICatcher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Properties\DataSources\GSMApplication.Models.SharpRandom.datasource" />
+    <None Include="Properties\DataSources\GSMApplication.Models.Targets.datasource" />
     <None Include="Resources\1459549408_icon-close-circled.png" />
     <None Include="Resources\1459541353_No.png" />
     <EmbeddedResource Include="Forms\FrmSshCnn.resx">
@@ -181,11 +183,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\GSMApplication.Models.CellsModel.datasource" />
     <None Include="Properties\DataSources\GSMApplication.Models.DecryptedTraffic.datasource" />
-    <None Include="Properties\DataSources\GSMApplication.Models.SharpRandom.datasource" />
-    <None Include="Properties\DataSources\GSMApplication.Models.Targets.datasource" />
-    <None Include="Properties\DataSources\GSMApplication.Models.TMSICatcher.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

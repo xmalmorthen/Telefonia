@@ -277,7 +277,7 @@ namespace GSMApplication.Controllers
                         {
                             StringBuilder output = ssh.execute(String.Format("{0} {1}", qry.caCommands.command.Trim(), qry.caParameters != null ? qry.caParameters.parameter.Trim().Replace("{0}", item.Serial) : String.Empty));
 
-                            if (!output.ToString().Contains("No devices found for"))
+                            if (output.ToString().Contains("No devices found for"))
                             {
                                 throw new Exception(String.Format("Serial no encontrado [ Type: {0}, Name: {1}, Serial: {2}", item.Type, item.Name, item.Serial));
                             }
@@ -314,7 +314,7 @@ namespace GSMApplication.Controllers
 
                 public static Boolean poweringOnReceivers()
                 {
-                    Boolean result = false;
+                    Boolean result = true;
                     sshCnn ssh;
                     Program.SshCnn.TryGetValue("connectionToControllers", out ssh);
                     try
@@ -330,7 +330,7 @@ namespace GSMApplication.Controllers
 
                 public static Boolean connectingToReceivers()
                 {
-                    Boolean result = false;
+                    Boolean result = true;
                     sshCnn ssh;
                     Program.SshCnn.TryGetValue("connectingToReceivers", out ssh); 
                     try
