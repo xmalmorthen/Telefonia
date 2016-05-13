@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,7 +25,8 @@ namespace GSMApplication.Forms
             this.initialize();
         }
 
-        private void initialize() { 
+        private void initialize() {
+            string message;
             lblTitle.Text = GSMApplication.Properties.Settings.Default.MCWG_Cnn_lblTitle.Trim();
             lblTitle2.Text = GSMApplication.Properties.Settings.Default.MCWG_Cnn_lblTitle2.Trim();
             this.tmWorkers_Tick(null,null);            

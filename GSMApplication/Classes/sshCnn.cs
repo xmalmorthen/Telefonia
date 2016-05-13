@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GSMApplication.Classes
@@ -59,6 +60,7 @@ namespace GSMApplication.Classes
 
         public StringBuilder execute(string command){
             StringBuilder result = new StringBuilder();
+
             SshCommand output = this.SshClient.RunCommand(String.Format("{0} {1}",GSMApplication.Properties.Settings.Default.superUserCommand,command));
             if (!string.IsNullOrEmpty(output.Error))
             {
@@ -69,5 +71,20 @@ namespace GSMApplication.Classes
             }
             return result;
         }
+
+        public StringBuilder asyncExecute(string command) {
+            StringBuilder result = new StringBuilder();
+            SshCommand cmd = this.SshClient.CreateCommand(String.Format("{0} {1}",GSMApplication.Properties.Settings.Default.superUserCommand,command));
+                
+            var asyncResult = cmd.BeginExecute(new AsyncCallback((s) =>
+                {
+                    
+                }), null);
+            while (!asyncResult.IsCompleted)
+                Thread.Sleep(100);
+            cmd.EndExecute(asyncResult);
+            return result;
+        }
+
     }
 }

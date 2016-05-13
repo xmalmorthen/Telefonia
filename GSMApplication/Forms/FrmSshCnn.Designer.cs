@@ -46,6 +46,7 @@
             this.bWInitializingStack = new System.ComponentModel.BackgroundWorker();
             this.bWLoopMainProc = new System.ComponentModel.BackgroundWorker();
             this.bWDaemonWatcher = new System.ComponentModel.BackgroundWorker();
+            this.bWSCPFileDownloader = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // bWSystemConnected
@@ -158,6 +159,12 @@
             this.bWDaemonWatcher.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWDaemonWatcher_DoWork);
             this.bWDaemonWatcher.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWSystemConnected_RunWorkerCompleted);
             // 
+            // bWSCPFileDownloader
+            // 
+            this.bWSCPFileDownloader.WorkerSupportsCancellation = true;
+            this.bWSCPFileDownloader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bWSCPFileDownloader_DoWork);
+            this.bWSCPFileDownloader.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bWSystemConnected_RunWorkerCompleted);
+            // 
             // FrmSshCnn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,5 +206,6 @@
         private System.ComponentModel.BackgroundWorker bWInitializingStack;
         private System.ComponentModel.BackgroundWorker bWLoopMainProc;
         private System.ComponentModel.BackgroundWorker bWDaemonWatcher;
+        private System.ComponentModel.BackgroundWorker bWSCPFileDownloader;
     }
 }

@@ -15,7 +15,7 @@ namespace GSMApplication.Forms
 {
     public partial class FrmSshCnn : Form
     {
-        private const int SSHCNN = 12;
+        private const int SSHCNN = 13;
         private Boolean shownError = false;
         private DialogResult dlgRes = DialogResult.Yes;
         private int proccess = 0;
@@ -36,7 +36,7 @@ namespace GSMApplication.Forms
             bWPoweringOnReceivers.RunWorkerAsync();
             bWConnectingToReceivers.RunWorkerAsync();
             bWInitializingStack.RunWorkerAsync();
-  
+            bWSCPFileDownloader.RunWorkerAsync();
 
         }
 
@@ -54,6 +54,7 @@ namespace GSMApplication.Forms
             bWPoweringOnReceivers.CancelAsync();
             bWConnectingToReceivers.CancelAsync();
             bWInitializingStack.CancelAsync();
+            bWSCPFileDownloader.CancelAsync();
 
             dlgRes = System.Windows.Forms.DialogResult.No;
         }
@@ -217,6 +218,19 @@ namespace GSMApplication.Forms
             }
         }
 
+        private void bWSCPFileDownloader_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                Program.ScpCnn.Add("downloader1", new scpCnn(GSMApplication.Properties.Settings.Default.sshUser, GSMApplication.Properties.Settings.Default.sshPass, GSMApplication.Properties.Settings.Default.sshHost));
+                e.Result = "Downloader 1";
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         private void bWSystemConnected_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             proccess++;
@@ -246,8 +260,6 @@ namespace GSMApplication.Forms
                 }
             }
         }
-
-        
 
     }
 }

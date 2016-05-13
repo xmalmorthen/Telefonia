@@ -21,6 +21,13 @@ namespace GSMApplication
             set { Program.sshCnn = value; }
         }
 
+        private static Dictionary<string, scpCnn> scpCnn = new Dictionary<string, scpCnn>();
+        public static Dictionary<string, scpCnn> ScpCnn
+        {
+            get { return Program.scpCnn; }
+            set { Program.scpCnn = value; }
+        }
+
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
@@ -29,8 +36,6 @@ namespace GSMApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            //Application.Run(new GSMPIOffline());
 
             FrmSshCnn initSshCnn = new Forms.FrmSshCnn();
             if (initSshCnn.ShowDialog() == DialogResult.Yes)

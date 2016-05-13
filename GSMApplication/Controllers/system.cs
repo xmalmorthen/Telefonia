@@ -15,7 +15,28 @@ namespace GSMApplication.Controllers
     public static class system
     {
         public static class check
-        {            
+        {
+            public static class Ping
+            {
+                public static Boolean Check(out string message)
+                {
+                    Boolean result = false;
+                    message = string.Empty;
+                    sshCnn ssh;
+                    Program.SshCnn.TryGetValue("daemonWatcher", out ssh);
+                    try
+                    {                        
+                        StringBuilder output = ssh.asyncExecute("ping google.com");                        
+
+                        result = output.ToString().Trim().Length > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        exceptionHandlerCatch.registerLogException(ex);
+                    }
+                    return result;
+                }
+            }
 
             public static class InternetConnection
             {
@@ -345,5 +366,25 @@ namespace GSMApplication.Controllers
                 }
             }            
         }    
+        
+        public static class download{
+            public static Boolean File(string remotePathFiletoToDownload, string localPathFileToSave)
+            {
+                Boolean result = false;
+                scpCnn scp;
+                Program.ScpCnn.TryGetValue("downloader1", out scp);
+                try
+                {
+                    scp.download(remotePathFiletoToDownload, localPathFileToSave);
+                    result = true;
+                }
+                catch (Exception ex)
+                {
+                    exceptionHandlerCatch.registerLogException(ex);
+                }
+                return result;
+            }
+        }
+    
     }
 }

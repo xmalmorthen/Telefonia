@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\exceptionHandlerCatch.cs" />
+    <Compile Include="Classes\scpCnn.cs" />
     <Compile Include="Classes\sshCnn.cs" />
     <Compile Include="Controllers\CheckReceivers.cs" />
     <Compile Include="Controllers\CheckDecipher.cs" />
@@ -99,6 +100,12 @@
     <Compile Include="Controllers\Online.cs" />
     <Compile Include="Controllers\Populate.cs" />
     <Compile Include="Controllers\system.cs" />
+    <Compile Include="Forms\frmPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPlayer.Designer.cs">
+      <DependentUpon>frmPlayer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmSshCnn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +155,9 @@
     <None Include="Properties\DataSources\GSMApplication.Models.Targets.datasource" />
     <None Include="Resources\1459549408_icon-close-circled.png" />
     <None Include="Resources\1459541353_No.png" />
+    <EmbeddedResource Include="Forms\frmPlayer.resx">
+      <DependentUpon>frmPlayer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmSshCnn.resx">
       <DependentUpon>FrmSshCnn.cs</DependentUpon>
     </EmbeddedResource>
@@ -245,6 +255,25 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
