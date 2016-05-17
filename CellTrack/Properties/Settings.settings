@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CellTrack.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="superUserCommand" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sudo</Value>
+    </Setting>
+    <Setting Name="sshUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="sshPass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">121212qw</Value>
+    </Setting>
+    <Setting Name="sshHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.10.20.196</Value>
+    </Setting>
+    <Setting Name="mainStyle" Type="MetroFramework.Components.MetroStyleManager" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbgeolocModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="dbgeolocModelStoreContainer">
+          <EntitySet Name="caperfiles" EntityType="dbgeolocModel.Store.caperfiles" store:Type="Tables" Schema="dbgeoloc" />
+          <EntitySet Name="caroles" EntityType="dbgeolocModel.Store.caroles" store:Type="Tables" Schema="dbgeoloc" />
+          <EntitySet Name="causuarios" EntityType="dbgeolocModel.Store.causuarios" store:Type="Tables" Schema="dbgeoloc" />
+          <EntitySet Name="reperfilroles" EntityType="dbgeolocModel.Store.reperfilroles" store:Type="Tables" Schema="dbgeoloc" />
+          <EntitySet Name="reusuariosperfil" EntityType="dbgeolocModel.Store.reusuariosperfil" store:Type="Tables" Schema="dbgeoloc" />
+          <AssociationSet Name="fk_rePerfilRoles_caPerfiles_1" Association="dbgeolocModel.Store.fk_rePerfilRoles_caPerfiles_1">
+            <End Role="caperfiles" EntitySet="caperfiles" />
+            <End Role="reperfilroles" EntitySet="reperfilroles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rePerfilRoles_caRoles_1" Association="dbgeolocModel.Store.fk_rePerfilRoles_caRoles_1">
+            <End Role="caroles" EntitySet="caroles" />
+            <End Role="reperfilroles" EntitySet="reperfilroles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_reusuariosperfil_caperfiles_1" Association="dbgeolocModel.Store.fk_reusuariosperfil_caperfiles_1">
+            <End Role="caperfiles" EntitySet="caperfiles" />
+            <End Role="reusuariosperfil" EntitySet="reusuariosperfil" />
+          </AssociationSet>
+          <AssociationSet Name="fk_reusuariosperfil_causuarios_1" Association="dbgeolocModel.Store.fk_reusuariosperfil_causuarios_1">
+            <End Role="causuarios" EntitySet="causuarios" />
+            <End Role="reusuariosperfil" EntitySet="reusuariosperfil" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="caperfiles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="perfil" Type="varchar" MaxLength="50" />
+          <Property Name="fIns" Type="datetime" Nullable="false" />
+          <Property Name="fAct" Type="datetime" />
+        </EntityType>
+        <EntityType Name="caroles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="rol" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="fIns" Type="datetime" Nullable="false" />
+          <Property Name="fAct" Type="datetime" />
+        </EntityType>
+        <EntityType Name="causuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="PrimerApellido" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="SegundoApellido" Type="varchar" MaxLength="50" />
+          <Property Name="Nombres" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="usuario" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="contrasenia" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="idDetalle" Type="int" />
+          <Property Name="fIns" Type="datetime" Nullable="false" />
+          <Property Name="fAct" Type="datetime" />
+        </EntityType>
+        <EntityType Name="reperfilroles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idPerfil" Type="int" Nullable="false" />
+          <Property Name="idRol" Type="int" Nullable="false" />
+          <Property Name="fIns" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reusuariosperfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idusuario" Type="int" Nullable="false" />
+          <Property Name="idPerfil" Type="int" Nullable="false" />
+          <Property Name="fIns" Type="datetime" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_rePerfilRoles_caPerfiles_1">
+          <End Role="caperfiles" Type="dbgeolocModel.Store.caperfiles" Multiplicity="1" />
+          <End Role="reperfilroles" Type="dbgeolocModel.Store.reperfilroles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caperfiles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reperfilroles">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rePerfilRoles_caRoles_1">
+          <End Role="caroles" Type="dbgeolocModel.Store.caroles" Multiplicity="1" />
+          <End Role="reperfilroles" Type="dbgeolocModel.Store.reperfilroles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caroles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reperfilroles">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_reusuariosperfil_caperfiles_1">
+          <End Role="caperfiles" Type="dbgeolocModel.Store.caperfiles" Multiplicity="1" />
+          <End Role="reusuariosperfil" Type="dbgeolocModel.Store.reusuariosperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caperfiles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reusuariosperfil">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_reusuariosperfil_causuarios_1">
+          <End Role="causuarios" Type="dbgeolocModel.Store.causuarios" Multiplicity="1" />
+          <End Role="reusuariosperfil" Type="dbgeolocModel.Store.reusuariosperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="causuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reusuariosperfil">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbgeolocModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbgeolocEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="caperfiles" EntityType="dbgeolocModel.caperfiles" />
+          <EntitySet Name="caroles" EntityType="dbgeolocModel.caroles" />
+          <EntitySet Name="causuarios" EntityType="dbgeolocModel.causuarios" />
+          <EntitySet Name="reperfilroles" EntityType="dbgeolocModel.reperfilroles" />
+          <AssociationSet Name="fk_rePerfilRoles_caPerfiles_1" Association="dbgeolocModel.fk_rePerfilRoles_caPerfiles_1">
+            <End Role="caperfiles" EntitySet="caperfiles" />
+            <End Role="reperfilroles" EntitySet="reperfilroles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rePerfilRoles_caRoles_1" Association="dbgeolocModel.fk_rePerfilRoles_caRoles_1">
+            <End Role="caroles" EntitySet="caroles" />
+            <End Role="reperfilroles" EntitySet="reperfilroles" />
+          </AssociationSet>
+          <EntitySet Name="reusuariosperfil" EntityType="dbgeolocModel.reusuariosperfil" />
+          <AssociationSet Name="fk_reusuariosperfil_caperfiles_1" Association="dbgeolocModel.fk_reusuariosperfil_caperfiles_1">
+            <End Role="caperfiles" EntitySet="caperfiles" />
+            <End Role="reusuariosperfil" EntitySet="reusuariosperfil" />
+          </AssociationSet>
+          <AssociationSet Name="fk_reusuariosperfil_causuarios_1" Association="dbgeolocModel.fk_reusuariosperfil_causuarios_1">
+            <End Role="causuarios" EntitySet="causuarios" />
+            <End Role="reusuariosperfil" EntitySet="reusuariosperfil" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="caperfiles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="perfil" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" />
+          <Property Name="fAct" Type="DateTime" />
+          <NavigationProperty Name="reperfilroles" Relationship="dbgeolocModel.fk_rePerfilRoles_caPerfiles_1" FromRole="caperfiles" ToRole="reperfilroles" />
+          <NavigationProperty Name="reusuariosperfil" Relationship="dbgeolocModel.fk_reusuariosperfil_caperfiles_1" FromRole="caperfiles" ToRole="reusuariosperfil" />
+        </EntityType>
+        <EntityType Name="caroles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="rol" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" />
+          <Property Name="fAct" Type="DateTime" />
+          <NavigationProperty Name="reperfilroles" Relationship="dbgeolocModel.fk_rePerfilRoles_caRoles_1" FromRole="caroles" ToRole="reperfilroles" />
+        </EntityType>
+        <EntityType Name="causuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="PrimerApellido" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SegundoApellido" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Nombres" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="idDetalle" Type="Int32" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" />
+          <Property Name="fAct" Type="DateTime" />
+          <NavigationProperty Name="reusuariosperfil" Relationship="dbgeolocModel.fk_reusuariosperfil_causuarios_1" FromRole="causuarios" ToRole="reusuariosperfil" />
+          <Property Type="String" Name="usuario" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="contrasenia" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="reperfilroles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idPerfil" Type="Int32" Nullable="false" />
+          <Property Name="idRol" Type="Int32" Nullable="false" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="caperfiles" Relationship="dbgeolocModel.fk_rePerfilRoles_caPerfiles_1" FromRole="reperfilroles" ToRole="caperfiles" />
+          <NavigationProperty Name="caroles" Relationship="dbgeolocModel.fk_rePerfilRoles_caRoles_1" FromRole="reperfilroles" ToRole="caroles" />
+        </EntityType>
+        <Association Name="fk_rePerfilRoles_caPerfiles_1">
+          <End Role="caperfiles" Type="dbgeolocModel.caperfiles" Multiplicity="1" />
+          <End Role="reperfilroles" Type="dbgeolocModel.reperfilroles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caperfiles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reperfilroles">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rePerfilRoles_caRoles_1">
+          <End Role="caroles" Type="dbgeolocModel.caroles" Multiplicity="1" />
+          <End Role="reperfilroles" Type="dbgeolocModel.reperfilroles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caroles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reperfilroles">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="reusuariosperfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="idusuario" Nullable="false" />
+          <Property Type="Int32" Name="idPerfil" Nullable="false" />
+          <Property Type="DateTime" Name="fIns" Nullable="false" />
+          <Property Type="Boolean" Name="activo" Nullable="false" />
+          <NavigationProperty Name="caperfiles" Relationship="dbgeolocModel.fk_reusuariosperfil_caperfiles_1" FromRole="reusuariosperfil" ToRole="caperfiles" />
+          <NavigationProperty Name="causuarios" Relationship="dbgeolocModel.fk_reusuariosperfil_causuarios_1" FromRole="reusuariosperfil" ToRole="causuarios" />
+        </EntityType>
+        <Association Name="fk_reusuariosperfil_caperfiles_1">
+          <End Type="dbgeolocModel.caperfiles" Role="caperfiles" Multiplicity="1" />
+          <End Type="dbgeolocModel.reusuariosperfil" Role="reusuariosperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caperfiles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reusuariosperfil">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_reusuariosperfil_causuarios_1">
+          <End Type="dbgeolocModel.causuarios" Role="causuarios" Multiplicity="1" />
+          <End Type="dbgeolocModel.reusuariosperfil" Role="reusuariosperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="causuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reusuariosperfil">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbgeolocModelStoreContainer" CdmEntityContainer="dbgeolocEntities">
+          <EntitySetMapping Name="caperfiles">
+            <EntityTypeMapping TypeName="dbgeolocModel.caperfiles">
+              <MappingFragment StoreEntitySet="caperfiles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="perfil" ColumnName="perfil" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="caroles">
+            <EntityTypeMapping TypeName="dbgeolocModel.caroles">
+              <MappingFragment StoreEntitySet="caroles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="causuarios">
+            <EntityTypeMapping TypeName="dbgeolocModel.causuarios">
+              <MappingFragment StoreEntitySet="causuarios">
+                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="PrimerApellido" ColumnName="PrimerApellido" />
+                <ScalarProperty Name="SegundoApellido" ColumnName="SegundoApellido" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="idDetalle" ColumnName="idDetalle" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reperfilroles">
+            <EntityTypeMapping TypeName="dbgeolocModel.reperfilroles">
+              <MappingFragment StoreEntitySet="reperfilroles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reusuariosperfil">
+            <EntityTypeMapping TypeName="dbgeolocModel.reusuariosperfil">
+              <MappingFragment StoreEntitySet="reusuariosperfil">
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
