@@ -26,7 +26,11 @@ namespace CellTrack.Classes
         {
             msmMain.Owner = (ContainerControl)frm;
             msmMain = Properties.Settings.Default.mainStyle;
-            ((MetroForm)frm).StyleManager = msmMain;
+            try
+            {
+                ((MetroForm)frm).StyleManager = msmMain;
+            }
+            catch (Exception){}            
             visualStyles.iterControls(frm, msmMain);
         }
 

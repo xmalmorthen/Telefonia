@@ -49,7 +49,12 @@ namespace CellTrack.Views
 
         private void btnUser_Click(object sender, EventArgs e)
         {
-            mCMCuenta.Show(btnUser, new Point(0,btnUser.Height));
+            //mCMCuenta.Show(btnUser, new Point(0,btnUser.Height));
+        }
+
+        private void mainMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
