@@ -146,6 +146,30 @@
     <Compile Include="Views\frmSshCnn.Designer.cs">
       <DependentUpon>frmSshCnn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\frmAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\frmAdmin.Designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\frmBaseDatos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\frmBaseDatos.Designer.cs">
+      <DependentUpon>frmBaseDatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\frmInvestigacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\frmInvestigacion.Designer.cs">
+      <DependentUpon>frmInvestigacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\frmLocalizacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\frmLocalizacion.Designer.cs">
+      <DependentUpon>frmLocalizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\frmUserAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,6 +182,19 @@
     <Compile Include="Views\UserControls\menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\icon_039920_256.jpg" />
+    <EmbeddedResource Include="Views\UserControls\frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\frmBaseDatos.resx">
+      <DependentUpon>frmBaseDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\frmInvestigacion.resx">
+      <DependentUpon>frmInvestigacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\frmLocalizacion.resx">
+      <DependentUpon>frmLocalizacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\frmUserAdmin.resx">
       <DependentUpon>frmUserAdmin.cs</DependentUpon>
     </EmbeddedResource>

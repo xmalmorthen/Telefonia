@@ -11,9 +11,9 @@ using CellTrack.Classes;
 
 namespace CellTrack.Views.UserControls
 {
-    public partial class frmUserAdmin : UserControl
+    public partial class frmInvestigacion : UserControl
     {
-        public frmUserAdmin()
+        public frmInvestigacion()
         {
             InitializeComponent();
             this.init();

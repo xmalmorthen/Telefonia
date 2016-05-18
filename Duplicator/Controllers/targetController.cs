@@ -43,14 +43,14 @@ namespace Duplicator.Controllers
                     wrkr.WorkerSupportsCancellation = true;
                     wrkr.DoWork += wrkr_DoWork;
                     wrkr.RunWorkerCompleted += wrkr_RunWorkerCompleted;
-                    //wrkr.RunWorkerAsync();
+                    wrkr.RunWorkerAsync();
 
-                    //while (wrkr.IsBusy)
-                    //{
-                    //    Application.DoEvents();
-                    //}
+                    while (wrkr.IsBusy)
+                    {
+                        Application.DoEvents();
+                    }
 
-                    //if (!doRecord) throw new Exception(messageWorker);
+                    if (!doRecord) throw new Exception(messageWorker);
 
                     /*
                      * GRABAR EN BD

@@ -34,6 +34,8 @@ namespace CellTrack
 
         #endregion SSHREFERENCES
 
+        public static frmDashboard FrmDashboard = null;
+
         [STAThread]
         static void Main()
         {
@@ -51,7 +53,9 @@ namespace CellTrack
                 if (FrmLogIn.dlgRes == DialogResult.No) Application.Exit();
             }*/
 
-            Application.Run(new frmDashboard());
+            FrmDashboard = new frmDashboard();
+
+            Application.Run(FrmDashboard);
             
             Program.closeAllConnections();
         }

@@ -22,6 +22,32 @@ namespace CellTrack.Views.UserControls
         private void init()
         {
             visualStyles.apply(this, msmMain);
+            metroToolTip.StyleManager = msmMain;
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            Program.FrmDashboard.renderControl(new frmUserAdmin());
+        }
+
+        private void btnConfigs_Click(object sender, EventArgs e)
+        {
+            Program.FrmDashboard.renderControl(new frmAdmin());
+        }
+
+        private void btnFinder_Click(object sender, EventArgs e)
+        {
+            Program.FrmDashboard.renderControl(new frmInvestigacion());
+        }
+
+        private void btnDataBases_Click(object sender, EventArgs e)
+        {
+            Program.FrmDashboard.renderControl(new frmBaseDatos());
+        }
+
+        private void btnLocalizations_Click(object sender, EventArgs e)
+        {
+            Program.FrmDashboard.renderControl(new frmLocalizacion());
         }
     }
 }

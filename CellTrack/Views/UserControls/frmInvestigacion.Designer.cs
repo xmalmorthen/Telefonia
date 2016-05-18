@@ -1,6 +1,6 @@
 ﻿namespace CellTrack.Views.UserControls
 {
-    partial class frmUserAdmin
+    partial class frmInvestigacion
     {
         /// <summary> 
         /// Variable del diseñador requerida.
@@ -31,8 +31,8 @@
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.msmMain = new MetroFramework.Components.MetroStyleManager();
             this.label1 = new System.Windows.Forms.Label();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,20 +55,9 @@
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(294, 31);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Información de Usuario";
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(984, 598);
-            this.shapeContainer1.TabIndex = 16;
-            this.shapeContainer1.TabStop = false;
+            this.label1.Size = new System.Drawing.Size(174, 31);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Investigación";
             // 
             // lineShape1
             // 
@@ -78,18 +67,28 @@
             this.lineShape1.Y1 = 35;
             this.lineShape1.Y2 = 35;
             // 
-            // frmUserAdmin
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(982, 596);
+            this.shapeContainer1.TabIndex = 18;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // frmInvestigacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.shapeContainer1);
             this.MinimumSize = new System.Drawing.Size(984, 598);
-            this.Name = "frmUserAdmin";
-            this.Size = new System.Drawing.Size(984, 598);
+            this.Name = "frmInvestigacion";
+            this.Size = new System.Drawing.Size(982, 596);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -101,11 +100,7 @@
         private MetroFramework.Components.MetroToolTip metroToolTip;
         private MetroFramework.Components.MetroStyleManager msmMain;
         private System.Windows.Forms.Label label1;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
-
-
-
-
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
     }
 }

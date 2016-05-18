@@ -1,4 +1,5 @@
 ﻿using CellTrack.Classes;
+using CellTrack.Views.UserControls;
 using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
@@ -42,19 +43,21 @@ namespace CellTrack.Views
 
         private void init()
         {
-            visualStyles.apply(this, msmMain);            
-            mCMCuenta.StyleManager = msmMain;
+            visualStyles.apply(this, msmMain);
+            metroToolTip.StyleManager = msmMain;
             frmState = FrmState.Normal;
+
+            renderControl(new frmUserAdmin());
         }
 
-        private void btnUser_Click(object sender, EventArgs e)
-        {
-            //mCMCuenta.Show(btnUser, new Point(0,btnUser.Height));
+        public void renderControl(UserControl ctrl) {
+            ctrl.Dock = System.Windows.Forms.DockStyle.Fill;
+            ctrl.Location = new System.Drawing.Point(0, 0);            
+            ctrl.TabIndex = 0;
+
+            this.panel.Controls.Clear();
+            this.panel.Controls.Add(ctrl);
         }
 
-        private void mainMenu_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

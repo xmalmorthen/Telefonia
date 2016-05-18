@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.msmMain = new MetroFramework.Components.MetroStyleManager();
+            this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.btnConfigs = new MetroFramework.Controls.MetroButton();
             this.btnUser = new MetroFramework.Controls.MetroButton();
-            this.btnLocalizations = new MetroFramework.Controls.MetroButton();
-            this.btnDataBases = new MetroFramework.Controls.MetroButton();
             this.btnFinder = new MetroFramework.Controls.MetroButton();
-            this.metroToolTip = new MetroFramework.Components.MetroToolTip();
+            this.btnDataBases = new MetroFramework.Controls.MetroButton();
+            this.btnLocalizations = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,19 +44,27 @@
             this.msmMain.Style = MetroFramework.MetroColorStyle.Orange;
             this.msmMain.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
+            // metroToolTip
+            // 
+            this.metroToolTip.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroToolTip.StyleManager = null;
+            this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
             // btnConfigs
             // 
             this.btnConfigs.AutoSize = true;
             this.btnConfigs.BackgroundImage = global::CellTrack.Properties.Resources._1463451293_cog;
             this.btnConfigs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnConfigs.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnConfigs.Location = new System.Drawing.Point(47, 220);
-            this.btnConfigs.Margin = new System.Windows.Forms.Padding(10, 5, 10, 10);
+            this.btnConfigs.Location = new System.Drawing.Point(200, 42);
+            this.btnConfigs.Margin = new System.Windows.Forms.Padding(5);
             this.btnConfigs.Name = "btnConfigs";
             this.btnConfigs.Size = new System.Drawing.Size(23, 23);
-            this.btnConfigs.TabIndex = 9;
+            this.btnConfigs.TabIndex = 4;
+            this.metroToolTip.SetToolTip(this.btnConfigs, "Configuraciones");
             this.btnConfigs.UseSelectable = true;
             this.btnConfigs.UseStyleColors = true;
+            this.btnConfigs.Click += new System.EventHandler(this.btnConfigs_Click);
             // 
             // btnUser
             // 
@@ -65,41 +72,15 @@
             this.btnUser.BackgroundImage = global::CellTrack.Properties.Resources._1463451253_user;
             this.btnUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnUser.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnUser.Location = new System.Drawing.Point(10, 220);
-            this.btnUser.Margin = new System.Windows.Forms.Padding(10, 5, 10, 10);
+            this.btnUser.Location = new System.Drawing.Point(200, 5);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(5);
             this.btnUser.Name = "btnUser";
             this.btnUser.Size = new System.Drawing.Size(23, 23);
-            this.btnUser.TabIndex = 8;
+            this.btnUser.TabIndex = 0;
+            this.metroToolTip.SetToolTip(this.btnUser, "Información de usuario");
             this.btnUser.UseSelectable = true;
             this.btnUser.UseStyleColors = true;
-            // 
-            // btnLocalizations
-            // 
-            this.btnLocalizations.AutoSize = true;
-            this.btnLocalizations.BackgroundImage = global::CellTrack.Properties.Resources._1463451442_target;
-            this.btnLocalizations.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnLocalizations.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnLocalizations.Location = new System.Drawing.Point(10, 10);
-            this.btnLocalizations.Margin = new System.Windows.Forms.Padding(10, 10, 10, 5);
-            this.btnLocalizations.Name = "btnLocalizations";
-            this.btnLocalizations.Size = new System.Drawing.Size(60, 60);
-            this.btnLocalizations.TabIndex = 5;
-            this.btnLocalizations.UseSelectable = true;
-            this.btnLocalizations.UseStyleColors = true;
-            // 
-            // btnDataBases
-            // 
-            this.btnDataBases.AutoSize = true;
-            this.btnDataBases.BackgroundImage = global::CellTrack.Properties.Resources._1463451426_db;
-            this.btnDataBases.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnDataBases.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnDataBases.Location = new System.Drawing.Point(10, 80);
-            this.btnDataBases.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.btnDataBases.Name = "btnDataBases";
-            this.btnDataBases.Size = new System.Drawing.Size(60, 60);
-            this.btnDataBases.TabIndex = 6;
-            this.btnDataBases.UseSelectable = true;
-            this.btnDataBases.UseStyleColors = true;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
             // btnFinder
             // 
@@ -107,31 +88,61 @@
             this.btnFinder.BackgroundImage = global::CellTrack.Properties.Resources._1463451359_zoom;
             this.btnFinder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnFinder.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnFinder.Location = new System.Drawing.Point(10, 150);
-            this.btnFinder.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.btnFinder.Location = new System.Drawing.Point(135, 5);
+            this.btnFinder.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
             this.btnFinder.Name = "btnFinder";
             this.btnFinder.Size = new System.Drawing.Size(60, 60);
-            this.btnFinder.TabIndex = 7;
+            this.btnFinder.TabIndex = 3;
+            this.metroToolTip.SetToolTip(this.btnFinder, "Investigación");
             this.btnFinder.UseSelectable = true;
             this.btnFinder.UseStyleColors = true;
+            this.btnFinder.Click += new System.EventHandler(this.btnFinder_Click);
             // 
-            // metroToolTip
+            // btnDataBases
             // 
-            this.metroToolTip.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroToolTip.StyleManager = null;
-            this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.btnDataBases.AutoSize = true;
+            this.btnDataBases.BackgroundImage = global::CellTrack.Properties.Resources._1463451426_db;
+            this.btnDataBases.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnDataBases.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnDataBases.Location = new System.Drawing.Point(70, 5);
+            this.btnDataBases.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.btnDataBases.Name = "btnDataBases";
+            this.btnDataBases.Size = new System.Drawing.Size(60, 60);
+            this.btnDataBases.TabIndex = 2;
+            this.metroToolTip.SetToolTip(this.btnDataBases, "Base de datos");
+            this.btnDataBases.UseSelectable = true;
+            this.btnDataBases.UseStyleColors = true;
+            this.btnDataBases.Click += new System.EventHandler(this.btnDataBases_Click);
+            // 
+            // btnLocalizations
+            // 
+            this.btnLocalizations.AutoSize = true;
+            this.btnLocalizations.BackgroundImage = global::CellTrack.Properties.Resources._1463451442_target;
+            this.btnLocalizations.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnLocalizations.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnLocalizations.Location = new System.Drawing.Point(5, 5);
+            this.btnLocalizations.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.btnLocalizations.Name = "btnLocalizations";
+            this.btnLocalizations.Size = new System.Drawing.Size(60, 60);
+            this.btnLocalizations.TabIndex = 1;
+            this.metroToolTip.SetToolTip(this.btnLocalizations, "Localización");
+            this.btnLocalizations.UseSelectable = true;
+            this.btnLocalizations.UseStyleColors = true;
+            this.btnLocalizations.Click += new System.EventHandler(this.btnLocalizations_Click);
             // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btnConfigs);
             this.Controls.Add(this.btnUser);
-            this.Controls.Add(this.btnLocalizations);
-            this.Controls.Add(this.btnDataBases);
             this.Controls.Add(this.btnFinder);
+            this.Controls.Add(this.btnDataBases);
+            this.Controls.Add(this.btnLocalizations);
             this.Name = "menu";
-            this.Size = new System.Drawing.Size(110, 371);
+            this.Size = new System.Drawing.Size(226, 68);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
