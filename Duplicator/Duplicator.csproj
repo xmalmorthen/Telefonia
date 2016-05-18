@@ -57,7 +57,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -148,7 +148,6 @@
     <None Include="DBDuplicatorDataSet1.xss">
       <DependentUpon>DBDuplicatorDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="Duplicator_ClaveTemporal.pfx" />
     <None Include="Models\DataBase\DBDuplicator.dbml.layout">
       <DependentUpon>DBDuplicator.dbml</DependentUpon>
     </None>

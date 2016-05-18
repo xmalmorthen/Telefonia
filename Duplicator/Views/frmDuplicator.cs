@@ -48,6 +48,13 @@ namespace Duplicator.Views
             lblDuplicate.Text = data[1];
             lblAvailable.Text = data[2];
 
+            try
+            {
+                btnAddTarget.Enabled = int.Parse(data[2]) > 0;
+            }
+            catch (Exception)
+            {}
+
             //dgvDuplicatior.DataSource = 
         }
 

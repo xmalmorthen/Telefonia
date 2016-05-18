@@ -31,7 +31,7 @@ namespace Duplicator.Views
         private void btnRecord_Click(object sender, EventArgs e)
         {
             pbRecord.Visible = true;
-            //this.Enabled = false;
+            this.Enabled = false;
             try
             {
                 if (String.IsNullOrEmpty(txtNumber.Text.Trim()) && String.IsNullOrEmpty(txtCarrier.Text.Trim()) && String.IsNullOrEmpty(txtCountry.Text.Trim()))
@@ -69,6 +69,16 @@ namespace Duplicator.Views
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = System.Windows.Forms.DialogResult.No;
+        }
+
+        private void txtNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e .KeyChar);             
+        }
+
+        private void txtCarrier_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
         }
     }
 }

@@ -35,6 +35,5 @@ namespace Duplicator.Models
             get { return country; }
             set { country = value; }
         }
-
     }
 }

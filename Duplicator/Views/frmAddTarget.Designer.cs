@@ -136,9 +136,11 @@
             this.txtNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Location = new System.Drawing.Point(80, 3);
+            this.txtNumber.MaxLength = 10;
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(351, 26);
             this.txtNumber.TabIndex = 3;
+            this.txtNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumber_KeyPress);
             // 
             // txtCarrier
             // 
@@ -148,6 +150,7 @@
             this.txtCarrier.Name = "txtCarrier";
             this.txtCarrier.Size = new System.Drawing.Size(351, 26);
             this.txtCarrier.TabIndex = 4;
+            this.txtCarrier.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarrier_KeyPress);
             // 
             // txtCountry
             // 
@@ -157,6 +160,7 @@
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(351, 26);
             this.txtCountry.TabIndex = 5;
+            this.txtCountry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarrier_KeyPress);
             // 
             // flowLayoutPanel1
             // 

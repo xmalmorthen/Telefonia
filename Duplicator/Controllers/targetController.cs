@@ -16,21 +16,14 @@ namespace Duplicator.Controllers
         private static DBDuplicatorDataContext dbDuplicator = new DBDuplicatorDataContext();
 
         private static Boolean doRecord = false;
+        private static string messageWorker = string.Empty;
         public static Boolean record(caUsers userLogged, duplicatorModel target, out string message)
         {
             Boolean result = false;
             message = string.Empty;
             try
             {
-                int maxTargets = int.Parse(dbDuplicator.caConfigurations.SingleOrDefault(qry => qry.tag.Equals(Duplicator.Properties.Settings.Default.maxTargetsTableColName)).value);
-
-                //verificar numero de objetivos permitidos y guardados
-                if (dbDuplicator.reUsersDuplicators.Select(qry => qry.idUser == userLogged.id && qry.active == true).Count() >= maxTargets)
-                {
-                    message = String.Format("{0} existing targets, impossible to add more", maxTargets);
-                }
-                //verificar si existe target
-                else if (dbDuplicator.reUsersDuplicators.SingleOrDefault(qry => qry.idUser.Equals(userLogged.id) &&
+                if (dbDuplicator.reUsersDuplicators.SingleOrDefault(qry => qry.idUser.Equals(userLogged.id) &&
                                                                             qry.active.Equals(true) &&
                                                                             qry.maDuplicator.number.Equals(target.Number) &&
                                                                             qry.maDuplicator.carrier.Equals(target.Carrier) &&
@@ -50,12 +43,14 @@ namespace Duplicator.Controllers
                     wrkr.WorkerSupportsCancellation = true;
                     wrkr.DoWork += wrkr_DoWork;
                     wrkr.RunWorkerCompleted += wrkr_RunWorkerCompleted;
-                    wrkr.RunWorkerAsync();
+                    //wrkr.RunWorkerAsync();
 
-                    while (wrkr.IsBusy)
-                    {
-                        Application.DoEvents();
-                    }
+                    //while (wrkr.IsBusy)
+                    //{
+                    //    Application.DoEvents();
+                    //}
+
+                    //if (!doRecord) throw new Exception(messageWorker);
 
                     /*
                      * GRABAR EN BD
@@ -90,10 +85,7 @@ namespace Duplicator.Controllers
                 }
             }
             catch (Exception ex)
-            {
-                if (ex.InnerException is NullReferenceException)
-                    message = ex.InnerException.Message;
-                else
+            {                
                 message = ex.Message;
             }
             return result;
@@ -110,7 +102,7 @@ namespace Duplicator.Controllers
             if ((Boolean)e.Result)
                 doRecord = true;
             else 
-                throw new NullReferenceException ("PDU modem not detected. Try again, if the problem persists please contact your system administrator.");
+                messageWorker = "PDU modem not detected. Try again, if the problem persists please contact your system administrator.";
         }
 
         public static Boolean remove(caUsers userLogged, duplicatorModel target, out string message)
@@ -119,7 +111,7 @@ namespace Duplicator.Controllers
             message = string.Empty;
             try
             {
-                reUsersDuplicators data = dbDuplicator.reUsersDuplicators.SingleOrDefault(qry => qry.idUser.Equals (userLogged.id) && qry.maDuplicator.number.Equals(target.Number) && qry.maDuplicator.carrier.Equals(target.Carrier) && qry.maDuplicator.country.Equals(target.Country));
+                reUsersDuplicators data = dbDuplicator.reUsersDuplicators.SingleOrDefault(qry => qry.idUser.Equals (userLogged.id) && qry.maDuplicator.number.Equals(target.Number) && qry.maDuplicator.carrier.Equals(target.Carrier) && qry.maDuplicator.country.Equals(target.Country) && qry.active == true);
                 if (data != null)
                 {
                     /*

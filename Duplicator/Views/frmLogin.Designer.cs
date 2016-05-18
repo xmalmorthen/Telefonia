@@ -86,7 +86,6 @@
             this.txtPass.PasswordChar = '?';
             this.txtPass.Size = new System.Drawing.Size(268, 29);
             this.txtPass.TabIndex = 2;
-            this.txtPass.Text = "123";
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
@@ -138,7 +137,6 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(268, 29);
             this.txtUser.TabIndex = 1;
-            this.txtUser.Text = "xmal";
             this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // flowLayoutPanel1
