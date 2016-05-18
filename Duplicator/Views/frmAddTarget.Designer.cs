@@ -40,6 +40,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnRecord = new System.Windows.Forms.Button();
+            this.pbRecord = new System.Windows.Forms.ProgressBar();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -161,6 +162,7 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnCancel);
             this.flowLayoutPanel1.Controls.Add(this.btnRecord);
+            this.flowLayoutPanel1.Controls.Add(this.pbRecord);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 143);
@@ -196,6 +198,18 @@
             this.btnRecord.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRecord.UseVisualStyleBackColor = true;
             this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
+            // 
+            // pbRecord
+            // 
+            this.flowLayoutPanel1.SetFlowBreak(this.pbRecord, true);
+            this.pbRecord.Location = new System.Drawing.Point(15, 8);
+            this.pbRecord.Margin = new System.Windows.Forms.Padding(3, 8, 20, 3);
+            this.pbRecord.MarqueeAnimationSpeed = 30;
+            this.pbRecord.Name = "pbRecord";
+            this.pbRecord.Size = new System.Drawing.Size(225, 23);
+            this.pbRecord.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.pbRecord.TabIndex = 2;
+            this.pbRecord.Visible = false;
             // 
             // frmAddTarget
             // 
@@ -233,5 +247,6 @@
         private System.Windows.Forms.TextBox txtCarrier;
         private System.Windows.Forms.TextBox txtCountry;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ProgressBar pbRecord;
     }
 }

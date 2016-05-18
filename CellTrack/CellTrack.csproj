@@ -182,7 +182,6 @@
     <None Include="Resources\1463434201_checkmark.png" />
     <None Include="Resources\1463432685_users.png" />
     <None Include="Resources\1463432442_users.png" />
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

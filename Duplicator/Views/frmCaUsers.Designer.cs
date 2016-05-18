@@ -50,6 +50,8 @@
             this.btnAccept = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.chkIsAdmin = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.nUDTargets = new System.Windows.Forms.NumericUpDown();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +70,7 @@
             this.tlpUserForm.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDTargets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.caUsersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDuplicatorDataSet)).BeginInit();
@@ -156,8 +159,8 @@
             this.tableLayoutPanel3.Location = new System.Drawing.Point(95, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 230F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 94F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(532, 405);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
@@ -172,19 +175,22 @@
             this.tlpUserForm.Controls.Add(this.label1, 0, 0);
             this.tlpUserForm.Controls.Add(this.txtUser, 1, 0);
             this.tlpUserForm.Controls.Add(this.txtConfirm, 1, 2);
-            this.tlpUserForm.Controls.Add(this.flowLayoutPanel2, 1, 4);
-            this.tlpUserForm.Controls.Add(this.flowLayoutPanel3, 1, 3);
+            this.tlpUserForm.Controls.Add(this.flowLayoutPanel2, 1, 5);
+            this.tlpUserForm.Controls.Add(this.flowLayoutPanel3, 1, 4);
+            this.tlpUserForm.Controls.Add(this.label4, 0, 3);
+            this.tlpUserForm.Controls.Add(this.nUDTargets, 1, 3);
             this.tlpUserForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpUserForm.Enabled = false;
             this.tlpUserForm.Location = new System.Drawing.Point(3, 3);
             this.tlpUserForm.Name = "tlpUserForm";
-            this.tlpUserForm.RowCount = 5;
-            this.tlpUserForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tlpUserForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tlpUserForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tlpUserForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tlpUserForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tlpUserForm.Size = new System.Drawing.Size(526, 193);
+            this.tlpUserForm.RowCount = 6;
+            this.tlpUserForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpUserForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpUserForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpUserForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpUserForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpUserForm.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpUserForm.Size = new System.Drawing.Size(526, 224);
             this.tlpUserForm.TabIndex = 1;
             // 
             // label3
@@ -205,7 +211,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(40, 39);
+            this.label2.Location = new System.Drawing.Point(40, 40);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 24);
@@ -217,7 +223,7 @@
             // 
             this.txtPass.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(146, 37);
+            this.txtPass.Location = new System.Drawing.Point(146, 38);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '?';
             this.txtPass.Size = new System.Drawing.Size(377, 29);
@@ -262,10 +268,10 @@
             this.flowLayoutPanel2.Controls.Add(this.btnAccept);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(146, 153);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(146, 188);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(377, 37);
-            this.flowLayoutPanel2.TabIndex = 7;
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(377, 46);
+            this.flowLayoutPanel2.TabIndex = 9;
             // 
             // btnCancel
             // 
@@ -296,7 +302,7 @@
             this.flowLayoutPanel3.Controls.Add(this.chkIsAdmin);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(146, 126);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(146, 161);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(377, 21);
             this.flowLayoutPanel3.TabIndex = 8;
@@ -312,6 +318,34 @@
             this.chkIsAdmin.TabIndex = 0;
             this.chkIsAdmin.Text = "Is Admin";
             this.chkIsAdmin.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(60, 128);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 24);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Targets";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // nUDTargets
+            // 
+            this.nUDTargets.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nUDTargets.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nUDTargets.Location = new System.Drawing.Point(146, 126);
+            this.nUDTargets.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nUDTargets.Name = "nUDTargets";
+            this.nUDTargets.Size = new System.Drawing.Size(377, 29);
+            this.nUDTargets.TabIndex = 11;
+            this.nUDTargets.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dgvUsers
             // 
@@ -338,12 +372,12 @@
             this.isAdminDataGridViewCheckBoxColumn});
             this.dgvUsers.DataSource = this.caUsersBindingSource;
             this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUsers.Location = new System.Drawing.Point(3, 202);
+            this.dgvUsers.Location = new System.Drawing.Point(3, 233);
             this.dgvUsers.MultiSelect = false;
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(526, 200);
+            this.dgvUsers.Size = new System.Drawing.Size(526, 169);
             this.dgvUsers.TabIndex = 2;
             // 
             // idDataGridViewTextBoxColumn
@@ -440,6 +474,7 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDTargets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.caUsersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDuplicatorDataSet)).EndInit();
@@ -464,10 +499,7 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.DataGridView dgvUsers;
-        private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.TextBox txtConfirm;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.CheckBox chkIsAdmin;
         private DBDuplicatorDataSet1 dBDuplicatorDataSet;
@@ -480,5 +512,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fActDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isAdminDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown nUDTargets;
     }
 }

@@ -18,20 +18,8 @@
       <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="caUsers_reUsersDuplicators" Member="caUsers" ThisKey="idUser" OtherKey="id" Type="caUsers" IsForeignKey="true" />
       <Association Name="maDuplicator_reUsersDuplicators" Member="maDuplicator" ThisKey="idMaDuplicator" OtherKey="id" Type="maDuplicator" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.caUsers" Member="caUsers">
-    <Type Name="caUsers">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="[user]" Member="user" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="password" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="isAdmin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="caUsers_reUsersDuplicators" Member="reUsersDuplicators" ThisKey="id" OtherKey="idUser" Type="reUsersDuplicators" />
+      <Association Name="caUsers_reUsersDuplicators" Member="caUsers" ThisKey="idUser" OtherKey="id" Type="caUsers" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.maDuplicator" Member="maDuplicator">
@@ -46,4 +34,23 @@
       <Association Name="maDuplicator_reUsersDuplicators" Member="reUsersDuplicators" ThisKey="id" OtherKey="idMaDuplicator" Type="reUsersDuplicators" />
     </Type>
   </Table>
+  <Table Name="dbo.caUsers" Member="caUsers">
+    <Type Name="caUsers">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[user]" Member="user" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="fIns" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fAct" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isAdmin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="objectivesNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="caUsers_reUsersDuplicators" Member="reUsersDuplicators" ThisKey="id" OtherKey="idUser" Type="reUsersDuplicators" />
+    </Type>
+  </Table>
+  <Function Name="dbo.spDuplicatesActivesByIdUser" Method="spDuplicatesActivesByIdUser">
+    <Parameter Name="idUser" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spDuplicatesActivesByIdUserResult">
+      <Column Name="DuplicatesNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

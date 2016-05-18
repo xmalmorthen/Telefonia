@@ -42,6 +42,12 @@ namespace Duplicator.Views
         {
             duplicatorModelBindingSource.DataSource = duplicatorController.duplicatorList(this.UserLogged.id);
 
+            List<string> data = duplicatorController.DuplicatesNumber(this.UserLogged.id);
+
+            lblObjetives.Text = data[0];
+            lblDuplicate.Text = data[1];
+            lblAvailable.Text = data[2];
+
             //dgvDuplicatior.DataSource = 
         }
 

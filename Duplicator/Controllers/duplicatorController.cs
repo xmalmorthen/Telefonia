@@ -64,6 +64,20 @@ namespace Duplicator.Controllers
             return List;
         }
 
+        public static List<string> DuplicatesNumber(int idUser)
+        {
+            List<string> data = new List<string>(3);
+
+            int duplicatesNumber = dbDuplicator.spDuplicatesActivesByIdUser(idUser).SingleOrDefault().DuplicatesNumber.GetValueOrDefault();
+            int targetsNumbers = dbDuplicator.caUsers.SingleOrDefault(qry => qry.id == idUser && qry.active == true).objectivesNumber.GetValueOrDefault();
+
+            data.Add(targetsNumbers > 0 ? targetsNumbers.ToString() : "-");
+            data.Add(duplicatesNumber.ToString());
+            data.Add(targetsNumbers > 0 ?  (targetsNumbers - duplicatesNumber).ToString() : "-");
+
+            return data;
+        } 
+
 
     }
 }

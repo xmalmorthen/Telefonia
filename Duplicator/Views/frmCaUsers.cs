@@ -118,8 +118,8 @@ namespace Duplicator.Views
             {
                 MessageBox.Show(this,"Required information", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.txtUser.Focus();
-            }
-            else if (string.IsNullOrEmpty(this.txtPass.Text.Trim()))
+            } 
+            else if (this.State == frmState.Add && string.IsNullOrEmpty(this.txtPass.Text.Trim()))
             {
                 MessageBox.Show(this, "Required information", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.txtPass.Focus();
@@ -139,7 +139,8 @@ namespace Duplicator.Views
                         if (!caUsersModel.insertUser(new caUsers()
                         {
                             user = this.txtUser.Text.Trim(),
-                            password = Hash.Encode(this.txtPass.Text.Trim())
+                            password = Hash.Encode(this.txtPass.Text.Trim()),
+                            objectivesNumber = (int)nUDTargets.Value
                         }))
                         {
                             MessageBox.Show(this, "Previously registered user, please review", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -152,11 +153,15 @@ namespace Duplicator.Views
                         }
                     }
                     else {
-                        if (!caUsersModel.editUser(new caUsers()
-                        {
-                            id = this.selectItem.id,
-                            password = Hash.Encode(this.txtPass.Text.Trim())
-                        }))
+                        caUsers editUser = new caUsers();
+                        editUser.id = this.selectItem.id;
+                        editUser.objectivesNumber =  (int)this.nUDTargets.Value;
+                        if (!String.IsNullOrEmpty(this.txtPass.Text.Trim()))
+                            editUser.password = Hash.Encode(this.txtPass.Text.Trim());
+                        else
+                            editUser.password = this.selectItem.password;
+
+                        if (!caUsersModel.editUser(editUser))
                         {
                             MessageBox.Show(this, "User not found", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
@@ -187,6 +192,8 @@ namespace Duplicator.Views
             try
             {
                 this.txtUser.Text = this.selectItem.user;
+                this.nUDTargets.Value = this.selectItem.objectivesNumber.GetValueOrDefault(0);
+                this.chkIsAdmin.Checked = this.selectItem.isAdmin;
             }
             catch (Exception) { }
         }

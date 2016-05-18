@@ -28,6 +28,7 @@ namespace Duplicator.Models
             {
                 if (dbDuplicator.caUsers.SingleOrDefault(qry => qry.user.Equals(data.user.Trim()) && qry.active == true) == null) {
                     data.active = true;
+                    if (data.objectivesNumber.Equals(0)) data.objectivesNumber = null;
 
                     dbDuplicator.caUsers.InsertOnSubmit(data);
                     dbDuplicator.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
@@ -45,9 +46,12 @@ namespace Duplicator.Models
             Boolean result = false;
             try
             {
+                if (data.objectivesNumber.Equals(0)) data.objectivesNumber = null;
+
                 caUsers reg = dbDuplicator.caUsers.SingleOrDefault(qry => qry.id.Equals(data.id));
                 if (reg != null){
                     reg.password = data.password;
+                    reg.objectivesNumber = data.objectivesNumber;
                     reg.fAct = DateTime.Now;
                     dbDuplicator.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
                     result = true;    

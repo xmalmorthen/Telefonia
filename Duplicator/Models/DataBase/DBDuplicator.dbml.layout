@@ -2,41 +2,41 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DBDuplicator">
   <DataContextMoniker Name="/DBDuplicatorDataContext" />
   <nestedChildShapes>
-    <classShape Id="f5c6bfc6-31aa-4e78-8773-1450b6d0490b" absoluteBounds="3.75, 3.75, 2, 1.9631982421875005">
+    <classShape Id="f5c6bfc6-31aa-4e78-8773-1450b6d0490b" absoluteBounds="3.75, 4.75, 2, 1.9631982421875005">
       <DataClassMoniker Name="/DBDuplicatorDataContext/caConfigurations" />
       <nestedChildShapes>
-        <elementListCompartment Id="9544cd57-33f7-4561-becd-513afd16081d" absoluteBounds="3.765, 4.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9544cd57-33f7-4561-becd-513afd16081d" absoluteBounds="3.765, 5.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ba96446d-af66-4465-af03-4eb74c05f848" absoluteBounds="3.5, 1, 2, 1.9631982421875003">
+    <classShape Id="ba96446d-af66-4465-af03-4eb74c05f848" absoluteBounds="3.5, 1.125, 2, 1.9631982421875005">
       <DataClassMoniker Name="/DBDuplicatorDataContext/reUsersDuplicators" />
       <nestedChildShapes>
-        <elementListCompartment Id="04d0391b-3fce-456b-9cc7-fd1ada9170bf" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="04d0391b-3fce-456b-9cc7-fd1ada9170bf" absoluteBounds="3.5150000005960464, 1.5850000008940697, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="45d977b4-7a6f-4e9a-a460-7607794b7d1f" absoluteBounds="0.75, 0.875, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/DBDuplicatorDataContext/caUsers" />
-      <nestedChildShapes>
-        <elementListCompartment Id="59621083-4d41-40ec-ad0d-364287756fce" absoluteBounds="0.765, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="8d1ac783-f9a0-4948-aebc-f832a39e1302" absoluteBounds="0.75, 4.875, 2, 2.1554996744791666">
+    <classShape Id="8d1ac783-f9a0-4948-aebc-f832a39e1302" absoluteBounds="0.75, 5, 2, 2.1554996744791666">
       <DataClassMoniker Name="/DBDuplicatorDataContext/maDuplicator" />
       <nestedChildShapes>
-        <elementListCompartment Id="bea8d7de-f026-41bd-81c2-ef085a9c850a" absoluteBounds="0.765, 5.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="bea8d7de-f026-41bd-81c2-ef085a9c850a" absoluteBounds="0.76500000059604645, 5.46000000089407, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 1.98159912109375); (3.5 : 1.98159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DBDuplicatorDataContext/caUsers/caUsers_reUsersDuplicators" />
-      <nodes>
-        <classShapeMoniker Id="45d977b4-7a6f-4e9a-a460-7607794b7d1f" />
-        <classShapeMoniker Id="ba96446d-af66-4465-af03-4eb74c05f848" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 6.40309895833333); (3.59375 : 6.40309895833333); (3.59375 : 2.9631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 6.96559895833333); (3.59375 : 6.96559895833333); (3.59375 : 3.0881982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DBDuplicatorDataContext/maDuplicator/maDuplicator_reUsersDuplicators" />
       <nodes>
         <classShapeMoniker Id="8d1ac783-f9a0-4948-aebc-f832a39e1302" />
+        <classShapeMoniker Id="ba96446d-af66-4465-af03-4eb74c05f848" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7d6eb2d8-0b7d-4984-b163-1006b0252dfc" absoluteBounds="0.75, 1, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DBDuplicatorDataContext/caUsers" />
+      <nestedChildShapes>
+        <elementListCompartment Id="078e8776-0ddb-42df-8a4e-5ef68109aaa3" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.10659912109375); (3.5 : 2.10659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DBDuplicatorDataContext/caUsers/caUsers_reUsersDuplicators" />
+      <nodes>
+        <classShapeMoniker Id="7d6eb2d8-0b7d-4984-b163-1006b0252dfc" />
         <classShapeMoniker Id="ba96446d-af66-4465-af03-4eb74c05f848" />
       </nodes>
     </associationConnector>

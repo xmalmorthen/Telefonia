@@ -36,12 +36,12 @@ namespace Duplicator.Models.DataBase
     partial void InsertreUsersDuplicators(reUsersDuplicators instance);
     partial void UpdatereUsersDuplicators(reUsersDuplicators instance);
     partial void DeletereUsersDuplicators(reUsersDuplicators instance);
-    partial void InsertcaUsers(caUsers instance);
-    partial void UpdatecaUsers(caUsers instance);
-    partial void DeletecaUsers(caUsers instance);
     partial void InsertmaDuplicator(maDuplicator instance);
     partial void UpdatemaDuplicator(maDuplicator instance);
     partial void DeletemaDuplicator(maDuplicator instance);
+    partial void InsertcaUsers(caUsers instance);
+    partial void UpdatecaUsers(caUsers instance);
+    partial void DeletecaUsers(caUsers instance);
     #endregion
 		
 		public DBDuplicatorDataContext() : 
@@ -90,6 +90,14 @@ namespace Duplicator.Models.DataBase
 			}
 		}
 		
+		public System.Data.Linq.Table<maDuplicator> maDuplicator
+		{
+			get
+			{
+				return this.GetTable<maDuplicator>();
+			}
+		}
+		
 		public System.Data.Linq.Table<caUsers> caUsers
 		{
 			get
@@ -98,12 +106,11 @@ namespace Duplicator.Models.DataBase
 			}
 		}
 		
-		public System.Data.Linq.Table<maDuplicator> maDuplicator
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spDuplicatesActivesByIdUser")]
+		public ISingleResult<spDuplicatesActivesByIdUserResult> spDuplicatesActivesByIdUser([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idUser)
 		{
-			get
-			{
-				return this.GetTable<maDuplicator>();
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUser);
+			return ((ISingleResult<spDuplicatesActivesByIdUserResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -307,9 +314,9 @@ namespace Duplicator.Models.DataBase
 		
 		private bool _active;
 		
-		private EntityRef<caUsers> _caUsers;
-		
 		private EntityRef<maDuplicator> _maDuplicator;
+		
+		private EntityRef<caUsers> _caUsers;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -331,8 +338,8 @@ namespace Duplicator.Models.DataBase
 		
 		public reUsersDuplicators()
 		{
-			this._caUsers = default(EntityRef<caUsers>);
 			this._maDuplicator = default(EntityRef<maDuplicator>);
+			this._caUsers = default(EntityRef<caUsers>);
 			OnCreated();
 		}
 		
@@ -464,40 +471,6 @@ namespace Duplicator.Models.DataBase
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caUsers_reUsersDuplicators", Storage="_caUsers", ThisKey="idUser", OtherKey="id", IsForeignKey=true)]
-		public caUsers caUsers
-		{
-			get
-			{
-				return this._caUsers.Entity;
-			}
-			set
-			{
-				caUsers previousValue = this._caUsers.Entity;
-				if (((previousValue != value) 
-							|| (this._caUsers.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._caUsers.Entity = null;
-						previousValue.reUsersDuplicators.Remove(this);
-					}
-					this._caUsers.Entity = value;
-					if ((value != null))
-					{
-						value.reUsersDuplicators.Add(this);
-						this._idUser = value.id;
-					}
-					else
-					{
-						this._idUser = default(int);
-					}
-					this.SendPropertyChanged("caUsers");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="maDuplicator_reUsersDuplicators", Storage="_maDuplicator", ThisKey="idMaDuplicator", OtherKey="id", IsForeignKey=true)]
 		public maDuplicator maDuplicator
 		{
@@ -532,225 +505,37 @@ namespace Duplicator.Models.DataBase
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.caUsers")]
-	public partial class caUsers : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _user;
-		
-		private string _password;
-		
-		private System.DateTime _fIns;
-		
-		private System.Nullable<System.DateTime> _fAct;
-		
-		private bool _active;
-		
-		private bool _isAdmin;
-		
-		private EntitySet<reUsersDuplicators> _reUsersDuplicators;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnuserChanging(string value);
-    partial void OnuserChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    partial void OnfInsChanging(System.DateTime value);
-    partial void OnfInsChanged();
-    partial void OnfActChanging(System.Nullable<System.DateTime> value);
-    partial void OnfActChanged();
-    partial void OnactiveChanging(bool value);
-    partial void OnactiveChanged();
-    partial void OnisAdminChanging(bool value);
-    partial void OnisAdminChanged();
-    #endregion
-		
-		public caUsers()
-		{
-			this._reUsersDuplicators = new EntitySet<reUsersDuplicators>(new Action<reUsersDuplicators>(this.attach_reUsersDuplicators), new Action<reUsersDuplicators>(this.detach_reUsersDuplicators));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caUsers_reUsersDuplicators", Storage="_caUsers", ThisKey="idUser", OtherKey="id", IsForeignKey=true)]
+		public caUsers caUsers
 		{
 			get
 			{
-				return this._id;
+				return this._caUsers.Entity;
 			}
 			set
 			{
-				if ((this._id != value))
+				caUsers previousValue = this._caUsers.Entity;
+				if (((previousValue != value) 
+							|| (this._caUsers.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
+					if ((previousValue != null))
+					{
+						this._caUsers.Entity = null;
+						previousValue.reUsersDuplicators.Remove(this);
+					}
+					this._caUsers.Entity = value;
+					if ((value != null))
+					{
+						value.reUsersDuplicators.Add(this);
+						this._idUser = value.id;
+					}
+					else
+					{
+						this._idUser = default(int);
+					}
+					this.SendPropertyChanged("caUsers");
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[user]", Storage="_user", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string user
-		{
-			get
-			{
-				return this._user;
-			}
-			set
-			{
-				if ((this._user != value))
-				{
-					this.OnuserChanging(value);
-					this.SendPropertyChanging();
-					this._user = value;
-					this.SendPropertyChanged("user");
-					this.OnuserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this.OnpasswordChanging(value);
-					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fIns", DbType="DateTime NOT NULL", IsDbGenerated=true)]
-		public System.DateTime fIns
-		{
-			get
-			{
-				return this._fIns;
-			}
-			set
-			{
-				if ((this._fIns != value))
-				{
-					this.OnfInsChanging(value);
-					this.SendPropertyChanging();
-					this._fIns = value;
-					this.SendPropertyChanged("fIns");
-					this.OnfInsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fAct", DbType="DateTime")]
-		public System.Nullable<System.DateTime> fAct
-		{
-			get
-			{
-				return this._fAct;
-			}
-			set
-			{
-				if ((this._fAct != value))
-				{
-					this.OnfActChanging(value);
-					this.SendPropertyChanging();
-					this._fAct = value;
-					this.SendPropertyChanged("fAct");
-					this.OnfActChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit NOT NULL")]
-		public bool active
-		{
-			get
-			{
-				return this._active;
-			}
-			set
-			{
-				if ((this._active != value))
-				{
-					this.OnactiveChanging(value);
-					this.SendPropertyChanging();
-					this._active = value;
-					this.SendPropertyChanged("active");
-					this.OnactiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isAdmin", DbType="Bit NOT NULL")]
-		public bool isAdmin
-		{
-			get
-			{
-				return this._isAdmin;
-			}
-			set
-			{
-				if ((this._isAdmin != value))
-				{
-					this.OnisAdminChanging(value);
-					this.SendPropertyChanging();
-					this._isAdmin = value;
-					this.SendPropertyChanged("isAdmin");
-					this.OnisAdminChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caUsers_reUsersDuplicators", Storage="_reUsersDuplicators", ThisKey="id", OtherKey="idUser")]
-		public EntitySet<reUsersDuplicators> reUsersDuplicators
-		{
-			get
-			{
-				return this._reUsersDuplicators;
-			}
-			set
-			{
-				this._reUsersDuplicators.Assign(value);
 			}
 		}
 		
@@ -772,18 +557,6 @@ namespace Duplicator.Models.DataBase
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_reUsersDuplicators(reUsersDuplicators entity)
-		{
-			this.SendPropertyChanging();
-			entity.caUsers = this;
-		}
-		
-		private void detach_reUsersDuplicators(reUsersDuplicators entity)
-		{
-			this.SendPropertyChanging();
-			entity.caUsers = null;
 		}
 	}
 	
@@ -1018,6 +791,290 @@ namespace Duplicator.Models.DataBase
 		{
 			this.SendPropertyChanging();
 			entity.maDuplicator = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.caUsers")]
+	public partial class caUsers : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _user;
+		
+		private string _password;
+		
+		private System.DateTime _fIns;
+		
+		private System.Nullable<System.DateTime> _fAct;
+		
+		private bool _active;
+		
+		private bool _isAdmin;
+		
+		private System.Nullable<int> _objectivesNumber;
+		
+		private EntitySet<reUsersDuplicators> _reUsersDuplicators;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnuserChanging(string value);
+    partial void OnuserChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    partial void OnfInsChanging(System.DateTime value);
+    partial void OnfInsChanged();
+    partial void OnfActChanging(System.Nullable<System.DateTime> value);
+    partial void OnfActChanged();
+    partial void OnactiveChanging(bool value);
+    partial void OnactiveChanged();
+    partial void OnisAdminChanging(bool value);
+    partial void OnisAdminChanged();
+    partial void OnobjectivesNumberChanging(System.Nullable<int> value);
+    partial void OnobjectivesNumberChanged();
+    #endregion
+		
+		public caUsers()
+		{
+			this._reUsersDuplicators = new EntitySet<reUsersDuplicators>(new Action<reUsersDuplicators>(this.attach_reUsersDuplicators), new Action<reUsersDuplicators>(this.detach_reUsersDuplicators));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[user]", Storage="_user", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string user
+		{
+			get
+			{
+				return this._user;
+			}
+			set
+			{
+				if ((this._user != value))
+				{
+					this.OnuserChanging(value);
+					this.SendPropertyChanging();
+					this._user = value;
+					this.SendPropertyChanged("user");
+					this.OnuserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fIns", DbType="DateTime NOT NULL", IsDbGenerated=true)]
+		public System.DateTime fIns
+		{
+			get
+			{
+				return this._fIns;
+			}
+			set
+			{
+				if ((this._fIns != value))
+				{
+					this.OnfInsChanging(value);
+					this.SendPropertyChanging();
+					this._fIns = value;
+					this.SendPropertyChanged("fIns");
+					this.OnfInsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fAct", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fAct
+		{
+			get
+			{
+				return this._fAct;
+			}
+			set
+			{
+				if ((this._fAct != value))
+				{
+					this.OnfActChanging(value);
+					this.SendPropertyChanging();
+					this._fAct = value;
+					this.SendPropertyChanged("fAct");
+					this.OnfActChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit NOT NULL")]
+		public bool active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this.OnactiveChanging(value);
+					this.SendPropertyChanging();
+					this._active = value;
+					this.SendPropertyChanged("active");
+					this.OnactiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isAdmin", DbType="Bit NOT NULL")]
+		public bool isAdmin
+		{
+			get
+			{
+				return this._isAdmin;
+			}
+			set
+			{
+				if ((this._isAdmin != value))
+				{
+					this.OnisAdminChanging(value);
+					this.SendPropertyChanging();
+					this._isAdmin = value;
+					this.SendPropertyChanged("isAdmin");
+					this.OnisAdminChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_objectivesNumber", DbType="Int")]
+		public System.Nullable<int> objectivesNumber
+		{
+			get
+			{
+				return this._objectivesNumber;
+			}
+			set
+			{
+				if ((this._objectivesNumber != value))
+				{
+					this.OnobjectivesNumberChanging(value);
+					this.SendPropertyChanging();
+					this._objectivesNumber = value;
+					this.SendPropertyChanged("objectivesNumber");
+					this.OnobjectivesNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="caUsers_reUsersDuplicators", Storage="_reUsersDuplicators", ThisKey="id", OtherKey="idUser")]
+		public EntitySet<reUsersDuplicators> reUsersDuplicators
+		{
+			get
+			{
+				return this._reUsersDuplicators;
+			}
+			set
+			{
+				this._reUsersDuplicators.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_reUsersDuplicators(reUsersDuplicators entity)
+		{
+			this.SendPropertyChanging();
+			entity.caUsers = this;
+		}
+		
+		private void detach_reUsersDuplicators(reUsersDuplicators entity)
+		{
+			this.SendPropertyChanging();
+			entity.caUsers = null;
+		}
+	}
+	
+	public partial class spDuplicatesActivesByIdUserResult
+	{
+		
+		private System.Nullable<int> _DuplicatesNumber;
+		
+		public spDuplicatesActivesByIdUserResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DuplicatesNumber", DbType="Int")]
+		public System.Nullable<int> DuplicatesNumber
+		{
+			get
+			{
+				return this._DuplicatesNumber;
+			}
+			set
+			{
+				if ((this._DuplicatesNumber != value))
+				{
+					this._DuplicatesNumber = value;
+				}
+			}
 		}
 	}
 }

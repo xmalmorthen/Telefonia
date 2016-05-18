@@ -30,30 +30,40 @@ namespace Duplicator.Views
 
         private void btnRecord_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtNumber.Text.Trim()) && String.IsNullOrEmpty(txtCarrier.Text.Trim()) && String.IsNullOrEmpty(txtCountry.Text.Trim()))
+            pbRecord.Visible = true;
+            //this.Enabled = false;
+            try
             {
-                MessageBox.Show(this, "Lack complete information", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                string returnMessage = String.Empty;
-
-
-                if (targetController.record(UserLogged, new duplicatorModel()
+                if (String.IsNullOrEmpty(txtNumber.Text.Trim()) && String.IsNullOrEmpty(txtCarrier.Text.Trim()) && String.IsNullOrEmpty(txtCountry.Text.Trim()))
                 {
-                    Number = this.txtNumber.Text.Trim(),
-                    Carrier = this.txtCarrier.Text.Trim(),
-                    Country = this.txtCountry.Text.Trim()
-                }, out returnMessage) == false)
-                {
-                    MessageBox.Show(this, returnMessage, "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(this, "Lack complete information", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show(this, returnMessage, "Recorded", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.DialogResult = System.Windows.Forms.DialogResult.Yes;
+                    string returnMessage = String.Empty;
+
+                    if (targetController.record(UserLogged, new duplicatorModel()
+                    {
+                        Number = this.txtNumber.Text.Trim(),
+                        Carrier = this.txtCarrier.Text.Trim(),
+                        Country = this.txtCountry.Text.Trim()
+                    }, out returnMessage) == false)
+                    {
+                        MessageBox.Show(this, returnMessage, "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, returnMessage, "Recorded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = System.Windows.Forms.DialogResult.Yes;
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            pbRecord.Visible = false;
+            this.Enabled = true;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -2,10 +2,12 @@
 using Duplicator.Models.DataBase;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Duplicator.Controllers
 {
@@ -13,6 +15,7 @@ namespace Duplicator.Controllers
     {
         private static DBDuplicatorDataContext dbDuplicator = new DBDuplicatorDataContext();
 
+        private static Boolean doRecord = false;
         public static Boolean record(caUsers userLogged, duplicatorModel target, out string message)
         {
             Boolean result = false;
@@ -27,21 +30,32 @@ namespace Duplicator.Controllers
                     message = String.Format("{0} existing targets, impossible to add more", maxTargets);
                 }
                 //verificar si existe target
-                else if (dbDuplicator.reUsersDuplicators.SingleOrDefault(qry => qry.idUser.Equals (userLogged.id) &&
-                                                                            qry.active.Equals (true) &&
-                                                                            qry.maDuplicator.number.Equals (target.Number) &&
-                                                                            qry.maDuplicator.carrier.Equals (target.Carrier) &&
-                                                                            qry.maDuplicator.country.Equals (target.Country) &&
-                                                                            qry.maDuplicator.active.Equals (true)) != null)
+                else if (dbDuplicator.reUsersDuplicators.SingleOrDefault(qry => qry.idUser.Equals(userLogged.id) &&
+                                                                            qry.active.Equals(true) &&
+                                                                            qry.maDuplicator.number.Equals(target.Number) &&
+                                                                            qry.maDuplicator.carrier.Equals(target.Carrier) &&
+                                                                            qry.maDuplicator.country.Equals(target.Country) &&
+                                                                            qry.maDuplicator.active.Equals(true)) != null)
                 {
                     message = "Target to add already exists";
                 }
                 //grabar
-                else { 
+                else
+                {
                     /*
-                     * TODO: Proceso de grabado
+                     * Proceso de grabado
                      */
-                    Thread.Sleep(3);
+                    BackgroundWorker wrkr = new BackgroundWorker();
+                    wrkr.WorkerReportsProgress = true;
+                    wrkr.WorkerSupportsCancellation = true;
+                    wrkr.DoWork += wrkr_DoWork;
+                    wrkr.RunWorkerCompleted += wrkr_RunWorkerCompleted;
+                    wrkr.RunWorkerAsync();
+
+                    while (wrkr.IsBusy)
+                    {
+                        Application.DoEvents();
+                    }
 
                     /*
                      * GRABAR EN BD
@@ -68,18 +82,35 @@ namespace Duplicator.Controllers
                     re.idUser = userLogged.id;
                     re.active = true;
 
-                    dbDuplicator.reUsersDuplicators.InsertOnSubmit(re);                    
+                    dbDuplicator.reUsersDuplicators.InsertOnSubmit(re);
                     dbDuplicator.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
 
                     message = "Target successfully added";
                     result = true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                if (ex.InnerException is NullReferenceException)
+                    message = ex.InnerException.Message;
+                else
+                message = ex.Message;
             }
             return result;
+        }
+
+        static void wrkr_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Thread.Sleep(3000);
+            e.Result = false;
+        }
+
+        static void wrkr_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if ((Boolean)e.Result)
+                doRecord = true;
+            else 
+                throw new NullReferenceException ("PDU modem not detected. Try again, if the problem persists please contact your system administrator.");
         }
 
         public static Boolean remove(caUsers userLogged, duplicatorModel target, out string message)
