@@ -25,10 +25,15 @@ namespace CellTrack.Models.DataBases
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<cacarriers> cacarriers { get; set; }
         public DbSet<caperfiles> caperfiles { get; set; }
         public DbSet<caroles> caroles { get; set; }
         public DbSet<causuarios> causuarios { get; set; }
         public DbSet<reperfilroles> reperfilroles { get; set; }
         public DbSet<reusuariosperfil> reusuariosperfil { get; set; }
+        public DbSet<vwactivecarriers> vwactivecarriers { get; set; }
+        public DbSet<vwusernotifications> vwusernotifications { get; set; }
+        public DbSet<demalocalizationsagenda> demalocalizationsagenda { get; set; }
+        public DbSet<malocalizations> malocalizations { get; set; }
     }
 }

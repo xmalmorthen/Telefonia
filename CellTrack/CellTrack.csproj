@@ -77,14 +77,18 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -95,7 +99,13 @@
     <Compile Include="Classes\scpCnn.cs" />
     <Compile Include="Classes\sshCnn.cs" />
     <Compile Include="Classes\visualStyles.cs" />
+    <Compile Include="Controllers\catalogosController.cs" />
+    <Compile Include="Controllers\DAL.cs" />
+    <Compile Include="Controllers\objetivosController.cs" />
     <Compile Include="Controllers\usuarioController.cs" />
+    <Compile Include="Models\DataBases\cacarriers.cs">
+      <DependentUpon>dbGeoLoc.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataBases\caperfiles.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
@@ -120,12 +130,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbGeoLoc.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataBases\demalocalizationsagenda.cs">
+      <DependentUpon>dbGeoLoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\malocalizations.cs">
+      <DependentUpon>dbGeoLoc.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataBases\reperfilroles.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataBases\reusuariosperfil.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataBases\vwactivecarriers.cs">
+      <DependentUpon>dbGeoLoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\vwusernotifications.cs">
+      <DependentUpon>dbGeoLoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\objetivosModel.cs" />
     <Compile Include="Views\frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,11 +193,41 @@
     <Compile Include="Views\UserControls\frmLocalizacion.Designer.cs">
       <DependentUpon>frmLocalizacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\frmModemSignal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\frmModemSignal.Designer.cs">
+      <DependentUpon>frmModemSignal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\frmProccessingShow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\frmProccessingShow.Designer.cs">
+      <DependentUpon>frmProccessingShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\frmSaldo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\frmSaldo.Designer.cs">
+      <DependentUpon>frmSaldo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\frmUserAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\UserControls\frmUserAdmin.Designer.cs">
       <DependentUpon>frmUserAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\frmUserInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\frmUserInformation.Designer.cs">
+      <DependentUpon>frmUserInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Localización\frmObjetivos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Localización\frmObjetivos.Designer.cs">
+      <DependentUpon>frmObjetivos.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\menu.cs">
       <SubType>UserControl</SubType>
@@ -182,6 +235,24 @@
     <Compile Include="Views\UserControls\menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\loading-gallery.gif" />
+    <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbGeoLoc.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DataBases\dbGeoLoc.edmx.diagram">
+      <DependentUpon>dbGeoLoc.edmx</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\CellTrack.Models.DataBases.vwactivecarriers.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.DataBases.vwusernotifications.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.objetivosModel.datasource" />
+    <None Include="Resources\1464227257_save.png" />
+    <None Include="Resources\1464227143_trash.png" />
+    <None Include="Resources\1463558222_Update.png" />
+    <None Include="Resources\1464226920_pencil.png" />
+    <None Include="Resources\1464225333_checkbox_unchecked.png" />
+    <None Include="Resources\1464223445_checkmark.png" />
+    <None Include="Resources\1464222032_air_signal.png" />
     <None Include="Resources\icon_039920_256.jpg" />
     <EmbeddedResource Include="Views\UserControls\frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
@@ -195,8 +266,23 @@
     <EmbeddedResource Include="Views\UserControls\frmLocalizacion.resx">
       <DependentUpon>frmLocalizacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\frmModemSignal.resx">
+      <DependentUpon>frmModemSignal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\frmProccessingShow.resx">
+      <DependentUpon>frmProccessingShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\frmSaldo.resx">
+      <DependentUpon>frmSaldo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\frmUserAdmin.resx">
       <DependentUpon>frmUserAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\frmUserInformation.resx">
+      <DependentUpon>frmUserInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Localización\frmObjetivos.resx">
+      <DependentUpon>frmObjetivos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\menu.resx">
       <DependentUpon>menu.cs</DependentUpon>
@@ -209,13 +295,6 @@
     <None Include="Resources\1463451359_zoom.png" />
     <None Include="Resources\1463451293_cog.png" />
     <None Include="Resources\1463451253_user.png" />
-    <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbGeoLoc.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Models\DataBases\dbGeoLoc.edmx.diagram">
-      <DependentUpon>dbGeoLoc.edmx</DependentUpon>
-    </None>
     <None Include="Resources\1463434201_checkmark.png" />
     <None Include="Resources\1463432685_users.png" />
     <None Include="Resources\1463432442_users.png" />

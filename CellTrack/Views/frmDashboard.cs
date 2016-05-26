@@ -51,6 +51,7 @@ namespace CellTrack.Views
         }
 
         public void renderControl(UserControl ctrl) {
+            Application.DoEvents();
             ctrl.Dock = System.Windows.Forms.DockStyle.Fill;
             ctrl.Location = new System.Drawing.Point(0, 0);            
             ctrl.TabIndex = 0;

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CellTrack.Classes;
+using MetroFramework.Controls;
+using System.Threading;
 
 namespace CellTrack.Views.UserControls
 {
@@ -42,12 +44,27 @@ namespace CellTrack.Views.UserControls
 
         private void btnDataBases_Click(object sender, EventArgs e)
         {
-            Program.FrmDashboard.renderControl(new frmBaseDatos());
+            mCMRegs.Show((MetroButton)sender, new Point(0, ((MetroButton)sender).Height));
+            //Program.FrmDashboard.renderControl(new frmBaseDatos());
         }
 
         private void btnLocalizations_Click(object sender, EventArgs e)
         {
-            Program.FrmDashboard.renderControl(new frmLocalizacion());
+            mCMLocalizations.Show((MetroButton)sender, new Point(0,((MetroButton)sender).Height));            
         }
+
+        private void openFrm<TForm>() where TForm : UserControl, new()
+        {
+            Program.FrmDashboard.renderControl(new frmProccessingShow());
+            Application.DoEvents();
+            Program.FrmDashboard.renderControl(new TForm());
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.openFrm<frmObjetivos>();
+        }
+
+        
     }
 }

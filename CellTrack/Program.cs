@@ -1,4 +1,5 @@
 ﻿using CellTrack.Classes;
+using CellTrack.Controllers;
 using CellTrack.Models.DataBases;
 using CellTrack.Views;
 using System;
@@ -42,22 +43,30 @@ namespace CellTrack
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Properties.Settings.Default.mainStyle = new MetroFramework.Components.MetroStyleManager();
-            Properties.Settings.Default.mainStyle.Style = MetroFramework.MetroColorStyle.Black;
-            Properties.Settings.Default.mainStyle.Theme = MetroFramework.MetroThemeStyle.Light;
+            try
+            {
+                DAL.Db = new dbgeolocEntities();
+                Properties.Settings.Default.mainStyle = new MetroFramework.Components.MetroStyleManager();
+                Properties.Settings.Default.mainStyle.Style = MetroFramework.MetroColorStyle.Black;
+                Properties.Settings.Default.mainStyle.Theme = MetroFramework.MetroThemeStyle.Light;
 
-            /*frmSshCnn FrmSshCnn = new frmSshCnn();
-            if (FrmSshCnn.ShowDialog() == DialogResult.Yes) {
-                frmLogIn FrmLogIn = new frmLogIn();
-                Application.Run(FrmLogIn);
-                if (FrmLogIn.dlgRes == DialogResult.No) Application.Exit();
-            }*/
+                /*frmSshCnn FrmSshCnn = new frmSshCnn();
+                if (FrmSshCnn.ShowDialog() == DialogResult.Yes) {
+                    frmLogIn FrmLogIn = new frmLogIn();
+                    Application.Run(FrmLogIn);
+                    if (FrmLogIn.dlgRes == DialogResult.No) Application.Exit();
+                }*/
 
-            FrmDashboard = new frmDashboard();
+                FrmDashboard = new frmDashboard();
 
-            Application.Run(FrmDashboard);
-            
-            Program.closeAllConnections();
+                Application.Run(FrmDashboard);
+                Program.closeAllConnections();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Problemas al intentar conectar a la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Application.Exit();            
         }
     }
 }

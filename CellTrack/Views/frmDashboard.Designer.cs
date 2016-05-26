@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.msmMain = new MetroFramework.Components.MetroStyleManager();
+            this.components = new System.ComponentModel.Container();
+            this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.tsmiEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiObjetivos = new System.Windows.Forms.ToolStripMenuItem();
             this.tss1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiCredito = new System.Windows.Forms.ToolStripMenuItem();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.panel = new System.Windows.Forms.Panel();
-            this.menu1 = new CellTrack.Views.UserControls.menu();
+            this.frmModemSignal1 = new CellTrack.Views.UserControls.frmModemSignal();
+            this.frmSaldo1 = new CellTrack.Views.UserControls.frmSaldo();
+            this.frmUserInformation1 = new CellTrack.Views.UserControls.frmUserInformation();
             this.mainMenu = new CellTrack.Views.UserControls.menu();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.SuspendLayout();
@@ -84,32 +87,47 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel.BackColor = System.Drawing.Color.Transparent;
-            this.panel.Location = new System.Drawing.Point(20, 88);
+            this.panel.Location = new System.Drawing.Point(30, 97);
+            this.panel.Margin = new System.Windows.Forms.Padding(10);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(984, 598);
+            this.panel.Size = new System.Drawing.Size(964, 624);
             this.panel.TabIndex = 28;
             // 
-            // menu1
+            // frmModemSignal1
             // 
-            this.menu1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.menu1.AutoSize = true;
-            this.menu1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.menu1.BackColor = System.Drawing.Color.Transparent;
-            this.menu1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.menu1.Location = new System.Drawing.Point(20, 690);
-            this.menu1.Name = "menu1";
-            this.menu1.Size = new System.Drawing.Size(230, 72);
-            this.menu1.TabIndex = 29;
+            this.frmModemSignal1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.frmModemSignal1.BackColor = System.Drawing.Color.Transparent;
+            this.frmModemSignal1.Location = new System.Drawing.Point(619, 734);
+            this.frmModemSignal1.Name = "frmModemSignal1";
+            this.frmModemSignal1.Size = new System.Drawing.Size(395, 26);
+            this.frmModemSignal1.TabIndex = 32;
+            // 
+            // frmSaldo1
+            // 
+            this.frmSaldo1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.frmSaldo1.BackColor = System.Drawing.Color.Transparent;
+            this.frmSaldo1.Location = new System.Drawing.Point(11, 734);
+            this.frmSaldo1.Name = "frmSaldo1";
+            this.frmSaldo1.Size = new System.Drawing.Size(192, 26);
+            this.frmSaldo1.TabIndex = 31;
+            // 
+            // frmUserInformation1
+            // 
+            this.frmUserInformation1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.frmUserInformation1.BackColor = System.Drawing.Color.Transparent;
+            this.frmUserInformation1.Location = new System.Drawing.Point(435, 58);
+            this.frmUserInformation1.Name = "frmUserInformation1";
+            this.frmUserInformation1.Size = new System.Drawing.Size(576, 26);
+            this.frmUserInformation1.TabIndex = 30;
             // 
             // mainMenu
             // 
             this.mainMenu.AutoSize = true;
             this.mainMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mainMenu.BackColor = System.Drawing.Color.Transparent;
-            this.mainMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mainMenu.Location = new System.Drawing.Point(20, 9);
+            this.mainMenu.Location = new System.Drawing.Point(26, 16);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(230, 72);
+            this.mainMenu.Size = new System.Drawing.Size(228, 70);
             this.mainMenu.TabIndex = 27;
             // 
             // frmDashboard
@@ -122,7 +140,9 @@
             this.BackLocation = MetroFramework.Forms.BackLocation.BottomRight;
             this.BackMaxSize = 256;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.menu1);
+            this.Controls.Add(this.frmModemSignal1);
+            this.Controls.Add(this.frmSaldo1);
+            this.Controls.Add(this.frmUserInformation1);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.mainMenu);
             this.MaximizeBox = false;
@@ -131,7 +151,7 @@
             this.Movable = false;
             this.Name = "frmDashboard";
             this.Resizable = false;
-            this.Text = "Panel CellTrack [ 2g / 3g / 4g ]";
+            this.Text = "Panel CellTrack";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Right;
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -151,6 +171,8 @@
         private UserControls.menu mainMenu;
         private MetroFramework.Components.MetroToolTip metroToolTip;
         private System.Windows.Forms.Panel panel;
-        private UserControls.menu menu1;
+        private UserControls.frmUserInformation frmUserInformation1;
+        private UserControls.frmSaldo frmSaldo1;
+        private UserControls.frmModemSignal frmModemSignal1;
     }
 }

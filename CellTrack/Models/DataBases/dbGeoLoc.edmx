@@ -6,11 +6,38 @@
     <edmx:StorageModels>
     <Schema Namespace="dbgeolocModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="dbgeolocModelStoreContainer">
+          <EntitySet Name="cacarriers" EntityType="dbgeolocModel.Store.cacarriers" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="caperfiles" EntityType="dbgeolocModel.Store.caperfiles" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="caroles" EntityType="dbgeolocModel.Store.caroles" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="causuarios" EntityType="dbgeolocModel.Store.causuarios" store:Type="Tables" Schema="dbgeoloc" />
+          <EntitySet Name="demalocalizationsagenda" EntityType="dbgeolocModel.Store.demalocalizationsagenda" store:Type="Tables" Schema="dbgeoloc" />
+          <EntitySet Name="malocalizations" EntityType="dbgeolocModel.Store.malocalizations" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="reperfilroles" EntityType="dbgeolocModel.Store.reperfilroles" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="reusuariosperfil" EntityType="dbgeolocModel.Store.reusuariosperfil" store:Type="Tables" Schema="dbgeoloc" />
+          <EntitySet Name="vwactivecarriers" EntityType="dbgeolocModel.Store.vwactivecarriers" store:Type="Views" store:Schema="dbgeoloc" store:Name="vwactivecarriers">
+            <DefiningQuery>SELECT
+      `vwactivecarriers`.`id`, 
+      `vwactivecarriers`.`carrier`
+      FROM `vwactivecarriers` AS `vwactivecarriers`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwusernotifications" EntityType="dbgeolocModel.Store.vwusernotifications" store:Type="Views" store:Schema="dbgeoloc" store:Name="vwusernotifications">
+            <DefiningQuery>SELECT
+      `vwusernotifications`.`id`, 
+      `vwusernotifications`.`Usuario`
+      FROM `vwusernotifications` AS `vwusernotifications`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_maLocalizations_cacarriers_1" Association="dbgeolocModel.Store.fk_maLocalizations_cacarriers_1">
+            <End Role="cacarriers" EntitySet="cacarriers" />
+            <End Role="malocalizations" EntitySet="malocalizations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_malocalizations_causuarios_1" Association="dbgeolocModel.Store.fk_malocalizations_causuarios_1">
+            <End Role="causuarios" EntitySet="causuarios" />
+            <End Role="malocalizations" EntitySet="malocalizations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_maLocalizations_deMaLocalizationsAgenda_1" Association="dbgeolocModel.Store.fk_maLocalizations_deMaLocalizationsAgenda_1">
+            <End Role="demalocalizationsagenda" EntitySet="demalocalizationsagenda" />
+            <End Role="malocalizations" EntitySet="malocalizations" />
+          </AssociationSet>
           <AssociationSet Name="fk_rePerfilRoles_caPerfiles_1" Association="dbgeolocModel.Store.fk_rePerfilRoles_caPerfiles_1">
             <End Role="caperfiles" EntitySet="caperfiles" />
             <End Role="reperfilroles" EntitySet="reperfilroles" />
@@ -28,6 +55,17 @@
             <End Role="reusuariosperfil" EntitySet="reusuariosperfil" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="cacarriers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="carrier" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="descrip" Type="varchar" MaxLength="200" />
+          <Property Name="fIns" Type="datetime" />
+          <Property Name="fAct" Type="datetime" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="caperfiles">
           <Key>
             <PropertyRef Name="id" />
@@ -56,10 +94,35 @@
           <Property Name="SegundoApellido" Type="varchar" MaxLength="50" />
           <Property Name="Nombres" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="usuario" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="contrasenia" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="idDetalle" Type="int" />
+          <Property Name="contrasenia" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="fIns" Type="datetime" Nullable="false" />
           <Property Name="fAct" Type="datetime" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <EntityType Name="demalocalizationsagenda">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="from" Type="bit" Nullable="false" />
+          <Property Name="to" Type="bit" Nullable="false" />
+          <Property Name="frecuency" Type="bit" />
+          <Property Name="fIns" Type="datetime" Nullable="false" />
+          <Property Name="fAct" Type="datetime" />
+        </EntityType>
+        <EntityType Name="malocalizations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="asunto" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="objetivo" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="idNotification" Type="int" Nullable="false" />
+          <Property Name="idCarrier" Type="int" Nullable="false" />
+          <Property Name="idAgenda" Type="int" />
+          <Property Name="fIns" Type="datetime" Nullable="false" />
+          <Property Name="fAct" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="reperfilroles">
           <Key>
@@ -80,6 +143,63 @@
           <Property Name="fIns" Type="datetime" Nullable="false" />
           <Property Name="activo" Type="bit" Nullable="false" />
         </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'def.dbgeoloc.vwactivecarriers' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwactivecarriers">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="carrier" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="carrier" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'def.dbgeoloc.vwusernotifications' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vwusernotifications">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Usuario" Type="double" />
+        </EntityType>
+        <Association Name="fk_maLocalizations_cacarriers_1">
+          <End Role="cacarriers" Type="dbgeolocModel.Store.cacarriers" Multiplicity="1" />
+          <End Role="malocalizations" Type="dbgeolocModel.Store.malocalizations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cacarriers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="malocalizations">
+              <PropertyRef Name="idCarrier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_malocalizations_causuarios_1">
+          <End Role="causuarios" Type="dbgeolocModel.Store.causuarios" Multiplicity="1" />
+          <End Role="malocalizations" Type="dbgeolocModel.Store.malocalizations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="causuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="malocalizations">
+              <PropertyRef Name="idNotification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_maLocalizations_deMaLocalizationsAgenda_1">
+          <End Role="demalocalizationsagenda" Type="dbgeolocModel.Store.demalocalizationsagenda" Multiplicity="0..1" />
+          <End Role="malocalizations" Type="dbgeolocModel.Store.malocalizations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="demalocalizationsagenda">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="malocalizations">
+              <PropertyRef Name="idAgenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_rePerfilRoles_caPerfiles_1">
           <End Role="caperfiles" Type="dbgeolocModel.Store.caperfiles" Multiplicity="1" />
           <End Role="reperfilroles" Type="dbgeolocModel.Store.reperfilroles" Multiplicity="*" />
@@ -133,28 +253,57 @@
     <edmx:ConceptualModels>
       <Schema Namespace="dbgeolocModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="dbgeolocEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="cacarriers" EntityType="dbgeolocModel.cacarriers" />
           <EntitySet Name="caperfiles" EntityType="dbgeolocModel.caperfiles" />
           <EntitySet Name="caroles" EntityType="dbgeolocModel.caroles" />
           <EntitySet Name="causuarios" EntityType="dbgeolocModel.causuarios" />
           <EntitySet Name="reperfilroles" EntityType="dbgeolocModel.reperfilroles" />
+          <EntitySet Name="reusuariosperfil" EntityType="dbgeolocModel.reusuariosperfil" />
+          <EntitySet Name="vwactivecarriers" EntityType="dbgeolocModel.vwactivecarriers" />
           <AssociationSet Name="fk_rePerfilRoles_caPerfiles_1" Association="dbgeolocModel.fk_rePerfilRoles_caPerfiles_1">
             <End Role="caperfiles" EntitySet="caperfiles" />
             <End Role="reperfilroles" EntitySet="reperfilroles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_reusuariosperfil_caperfiles_1" Association="dbgeolocModel.fk_reusuariosperfil_caperfiles_1">
+            <End Role="caperfiles" EntitySet="caperfiles" />
+            <End Role="reusuariosperfil" EntitySet="reusuariosperfil" />
           </AssociationSet>
           <AssociationSet Name="fk_rePerfilRoles_caRoles_1" Association="dbgeolocModel.fk_rePerfilRoles_caRoles_1">
             <End Role="caroles" EntitySet="caroles" />
             <End Role="reperfilroles" EntitySet="reperfilroles" />
           </AssociationSet>
-          <EntitySet Name="reusuariosperfil" EntityType="dbgeolocModel.reusuariosperfil" />
-          <AssociationSet Name="fk_reusuariosperfil_caperfiles_1" Association="dbgeolocModel.fk_reusuariosperfil_caperfiles_1">
-            <End Role="caperfiles" EntitySet="caperfiles" />
-            <End Role="reusuariosperfil" EntitySet="reusuariosperfil" />
-          </AssociationSet>
           <AssociationSet Name="fk_reusuariosperfil_causuarios_1" Association="dbgeolocModel.fk_reusuariosperfil_causuarios_1">
             <End Role="causuarios" EntitySet="causuarios" />
             <End Role="reusuariosperfil" EntitySet="reusuariosperfil" />
           </AssociationSet>
+          <EntitySet Name="vwusernotifications" EntityType="dbgeolocModel.vwusernotifications" />
+          <EntitySet Name="demalocalizationsagenda" EntityType="dbgeolocModel.demalocalizationsagenda" />
+          <EntitySet Name="malocalizations" EntityType="dbgeolocModel.malocalizations" />
+          <AssociationSet Name="fk_maLocalizations_cacarriers_1" Association="dbgeolocModel.fk_maLocalizations_cacarriers_1">
+            <End Role="cacarriers" EntitySet="cacarriers" />
+            <End Role="malocalizations" EntitySet="malocalizations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_malocalizations_causuarios_1" Association="dbgeolocModel.fk_malocalizations_causuarios_1">
+            <End Role="causuarios" EntitySet="causuarios" />
+            <End Role="malocalizations" EntitySet="malocalizations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_maLocalizations_deMaLocalizationsAgenda_1" Association="dbgeolocModel.fk_maLocalizations_deMaLocalizationsAgenda_1">
+            <End Role="demalocalizationsagenda" EntitySet="demalocalizationsagenda" />
+            <End Role="malocalizations" EntitySet="malocalizations" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="cacarriers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="carrier" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="descrip" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="fIns" Type="DateTime" />
+          <Property Name="fAct" Type="DateTime" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="malocalizations" Relationship="dbgeolocModel.fk_maLocalizations_cacarriers_1" FromRole="cacarriers" ToRole="malocalizations" />
+        </EntityType>
         <EntityType Name="caperfiles">
           <Key>
             <PropertyRef Name="id" />
@@ -185,12 +334,13 @@
           <Property Name="PrimerApellido" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="SegundoApellido" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="Nombres" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="idDetalle" Type="Int32" />
+          <Property Name="usuario" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="contrasenia" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
           <Property Name="fIns" Type="DateTime" Nullable="false" />
           <Property Name="fAct" Type="DateTime" />
+          <Property Name="active" Type="Boolean" />
           <NavigationProperty Name="reusuariosperfil" Relationship="dbgeolocModel.fk_reusuariosperfil_causuarios_1" FromRole="causuarios" ToRole="reusuariosperfil" />
-          <Property Type="String" Name="usuario" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="contrasenia" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="malocalizations" Relationship="dbgeolocModel.fk_malocalizations_causuarios_1" FromRole="causuarios" ToRole="malocalizations" />
         </EntityType>
         <EntityType Name="reperfilroles">
           <Key>
@@ -203,6 +353,26 @@
           <NavigationProperty Name="caperfiles" Relationship="dbgeolocModel.fk_rePerfilRoles_caPerfiles_1" FromRole="reperfilroles" ToRole="caperfiles" />
           <NavigationProperty Name="caroles" Relationship="dbgeolocModel.fk_rePerfilRoles_caRoles_1" FromRole="reperfilroles" ToRole="caroles" />
         </EntityType>
+        <EntityType Name="reusuariosperfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idusuario" Type="Int32" Nullable="false" />
+          <Property Name="idPerfil" Type="Int32" Nullable="false" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="caperfiles" Relationship="dbgeolocModel.fk_reusuariosperfil_caperfiles_1" FromRole="reusuariosperfil" ToRole="caperfiles" />
+          <NavigationProperty Name="causuarios" Relationship="dbgeolocModel.fk_reusuariosperfil_causuarios_1" FromRole="reusuariosperfil" ToRole="causuarios" />
+        </EntityType>
+        <EntityType Name="vwactivecarriers">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="carrier" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="carrier" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
         <Association Name="fk_rePerfilRoles_caPerfiles_1">
           <End Role="caperfiles" Type="dbgeolocModel.caperfiles" Multiplicity="1" />
           <End Role="reperfilroles" Type="dbgeolocModel.reperfilroles" Multiplicity="*" />
@@ -211,6 +381,18 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="reperfilroles">
+              <PropertyRef Name="idPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_reusuariosperfil_caperfiles_1">
+          <End Role="caperfiles" Type="dbgeolocModel.caperfiles" Multiplicity="1" />
+          <End Role="reusuariosperfil" Type="dbgeolocModel.reusuariosperfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="caperfiles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reusuariosperfil">
               <PropertyRef Name="idPerfil" />
             </Dependent>
           </ReferentialConstraint>
@@ -227,33 +409,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="reusuariosperfil">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="Int32" Name="idusuario" Nullable="false" />
-          <Property Type="Int32" Name="idPerfil" Nullable="false" />
-          <Property Type="DateTime" Name="fIns" Nullable="false" />
-          <Property Type="Boolean" Name="activo" Nullable="false" />
-          <NavigationProperty Name="caperfiles" Relationship="dbgeolocModel.fk_reusuariosperfil_caperfiles_1" FromRole="reusuariosperfil" ToRole="caperfiles" />
-          <NavigationProperty Name="causuarios" Relationship="dbgeolocModel.fk_reusuariosperfil_causuarios_1" FromRole="reusuariosperfil" ToRole="causuarios" />
-        </EntityType>
-        <Association Name="fk_reusuariosperfil_caperfiles_1">
-          <End Type="dbgeolocModel.caperfiles" Role="caperfiles" Multiplicity="1" />
-          <End Type="dbgeolocModel.reusuariosperfil" Role="reusuariosperfil" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="caperfiles">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="reusuariosperfil">
-              <PropertyRef Name="idPerfil" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_reusuariosperfil_causuarios_1">
-          <End Type="dbgeolocModel.causuarios" Role="causuarios" Multiplicity="1" />
-          <End Type="dbgeolocModel.reusuariosperfil" Role="reusuariosperfil" Multiplicity="*" />
+          <End Role="causuarios" Type="dbgeolocModel.causuarios" Multiplicity="1" />
+          <End Role="reusuariosperfil" Type="dbgeolocModel.reusuariosperfil" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="causuarios">
               <PropertyRef Name="id" />
@@ -263,12 +421,96 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vwusernotifications">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Double" Name="Usuario" />
+        </EntityType>
+        <EntityType Name="demalocalizationsagenda">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="from" Nullable="false" />
+          <Property Type="Boolean" Name="to" Nullable="false" />
+          <Property Type="Boolean" Name="frecuency" />
+          <Property Type="DateTime" Name="fIns" Nullable="false" />
+          <Property Type="DateTime" Name="fAct" />
+          <NavigationProperty Name="malocalizations" Relationship="dbgeolocModel.fk_maLocalizations_deMaLocalizationsAgenda_1" FromRole="demalocalizationsagenda" ToRole="malocalizations" />
+        </EntityType>
+        <EntityType Name="malocalizations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="asunto" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="objetivo" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="idNotification" Nullable="false" />
+          <Property Type="Int32" Name="idCarrier" Nullable="false" />
+          <Property Type="Int32" Name="idAgenda" />
+          <Property Type="DateTime" Name="fIns" Nullable="false" />
+          <Property Type="DateTime" Name="fAct" Nullable="false" />
+          <NavigationProperty Name="cacarriers" Relationship="dbgeolocModel.fk_maLocalizations_cacarriers_1" FromRole="malocalizations" ToRole="cacarriers" />
+          <NavigationProperty Name="causuarios" Relationship="dbgeolocModel.fk_malocalizations_causuarios_1" FromRole="malocalizations" ToRole="causuarios" />
+          <NavigationProperty Name="demalocalizationsagenda" Relationship="dbgeolocModel.fk_maLocalizations_deMaLocalizationsAgenda_1" FromRole="malocalizations" ToRole="demalocalizationsagenda" />
+        </EntityType>
+        <Association Name="fk_maLocalizations_cacarriers_1">
+          <End Type="dbgeolocModel.cacarriers" Role="cacarriers" Multiplicity="1" />
+          <End Type="dbgeolocModel.malocalizations" Role="malocalizations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cacarriers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="malocalizations">
+              <PropertyRef Name="idCarrier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_malocalizations_causuarios_1">
+          <End Type="dbgeolocModel.causuarios" Role="causuarios" Multiplicity="1" />
+          <End Type="dbgeolocModel.malocalizations" Role="malocalizations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="causuarios">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="malocalizations">
+              <PropertyRef Name="idNotification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_maLocalizations_deMaLocalizationsAgenda_1">
+          <End Type="dbgeolocModel.demalocalizationsagenda" Role="demalocalizationsagenda" Multiplicity="0..1" />
+          <End Type="dbgeolocModel.malocalizations" Role="malocalizations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="demalocalizationsagenda">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="malocalizations">
+              <PropertyRef Name="idAgenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="dbgeolocModelStoreContainer" CdmEntityContainer="dbgeolocEntities">
+          <EntitySetMapping Name="cacarriers">
+            <EntityTypeMapping TypeName="dbgeolocModel.cacarriers">
+              <MappingFragment StoreEntitySet="cacarriers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="carrier" ColumnName="carrier" />
+                <ScalarProperty Name="descrip" ColumnName="descrip" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="caperfiles">
             <EntityTypeMapping TypeName="dbgeolocModel.caperfiles">
               <MappingFragment StoreEntitySet="caperfiles">
@@ -293,15 +535,15 @@
           <EntitySetMapping Name="causuarios">
             <EntityTypeMapping TypeName="dbgeolocModel.causuarios">
               <MappingFragment StoreEntitySet="causuarios">
-                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
-                <ScalarProperty Name="usuario" ColumnName="usuario" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="PrimerApellido" ColumnName="PrimerApellido" />
                 <ScalarProperty Name="SegundoApellido" ColumnName="SegundoApellido" />
                 <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="idDetalle" ColumnName="idDetalle" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
                 <ScalarProperty Name="fIns" ColumnName="fIns" />
                 <ScalarProperty Name="fAct" ColumnName="fAct" />
+                <ScalarProperty Name="active" ColumnName="active" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -318,10 +560,53 @@
           <EntitySetMapping Name="reusuariosperfil">
             <EntityTypeMapping TypeName="dbgeolocModel.reusuariosperfil">
               <MappingFragment StoreEntitySet="reusuariosperfil">
-                <ScalarProperty Name="activo" ColumnName="activo" />
-                <ScalarProperty Name="fIns" ColumnName="fIns" />
-                <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+                <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwactivecarriers">
+            <EntityTypeMapping TypeName="dbgeolocModel.vwactivecarriers">
+              <MappingFragment StoreEntitySet="vwactivecarriers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="carrier" ColumnName="carrier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwusernotifications">
+            <EntityTypeMapping TypeName="dbgeolocModel.vwusernotifications">
+              <MappingFragment StoreEntitySet="vwusernotifications">
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="demalocalizationsagenda">
+            <EntityTypeMapping TypeName="dbgeolocModel.demalocalizationsagenda">
+              <MappingFragment StoreEntitySet="demalocalizationsagenda">
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="frecuency" ColumnName="frecuency" />
+                <ScalarProperty Name="to" ColumnName="to" />
+                <ScalarProperty Name="from" ColumnName="from" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="malocalizations">
+            <EntityTypeMapping TypeName="dbgeolocModel.malocalizations">
+              <MappingFragment StoreEntitySet="malocalizations">
+                <ScalarProperty Name="fAct" ColumnName="fAct" />
+                <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="idAgenda" ColumnName="idAgenda" />
+                <ScalarProperty Name="idCarrier" ColumnName="idCarrier" />
+                <ScalarProperty Name="idNotification" ColumnName="idNotification" />
+                <ScalarProperty Name="objetivo" ColumnName="objetivo" />
+                <ScalarProperty Name="asunto" ColumnName="asunto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

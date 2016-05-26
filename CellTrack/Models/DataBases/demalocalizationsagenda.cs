@@ -12,25 +12,20 @@ namespace CellTrack.Models.DataBases
     using System;
     using System.Collections.Generic;
     
-    public partial class causuarios
+    public partial class demalocalizationsagenda
     {
-        public causuarios()
+        public demalocalizationsagenda()
         {
-            this.reusuariosperfil = new HashSet<reusuariosperfil>();
             this.malocalizations = new HashSet<malocalizations>();
         }
     
         public int id { get; set; }
-        public string PrimerApellido { get; set; }
-        public string SegundoApellido { get; set; }
-        public string Nombres { get; set; }
-        public string usuario { get; set; }
-        public string contrasenia { get; set; }
+        public bool from { get; set; }
+        public bool to { get; set; }
+        public Nullable<bool> frecuency { get; set; }
         public System.DateTime fIns { get; set; }
         public Nullable<System.DateTime> fAct { get; set; }
-        public Nullable<bool> active { get; set; }
     
-        public virtual ICollection<reusuariosperfil> reusuariosperfil { get; set; }
         public virtual ICollection<malocalizations> malocalizations { get; set; }
     }
 }

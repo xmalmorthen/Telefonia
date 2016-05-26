@@ -218,7 +218,7 @@
             this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackImage = global::CellTrack.Properties.Resources._1463432685_users;
+            this.BackImage = global::CellTrack.Properties.Resources._1463451442_target;
             this.BackImagePadding = new System.Windows.Forms.Padding(10, 11, 0, 0);
             this.BackMaxSize = 48;
             this.CancelButton = this.btnCancel;
@@ -236,7 +236,7 @@
             this.Name = "frmLogIn";
             this.Resizable = false;
             this.ShowInTaskbar = false;
-            this.Text = "      Inicio de Sesión";
+            this.Text = "      CellTrack";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.tlpProc.ResumeLayout(false);
