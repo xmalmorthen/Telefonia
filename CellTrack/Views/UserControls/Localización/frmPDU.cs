@@ -135,6 +135,11 @@ namespace CellTrack.Views.UserControls.Localización
             }
             
         }
+
+        private void metroTrackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            gMapController.zoom(tkBarZoom.Value);
+        }
         
     }
 }

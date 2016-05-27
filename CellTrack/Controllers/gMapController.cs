@@ -91,8 +91,8 @@ namespace CellTrack.Controllers
             MainMap.Position = new PointLatLng(mark.Lat,mark.Lng);
         }
 
-        public static void zoom(byte value) { 
-            
+        public static void zoom(int value) {
+            MainMap.Zoom = value;
         }
 
 

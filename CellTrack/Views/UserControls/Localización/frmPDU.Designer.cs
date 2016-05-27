@@ -40,6 +40,7 @@
             this.localizationsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.pMap = new System.Windows.Forms.Panel();
+            this.tkBarZoom = new MetroFramework.Controls.MetroTrackBar();
             this.bsObjetivos = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -47,6 +48,7 @@
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.localizationsModelBindingSource)).BeginInit();
+            this.pMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsObjetivos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,11 +172,26 @@
             // 
             // pMap
             // 
+            this.pMap.Controls.Add(this.tkBarZoom);
             this.pMap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pMap.Location = new System.Drawing.Point(0, 0);
             this.pMap.Name = "pMap";
             this.pMap.Size = new System.Drawing.Size(969, 463);
             this.pMap.TabIndex = 0;
+            // 
+            // tkBarZoom
+            // 
+            this.tkBarZoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.tkBarZoom.BackColor = System.Drawing.Color.Transparent;
+            this.tkBarZoom.LargeChange = 2;
+            this.tkBarZoom.Location = new System.Drawing.Point(729, 437);
+            this.tkBarZoom.Maximum = 17;
+            this.tkBarZoom.Minimum = 1;
+            this.tkBarZoom.Name = "tkBarZoom";
+            this.tkBarZoom.Size = new System.Drawing.Size(237, 23);
+            this.tkBarZoom.TabIndex = 33;
+            this.tkBarZoom.Value = 4;
+            this.tkBarZoom.ValueChanged += new System.EventHandler(this.metroTrackBar1_ValueChanged);
             // 
             // bsObjetivos
             // 
@@ -199,6 +216,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.localizationsModelBindingSource)).EndInit();
+            this.pMap.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsObjetivos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -219,5 +237,6 @@
         private MetroFramework.Controls.MetroButton btnFind;
         private System.Windows.Forms.Panel pMap;
         private System.Windows.Forms.BindingSource localizationsModelBindingSource;
+        private MetroFramework.Controls.MetroTrackBar tkBarZoom;
     }
 }
