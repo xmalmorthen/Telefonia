@@ -12,7 +12,8 @@ namespace CellTrack.Models
             Normal,
             Add,
             Edit,
-            Delete
+            Delete,
+            Find
         }
 
     }

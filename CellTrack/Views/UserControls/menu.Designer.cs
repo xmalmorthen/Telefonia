@@ -162,20 +162,21 @@
             this.toolStripMenuItem6,
             this.supervisiónToolStripMenuItem});
             this.mCMLocalizations.Name = "metroContextMenu1";
-            this.mCMLocalizations.Size = new System.Drawing.Size(142, 158);
+            this.mCMLocalizations.Size = new System.Drawing.Size(153, 180);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem1.Text = "Objetivos";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem2.Text = "PDU";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -183,7 +184,7 @@
             this.iMEIToolStripMenuItem,
             this.localizaciónToolStripMenuItem});
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem3.Text = "SS7";
             // 
             // iMEIToolStripMenuItem
@@ -201,25 +202,25 @@
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem4.Text = "Recibidos";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem5.Text = "Seguimiento";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem6.Text = "BTS";
             // 
             // supervisiónToolStripMenuItem
             // 
             this.supervisiónToolStripMenuItem.Name = "supervisiónToolStripMenuItem";
-            this.supervisiónToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.supervisiónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.supervisiónToolStripMenuItem.Text = "Supervisión";
             // 
             // mCMRegs

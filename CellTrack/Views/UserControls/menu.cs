@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using CellTrack.Classes;
 using MetroFramework.Controls;
 using System.Threading;
+using CellTrack.Views.UserControls.Localización;
+using MetroFramework;
 
 namespace CellTrack.Views.UserControls
 {
@@ -65,6 +67,19 @@ namespace CellTrack.Views.UserControls
             this.openFrm<frmObjetivos>();
         }
 
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Net.IPHostEntry internet = System.Net.Dns.GetHostEntry("www.google.com");
+            }
+            catch
+            {
+                MetroMessageBox.Show(this,"No hay conexión a internet." + Environment.NewLine + "No es posible usar esta función", "Internet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            this.openFrm<frmPDU>();
+        }
         
     }
 }

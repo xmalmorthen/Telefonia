@@ -40,6 +40,14 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.7.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.1\lib\net40\GMap.NET.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.7.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.1\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.3.5.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.3.5.0\lib\net45\MetroFramework.dll</HintPath>
       <Private>True</Private>
@@ -102,7 +110,9 @@
     <Compile Include="Classes\visualStyles.cs" />
     <Compile Include="Controllers\catalogosController.cs" />
     <Compile Include="Controllers\DAL.cs" />
+    <Compile Include="Controllers\gMapController.cs" />
     <Compile Include="Controllers\objetivosController.cs" />
+    <Compile Include="Controllers\PDUController.cs" />
     <Compile Include="Controllers\usuarioController.cs" />
     <Compile Include="Models\DataBases\cacarriers.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
@@ -148,6 +158,7 @@
     </Compile>
     <Compile Include="Models\enums.cs" />
     <Compile Include="Models\localizationsModel.cs" />
+    <Compile Include="Models\markersModel.cs" />
     <Compile Include="Views\frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +233,12 @@
     <Compile Include="Views\UserControls\frmUserInformation.Designer.cs">
       <DependentUpon>frmUserInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\Localización\frmPDU.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Localización\frmPDU.Designer.cs">
+      <DependentUpon>frmPDU.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Localización\frmObjetivos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -234,6 +251,7 @@
     <Compile Include="Views\UserControls\menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\1464400316_target.png" />
     <None Include="Resources\1464385007_doc_plus.png" />
     <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -281,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\frmUserInformation.resx">
       <DependentUpon>frmUserInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Localización\frmPDU.resx">
+      <DependentUpon>frmPDU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Localización\frmObjetivos.resx">
       <DependentUpon>frmObjetivos.cs</DependentUpon>
