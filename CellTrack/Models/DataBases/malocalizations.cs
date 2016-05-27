@@ -15,17 +15,21 @@ namespace CellTrack.Models.DataBases
     public partial class malocalizations
     {
         public int id { get; set; }
+        public int idUser { get; set; }
         public string nombre { get; set; }
         public string asunto { get; set; }
         public string objetivo { get; set; }
         public int idNotification { get; set; }
         public int idCarrier { get; set; }
-        public Nullable<int> idAgenda { get; set; }
+        public Nullable<short> agendaDe { get; set; }
+        public Nullable<short> agendaA { get; set; }
+        public Nullable<short> agendaFrecuencia { get; set; }
         public System.DateTime fIns { get; set; }
-        public System.DateTime fAct { get; set; }
+        public Nullable<System.DateTime> fAct { get; set; }
+        public bool active { get; set; }
     
         public virtual cacarriers cacarriers { get; set; }
         public virtual causuarios causuarios { get; set; }
-        public virtual demalocalizationsagenda demalocalizationsagenda { get; set; }
+        public virtual causuarios causuarios1 { get; set; }
     }
 }

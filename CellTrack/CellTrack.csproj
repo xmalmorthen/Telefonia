@@ -95,6 +95,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\exceptionHandlerCatch.cs" />
     <Compile Include="Classes\md5.cs" />
     <Compile Include="Classes\scpCnn.cs" />
     <Compile Include="Classes\sshCnn.cs" />
@@ -130,9 +131,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbGeoLoc.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataBases\demalocalizationsagenda.cs">
-      <DependentUpon>dbGeoLoc.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\DataBases\malocalizations.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
@@ -148,7 +146,8 @@
     <Compile Include="Models\DataBases\vwusernotifications.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\objetivosModel.cs" />
+    <Compile Include="Models\enums.cs" />
+    <Compile Include="Models\localizationsModel.cs" />
     <Compile Include="Views\frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,7 +234,7 @@
     <Compile Include="Views\UserControls\menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
-    <None Include="Resources\loading-gallery.gif" />
+    <None Include="Resources\1464385007_doc_plus.png" />
     <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>dbGeoLoc.Designer.cs</LastGenOutput>
@@ -243,9 +242,11 @@
     <None Include="Models\DataBases\dbGeoLoc.edmx.diagram">
       <DependentUpon>dbGeoLoc.edmx</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\CellTrack.Models.DataBases.malocalizations.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.localizationsModel.datasource" />
+    <None Include="Resources\loading-gallery.gif" />
     <None Include="Properties\DataSources\CellTrack.Models.DataBases.vwactivecarriers.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.DataBases.vwusernotifications.datasource" />
-    <None Include="Properties\DataSources\CellTrack.Models.objetivosModel.datasource" />
     <None Include="Resources\1464227257_save.png" />
     <None Include="Resources\1464227143_trash.png" />
     <None Include="Resources\1463558222_Update.png" />

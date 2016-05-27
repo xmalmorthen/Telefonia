@@ -45,8 +45,8 @@ namespace CellTrack.Views
         {
             visualStyles.apply(this, msmMain);
             metroToolTip.StyleManager = msmMain;
+            frmUserInformation.refreshUserName();
             frmState = FrmState.Normal;
-
             renderControl(new frmUserAdmin());
         }
 

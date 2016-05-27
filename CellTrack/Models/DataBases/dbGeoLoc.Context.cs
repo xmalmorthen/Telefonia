@@ -33,7 +33,6 @@ namespace CellTrack.Models.DataBases
         public DbSet<reusuariosperfil> reusuariosperfil { get; set; }
         public DbSet<vwactivecarriers> vwactivecarriers { get; set; }
         public DbSet<vwusernotifications> vwusernotifications { get; set; }
-        public DbSet<demalocalizationsagenda> demalocalizationsagenda { get; set; }
         public DbSet<malocalizations> malocalizations { get; set; }
     }
 }

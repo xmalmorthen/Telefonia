@@ -18,6 +18,7 @@ namespace CellTrack.Models.DataBases
         {
             this.reusuariosperfil = new HashSet<reusuariosperfil>();
             this.malocalizations = new HashSet<malocalizations>();
+            this.malocalizations1 = new HashSet<malocalizations>();
         }
     
         public int id { get; set; }
@@ -32,5 +33,6 @@ namespace CellTrack.Models.DataBases
     
         public virtual ICollection<reusuariosperfil> reusuariosperfil { get; set; }
         public virtual ICollection<malocalizations> malocalizations { get; set; }
+        public virtual ICollection<malocalizations> malocalizations1 { get; set; }
     }
 }

@@ -17,6 +17,12 @@ namespace CellTrack.Controllers
             }
         }
 
+        public static cacarriers carrierById(int idCarrier, Boolean verifyActive = true)
+        {
+            cacarriers carrier = DAL.Db.cacarriers.SingleOrDefault(qry => qry.id.Equals(idCarrier));
+            return verifyActive == true ? (carrier.active == true ? carrier : null) : carrier;
+        }
+
 
     }
 }

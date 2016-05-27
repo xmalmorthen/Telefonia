@@ -12,8 +12,6 @@ namespace CellTrack
 {
     static class Program
     {
-        public static causuarios user = null;   //Variable global que contiene información del ususario logueado
-
         #region SSHREFERENCES
 
         private static Dictionary<string, sshCnn> sshCnn = new Dictionary<string, sshCnn>();
@@ -56,6 +54,19 @@ namespace CellTrack
                     Application.Run(FrmLogIn);
                     if (FrmLogIn.dlgRes == DialogResult.No) Application.Exit();
                 }*/
+
+                //USUARIO DE SIMULACIÓN
+                //TODO: Borrar al implementar el formulario de inicio de sesión
+                    causuarios data = new causuarios()
+                    {
+                        id = 1,
+                        Nombres = "Miguel Angel",
+                        PrimerApellido = "Rueda",
+                        SegundoApellido = "Aguilar",
+                        usuario = "xmalmorthen"
+                    };
+                    usuarioController.usuarioLogueado.info = data;
+                //USUARIO DE SIMULACIÓN
 
                 FrmDashboard = new frmDashboard();
 

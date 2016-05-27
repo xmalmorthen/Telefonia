@@ -70,7 +70,7 @@ namespace CellTrack
 
         void bkgnd_DoWork(object sender, DoWorkEventArgs e)
         {
-            e.Result = usuarioController.verifyLogInUser(txtUsr.Text, txtPwd.Text, out Program.user);
+            e.Result = usuarioController.verifyLogInUser(txtUsr.Text, txtPwd.Text);
         } 
 
         void bkgnd_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

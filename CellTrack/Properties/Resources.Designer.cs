@@ -253,6 +253,16 @@ namespace CellTrack.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1464385007_doc_plus {
+            get {
+                object obj = ResourceManager.GetObject("1464385007_doc_plus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_039920_256 {
             get {
                 object obj = ResourceManager.GetObject("icon_039920_256", resourceCulture);
