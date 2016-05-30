@@ -12,10 +12,12 @@ namespace CellTrack.Models.DataBases
     using System;
     using System.Collections.Generic;
     
-    public partial class vwusernotifications
+    public partial class tbllogs
     {
-        public Nullable<double> Usuario { get; set; }
-        public int id { get; set; }
-        public int idGpo { get; set; }
+        public long id { get; set; }
+        public string Level { get; set; }
+        public string Message { get; set; }
+        public string Exception { get; set; }
+        public Nullable<System.DateTime> DateTime { get; set; }
     }
 }

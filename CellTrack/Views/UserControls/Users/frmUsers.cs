@@ -15,7 +15,7 @@ using MetroFramework;
 
 namespace CellTrack.Views.UserControls
 {
-    public partial class frmObjetivos : UserControl
+    public partial class frmUsers : UserControl
     {
         enums.frmState frmState;
         public enums.frmState FrmState
@@ -29,7 +29,7 @@ namespace CellTrack.Views.UserControls
             }
         }
 
-        public frmObjetivos()
+        public frmUsers()
         {
             InitializeComponent();
             this.init();

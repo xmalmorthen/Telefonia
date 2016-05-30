@@ -16,7 +16,6 @@ namespace CellTrack.Models.DataBases
     {
         public causuarios()
         {
-            this.reusuariosperfil = new HashSet<reusuariosperfil>();
             this.malocalizations = new HashSet<malocalizations>();
             this.malocalizations1 = new HashSet<malocalizations>();
         }
@@ -27,11 +26,17 @@ namespace CellTrack.Models.DataBases
         public string Nombres { get; set; }
         public string usuario { get; set; }
         public string contrasenia { get; set; }
+        public Nullable<int> cantidadLocalizaciones { get; set; }
+        public bool active { get; set; }
         public System.DateTime fIns { get; set; }
         public Nullable<System.DateTime> fAct { get; set; }
-        public Nullable<bool> active { get; set; }
+        public int idGpo { get; set; }
+        public bool esSupervisor { get; set; }
+        public int idPerfil { get; set; }
+        public bool isDeleted { get; set; }
     
-        public virtual ICollection<reusuariosperfil> reusuariosperfil { get; set; }
+        public virtual cagrupos cagrupos { get; set; }
+        public virtual caperfiles caperfiles { get; set; }
         public virtual ICollection<malocalizations> malocalizations { get; set; }
         public virtual ICollection<malocalizations> malocalizations1 { get; set; }
     }

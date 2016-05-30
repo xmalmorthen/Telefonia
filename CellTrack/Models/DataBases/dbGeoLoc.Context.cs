@@ -26,13 +26,14 @@ namespace CellTrack.Models.DataBases
         }
     
         public DbSet<cacarriers> cacarriers { get; set; }
+        public DbSet<cagrupos> cagrupos { get; set; }
         public DbSet<caperfiles> caperfiles { get; set; }
         public DbSet<caroles> caroles { get; set; }
         public DbSet<causuarios> causuarios { get; set; }
+        public DbSet<malocalizations> malocalizations { get; set; }
         public DbSet<reperfilroles> reperfilroles { get; set; }
-        public DbSet<reusuariosperfil> reusuariosperfil { get; set; }
+        public DbSet<tbllogs> tbllogs { get; set; }
         public DbSet<vwactivecarriers> vwactivecarriers { get; set; }
         public DbSet<vwusernotifications> vwusernotifications { get; set; }
-        public DbSet<malocalizations> malocalizations { get; set; }
     }
 }

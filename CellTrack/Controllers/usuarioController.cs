@@ -31,7 +31,7 @@ namespace CellTrack.Controllers
         public static List<vwusernotifications> usersNotifications
         {
             get {
-                return DAL.Db.vwusernotifications.ToList();   
+                return DAL.Db.vwusernotifications.Where(qry => qry.idGpo.Equals(usuarioLogueado.info.idGpo)).ToList();   
             }
         }
 
@@ -39,6 +39,82 @@ namespace CellTrack.Controllers
             public static causuarios info { get; set; }            
         }
 
+        public static List<causuarios> usuarios {
+            get {
+                return DAL.Db.causuarios.Where(qry => qry.isDeleted.Equals(false)).ToList();
+            }
+        }
+
+        public static bool insert(causuarios newItem)
+        {
+            Boolean returnResult = false;
+            try
+            {
+                newItem.contrasenia = md5.Get(newItem.contrasenia);
+                newItem.fIns = DateTime.Now;
+                DAL.Db.causuarios.Add(newItem);
+                DAL.Db.SaveChanges();
+                returnResult = true;
+            }
+            catch (Exception ex)
+            {
+                exceptionHandlerCatch.registerLogException(ex);
+            }
+            return returnResult;
+        }
+
+        public static bool edit(causuarios Item)
+        {
+            Boolean returnResult = false;
+            try
+            {
+                causuarios item = DAL.Db.causuarios.SingleOrDefault(qry => qry.id.Equals(Item.id));
+
+                if (item == null) throw new NullReferenceException(string.Format("No se encontró el registro [ {0} | {1} | {2} | {3} ], es posible que se haya eliminado desde otra instancia", Item.id, Item.usuario, Item.fIns, string.Format("{0} {1} {2}",Item.Nombres,Item.PrimerApellido,Item.SegundoApellido)));
+
+                item.PrimerApellido = Item.PrimerApellido;
+                item.SegundoApellido = Item.SegundoApellido;
+                item.Nombres = Item.Nombres;
+                item.usuario = Item.usuario;
+                item.contrasenia = Item.contrasenia;
+                item.cantidadLocalizaciones = Item.cantidadLocalizaciones;
+                item.active = Item.active;
+                item.fAct = DateTime.Now;
+                item.idGpo = Item.idGpo;
+                item.esSupervisor = Item.esSupervisor;
+                item.idPerfil = Item.idPerfil;
+
+                DAL.Db.SaveChanges();
+                returnResult = true;
+            }
+            catch (Exception ex)
+            {
+                exceptionHandlerCatch.registerLogException(ex);
+            }
+            return returnResult;
+        }
+
+        internal static bool delete(causuarios Item)
+        {
+            Boolean returnResult = false;
+            try
+            {
+                causuarios item = DAL.Db.causuarios.SingleOrDefault(qry => qry.id.Equals(Item.id));
+
+                if (item == null) throw new NullReferenceException(string.Format("No se encontró el registro [ {0} | {1} | {2} | {3} ], es posible que se haya eliminado desde otra instancia", Item.id, Item.usuario, Item.fIns, string.Format("{0} {1} {2}", Item.Nombres, Item.PrimerApellido, Item.SegundoApellido)));
+
+                item.isDeleted = true;
+                item.fAct = DateTime.Now;
+
+                DAL.Db.SaveChanges();
+                returnResult = true;
+            }
+            catch (Exception ex)
+            {
+                exceptionHandlerCatch.registerLogException(ex);
+            }
+            return returnResult;
+        }
     }
 
 }

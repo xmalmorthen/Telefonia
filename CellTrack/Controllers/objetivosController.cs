@@ -95,6 +95,6 @@ namespace CellTrack.Controllers
                 exceptionHandlerCatch.registerLogException(ex);
             }
             return returnResult;
-        }
+        }        
     }
 }

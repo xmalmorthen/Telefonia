@@ -23,6 +23,11 @@ namespace CellTrack.Controllers
             return verifyActive == true ? (carrier.active == true ? carrier : null) : carrier;
         }
 
+        public static List<caperfiles> perfiles {
+            get {
+                return DAL.Db.caperfiles.Where(qry => qry.activo.Equals(true)).ToList();
+            }
+        }       
 
     }
 }

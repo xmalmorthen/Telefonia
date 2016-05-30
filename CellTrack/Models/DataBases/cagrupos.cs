@@ -12,15 +12,21 @@ namespace CellTrack.Models.DataBases
     using System;
     using System.Collections.Generic;
     
-    public partial class reusuariosperfil
+    public partial class cagrupos
     {
-        public int id { get; set; }
-        public int idusuario { get; set; }
-        public int idPerfil { get; set; }
-        public System.DateTime fIns { get; set; }
-        public bool activo { get; set; }
+        public cagrupos()
+        {
+            this.causuarios = new HashSet<causuarios>();
+        }
     
-        public virtual caperfiles caperfiles { get; set; }
-        public virtual causuarios causuarios { get; set; }
+        public int id { get; set; }
+        public string grupo { get; set; }
+        public string descrip { get; set; }
+        public System.DateTime fIns { get; set; }
+        public Nullable<System.DateTime> fAct { get; set; }
+        public bool activo { get; set; }
+        public bool isDeleted { get; set; }
+    
+        public virtual ICollection<causuarios> causuarios { get; set; }
     }
 }

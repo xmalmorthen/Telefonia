@@ -109,12 +109,16 @@
     <Compile Include="Classes\sshCnn.cs" />
     <Compile Include="Classes\visualStyles.cs" />
     <Compile Include="Controllers\catalogosController.cs" />
+    <Compile Include="Controllers\gruposController.cs" />
     <Compile Include="Controllers\DAL.cs" />
     <Compile Include="Controllers\gMapController.cs" />
     <Compile Include="Controllers\objetivosController.cs" />
     <Compile Include="Controllers\PDUController.cs" />
     <Compile Include="Controllers\usuarioController.cs" />
     <Compile Include="Models\DataBases\cacarriers.cs">
+      <DependentUpon>dbGeoLoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\cagrupos.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataBases\caperfiles.cs">
@@ -147,7 +151,7 @@
     <Compile Include="Models\DataBases\reperfilroles.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataBases\reusuariosperfil.cs">
+    <Compile Include="Models\DataBases\tbllogs.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataBases\vwactivecarriers.cs">
@@ -179,11 +183,23 @@
     <Compile Include="Views\frmSshCnn.Designer.cs">
       <DependentUpon>frmSshCnn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControls\frmAdmin.cs">
+    <Compile Include="Views\UserControls\Admin\usrCtrlGpos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\UserControls\frmAdmin.Designer.cs">
+    <Compile Include="Views\UserControls\Admin\usrCtrlGpos.Designer.cs">
+      <DependentUpon>usrCtrlGpos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Admin\frmAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Admin\frmAdmin.Designer.cs">
       <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Admin\usrCtrlUsuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Admin\usrCtrlUsuarios.Designer.cs">
+      <DependentUpon>usrCtrlUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\frmBaseDatos.cs">
       <SubType>UserControl</SubType>
@@ -233,16 +249,16 @@
     <Compile Include="Views\UserControls\frmUserInformation.Designer.cs">
       <DependentUpon>frmUserInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControls\Localización\frmPDU.cs">
+    <Compile Include="Views\UserControls\Localizacion\frmPDU.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\UserControls\Localización\frmPDU.Designer.cs">
+    <Compile Include="Views\UserControls\Localizacion\frmPDU.Designer.cs">
       <DependentUpon>frmPDU.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControls\Localización\frmObjetivos.cs">
+    <Compile Include="Views\UserControls\Localizacion\frmObjetivos.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\UserControls\Localización\frmObjetivos.Designer.cs">
+    <Compile Include="Views\UserControls\Localizacion\frmObjetivos.Designer.cs">
       <DependentUpon>frmObjetivos.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\menu.cs">
@@ -251,8 +267,24 @@
     <Compile Include="Views\UserControls\menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
-    <None Include="Resources\1464400316_target.png" />
-    <None Include="Resources\1464385007_doc_plus.png" />
+    <Compile Include="Views\UserControls\Users\frmUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Users\frmUsers.Designer.cs">
+      <DependentUpon>frmUsers.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\UserControls\Admin\usrCtrlGpos.resx">
+      <DependentUpon>usrCtrlGpos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Admin\frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Admin\usrCtrlUsuarios.resx">
+      <DependentUpon>usrCtrlUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Users\frmUsers.resx">
+      <DependentUpon>frmUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>dbGeoLoc.Designer.cs</LastGenOutput>
@@ -260,6 +292,11 @@
     <None Include="Models\DataBases\dbGeoLoc.edmx.diagram">
       <DependentUpon>dbGeoLoc.edmx</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\CellTrack.Models.DataBases.cagrupos.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.DataBases.caperfiles.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.DataBases.causuarios.datasource" />
+    <None Include="Resources\1464400316_target.png" />
+    <None Include="Resources\1464385007_doc_plus.png" />
     <None Include="Properties\DataSources\CellTrack.Models.DataBases.malocalizations.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.localizationsModel.datasource" />
     <None Include="Resources\loading-gallery.gif" />
@@ -273,9 +310,6 @@
     <None Include="Resources\1464223445_checkmark.png" />
     <None Include="Resources\1464222032_air_signal.png" />
     <None Include="Resources\icon_039920_256.jpg" />
-    <EmbeddedResource Include="Views\UserControls\frmAdmin.resx">
-      <DependentUpon>frmAdmin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\frmBaseDatos.resx">
       <DependentUpon>frmBaseDatos.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,10 +334,10 @@
     <EmbeddedResource Include="Views\UserControls\frmUserInformation.resx">
       <DependentUpon>frmUserInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UserControls\Localización\frmPDU.resx">
+    <EmbeddedResource Include="Views\UserControls\Localizacion\frmPDU.resx">
       <DependentUpon>frmPDU.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UserControls\Localización\frmObjetivos.resx">
+    <EmbeddedResource Include="Views\UserControls\Localizacion\frmObjetivos.resx">
       <DependentUpon>frmObjetivos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\menu.resx">

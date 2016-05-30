@@ -4,23 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9fbc889baff64677b97b6e74593f38b3" Name="Diagrama1">
-        <EntityTypeShape EntityType="dbgeolocModel.cacarriers" Width="1.5" PointX="3.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbgeolocModel.caperfiles" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbgeolocModel.caroles" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbgeolocModel.causuarios" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbgeolocModel.reperfilroles" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbgeolocModel.reusuariosperfil" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbgeolocModel.vwactivecarriers" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbgeolocModel.vwusernotifications" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+      <Diagram DiagramId="2f82a3b72ad84bc4a2f5cc50f7fe2a7d" Name="Diagrama1">
+        <EntityTypeShape EntityType="dbgeolocModel.cacarriers" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbgeolocModel.cagrupos" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbgeolocModel.caperfiles" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbgeolocModel.caroles" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbgeolocModel.causuarios" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbgeolocModel.malocalizations" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbgeolocModel.reperfilroles" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbgeolocModel.tbllogs" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbgeolocModel.vwactivecarriers" Width="1.5" PointX="2.75" PointY="8.875" IsExpanded="true" />
+        <AssociationConnector Association="dbgeolocModel.fk_maLocalizations_cacarriers_1" ManuallyRouted="false" />
+        <AssociationConnector Association="dbgeolocModel.fk_causuarios_caGrupos_1" ManuallyRouted="false" />
+        <AssociationConnector Association="dbgeolocModel.fk_causuarios_caperfiles_1" ManuallyRouted="false" />
         <AssociationConnector Association="dbgeolocModel.fk_rePerfilRoles_caPerfiles_1" ManuallyRouted="false" />
-        <AssociationConnector Association="dbgeolocModel.fk_reusuariosperfil_caperfiles_1" ManuallyRouted="false" />
         <AssociationConnector Association="dbgeolocModel.fk_rePerfilRoles_caRoles_1" ManuallyRouted="false" />
-        <AssociationConnector Association="dbgeolocModel.fk_reusuariosperfil_causuarios_1" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="dbgeolocModel.malocalizations" Width="1.5" PointX="6" PointY="6.75" />
-        <AssociationConnector Association="dbgeolocModel.fk_maLocalizations_cacarriers_1" />
-        <AssociationConnector Association="dbgeolocModel.fk_malocalizations_causuarios_1" />
-        <AssociationConnector Association="dbgeolocModel.fk_malocalizations_causuarios_2" />
+        <AssociationConnector Association="dbgeolocModel.fk_malocalizations_causuarios_1" ManuallyRouted="false" />
+        <AssociationConnector Association="dbgeolocModel.fk_malocalizations_causuarios_2" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbgeolocModel.vwusernotifications" Width="1.5" PointX="4.75" PointY="8.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

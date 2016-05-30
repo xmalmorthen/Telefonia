@@ -16,16 +16,17 @@ namespace CellTrack.Models.DataBases
     {
         public caperfiles()
         {
+            this.causuarios = new HashSet<causuarios>();
             this.reperfilroles = new HashSet<reperfilroles>();
-            this.reusuariosperfil = new HashSet<reusuariosperfil>();
         }
     
         public int id { get; set; }
         public string perfil { get; set; }
         public System.DateTime fIns { get; set; }
         public Nullable<System.DateTime> fAct { get; set; }
+        public bool activo { get; set; }
     
+        public virtual ICollection<causuarios> causuarios { get; set; }
         public virtual ICollection<reperfilroles> reperfilroles { get; set; }
-        public virtual ICollection<reusuariosperfil> reusuariosperfil { get; set; }
     }
 }

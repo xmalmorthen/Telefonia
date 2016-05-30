@@ -36,7 +36,7 @@ namespace CellTrack.Views.UserControls
 
         private void btnConfigs_Click(object sender, EventArgs e)
         {
-            Program.FrmDashboard.renderControl(new frmAdmin());
+            this.openFrm<frmAdmin>();
         }
 
         private void btnFinder_Click(object sender, EventArgs e)
