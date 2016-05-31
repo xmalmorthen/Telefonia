@@ -37,7 +37,6 @@
             this.tbConfigs = new MetroFramework.Controls.MetroTabControl();
             this.tbPageUsuarios = new MetroFramework.Controls.MetroTabPage();
             this.tbPagePerfilesRoles = new MetroFramework.Controls.MetroTabPage();
-            this.tbPageCatalogos = new MetroFramework.Controls.MetroTabPage();
             this.tbPageGrupos = new MetroFramework.Controls.MetroTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.tbConfigs.SuspendLayout();
@@ -91,17 +90,23 @@
             this.tbConfigs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbConfigs.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tbConfigs.Controls.Add(this.tbPageUsuarios);
             this.tbConfigs.Controls.Add(this.tbPagePerfilesRoles);
-            this.tbConfigs.Controls.Add(this.tbPageCatalogos);
             this.tbConfigs.Controls.Add(this.tbPageGrupos);
+            this.tbConfigs.FontSize = MetroFramework.MetroTabControlSize.Tall;
+            this.tbConfigs.FontWeight = MetroFramework.MetroTabControlWeight.Bold;
+            this.tbConfigs.HotTrack = true;
+            this.tbConfigs.ItemSize = new System.Drawing.Size(100, 43);
             this.tbConfigs.Location = new System.Drawing.Point(9, 40);
             this.tbConfigs.Name = "tbConfigs";
-            this.tbConfigs.SelectedIndex = 3;
+            this.tbConfigs.SelectedIndex = 0;
             this.tbConfigs.Size = new System.Drawing.Size(970, 553);
-            this.tbConfigs.TabIndex = 25;
+            this.tbConfigs.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.tbConfigs.Style = MetroFramework.MetroColorStyle.Orange;
+            this.tbConfigs.TabIndex = 0;
             this.tbConfigs.UseSelectable = true;
-            this.tbConfigs.SelectedIndexChanged += new System.EventHandler(this.tbConfigs_SelectedIndexChanged);
+            this.tbConfigs.UseStyleColors = true;
             // 
             // tbPageUsuarios
             // 
@@ -109,9 +114,9 @@
             this.tbPageUsuarios.HorizontalScrollbarBarColor = true;
             this.tbPageUsuarios.HorizontalScrollbarHighlightOnWheel = false;
             this.tbPageUsuarios.HorizontalScrollbarSize = 10;
-            this.tbPageUsuarios.Location = new System.Drawing.Point(4, 38);
+            this.tbPageUsuarios.Location = new System.Drawing.Point(4, 47);
             this.tbPageUsuarios.Name = "tbPageUsuarios";
-            this.tbPageUsuarios.Size = new System.Drawing.Size(962, 511);
+            this.tbPageUsuarios.Size = new System.Drawing.Size(962, 502);
             this.tbPageUsuarios.TabIndex = 0;
             this.tbPageUsuarios.Text = "Usuarios";
             this.tbPageUsuarios.VerticalScrollbarBarColor = true;
@@ -124,29 +129,14 @@
             this.tbPagePerfilesRoles.HorizontalScrollbarBarColor = true;
             this.tbPagePerfilesRoles.HorizontalScrollbarHighlightOnWheel = false;
             this.tbPagePerfilesRoles.HorizontalScrollbarSize = 10;
-            this.tbPagePerfilesRoles.Location = new System.Drawing.Point(4, 38);
+            this.tbPagePerfilesRoles.Location = new System.Drawing.Point(4, 47);
             this.tbPagePerfilesRoles.Name = "tbPagePerfilesRoles";
-            this.tbPagePerfilesRoles.Size = new System.Drawing.Size(962, 511);
+            this.tbPagePerfilesRoles.Size = new System.Drawing.Size(962, 502);
             this.tbPagePerfilesRoles.TabIndex = 1;
             this.tbPagePerfilesRoles.Text = "Perfiles y Roles";
             this.tbPagePerfilesRoles.VerticalScrollbarBarColor = true;
             this.tbPagePerfilesRoles.VerticalScrollbarHighlightOnWheel = false;
             this.tbPagePerfilesRoles.VerticalScrollbarSize = 10;
-            // 
-            // tbPageCatalogos
-            // 
-            this.tbPageCatalogos.BackColor = System.Drawing.Color.Transparent;
-            this.tbPageCatalogos.HorizontalScrollbarBarColor = true;
-            this.tbPageCatalogos.HorizontalScrollbarHighlightOnWheel = false;
-            this.tbPageCatalogos.HorizontalScrollbarSize = 10;
-            this.tbPageCatalogos.Location = new System.Drawing.Point(4, 38);
-            this.tbPageCatalogos.Name = "tbPageCatalogos";
-            this.tbPageCatalogos.Size = new System.Drawing.Size(962, 511);
-            this.tbPageCatalogos.TabIndex = 2;
-            this.tbPageCatalogos.Text = "Catálogos";
-            this.tbPageCatalogos.VerticalScrollbarBarColor = true;
-            this.tbPageCatalogos.VerticalScrollbarHighlightOnWheel = false;
-            this.tbPageCatalogos.VerticalScrollbarSize = 10;
             // 
             // tbPageGrupos
             // 
@@ -154,9 +144,9 @@
             this.tbPageGrupos.HorizontalScrollbarBarColor = true;
             this.tbPageGrupos.HorizontalScrollbarHighlightOnWheel = false;
             this.tbPageGrupos.HorizontalScrollbarSize = 10;
-            this.tbPageGrupos.Location = new System.Drawing.Point(4, 38);
+            this.tbPageGrupos.Location = new System.Drawing.Point(4, 47);
             this.tbPageGrupos.Name = "tbPageGrupos";
-            this.tbPageGrupos.Size = new System.Drawing.Size(962, 511);
+            this.tbPageGrupos.Size = new System.Drawing.Size(962, 502);
             this.tbPageGrupos.TabIndex = 3;
             this.tbPageGrupos.Text = "Grupos";
             this.tbPageGrupos.VerticalScrollbarBarColor = true;
@@ -192,7 +182,6 @@
         private MetroFramework.Controls.MetroTabControl tbConfigs;
         private MetroFramework.Controls.MetroTabPage tbPageUsuarios;
         private MetroFramework.Controls.MetroTabPage tbPagePerfilesRoles;
-        private MetroFramework.Controls.MetroTabPage tbPageCatalogos;
         private MetroFramework.Controls.MetroTabPage tbPageGrupos;
     }
 }

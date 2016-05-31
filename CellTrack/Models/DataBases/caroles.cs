@@ -24,6 +24,9 @@ namespace CellTrack.Models.DataBases
         public string descripcion { get; set; }
         public System.DateTime fIns { get; set; }
         public Nullable<System.DateTime> fAct { get; set; }
+        public bool activo { get; set; }
+        public bool isDeleted { get; set; }
+        public string tag { get; set; }
     
         public virtual ICollection<reperfilroles> reperfilroles { get; set; }
     }

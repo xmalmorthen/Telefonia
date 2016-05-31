@@ -12,6 +12,8 @@ using MetroFramework.Controls;
 using System.Threading;
 using CellTrack.Views.UserControls.Localización;
 using MetroFramework;
+using CellTrack.Models.DataBases;
+using CellTrack.Controllers;
 
 namespace CellTrack.Views.UserControls
 {
@@ -27,6 +29,35 @@ namespace CellTrack.Views.UserControls
         {
             visualStyles.apply(this, msmMain);
             metroToolTip.StyleManager = msmMain;
+
+            List<reperfilroles> roles = usuarioController.usuarioLogueado.info.caperfiles.reperfilroles.Where(qry => qry.caroles.isDeleted.Equals(false) && qry.caroles.activo.Equals(true)).ToList();            
+            
+            this.changeAccessRoles(mCMLocalizations.Items, roles);
+            this.changeAccessRoles(mCMRegs.Items, roles);
+
+            foreach (Control item in this.Controls)
+                if (item is Button) {
+                    reperfilroles rol = roles.SingleOrDefault(qry => qry.caroles.tag.Equals((string)item.Tag, StringComparison.InvariantCultureIgnoreCase));
+                    item.Visible = rol != null;
+                }
+
+
+        }
+
+        private void changeAccessRoles(ToolStripItemCollection collection, List<reperfilroles> roles)
+        {
+            foreach (ToolStripMenuItem item in collection)
+            {
+                reperfilroles rol = roles.SingleOrDefault(qry => qry.caroles.tag.Equals((string)item.Tag, StringComparison.InvariantCultureIgnoreCase));
+                item.Visible = rol != null;
+
+                if (item is ToolStripDropDownItem)
+                {
+                    ToolStripDropDownItem dropDownItem = (ToolStripDropDownItem)item;
+                    if (dropDownItem.DropDownItems.Count > 0)
+                        this.changeAccessRoles(dropDownItem.DropDownItems, roles);
+                }
+            }
         }
 
         private void btnUser_Click(object sender, EventArgs e)

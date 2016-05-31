@@ -155,14 +155,17 @@ namespace CellTrack.Views.UserControls.Admin
                 switch (FrmState)
                 {
                     case enums.frmState.Add:
-
                         newItem.contrasenia = txtPwd.Text.Trim();
+                        newItem.cantidadLocalizaciones = int.Parse(txtCantLoc.Text);
+
                         if (!usuarioController.insert(newItem))
                             throw new Exception("Ocurrió un error al guardar, favor de intentarlo de nuevo." + Environment.NewLine + "Si el problema persiste ponerse en contacto con el administrador del sistema");
                         break;
                     case enums.frmState.Edit:
                         if (!string.IsNullOrEmpty(txtPwd.Text))
                             (causuariosBindingSource.Current as causuarios).contrasenia = md5.Get(txtPwd.Text.Trim());
+
+                        (causuariosBindingSource.Current as causuarios).cantidadLocalizaciones = int.Parse(txtCantLoc.Text);
 
                         if (!usuarioController.edit(causuariosBindingSource.Current as causuarios))
                             throw new Exception("Ocurrió un error al editar, favor de intentarlo de nuevo." + Environment.NewLine + "Si el problema persiste ponerse en contacto con el administrador del sistema");
@@ -189,7 +192,12 @@ namespace CellTrack.Views.UserControls.Admin
             if (MetroMessageBox.Show(this, "Confirme la limpieza del formulario, la información introducida se perderá", "Limpiar formulario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 causuariosBindingSource.CancelEdit();
-                btnAdd_Click(null, null);
+                if (FrmState.Equals(enums.frmState.Add))
+                    btnAdd_Click(null, null);
+                else {
+                    DAL.discardChanges<causuarios>(((causuarios)causuariosBindingSource.Current));
+                    causuariosBindingSource.ResetCurrentItem();
+                }
             }
         }
 
@@ -197,13 +205,14 @@ namespace CellTrack.Views.UserControls.Admin
         {
             if (MetroMessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                causuariosBindingSource.CancelEdit();
+                DAL.discardChanges<causuarios>(((causuarios)causuariosBindingSource.Current));
+                causuariosBindingSource.ResetCurrentItem();
                 FrmState = enums.frmState.Normal;
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
-        {
+        {            
             FrmState = enums.frmState.Edit;
         }
 
@@ -229,15 +238,15 @@ namespace CellTrack.Views.UserControls.Admin
         {
             Usuarios();
         }
-
-        private void cmbGpo_Enter(object sender, EventArgs e)
-        {
-            cagruposBindingSource.DataSource = gruposController.activeGrupos;
-        }
-
-        private void cmbPerfil_Enter(object sender, EventArgs e)
+       
+        private void cmbPerfil_DropDown(object sender, EventArgs e)
         {
             caperfilesBindingSource.DataSource = catalogosController.perfiles;
+        }
+
+        private void cmbGpo_DropDown(object sender, EventArgs e)
+        {
+            cagruposBindingSource.DataSource = gruposController.activeGrupos;
         }
 
     }

@@ -112,8 +112,14 @@ namespace CellTrack.Views.UserControls.Admin
         {
             if (MetroMessageBox.Show(this, "Confirme la limpieza del formulario, la información introducida se perderá", "Limpiar formulario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+
                 cagruposBindingSource.CancelEdit();
-                btnAdd_Click(null, null);
+                if (FrmState.Equals(enums.frmState.Add))
+                    btnAdd_Click(null, null);
+                else {
+                    DAL.discardChanges<cagrupos>(((cagrupos)cagruposBindingSource.Current));
+                    cagruposBindingSource.ResetCurrentItem();
+                }
             }
         }
 
@@ -121,7 +127,8 @@ namespace CellTrack.Views.UserControls.Admin
         {
             if (MetroMessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                cagruposBindingSource.CancelEdit();
+                DAL.discardChanges<cagrupos>(((cagrupos)cagruposBindingSource.Current));
+                cagruposBindingSource.ResetCurrentItem();
                 FrmState = enums.frmState.Normal;
             }
         }

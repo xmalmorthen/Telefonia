@@ -57,15 +57,8 @@ namespace CellTrack
 
                 //USUARIO DE SIMULACIÓN
                 //TODO: Borrar al implementar el formulario de inicio de sesión
-                    causuarios data = new causuarios()
-                    {
-                        id = 1,
-                        Nombres = "Miguel Angel",
-                        PrimerApellido = "Rueda",
-                        SegundoApellido = "Aguilar",
-                        usuario = "xmalmorthen"
-                    };
-                    usuarioController.usuarioLogueado.info = data;
+                causuarios data = DAL.Db.causuarios.SingleOrDefault(qry => qry.id.Equals(8));
+                usuarioController.usuarioLogueado.info = data;
                 //USUARIO DE SIMULACIÓN
 
                 FrmDashboard = new frmDashboard();

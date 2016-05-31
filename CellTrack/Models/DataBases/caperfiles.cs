@@ -25,6 +25,7 @@ namespace CellTrack.Models.DataBases
         public System.DateTime fIns { get; set; }
         public Nullable<System.DateTime> fAct { get; set; }
         public bool activo { get; set; }
+        public bool isDeleted { get; set; }
     
         public virtual ICollection<causuarios> causuarios { get; set; }
         public virtual ICollection<reperfilroles> reperfilroles { get; set; }

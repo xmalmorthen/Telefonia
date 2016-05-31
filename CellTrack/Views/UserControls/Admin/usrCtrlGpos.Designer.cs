@@ -44,6 +44,7 @@
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.tgGpoActivo = new MetroFramework.Controls.MetroToggle();
+            this.cagruposBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblActivo = new MetroFramework.Controls.MetroLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
@@ -52,7 +53,6 @@
             this.txtDescrip = new MetroFramework.Controls.MetroTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.gd = new MetroFramework.Controls.MetroGrid();
-            this.cagruposBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grupoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,10 +65,10 @@
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cagruposBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cagruposBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // metroToolTip
@@ -192,6 +192,7 @@
             // 
             // splitContainer
             // 
+            this.splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer.Location = new System.Drawing.Point(0, 0);
             this.splitContainer.Name = "splitContainer";
@@ -216,7 +217,7 @@
             this.splitContainer.Panel2MinSize = 200;
             this.splitContainer.Size = new System.Drawing.Size(961, 614);
             this.splitContainer.SplitterDistance = 115;
-            this.splitContainer.SplitterWidth = 10;
+            this.splitContainer.SplitterWidth = 5;
             this.splitContainer.TabIndex = 22;
             // 
             // metroLabel7
@@ -225,7 +226,7 @@
             this.metroLabel7.AutoSize = true;
             this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel7.Location = new System.Drawing.Point(3, 77);
+            this.metroLabel7.Location = new System.Drawing.Point(2, 76);
             this.metroLabel7.Margin = new System.Windows.Forms.Padding(3);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(156, 25);
@@ -243,7 +244,7 @@
             this.tgGpoActivo.DisplayStatus = false;
             this.tgGpoActivo.FontSize = MetroFramework.MetroLinkSize.Tall;
             this.tgGpoActivo.FontWeight = MetroFramework.MetroLinkWeight.Bold;
-            this.tgGpoActivo.Location = new System.Drawing.Point(242, 85);
+            this.tgGpoActivo.Location = new System.Drawing.Point(241, 84);
             this.tgGpoActivo.Name = "tgGpoActivo";
             this.tgGpoActivo.Size = new System.Drawing.Size(50, 17);
             this.tgGpoActivo.TabIndex = 2;
@@ -251,12 +252,16 @@
             this.tgGpoActivo.UseSelectable = true;
             this.tgGpoActivo.CheckedChanged += new System.EventHandler(this.tgGpoActivo_CheckedChanged);
             // 
+            // cagruposBindingSource
+            // 
+            this.cagruposBindingSource.DataSource = typeof(CellTrack.Models.DataBases.cagrupos);
+            // 
             // lblActivo
             // 
             this.lblActivo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblActivo.AutoSize = true;
             this.lblActivo.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblActivo.Location = new System.Drawing.Point(298, 85);
+            this.lblActivo.Location = new System.Drawing.Point(297, 84);
             this.lblActivo.Margin = new System.Windows.Forms.Padding(3);
             this.lblActivo.Name = "lblActivo";
             this.lblActivo.Size = new System.Drawing.Size(38, 15);
@@ -271,7 +276,7 @@
             this.panel2.Controls.Add(this.btnAccept);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnClear);
-            this.panel2.Location = new System.Drawing.Point(866, 3);
+            this.panel2.Location = new System.Drawing.Point(865, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(88, 110);
             this.panel2.TabIndex = 31;
@@ -282,7 +287,7 @@
             this.metroLabel20.AutoSize = true;
             this.metroLabel20.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel20.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel20.Location = new System.Drawing.Point(3, 2);
+            this.metroLabel20.Location = new System.Drawing.Point(2, 1);
             this.metroLabel20.Margin = new System.Windows.Forms.Padding(3);
             this.metroLabel20.Name = "metroLabel20";
             this.metroLabel20.Size = new System.Drawing.Size(170, 25);
@@ -310,7 +315,7 @@
             this.txtGrupo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cagruposBindingSource, "grupo", true));
             this.txtGrupo.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtGrupo.Lines = new string[0];
-            this.txtGrupo.Location = new System.Drawing.Point(3, 33);
+            this.txtGrupo.Location = new System.Drawing.Point(2, 32);
             this.txtGrupo.MaxLength = 50;
             this.txtGrupo.Name = "txtGrupo";
             this.txtGrupo.PasswordChar = '\0';
@@ -330,7 +335,7 @@
             this.metroLabel21.AutoSize = true;
             this.metroLabel21.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel21.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel21.Location = new System.Drawing.Point(434, 2);
+            this.metroLabel21.Location = new System.Drawing.Point(433, 1);
             this.metroLabel21.Margin = new System.Windows.Forms.Padding(3);
             this.metroLabel21.Name = "metroLabel21";
             this.metroLabel21.Size = new System.Drawing.Size(111, 25);
@@ -357,7 +362,7 @@
             this.txtDescrip.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cagruposBindingSource, "descrip", true));
             this.txtDescrip.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtDescrip.Lines = new string[0];
-            this.txtDescrip.Location = new System.Drawing.Point(434, 33);
+            this.txtDescrip.Location = new System.Drawing.Point(433, 32);
             this.txtDescrip.MaxLength = 50;
             this.txtDescrip.Multiline = true;
             this.txtDescrip.Name = "txtDescrip";
@@ -380,7 +385,7 @@
             this.panel3.Controls.Add(this.btnEdit);
             this.panel3.Controls.Add(this.btnrefresh);
             this.panel3.Controls.Add(this.btnDelete);
-            this.panel3.Location = new System.Drawing.Point(869, 3);
+            this.panel3.Location = new System.Drawing.Point(867, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(85, 175);
             this.panel3.TabIndex = 32;
@@ -447,16 +452,12 @@
             this.gd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gd.ShowEditingIcon = false;
-            this.gd.Size = new System.Drawing.Size(857, 477);
+            this.gd.Size = new System.Drawing.Size(855, 474);
             this.gd.StandardTab = true;
             this.gd.Style = MetroFramework.MetroColorStyle.Orange;
             this.gd.TabIndex = 6;
             this.gd.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gd.UseStyleColors = true;
-            // 
-            // cagruposBindingSource
-            // 
-            this.cagruposBindingSource.DataSource = typeof(CellTrack.Models.DataBases.cagrupos);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -532,12 +533,12 @@
             this.splitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cagruposBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cagruposBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

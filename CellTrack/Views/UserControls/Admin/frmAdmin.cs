@@ -21,6 +21,7 @@ namespace CellTrack.Views.UserControls
     {
         private usrCtrlUsuarios CtrlUsuarios = new usrCtrlUsuarios();
         private usrCtrlGpos CtrlGpos = new usrCtrlGpos();
+        private usrCtrlPerfilesRoles CtrlPerfilesRoles = new usrCtrlPerfilesRoles();
 
         public frmAdmin()
         {
@@ -32,27 +33,14 @@ namespace CellTrack.Views.UserControls
         {
             visualStyles.apply(this, msmMain);
             metroToolTip.StyleManager = msmMain;
-            tbConfigs_SelectedIndexChanged(tbConfigs, null);
-        }
+            
+            this.tbPageUsuarios.Controls.Add(renderControl(CtrlUsuarios));
+            this.tbPagePerfilesRoles.Controls.Add(renderControl(CtrlPerfilesRoles));
+            this.tbPageGrupos.Controls.Add(renderControl(CtrlGpos));
 
-        private void tbConfigs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (((MetroTabControl)sender).SelectedIndex)
-            {
-                case 0: //TAB DE USUARIOS
-                    this.tbPageUsuarios.Controls.Clear();
-                    this.tbPageUsuarios.Controls.Add(renderControl(CtrlUsuarios));
-                    break;
-                case 1: //TAB DE PERFILES Y ROLES
-                    break;
-                case 2: //TAB DE CATÁLOGOS
-                    break;
-                case 3: //TAB DE GRUPOS
-                    this.tbPageGrupos.Controls.Clear();
-                    this.tbPageGrupos.Controls.Add(renderControl(CtrlGpos));
-                    break;
-            } 
-        }
+            tbConfigs.SelectedIndex = 0;
+            tbConfigs.Focus();
+        }        
 
         public UserControl renderControl(UserControl ctrl)
         {

@@ -82,6 +82,7 @@
             this.btnConfigs.Name = "btnConfigs";
             this.btnConfigs.Size = new System.Drawing.Size(23, 23);
             this.btnConfigs.TabIndex = 4;
+            this.btnConfigs.Tag = "3";
             this.metroToolTip.SetToolTip(this.btnConfigs, "Configuraciones");
             this.btnConfigs.UseSelectable = true;
             this.btnConfigs.UseStyleColors = true;
@@ -114,6 +115,7 @@
             this.btnFinder.Name = "btnFinder";
             this.btnFinder.Size = new System.Drawing.Size(60, 60);
             this.btnFinder.TabIndex = 3;
+            this.btnFinder.Tag = "2";
             this.metroToolTip.SetToolTip(this.btnFinder, "Investigación");
             this.btnFinder.UseSelectable = true;
             this.btnFinder.UseStyleColors = true;
@@ -130,6 +132,7 @@
             this.btnRegs.Name = "btnRegs";
             this.btnRegs.Size = new System.Drawing.Size(60, 60);
             this.btnRegs.TabIndex = 2;
+            this.btnRegs.Tag = "1";
             this.metroToolTip.SetToolTip(this.btnRegs, "Registros");
             this.btnRegs.UseSelectable = true;
             this.btnRegs.UseStyleColors = true;
@@ -146,6 +149,7 @@
             this.btnLocalizations.Name = "btnLocalizations";
             this.btnLocalizations.Size = new System.Drawing.Size(60, 60);
             this.btnLocalizations.TabIndex = 1;
+            this.btnLocalizations.Tag = "0";
             this.metroToolTip.SetToolTip(this.btnLocalizations, "Localización");
             this.btnLocalizations.UseSelectable = true;
             this.btnLocalizations.UseStyleColors = true;
@@ -168,6 +172,7 @@
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Tag = "0-1";
             this.toolStripMenuItem1.Text = "Objetivos";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -175,6 +180,7 @@
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Tag = "0-2";
             this.toolStripMenuItem2.Text = "PDU";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -185,36 +191,42 @@
             this.localizaciónToolStripMenuItem});
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem3.Tag = "0-3";
             this.toolStripMenuItem3.Text = "SS7";
             // 
             // iMEIToolStripMenuItem
             // 
             this.iMEIToolStripMenuItem.Name = "iMEIToolStripMenuItem";
-            this.iMEIToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.iMEIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.iMEIToolStripMenuItem.Tag = "0-3-1";
             this.iMEIToolStripMenuItem.Text = "IMEI";
             // 
             // localizaciónToolStripMenuItem
             // 
             this.localizaciónToolStripMenuItem.Name = "localizaciónToolStripMenuItem";
-            this.localizaciónToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.localizaciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.localizaciónToolStripMenuItem.Tag = "0-3-2";
             this.localizaciónToolStripMenuItem.Text = "Localización";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem4.Tag = "0-4";
             this.toolStripMenuItem4.Text = "Recibidos";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem5.Tag = "0-5";
             this.toolStripMenuItem5.Text = "Seguimiento";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem6.Tag = "0-6";
             this.toolStripMenuItem6.Text = "BTS";
             // 
             // supervisiónToolStripMenuItem
@@ -240,42 +252,49 @@
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             this.toolStripMenuItem7.Size = new System.Drawing.Size(119, 22);
+            this.toolStripMenuItem7.Tag = "1-1";
             this.toolStripMenuItem7.Text = "Padrón";
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
             this.toolStripMenuItem8.Size = new System.Drawing.Size(119, 22);
+            this.toolStripMenuItem8.Tag = "1-2";
             this.toolStripMenuItem8.Text = "CFE";
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
             this.toolStripMenuItem9.Size = new System.Drawing.Size(119, 22);
+            this.toolStripMenuItem9.Tag = "1-3";
             this.toolStripMenuItem9.Text = "IMSS";
             // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
             this.toolStripMenuItem12.Size = new System.Drawing.Size(119, 22);
+            this.toolStripMenuItem12.Tag = "1-4";
             this.toolStripMenuItem12.Text = "RENAUT";
             // 
             // toolStripMenuItem13
             // 
             this.toolStripMenuItem13.Name = "toolStripMenuItem13";
             this.toolStripMenuItem13.Size = new System.Drawing.Size(119, 22);
+            this.toolStripMenuItem13.Tag = "1-5";
             this.toolStripMenuItem13.Text = "TELMEX";
             // 
             // toolStripMenuItem14
             // 
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
             this.toolStripMenuItem14.Size = new System.Drawing.Size(119, 22);
+            this.toolStripMenuItem14.Tag = "1-6";
             this.toolStripMenuItem14.Text = "TELCEL";
             // 
             // toolStripMenuItem15
             // 
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
             this.toolStripMenuItem15.Size = new System.Drawing.Size(119, 22);
+            this.toolStripMenuItem15.Tag = "1-7";
             this.toolStripMenuItem15.Text = "NEXTEL";
             // 
             // menu

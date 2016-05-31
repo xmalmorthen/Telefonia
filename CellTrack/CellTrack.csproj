@@ -109,6 +109,7 @@
     <Compile Include="Classes\sshCnn.cs" />
     <Compile Include="Classes\visualStyles.cs" />
     <Compile Include="Controllers\catalogosController.cs" />
+    <Compile Include="Controllers\rolesPerfilesController.cs" />
     <Compile Include="Controllers\gruposController.cs" />
     <Compile Include="Controllers\DAL.cs" />
     <Compile Include="Controllers\gMapController.cs" />
@@ -182,6 +183,12 @@
     </Compile>
     <Compile Include="Views\frmSshCnn.Designer.cs">
       <DependentUpon>frmSshCnn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Admin\usrCtrlPerfilesRoles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Admin\usrCtrlPerfilesRoles.Designer.cs">
+      <DependentUpon>usrCtrlPerfilesRoles.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\Admin\usrCtrlGpos.cs">
       <SubType>UserControl</SubType>
@@ -273,6 +280,17 @@
     <Compile Include="Views\UserControls\Users\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbGeoLoc.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DataBases\dbGeoLoc.edmx.diagram">
+      <DependentUpon>dbGeoLoc.edmx</DependentUpon>
+    </None>
+    <None Include="Resources\1464722820_layers_2.png" />
+    <EmbeddedResource Include="Views\UserControls\Admin\usrCtrlPerfilesRoles.resx">
+      <DependentUpon>usrCtrlPerfilesRoles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Admin\usrCtrlGpos.resx">
       <DependentUpon>usrCtrlGpos.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,15 +303,9 @@
     <EmbeddedResource Include="Views\UserControls\Users\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbGeoLoc.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Models\DataBases\dbGeoLoc.edmx.diagram">
-      <DependentUpon>dbGeoLoc.edmx</DependentUpon>
-    </None>
     <None Include="Properties\DataSources\CellTrack.Models.DataBases.cagrupos.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.DataBases.caperfiles.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.DataBases.caroles.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.DataBases.causuarios.datasource" />
     <None Include="Resources\1464400316_target.png" />
     <None Include="Resources\1464385007_doc_plus.png" />
