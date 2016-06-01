@@ -62,6 +62,9 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.txtUser = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.txtFind = new MetroFramework.Controls.MetroTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAdd = new MetroFramework.Controls.MetroButton();
             this.btnEdit = new MetroFramework.Controls.MetroButton();
@@ -138,6 +141,9 @@
             // 
             // splitContainerUsuarios.Panel2
             // 
+            this.splitContainerUsuarios.Panel2.Controls.Add(this.metroLabel11);
+            this.splitContainerUsuarios.Panel2.Controls.Add(this.metroLabel7);
+            this.splitContainerUsuarios.Panel2.Controls.Add(this.txtFind);
             this.splitContainerUsuarios.Panel2.Controls.Add(this.panel1);
             this.splitContainerUsuarios.Panel2.Controls.Add(this.gdUsers);
             this.splitContainerUsuarios.Panel2MinSize = 200;
@@ -652,6 +658,68 @@
             this.metroLabel3.Text = "Contraseña";
             this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // metroLabel11
+            // 
+            this.metroLabel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel11.Location = new System.Drawing.Point(128, 11);
+            this.metroLabel11.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(443, 15);
+            this.metroLabel11.TabIndex = 45;
+            this.metroLabel11.Text = "Filtra por [ Nombre(s) Primer Apellido Segundo Apellido | Nombre de Usuario | Gru" +
+    "po ]";
+            this.metroLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel7.Location = new System.Drawing.Point(3, 29);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(62, 25);
+            this.metroLabel7.TabIndex = 38;
+            this.metroLabel7.Text = "Filtrar";
+            this.metroLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtFind
+            // 
+            this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFind.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtFind.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            // 
+            // 
+            // 
+            this.txtFind.CustomButton.Image = null;
+            this.txtFind.CustomButton.Location = new System.Drawing.Point(472, 1);
+            this.txtFind.CustomButton.Name = "";
+            this.txtFind.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.txtFind.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtFind.CustomButton.TabIndex = 1;
+            this.txtFind.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtFind.CustomButton.UseSelectable = true;
+            this.txtFind.CustomButton.Visible = false;
+            this.txtFind.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtFind.Lines = new string[0];
+            this.txtFind.Location = new System.Drawing.Point(71, 27);
+            this.txtFind.MaxLength = 30;
+            this.txtFind.Name = "txtFind";
+            this.txtFind.PasswordChar = '\0';
+            this.txtFind.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtFind.SelectedText = "";
+            this.txtFind.SelectionLength = 0;
+            this.txtFind.SelectionStart = 0;
+            this.txtFind.Size = new System.Drawing.Size(500, 29);
+            this.txtFind.TabIndex = 12;
+            this.txtFind.UseSelectable = true;
+            this.txtFind.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtFind.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -777,7 +845,7 @@
             this.gdUsers.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gdUsers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gdUsers.HighLightPercentage = 0.5F;
-            this.gdUsers.Location = new System.Drawing.Point(3, 3);
+            this.gdUsers.Location = new System.Drawing.Point(3, 62);
             this.gdUsers.MultiSelect = false;
             this.gdUsers.Name = "gdUsers";
             this.gdUsers.ReadOnly = true;
@@ -794,7 +862,7 @@
             this.gdUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdUsers.ShowEditingIcon = false;
-            this.gdUsers.Size = new System.Drawing.Size(866, 331);
+            this.gdUsers.Size = new System.Drawing.Size(866, 260);
             this.gdUsers.StandardTab = true;
             this.gdUsers.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdUsers.TabIndex = 12;
@@ -1046,5 +1114,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn caperfilesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn malocalizationsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn malocalizations1DataGridViewTextBoxColumn;
+        private MetroFramework.Controls.MetroTextBox txtFind;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
     }
 }

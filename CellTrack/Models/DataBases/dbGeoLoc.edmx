@@ -139,6 +139,7 @@
           <Property Name="fIns" Type="datetime" Nullable="false" />
           <Property Name="fAct" Type="datetime" />
           <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="isDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="reperfilroles">
           <Key>
@@ -405,6 +406,7 @@
           <NavigationProperty Name="cacarriers" Relationship="dbgeolocModel.fk_maLocalizations_cacarriers_1" FromRole="malocalizations" ToRole="cacarriers" />
           <NavigationProperty Name="causuarios" Relationship="dbgeolocModel.fk_malocalizations_causuarios_1" FromRole="malocalizations" ToRole="causuarios" />
           <NavigationProperty Name="causuarios1" Relationship="dbgeolocModel.fk_malocalizations_causuarios_2" FromRole="malocalizations" ToRole="causuarios" />
+          <Property Type="Boolean" Name="isDeleted" />
         </EntityType>
         <EntityType Name="reperfilroles">
           <Key>
@@ -608,6 +610,7 @@
           <EntitySetMapping Name="malocalizations">
             <EntityTypeMapping TypeName="dbgeolocModel.malocalizations">
               <MappingFragment StoreEntitySet="malocalizations">
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />

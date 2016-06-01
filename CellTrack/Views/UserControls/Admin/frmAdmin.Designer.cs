@@ -38,6 +38,7 @@
             this.tbPageUsuarios = new MetroFramework.Controls.MetroTabPage();
             this.tbPagePerfilesRoles = new MetroFramework.Controls.MetroTabPage();
             this.tbPageGrupos = new MetroFramework.Controls.MetroTabPage();
+            this.tbPageReasignarObjetivos = new MetroFramework.Controls.MetroTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.tbConfigs.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +95,7 @@
             this.tbConfigs.Controls.Add(this.tbPageUsuarios);
             this.tbConfigs.Controls.Add(this.tbPagePerfilesRoles);
             this.tbConfigs.Controls.Add(this.tbPageGrupos);
+            this.tbConfigs.Controls.Add(this.tbPageReasignarObjetivos);
             this.tbConfigs.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.tbConfigs.FontWeight = MetroFramework.MetroTabControlWeight.Bold;
             this.tbConfigs.HotTrack = true;
@@ -153,6 +155,20 @@
             this.tbPageGrupos.VerticalScrollbarHighlightOnWheel = false;
             this.tbPageGrupos.VerticalScrollbarSize = 10;
             // 
+            // tbPageReasignarObjetivos
+            // 
+            this.tbPageReasignarObjetivos.HorizontalScrollbarBarColor = true;
+            this.tbPageReasignarObjetivos.HorizontalScrollbarHighlightOnWheel = false;
+            this.tbPageReasignarObjetivos.HorizontalScrollbarSize = 10;
+            this.tbPageReasignarObjetivos.Location = new System.Drawing.Point(4, 47);
+            this.tbPageReasignarObjetivos.Name = "tbPageReasignarObjetivos";
+            this.tbPageReasignarObjetivos.Size = new System.Drawing.Size(962, 502);
+            this.tbPageReasignarObjetivos.TabIndex = 4;
+            this.tbPageReasignarObjetivos.Text = "Reasignar Objetivos";
+            this.tbPageReasignarObjetivos.VerticalScrollbarBarColor = true;
+            this.tbPageReasignarObjetivos.VerticalScrollbarHighlightOnWheel = false;
+            this.tbPageReasignarObjetivos.VerticalScrollbarSize = 10;
+            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,5 +199,6 @@
         private MetroFramework.Controls.MetroTabPage tbPageUsuarios;
         private MetroFramework.Controls.MetroTabPage tbPagePerfilesRoles;
         private MetroFramework.Controls.MetroTabPage tbPageGrupos;
+        private MetroFramework.Controls.MetroTabPage tbPageReasignarObjetivos;
     }
 }

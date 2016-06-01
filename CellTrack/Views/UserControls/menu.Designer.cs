@@ -54,9 +54,13 @@
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.mCMLocalizations.SuspendLayout();
             this.mCMRegs.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // msmMain
@@ -77,7 +81,7 @@
             this.btnConfigs.BackgroundImage = global::CellTrack.Properties.Resources._1463451293_cog;
             this.btnConfigs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnConfigs.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnConfigs.Location = new System.Drawing.Point(200, 42);
+            this.btnConfigs.Location = new System.Drawing.Point(5, 39);
             this.btnConfigs.Margin = new System.Windows.Forms.Padding(5);
             this.btnConfigs.Name = "btnConfigs";
             this.btnConfigs.Size = new System.Drawing.Size(23, 23);
@@ -94,7 +98,7 @@
             this.btnUser.BackgroundImage = global::CellTrack.Properties.Resources._1463451253_user;
             this.btnUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnUser.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnUser.Location = new System.Drawing.Point(200, 5);
+            this.btnUser.Location = new System.Drawing.Point(5, 5);
             this.btnUser.Margin = new System.Windows.Forms.Padding(5);
             this.btnUser.Name = "btnUser";
             this.btnUser.Size = new System.Drawing.Size(23, 23);
@@ -166,12 +170,12 @@
             this.toolStripMenuItem6,
             this.supervisiónToolStripMenuItem});
             this.mCMLocalizations.Name = "metroContextMenu1";
-            this.mCMLocalizations.Size = new System.Drawing.Size(153, 180);
+            this.mCMLocalizations.Size = new System.Drawing.Size(142, 158);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
             this.toolStripMenuItem1.Tag = "0-1";
             this.toolStripMenuItem1.Text = "Objetivos";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
@@ -179,7 +183,7 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(141, 22);
             this.toolStripMenuItem2.Tag = "0-2";
             this.toolStripMenuItem2.Text = "PDU";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
@@ -190,49 +194,49 @@
             this.iMEIToolStripMenuItem,
             this.localizaciónToolStripMenuItem});
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(141, 22);
             this.toolStripMenuItem3.Tag = "0-3";
             this.toolStripMenuItem3.Text = "SS7";
             // 
             // iMEIToolStripMenuItem
             // 
             this.iMEIToolStripMenuItem.Name = "iMEIToolStripMenuItem";
-            this.iMEIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.iMEIToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.iMEIToolStripMenuItem.Tag = "0-3-1";
             this.iMEIToolStripMenuItem.Text = "IMEI";
             // 
             // localizaciónToolStripMenuItem
             // 
             this.localizaciónToolStripMenuItem.Name = "localizaciónToolStripMenuItem";
-            this.localizaciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.localizaciónToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.localizaciónToolStripMenuItem.Tag = "0-3-2";
             this.localizaciónToolStripMenuItem.Text = "Localización";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(141, 22);
             this.toolStripMenuItem4.Tag = "0-4";
             this.toolStripMenuItem4.Text = "Recibidos";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(141, 22);
             this.toolStripMenuItem5.Tag = "0-5";
             this.toolStripMenuItem5.Text = "Seguimiento";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(141, 22);
             this.toolStripMenuItem6.Tag = "0-6";
             this.toolStripMenuItem6.Text = "BTS";
             // 
             // supervisiónToolStripMenuItem
             // 
             this.supervisiónToolStripMenuItem.Name = "supervisiónToolStripMenuItem";
-            this.supervisiónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.supervisiónToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.supervisiónToolStripMenuItem.Text = "Supervisión";
             // 
             // mCMRegs
@@ -297,21 +301,44 @@
             this.toolStripMenuItem15.Tag = "1-7";
             this.toolStripMenuItem15.Text = "NEXTEL";
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel1.Controls.Add(this.btnLocalizations);
+            this.flowLayoutPanel1.Controls.Add(this.btnRegs);
+            this.flowLayoutPanel1.Controls.Add(this.btnFinder);
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(234, 73);
+            this.flowLayoutPanel1.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.btnUser);
+            this.panel1.Controls.Add(this.btnConfigs);
+            this.panel1.Location = new System.Drawing.Point(198, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(33, 67);
+            this.panel1.TabIndex = 4;
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.btnConfigs);
-            this.Controls.Add(this.btnUser);
-            this.Controls.Add(this.btnFinder);
-            this.Controls.Add(this.btnRegs);
-            this.Controls.Add(this.btnLocalizations);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "menu";
-            this.Size = new System.Drawing.Size(228, 70);
+            this.Size = new System.Drawing.Size(240, 77);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.mCMLocalizations.ResumeLayout(false);
             this.mCMRegs.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,5 +371,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

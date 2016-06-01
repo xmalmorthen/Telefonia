@@ -70,7 +70,11 @@ namespace CellTrack.Views.UserControls.Admin
 
         private void Perfiles()
         {
-            caperfilesBindingSource.DataSource = rolesPerfilesController.perfiles;
+            string filter = txtFind.Text;
+            if (string.IsNullOrEmpty(filter)) 
+                caperfilesBindingSource.DataSource = rolesPerfilesController.perfiles;
+            else
+                caperfilesBindingSource.DataSource = rolesPerfilesController.perfiles.Where(qry => qry.perfil.Contains(filter) && qry.isDeleted.Equals(false)).ToList();
         }
 
         private void Roles()
@@ -176,8 +180,13 @@ namespace CellTrack.Views.UserControls.Admin
         {
             if (MetroMessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                DAL.discardChanges<caperfiles>(((caperfiles)caperfilesBindingSource.Current));
-                caperfilesBindingSource.ResetCurrentItem();
+                if (FrmState.Equals(enums.frmState.Add))
+                    caperfilesBindingSource.CancelEdit();
+                else
+                {
+                    DAL.discardChanges<caperfiles>(((caperfiles)caperfilesBindingSource.Current));
+                    caperfilesBindingSource.ResetCurrentItem();
+                }
                 FrmState = enums.frmState.Normal;
             }
         }
@@ -222,11 +231,6 @@ namespace CellTrack.Views.UserControls.Admin
             lblActivo.Text = ((MetroToggle)sender).Checked ? "Activo" : "Inactivo";
         }
 
-        private void btnAddRol_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRefreshRoles_Click(object sender, EventArgs e)
         {
             Roles();
@@ -245,6 +249,11 @@ namespace CellTrack.Views.UserControls.Admin
         private void caperfilesBindingSource_CurrentChanged(object sender, EventArgs e)
         {
             Roles();
+        }
+
+        private void txtFind_KeyUp(object sender, KeyEventArgs e)
+        {
+            Perfiles();
         }
 
     }

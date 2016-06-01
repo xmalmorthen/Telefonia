@@ -11,9 +11,14 @@ namespace CellTrack.Controllers
 {
     public static class objetivosController
     {
+        public static List<malocalizations> getTargets()
+        {
+            return DAL.Db.malocalizations.Where(qry => qry.isDeleted.Equals(false)).ToList();
+        }
+
         public static List<malocalizations> getTargets(int idUser) 
         {
-            return DAL.Db.malocalizations.Where(qry => qry.idUser.Equals(idUser) && qry.active.Equals(true)).ToList();
+            return getTargets().Where(qry => qry.idUser.Equals(idUser) && qry.active.Equals(true)).ToList();
         }
 
         public static Boolean insertNewTarget(localizationsModel target) {

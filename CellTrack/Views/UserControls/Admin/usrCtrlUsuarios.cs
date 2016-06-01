@@ -24,7 +24,7 @@ namespace CellTrack.Views.UserControls.Admin
             get { return frmState; }
             set {
                 splitContainerUsuarios.Panel1.Enabled = value != enums.frmState.Normal;
-                splitContainerUsuarios.Panel2.Enabled = value == enums.frmState.Normal;
+                splitContainerUsuarios.Panel2Collapsed = value != enums.frmState.Normal;
 
                 txtPwd.Text = "";
 
@@ -184,7 +184,11 @@ namespace CellTrack.Views.UserControls.Admin
 
         private void Usuarios()
         {
-            causuariosBindingSource.DataSource = usuarioController.usuarios;
+            string filter = txtFind.Text.Trim();
+            if (string.IsNullOrEmpty(filter))
+                causuariosBindingSource.DataSource = usuarioController.usuarios;
+            else
+                causuariosBindingSource.DataSource = usuarioController.usuarios.Where(qry => string.Format("{0} {1} {2} {3} {4}", qry.Nombres, qry.PrimerApellido, qry.SegundoApellido, qry.usuario.ToUpper(), qry.cagrupos.descrip.ToUpper()).Trim().Contains(filter)  && qry.isDeleted.Equals(false) && qry.cagrupos.activo.Equals(true) && qry.cagrupos.isDeleted.Equals(false)).ToList();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -205,8 +209,13 @@ namespace CellTrack.Views.UserControls.Admin
         {
             if (MetroMessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                DAL.discardChanges<causuarios>(((causuarios)causuariosBindingSource.Current));
-                causuariosBindingSource.ResetCurrentItem();
+                if (FrmState.Equals(enums.frmState.Add))
+                    causuariosBindingSource.CancelEdit();
+                else
+                {
+                    DAL.discardChanges<causuarios>(((causuarios)causuariosBindingSource.Current));
+                    causuariosBindingSource.ResetCurrentItem();
+                }
                 FrmState = enums.frmState.Normal;
             }
         }
@@ -247,6 +256,11 @@ namespace CellTrack.Views.UserControls.Admin
         private void cmbGpo_DropDown(object sender, EventArgs e)
         {
             cagruposBindingSource.DataSource = gruposController.activeGrupos;
+        }
+
+        private void txtFind_KeyUp(object sender, KeyEventArgs e)
+        {
+            Usuarios();
         }
 
     }

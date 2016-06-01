@@ -24,7 +24,7 @@ namespace CellTrack.Views.UserControls.Admin
             get { return frmState; }
             set {
                 splitContainer.Panel1.Enabled = value != enums.frmState.Normal;
-                splitContainer.Panel2.Enabled = value == enums.frmState.Normal;
+                splitContainer.Panel2Collapsed = value != enums.frmState.Normal;
 
                 txtGrupo.Enabled = value == enums.frmState.Add;
                 
@@ -105,7 +105,11 @@ namespace CellTrack.Views.UserControls.Admin
 
         private void Grupos()
         {
-            cagruposBindingSource.DataSource = gruposController.grupos;
+            string filter = txtFind.Text;
+            if (string.IsNullOrEmpty(filter))
+                cagruposBindingSource.DataSource = gruposController.grupos;
+            else
+                cagruposBindingSource.DataSource = gruposController.grupos.Where(qry => qry.grupo.Contains(filter) && qry.isDeleted.Equals(false)).ToList();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -127,8 +131,13 @@ namespace CellTrack.Views.UserControls.Admin
         {
             if (MetroMessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                DAL.discardChanges<cagrupos>(((cagrupos)cagruposBindingSource.Current));
-                cagruposBindingSource.ResetCurrentItem();
+                if (FrmState.Equals(enums.frmState.Add))
+                    cagruposBindingSource.CancelEdit();
+                else
+                {
+                    DAL.discardChanges<cagrupos>(((cagrupos)cagruposBindingSource.Current));
+                    cagruposBindingSource.ResetCurrentItem();
+                }
                 FrmState = enums.frmState.Normal;
             }
         }
@@ -136,6 +145,7 @@ namespace CellTrack.Views.UserControls.Admin
         private void btnEdit_Click(object sender, EventArgs e)
         {
             FrmState = enums.frmState.Edit;
+            txtDescrip.Focus();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -165,6 +175,11 @@ namespace CellTrack.Views.UserControls.Admin
         private void tgGpoActivo_CheckedChanged(object sender, EventArgs e)
         {
             lblActivo.Text = ((MetroToggle)sender).Checked ? "Activo" : "Inactivo";
+        }
+
+        private void txtFind_KeyUp(object sender, KeyEventArgs e)
+        {
+            Grupos();
         }
 
     }

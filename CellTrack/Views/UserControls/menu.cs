@@ -34,14 +34,22 @@ namespace CellTrack.Views.UserControls
             
             this.changeAccessRoles(mCMLocalizations.Items, roles);
             this.changeAccessRoles(mCMRegs.Items, roles);
+            this.changeAccessButtonsRoles(this.Controls, roles);
+            
+        }
 
-            foreach (Control item in this.Controls)
-                if (item is Button) {
-                    reperfilroles rol = roles.SingleOrDefault(qry => qry.caroles.tag.Equals((string)item.Tag, StringComparison.InvariantCultureIgnoreCase));
-                    item.Visible = rol != null;
-                }
-
-
+        private void changeAccessButtonsRoles(ControlCollection ctrl, List<reperfilroles> roles)
+        {
+            foreach (Control item in ctrl)
+            {
+                if (item.Controls.Count > 0) this.changeAccessButtonsRoles(item.Controls, roles);
+                if (item is Button)
+                    if (!string.IsNullOrEmpty(item.Tag as string))
+                    {
+                        reperfilroles rol = roles.SingleOrDefault(qry => qry.caroles.tag.Equals((string)item.Tag, StringComparison.InvariantCultureIgnoreCase));
+                        item.Visible = rol != null;
+                    }
+            }
         }
 
         private void changeAccessRoles(ToolStripItemCollection collection, List<reperfilroles> roles)

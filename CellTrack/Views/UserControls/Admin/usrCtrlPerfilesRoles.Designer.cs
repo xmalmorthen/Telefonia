@@ -49,23 +49,25 @@
             this.btnSelectionNone = new MetroFramework.Controls.MetroButton();
             this.btnSelectAll = new MetroFramework.Controls.MetroButton();
             this.gdRolesAsignados = new MetroFramework.Controls.MetroGrid();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fInsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fActDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reperfilrolesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelectRol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.carolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.tgGpoActivo = new MetroFramework.Controls.MetroToggle();
             this.lblActivo = new MetroFramework.Controls.MetroLabel();
             this.pnlBtnsActions = new System.Windows.Forms.Panel();
             this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
             this.txtPerfil = new MetroFramework.Controls.MetroTextBox();
-            this.caperfilesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.gd = new MetroFramework.Controls.MetroGrid();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.txtFind = new MetroFramework.Controls.MetroTextBox();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fInsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fActDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reperfilrolesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.caperfilesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.perfilDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fInsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,17 +75,18 @@
             this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.causuariosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reperfilrolesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdRolesAsignados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carolesBindingSource)).BeginInit();
             this.pnlBtnsActions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.caperfilesBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carolesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.caperfilesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // metroToolTip
@@ -237,11 +240,14 @@
             // 
             // splitContainer.Panel2
             // 
+            this.splitContainer.Panel2.Controls.Add(this.metroLabel11);
+            this.splitContainer.Panel2.Controls.Add(this.metroLabel7);
+            this.splitContainer.Panel2.Controls.Add(this.txtFind);
             this.splitContainer.Panel2.Controls.Add(this.panel3);
             this.splitContainer.Panel2.Controls.Add(this.gd);
             this.splitContainer.Panel2MinSize = 200;
-            this.splitContainer.Size = new System.Drawing.Size(959, 612);
-            this.splitContainer.SplitterDistance = 400;
+            this.splitContainer.Size = new System.Drawing.Size(961, 614);
+            this.splitContainer.SplitterDistance = 401;
             this.splitContainer.SplitterWidth = 5;
             this.splitContainer.TabIndex = 24;
             // 
@@ -250,7 +256,7 @@
             this.btnSelectionNone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectionNone.AutoSize = true;
             this.btnSelectionNone.FontWeight = MetroFramework.MetroButtonWeight.Light;
-            this.btnSelectionNone.Location = new System.Drawing.Point(626, 72);
+            this.btnSelectionNone.Location = new System.Drawing.Point(628, 72);
             this.btnSelectionNone.Name = "btnSelectionNone";
             this.btnSelectionNone.Size = new System.Drawing.Size(100, 23);
             this.btnSelectionNone.TabIndex = 49;
@@ -263,7 +269,7 @@
             this.btnSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectAll.AutoSize = true;
             this.btnSelectAll.FontWeight = MetroFramework.MetroButtonWeight.Light;
-            this.btnSelectAll.Location = new System.Drawing.Point(523, 72);
+            this.btnSelectAll.Location = new System.Drawing.Point(525, 72);
             this.btnSelectAll.Name = "btnSelectAll";
             this.btnSelectAll.Size = new System.Drawing.Size(97, 23);
             this.btnSelectAll.TabIndex = 48;
@@ -332,55 +338,12 @@
             this.gdRolesAsignados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdRolesAsignados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdRolesAsignados.ShowEditingIcon = false;
-            this.gdRolesAsignados.Size = new System.Drawing.Size(859, 294);
+            this.gdRolesAsignados.Size = new System.Drawing.Size(861, 295);
             this.gdRolesAsignados.StandardTab = true;
             this.gdRolesAsignados.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdRolesAsignados.TabIndex = 47;
             this.gdRolesAsignados.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdRolesAsignados.UseStyleColors = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // rolDataGridViewTextBoxColumn
-            // 
-            this.rolDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.rolDataGridViewTextBoxColumn.DataPropertyName = "rol";
-            this.rolDataGridViewTextBoxColumn.HeaderText = "Rol";
-            this.rolDataGridViewTextBoxColumn.Name = "rolDataGridViewTextBoxColumn";
-            this.rolDataGridViewTextBoxColumn.Width = 51;
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fInsDataGridViewTextBoxColumn
-            // 
-            this.fInsDataGridViewTextBoxColumn.DataPropertyName = "fIns";
-            this.fInsDataGridViewTextBoxColumn.HeaderText = "fIns";
-            this.fInsDataGridViewTextBoxColumn.Name = "fInsDataGridViewTextBoxColumn";
-            this.fInsDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fActDataGridViewTextBoxColumn
-            // 
-            this.fActDataGridViewTextBoxColumn.DataPropertyName = "fAct";
-            this.fActDataGridViewTextBoxColumn.HeaderText = "fAct";
-            this.fActDataGridViewTextBoxColumn.Name = "fActDataGridViewTextBoxColumn";
-            this.fActDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // reperfilrolesDataGridViewTextBoxColumn
-            // 
-            this.reperfilrolesDataGridViewTextBoxColumn.DataPropertyName = "reperfilroles";
-            this.reperfilrolesDataGridViewTextBoxColumn.HeaderText = "reperfilroles";
-            this.reperfilrolesDataGridViewTextBoxColumn.Name = "reperfilrolesDataGridViewTextBoxColumn";
-            this.reperfilrolesDataGridViewTextBoxColumn.Visible = false;
             // 
             // SelectRol
             // 
@@ -390,10 +353,6 @@
             this.SelectRol.Name = "SelectRol";
             this.SelectRol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.SelectRol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // carolesBindingSource
-            // 
-            this.carolesBindingSource.DataSource = typeof(CellTrack.Models.DataBases.caroles);
             // 
             // metroLabel4
             // 
@@ -418,7 +377,7 @@
             this.tgGpoActivo.DisplayStatus = false;
             this.tgGpoActivo.FontSize = MetroFramework.MetroLinkSize.Tall;
             this.tgGpoActivo.FontWeight = MetroFramework.MetroLinkWeight.Bold;
-            this.tgGpoActivo.Location = new System.Drawing.Point(768, 70);
+            this.tgGpoActivo.Location = new System.Drawing.Point(770, 70);
             this.tgGpoActivo.Name = "tgGpoActivo";
             this.tgGpoActivo.Size = new System.Drawing.Size(50, 17);
             this.tgGpoActivo.TabIndex = 2;
@@ -431,7 +390,7 @@
             this.lblActivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblActivo.AutoSize = true;
             this.lblActivo.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblActivo.Location = new System.Drawing.Point(824, 70);
+            this.lblActivo.Location = new System.Drawing.Point(826, 70);
             this.lblActivo.Margin = new System.Windows.Forms.Padding(3);
             this.lblActivo.Name = "lblActivo";
             this.lblActivo.Size = new System.Drawing.Size(38, 15);
@@ -447,7 +406,7 @@
             this.pnlBtnsActions.Controls.Add(this.btnAccept);
             this.pnlBtnsActions.Controls.Add(this.btnCancel);
             this.pnlBtnsActions.Controls.Add(this.btnClear);
-            this.pnlBtnsActions.Location = new System.Drawing.Point(870, 3);
+            this.pnlBtnsActions.Location = new System.Drawing.Point(872, 3);
             this.pnlBtnsActions.Name = "pnlBtnsActions";
             this.pnlBtnsActions.Size = new System.Drawing.Size(84, 210);
             this.pnlBtnsActions.TabIndex = 31;
@@ -475,7 +434,7 @@
             // 
             // 
             this.txtPerfil.CustomButton.Image = null;
-            this.txtPerfil.CustomButton.Location = new System.Drawing.Point(831, 1);
+            this.txtPerfil.CustomButton.Location = new System.Drawing.Point(833, 1);
             this.txtPerfil.CustomButton.Name = "";
             this.txtPerfil.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.txtPerfil.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -494,16 +453,11 @@
             this.txtPerfil.SelectedText = "";
             this.txtPerfil.SelectionLength = 0;
             this.txtPerfil.SelectionStart = 0;
-            this.txtPerfil.Size = new System.Drawing.Size(859, 29);
+            this.txtPerfil.Size = new System.Drawing.Size(861, 29);
             this.txtPerfil.TabIndex = 0;
             this.txtPerfil.UseSelectable = true;
             this.txtPerfil.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPerfil.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // caperfilesBindingSource
-            // 
-            this.caperfilesBindingSource.DataSource = typeof(CellTrack.Models.DataBases.caperfiles);
-            this.caperfilesBindingSource.CurrentChanged += new System.EventHandler(this.caperfilesBindingSource_CurrentChanged);
             // 
             // panel3
             // 
@@ -513,7 +467,7 @@
             this.panel3.Controls.Add(this.btnEdit);
             this.panel3.Controls.Add(this.btnrefresh);
             this.panel3.Controls.Add(this.btnDelete);
-            this.panel3.Location = new System.Drawing.Point(868, 3);
+            this.panel3.Location = new System.Drawing.Point(870, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(85, 175);
             this.panel3.TabIndex = 32;
@@ -563,7 +517,7 @@
             this.gd.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gd.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gd.HighLightPercentage = 0.5F;
-            this.gd.Location = new System.Drawing.Point(3, 3);
+            this.gd.Location = new System.Drawing.Point(3, 55);
             this.gd.MultiSelect = false;
             this.gd.Name = "gd";
             this.gd.ReadOnly = true;
@@ -580,12 +534,112 @@
             this.gd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gd.ShowEditingIcon = false;
-            this.gd.Size = new System.Drawing.Size(859, 197);
+            this.gd.Size = new System.Drawing.Size(861, 144);
             this.gd.StandardTab = true;
             this.gd.Style = MetroFramework.MetroColorStyle.Orange;
             this.gd.TabIndex = 6;
             this.gd.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gd.UseStyleColors = true;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel7.Location = new System.Drawing.Point(3, 21);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(62, 25);
+            this.metroLabel7.TabIndex = 40;
+            this.metroLabel7.Text = "Filtrar";
+            this.metroLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtFind
+            // 
+            this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFind.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtFind.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            // 
+            // 
+            // 
+            this.txtFind.CustomButton.Image = null;
+            this.txtFind.CustomButton.Location = new System.Drawing.Point(402, 1);
+            this.txtFind.CustomButton.Name = "";
+            this.txtFind.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.txtFind.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtFind.CustomButton.TabIndex = 1;
+            this.txtFind.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtFind.CustomButton.UseSelectable = true;
+            this.txtFind.CustomButton.Visible = false;
+            this.txtFind.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtFind.Lines = new string[0];
+            this.txtFind.Location = new System.Drawing.Point(71, 20);
+            this.txtFind.MaxLength = 30;
+            this.txtFind.Name = "txtFind";
+            this.txtFind.PasswordChar = '\0';
+            this.txtFind.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtFind.SelectedText = "";
+            this.txtFind.SelectionLength = 0;
+            this.txtFind.SelectionStart = 0;
+            this.txtFind.Size = new System.Drawing.Size(430, 29);
+            this.txtFind.TabIndex = 39;
+            this.txtFind.UseSelectable = true;
+            this.txtFind.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtFind.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // rolDataGridViewTextBoxColumn
+            // 
+            this.rolDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.rolDataGridViewTextBoxColumn.DataPropertyName = "rol";
+            this.rolDataGridViewTextBoxColumn.HeaderText = "Rol";
+            this.rolDataGridViewTextBoxColumn.Name = "rolDataGridViewTextBoxColumn";
+            this.rolDataGridViewTextBoxColumn.Width = 51;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fInsDataGridViewTextBoxColumn
+            // 
+            this.fInsDataGridViewTextBoxColumn.DataPropertyName = "fIns";
+            this.fInsDataGridViewTextBoxColumn.HeaderText = "fIns";
+            this.fInsDataGridViewTextBoxColumn.Name = "fInsDataGridViewTextBoxColumn";
+            this.fInsDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fActDataGridViewTextBoxColumn
+            // 
+            this.fActDataGridViewTextBoxColumn.DataPropertyName = "fAct";
+            this.fActDataGridViewTextBoxColumn.HeaderText = "fAct";
+            this.fActDataGridViewTextBoxColumn.Name = "fActDataGridViewTextBoxColumn";
+            this.fActDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // reperfilrolesDataGridViewTextBoxColumn
+            // 
+            this.reperfilrolesDataGridViewTextBoxColumn.DataPropertyName = "reperfilroles";
+            this.reperfilrolesDataGridViewTextBoxColumn.HeaderText = "reperfilroles";
+            this.reperfilrolesDataGridViewTextBoxColumn.Name = "reperfilrolesDataGridViewTextBoxColumn";
+            this.reperfilrolesDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // carolesBindingSource
+            // 
+            this.carolesBindingSource.DataSource = typeof(CellTrack.Models.DataBases.caroles);
+            // 
+            // caperfilesBindingSource
+            // 
+            this.caperfilesBindingSource.DataSource = typeof(CellTrack.Models.DataBases.caperfiles);
+            this.caperfilesBindingSource.CurrentChanged += new System.EventHandler(this.caperfilesBindingSource_CurrentChanged);
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -646,15 +700,27 @@
             this.reperfilrolesDataGridViewTextBoxColumn1.ReadOnly = true;
             this.reperfilrolesDataGridViewTextBoxColumn1.Visible = false;
             // 
+            // metroLabel11
+            // 
+            this.metroLabel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel11.Location = new System.Drawing.Point(411, 4);
+            this.metroLabel11.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(90, 15);
+            this.metroLabel11.TabIndex = 46;
+            this.metroLabel11.Text = "Filtra por [ Perfil ]";
+            this.metroLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // usrCtrlPerfilesRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.splitContainer);
             this.Name = "usrCtrlPerfilesRoles";
-            this.Size = new System.Drawing.Size(959, 612);
+            this.Size = new System.Drawing.Size(961, 614);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();
@@ -663,13 +729,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gdRolesAsignados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carolesBindingSource)).EndInit();
             this.pnlBtnsActions.ResumeLayout(false);
             this.pnlBtnsActions.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.caperfilesBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carolesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.caperfilesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -714,5 +780,8 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelectRol;
         private MetroFramework.Controls.MetroButton btnSelectionNone;
         private MetroFramework.Controls.MetroButton btnSelectAll;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroTextBox txtFind;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
     }
 }

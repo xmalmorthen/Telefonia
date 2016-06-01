@@ -22,6 +22,7 @@ namespace CellTrack.Views.UserControls
         private usrCtrlUsuarios CtrlUsuarios = new usrCtrlUsuarios();
         private usrCtrlGpos CtrlGpos = new usrCtrlGpos();
         private usrCtrlPerfilesRoles CtrlPerfilesRoles = new usrCtrlPerfilesRoles();
+        private ursCtrlReasignarObjetivos CtrlReasignarObjetivos = new ursCtrlReasignarObjetivos();
 
         public frmAdmin()
         {
@@ -37,6 +38,7 @@ namespace CellTrack.Views.UserControls
             this.tbPageUsuarios.Controls.Add(renderControl(CtrlUsuarios));
             this.tbPagePerfilesRoles.Controls.Add(renderControl(CtrlPerfilesRoles));
             this.tbPageGrupos.Controls.Add(renderControl(CtrlGpos));
+            this.tbPageReasignarObjetivos.Controls.Add(renderControl(CtrlReasignarObjetivos));
 
             tbConfigs.SelectedIndex = 0;
             tbConfigs.Focus();
