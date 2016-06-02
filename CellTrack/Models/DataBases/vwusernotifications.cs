@@ -14,8 +14,8 @@ namespace CellTrack.Models.DataBases
     
     public partial class vwusernotifications
     {
-        public Nullable<double> Usuario { get; set; }
         public int id { get; set; }
         public int idGpo { get; set; }
+        public string usuario { get; set; }
     }
 }

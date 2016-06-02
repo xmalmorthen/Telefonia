@@ -36,21 +36,6 @@ namespace CellTrack.Views.UserControls
         private void populate()
         {
             bsNotifications.DataSource = usuarioController.usersNotifications;
-            this.Objetivos();
-        }
-
-        private void Objetivos()
-        {
-                //TODO: Implementar el filtrado
-
-            /*string filter = txtFind.Text;
-            if (string.IsNullOrEmpty(filter))
-                cagruposBindingSource.DataSource = gruposController.grupos;
-            else
-                cagruposBindingSource.DataSource = gruposController.grupos.Where(qry => qry.grupo.Contains(filter) && qry.isDeleted.Equals(false)).ToList();*/
-
-
-            List<localizationsModel> objetivos = new List<localizationsModel>();
 
             /*
              * MODELO DE PRUEBA
@@ -63,20 +48,38 @@ namespace CellTrack.Views.UserControls
                     id = i,
                     nombre = Guid.NewGuid().ToString(),
                     asunto = Guid.NewGuid().ToString(),
-                    objetivo = Guid.NewGuid().ToString().Substring(0,10),
-                    idNotification = i,
+                    objetivo = Guid.NewGuid().ToString().Substring(0, 10),
+                    idNotification = 7,
                     NotificationName = Guid.NewGuid().ToString(),
                     idCarrier = 3,
                     Carrier = "TELCEL",
-                    Agenda = string.Format("De {0} a {1} frecuencia {2} min.",10,20,10),
+                    Agenda = string.Format("De {0} a {1} frecuencia {2} min.", 10, 20, 10),
                     agendaDe = 10,
                     agendaA = 22,
                     agendaFrecuencia = 5
-                });    
+                });
+            }
+
+            this.Objetivos();
+        }
+
+
+        private List<localizationsModel> objetivos = new List<localizationsModel>();
+        private void Objetivos()
+        {
+            List<malocalizations> dataTmp;
+            string filter = txtFind.Text;
+            if (string.IsNullOrEmpty(filter))
+            {
+                dataTmp = objetivosController.getTargets();
+            }
+            else
+            {
+                dataTmp = objetivosController.getTargets().Where(qry => qry.nombre.Contains(filter) || qry.objetivo.Contains(filter) || string.Format("{0} {1} {2}", qry.causuarios1.Nombres, qry.causuarios1.PrimerApellido, qry.causuarios1.SegundoApellido).Contains(filter) || qry.cacarriers.carrier.Contains(filter) && qry.active.Equals(true) && qry.isDeleted.Equals(false)).ToList();
             }
 
             //Obtener lista de objetivos
-            foreach (malocalizations item in objetivosController.getTargets())
+            foreach (malocalizations item in dataTmp)
             {
                 causuarios userNotification = usuarioController.getUserById(item.idNotification, false);
                 string NotificationName = string.Empty;
@@ -120,29 +123,6 @@ namespace CellTrack.Views.UserControls
             gdObjetivos.DataSource = bsObjetivos;
         }
 
-        private void btnAccept_Click(object sender, EventArgs e)
-        {            
-            #region FORM VALIDATIONS
-            if (cmbNotification.SelectedIndex < 0)
-            {
-                MetroMessageBox.Show(this, "Debe indicar el usuario a notificar", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cmbNotification.Focus();
-                return;
-            }
-            #endregion FORM VALIDATIONS
-
-            try
-            {
-                reasignarObjetivosController.update(bsObjetivos.Current as localizationsModel);
-                bsObjetivos.CancelEdit();
-                Objetivos();
-            }
-            catch (Exception ex)
-            {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnrefresh_Click(object sender, EventArgs e)
         {
             Objetivos();
@@ -150,12 +130,28 @@ namespace CellTrack.Views.UserControls
 
         private void bsObjetivos_CurrentItemChanged(object sender, EventArgs e)
         {
-            //btnAccept_Click(null, null);
         }
 
         private void txtFind_KeyUp(object sender, KeyEventArgs e)
         {
             Objetivos();
+        }
+
+        private void cmbNotification_DropDown(object sender, EventArgs e)
+        {
+            bsNotifications.DataSource = usuarioController.usersNotifications;
+        }
+
+        private void ursCtrlReasignarObjetivos_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                reasignarObjetivosController.update(objetivos);
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         
     }

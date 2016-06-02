@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="dbgeolocModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="dbgeolocModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="dbgeolocModelStoreContainer">
           <EntitySet Name="cacarriers" EntityType="dbgeolocModel.Store.cacarriers" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="cagrupos" EntityType="dbgeolocModel.Store.cagrupos" store:Type="Tables" Schema="dbgeoloc" />
@@ -22,9 +22,9 @@
           </EntitySet>
           <EntitySet Name="vwusernotifications" EntityType="dbgeolocModel.Store.vwusernotifications" store:Type="Views" store:Schema="dbgeoloc" store:Name="vwusernotifications">
             <DefiningQuery>SELECT
-      `vwusernotifications`.`Usuario`, 
       `vwusernotifications`.`id`, 
-      `vwusernotifications`.`idGpo`
+      `vwusernotifications`.`idGpo`, 
+      `vwusernotifications`.`usuario`
       FROM `vwusernotifications` AS `vwusernotifications`</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="fk_causuarios_caGrupos_1" Association="dbgeolocModel.Store.fk_causuarios_caGrupos_1">
@@ -139,7 +139,7 @@
           <Property Name="fIns" Type="datetime" Nullable="false" />
           <Property Name="fAct" Type="datetime" />
           <Property Name="active" Type="bit" Nullable="false" />
-          <Property Name="isDeleted" Type="bit" />
+          <Property Name="isDeleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="reperfilroles">
           <Key>
@@ -179,9 +179,9 @@
             <PropertyRef Name="id" />
             <PropertyRef Name="idGpo" />
           </Key>
-          <Property Name="Usuario" Type="double" />
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="idGpo" Type="int" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="212" />
         </EntityType>
         <Association Name="fk_causuarios_caGrupos_1">
           <End Role="cagrupos" Type="dbgeolocModel.Store.cagrupos" Multiplicity="1" />
@@ -267,7 +267,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbgeolocModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -360,8 +361,8 @@
           <Property Name="fAct" Type="DateTime" />
           <Property Name="activo" Type="Boolean" Nullable="false" />
           <Property Name="isDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="tag" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="reperfilroles" Relationship="dbgeolocModel.fk_rePerfilRoles_caRoles_1" FromRole="caroles" ToRole="reperfilroles" />
-          <Property Type="String" Name="tag" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="causuarios">
           <Key>
@@ -403,10 +404,10 @@
           <Property Name="fIns" Type="DateTime" Nullable="false" />
           <Property Name="fAct" Type="DateTime" />
           <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="isDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="cacarriers" Relationship="dbgeolocModel.fk_maLocalizations_cacarriers_1" FromRole="malocalizations" ToRole="cacarriers" />
           <NavigationProperty Name="causuarios" Relationship="dbgeolocModel.fk_malocalizations_causuarios_1" FromRole="malocalizations" ToRole="causuarios" />
           <NavigationProperty Name="causuarios1" Relationship="dbgeolocModel.fk_malocalizations_causuarios_2" FromRole="malocalizations" ToRole="causuarios" />
-          <Property Type="Boolean" Name="isDeleted" />
         </EntityType>
         <EntityType Name="reperfilroles">
           <Key>
@@ -442,9 +443,9 @@
             <PropertyRef Name="id" />
             <PropertyRef Name="idGpo" />
           </Key>
-          <Property Name="Usuario" Type="Double" />
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="idGpo" Type="Int32" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="212" Unicode="false" FixedLength="false" />
         </EntityType>
         <Association Name="fk_maLocalizations_cacarriers_1">
           <End Role="cacarriers" Type="dbgeolocModel.cacarriers" Multiplicity="1" />
@@ -576,7 +577,6 @@
           <EntitySetMapping Name="caroles">
             <EntityTypeMapping TypeName="dbgeolocModel.caroles">
               <MappingFragment StoreEntitySet="caroles">
-                <ScalarProperty Name="tag" ColumnName="tag" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="rol" ColumnName="rol" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -584,6 +584,7 @@
                 <ScalarProperty Name="fAct" ColumnName="fAct" />
                 <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="tag" ColumnName="tag" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -610,7 +611,6 @@
           <EntitySetMapping Name="malocalizations">
             <EntityTypeMapping TypeName="dbgeolocModel.malocalizations">
               <MappingFragment StoreEntitySet="malocalizations">
-                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -624,6 +624,7 @@
                 <ScalarProperty Name="fIns" ColumnName="fIns" />
                 <ScalarProperty Name="fAct" ColumnName="fAct" />
                 <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -659,9 +660,9 @@
           <EntitySetMapping Name="vwusernotifications">
             <EntityTypeMapping TypeName="dbgeolocModel.vwusernotifications">
               <MappingFragment StoreEntitySet="vwusernotifications">
-                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idGpo" ColumnName="idGpo" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

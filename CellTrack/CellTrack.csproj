@@ -117,6 +117,7 @@
     <Compile Include="Controllers\objetivosController.cs" />
     <Compile Include="Controllers\PDUController.cs" />
     <Compile Include="Controllers\usuarioController.cs" />
+    <Compile Include="Models\usuarioModel.cs" />
     <Compile Include="Models\DataBases\cacarriers.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
@@ -287,7 +288,6 @@
     <Compile Include="Views\UserControls\Users\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
-    <None Include="Resources\1464813353_zoom.png" />
     <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>dbGeoLoc.Designer.cs</LastGenOutput>
@@ -295,6 +295,8 @@
     <None Include="Models\DataBases\dbGeoLoc.edmx.diagram">
       <DependentUpon>dbGeoLoc.edmx</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\CellTrack.Models.usuarioModel.datasource" />
+    <None Include="Resources\1464813353_zoom.png" />
     <None Include="Resources\1464722820_layers_2.png" />
     <EmbeddedResource Include="Views\UserControls\Admin\ursCtrlReasignarObjetivos.resx">
       <DependentUpon>ursCtrlReasignarObjetivos.cs</DependentUpon>

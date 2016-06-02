@@ -56,6 +56,7 @@
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.mCMLocalizations.SuspendLayout();
             this.mCMRegs.SuspendLayout();
@@ -163,6 +164,7 @@
             // 
             this.mCMLocalizations.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
+            this.toolStripSeparator1,
             this.toolStripMenuItem2,
             this.toolStripMenuItem3,
             this.toolStripMenuItem4,
@@ -170,20 +172,20 @@
             this.toolStripMenuItem6,
             this.supervisiónToolStripMenuItem});
             this.mCMLocalizations.Name = "metroContextMenu1";
-            this.mCMLocalizations.Size = new System.Drawing.Size(142, 158);
+            this.mCMLocalizations.Size = new System.Drawing.Size(174, 186);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem1.Tag = "0-1";
-            this.toolStripMenuItem1.Text = "Objetivos";
+            this.toolStripMenuItem1.Text = "Registrar Objetivos";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem2.Tag = "0-2";
             this.toolStripMenuItem2.Text = "PDU";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
@@ -194,7 +196,7 @@
             this.iMEIToolStripMenuItem,
             this.localizaciónToolStripMenuItem});
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem3.Tag = "0-3";
             this.toolStripMenuItem3.Text = "SS7";
             // 
@@ -215,28 +217,28 @@
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem4.Tag = "0-4";
             this.toolStripMenuItem4.Text = "Recibidos";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem5.Tag = "0-5";
             this.toolStripMenuItem5.Text = "Seguimiento";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(141, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem6.Tag = "0-6";
             this.toolStripMenuItem6.Text = "BTS";
             // 
             // supervisiónToolStripMenuItem
             // 
             this.supervisiónToolStripMenuItem.Name = "supervisiónToolStripMenuItem";
-            this.supervisiónToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.supervisiónToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.supervisiónToolStripMenuItem.Text = "Supervisión";
             // 
             // mCMRegs
@@ -324,6 +326,11 @@
             this.panel1.Size = new System.Drawing.Size(33, 67);
             this.panel1.TabIndex = 4;
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(170, 6);
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,5 +380,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

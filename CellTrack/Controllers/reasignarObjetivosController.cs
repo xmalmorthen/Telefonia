@@ -11,26 +11,23 @@ namespace CellTrack.Controllers
 {
     public static class reasignarObjetivosController
     {
-        public static bool update(localizationsModel Item)
+        public static void update(List<localizationsModel> Items)
         {
-            Boolean returnResult = false;
             try
             {
-                malocalizations item = DAL.Db.malocalizations.SingleOrDefault(qry => qry.id.Equals(Item.id));
-
-                if (item == null) throw new NullReferenceException(string.Format("No se encontró el registro [ {0} | {1} | {2} | {3} ], es posible que se haya eliminado desde otra instancia",Item.id,Item.nombre,Item.Carrier, Item.objetivo));
-
-                item.idNotification = Item.idNotification;
-                item.fAct = DateTime.Now;
-                                
+                foreach (localizationsModel item in Items)
+                {
+                    malocalizations reg = DAL.Db.malocalizations.SingleOrDefault(qry => qry.id.Equals(item.id) && !qry.idNotification.Equals(item.idNotification));
+                    if (reg == null) continue;
+                    reg.idNotification = item.idNotification;
+                    reg.fAct = DateTime.Now;
+                }
                 DAL.Db.SaveChanges();
-                returnResult = true;
             }
             catch (Exception ex)
             {
                 exceptionHandlerCatch.registerLogException(ex);
             }
-            return returnResult;
         }
     }
 }

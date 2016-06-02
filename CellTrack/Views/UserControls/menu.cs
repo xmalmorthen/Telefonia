@@ -54,17 +54,28 @@ namespace CellTrack.Views.UserControls
 
         private void changeAccessRoles(ToolStripItemCollection collection, List<reperfilroles> roles)
         {
-            foreach (ToolStripMenuItem item in collection)
+            try
             {
-                reperfilroles rol = roles.SingleOrDefault(qry => qry.caroles.tag.Equals((string)item.Tag, StringComparison.InvariantCultureIgnoreCase));
-                item.Visible = rol != null;
-
-                if (item is ToolStripDropDownItem)
+                foreach (var obj in collection)
                 {
-                    ToolStripDropDownItem dropDownItem = (ToolStripDropDownItem)item;
-                    if (dropDownItem.DropDownItems.Count > 0)
-                        this.changeAccessRoles(dropDownItem.DropDownItems, roles);
+                    if (obj.GetType() == typeof(ToolStripMenuItem))
+                    {
+                        ToolStripMenuItem item = (ToolStripMenuItem)obj;
+
+                        reperfilroles rol = roles.SingleOrDefault(qry => qry.caroles.tag.Equals((string)item.Tag, StringComparison.InvariantCultureIgnoreCase));
+                        item.Visible = rol != null;
+
+                        if (item is ToolStripDropDownItem)
+                        {
+                            ToolStripDropDownItem dropDownItem = (ToolStripDropDownItem)item;
+                            if (dropDownItem.DropDownItems.Count > 0)
+                                this.changeAccessRoles(dropDownItem.DropDownItems, roles);
+                        }
+                    }
                 }
+            }
+            catch (Exception)
+            {
             }
         }
 
