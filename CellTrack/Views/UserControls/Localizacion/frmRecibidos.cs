@@ -39,7 +39,7 @@ namespace CellTrack.Views.UserControls.Localización
             visualStyles.apply(this, msmMain);
             metroToolTip.StyleManager = msmMain;
 
-            splitContainer.SplitterDistance = 80;
+            splitContainer.SplitterDistance = 260;
 
             FrmState = enums.frmState.Normal;
 
@@ -96,8 +96,7 @@ namespace CellTrack.Views.UserControls.Localización
         {
             try
             {
-                markersModel marker = PDUController.PDUFind(bsObjetivos.Current as PDUModel, gMapViewRender.gMap);
-                if (marker == null) throw new NullReferenceException("No se pudo localizar");
+                recibidosModelBindingSource.DataSource = recibidosController.smsRecibidosByObjetivo(((PDUModel)bsObjetivos.Current).descrip.Substring(((PDUModel)bsObjetivos.Current).descrip.IndexOf('[') + 2, 10));                
             }
             catch (Exception ex)
             {
@@ -106,9 +105,10 @@ namespace CellTrack.Views.UserControls.Localización
             
         }
 
-        private void metroTrackBar1_ValueChanged(object sender, EventArgs e)
+        private void recibidosModelBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            
+            markersModel marker = recibidosController.setMarker(recibidosModelBindingSource.Current as recibidosModel, gMapViewRender.gMap);
+            if (marker == null) throw new NullReferenceException("No se pudo localizar");
         }
         
     }

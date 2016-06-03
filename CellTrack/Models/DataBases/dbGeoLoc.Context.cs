@@ -30,7 +30,10 @@ namespace CellTrack.Models.DataBases
         public DbSet<caperfiles> caperfiles { get; set; }
         public DbSet<caroles> caroles { get; set; }
         public DbSet<causuarios> causuarios { get; set; }
+        public DbSet<desmsrecibidos> desmsrecibidos { get; set; }
+        public DbSet<gmapnetcache> gmapnetcache { get; set; }
         public DbSet<malocalizations> malocalizations { get; set; }
+        public DbSet<masmsrecibidos> masmsrecibidos { get; set; }
         public DbSet<reperfilroles> reperfilroles { get; set; }
         public DbSet<tbllogs> tbllogs { get; set; }
         public DbSet<vwactivecarriers> vwactivecarriers { get; set; }

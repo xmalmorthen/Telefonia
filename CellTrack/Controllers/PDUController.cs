@@ -16,6 +16,7 @@ namespace CellTrack.Controllers
             try
             {
                 marker = new markersModel(20.675159,-103.358840,item.descrip);
+                controller.CreateCircle(new System.Drawing.PointF((float)marker.Lat,(float)marker.Lng), .005,50);
                 controller.AddMarker(marker);
                 controller.setPosition(marker);
             }

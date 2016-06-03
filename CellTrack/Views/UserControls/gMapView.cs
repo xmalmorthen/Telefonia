@@ -24,7 +24,14 @@ namespace CellTrack.Views.UserControls
             this.init();
 
             gMap = new gMapController(lat,lng,tkBarZoom.Value);
+            gMap.MainMap.OnMapZoomChanged += MainMap_OnMapZoomChanged;
+
             this.Controls.Add(gMap.MainMap);
+        }
+
+        void MainMap_OnMapZoomChanged()
+        {
+            tkBarZoom.Value = (int)gMap.MainMap.Zoom;
         }
 
         private void init()
@@ -55,5 +62,6 @@ namespace CellTrack.Views.UserControls
         {
             gMap.centerInMarkers();
         }
+
     }
 }

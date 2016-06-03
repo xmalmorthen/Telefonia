@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="1464225333_checkbox_unchecked" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1464225333_checkbox_unchecked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="1464227257_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1464227257_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,17 +139,17 @@
   <data name="1464226920_pencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1464226920_pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loading-gallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loading-gallery.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1463434201_checkmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1463434201_checkmark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1463451426_db" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1463451426_db.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1464225333_checkbox_unchecked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1464225333_checkbox_unchecked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1463512603_cur_dollar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1463512603_cur_dollar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1464722820_layers_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1464722820_layers_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1463432685_users" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1463432685_users.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1463451253_user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1463451253_user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,23 +163,29 @@
   <data name="1464227143_trash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1464227143_trash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1464813353_zoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1464813353_zoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="1464223445_checkmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1464223445_checkmark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1463558222_Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1463558222_Update.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1463512306_pencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1463512306_pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="1463512483_eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1463512483_eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1463434201_checkmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1463434201_checkmark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1463512306_pencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1463512306_pencil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1463432685_users" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1463432685_users.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loading-gallery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loading-gallery.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1464722820_layers_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1464722820_layers_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1463451426_db" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1463451426_db.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1464222032_air_signal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1464222032_air_signal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,7 +193,7 @@
   <data name="1463432442_users" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1463432442_users.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1464813353_zoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1464813353_zoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1465000215_globe_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1465000215_globe_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

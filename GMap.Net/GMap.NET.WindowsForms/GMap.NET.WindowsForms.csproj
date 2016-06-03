@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\1464400316_target.png" />
     <Content Include="Resources\arrow.png" />
     <Content Include="Resources\arrowshadow.png" />
     <Content Include="Resources\black_small.png" />

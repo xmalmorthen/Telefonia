@@ -6,6 +6,7 @@ using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms.ToolTips;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,18 @@ namespace CellTrack.Controllers
             set {  mainMap = value; }
         }
 
-        private GMapOverlay overlays = new GMapOverlay("Markers");
-        public GMapOverlay Overlays
+        private GMapOverlay markersOverlays = new GMapOverlay("Markers");
+        public GMapOverlay MarkersOverlays
         {
-            get { return  overlays; }
-            set {  overlays = value; }
+            get { return  markersOverlays; }
+            set {  markersOverlays = value; }
+        }
+
+        private GMapOverlay triangulationsOverlays = new GMapOverlay("Triangulations");
+        public GMapOverlay TriangulationsOverlays
+        {
+            get { return triangulationsOverlays; }
+            set { triangulationsOverlays = value; }
         }
 
         public gMapController(Double lat, Double lng, Double zoom)
@@ -37,15 +45,15 @@ namespace CellTrack.Controllers
                 try
                 {
                     System.Net.IPHostEntry e = System.Net.Dns.GetHostEntry("www.google.com");
+                    MainMap.Manager.Mode = AccessMode.ServerAndCache;
                 }
                 catch
                 {
-                    
-                    //GMap.NET.CacheProviders.SQLitePureImageCache MySQLPureImageCache ch = new GMap.NET.CacheProviders.MySQLPureImageCache();
-                    //ch.ConnectionString = @"server=sql2008;User Id=trolis;Persist Security Info=True;database=gmapnetcache;password=trolis;";
-                    //MainMap.Manager.SecondaryCache = ch;
+                    GMap.NET.CacheProviders.MySQLPureImageCache ch = new GMap.NET.CacheProviders.MySQLPureImageCache();
 
-                    //throw;
+                    ch.ConnectionString = Properties.Settings.Default.MapCache;
+                    MainMap.Manager.SecondaryCache = ch;
+                    MainMap.Manager.Mode = AccessMode.CacheOnly;
                 }
 
                 // config map         
@@ -62,8 +70,8 @@ namespace CellTrack.Controllers
         ~gMapController() {
             try
             {
-                Overlays.Dispose();
-                Overlays = null;
+                MarkersOverlays.Dispose();
+                MarkersOverlays = null;
                 MainMap.Dispose();
                 MainMap = null;
             }
@@ -74,11 +82,11 @@ namespace CellTrack.Controllers
 
         public void AddMarker(double lat, double lng, string txt)
         {
-            GMarkerGoogle marker = new GMarkerGoogle(new GMap.NET.PointLatLng(lat, lng), GMarkerGoogleType.red);
+            GMarkerGoogle marker = new GMarkerGoogle(new GMap.NET.PointLatLng(lat, lng), GMarkerGoogleType.target_red);
             marker.ToolTipMode = MarkerTooltipMode.Always;
             marker.ToolTipText = txt;
-            Overlays.Markers.Add(marker);
-            MainMap.Overlays.Add(Overlays);
+            MarkersOverlays.Markers.Add(marker);
+            MainMap.Overlays.Add(MarkersOverlays);
         }
 
         public void AddMarker(markersModel mark)
@@ -93,9 +101,9 @@ namespace CellTrack.Controllers
                 GMarkerGoogle marker = new GMarkerGoogle(new GMap.NET.PointLatLng(item.Lat,item.Lng), GMarkerGoogleType.red);
                 marker.ToolTipMode = MarkerTooltipMode.Always;
                 marker.ToolTipText = item.Desc;
-                Overlays.Markers.Add(marker);
+                MarkersOverlays.Markers.Add(marker);
             }
-            MainMap.Overlays.Add(Overlays);
+            MainMap.Overlays.Add(MarkersOverlays);
         }
 
         public void setPosition(double lat, double lng)
@@ -114,7 +122,30 @@ namespace CellTrack.Controllers
         }
 
         public void centerInMarkers() {
+            double zoom = MainMap.Zoom;
             MainMap.ZoomAndCenterMarkers("Markers");
+            MainMap.Zoom = zoom;
+        }
+
+        public void CreateCircle(PointF point, double radius, int segments)
+        {
+            List<PointLatLng> gpollist = new List<PointLatLng>();
+            double seg = Math.PI * 2 / segments;
+
+            int y = 0;
+            for (int i = 0; i < segments; i++)
+            {
+                double theta = seg * i;
+                double a = point.X + Math.Cos(theta) * radius;
+                double b = point.Y + Math.Sin(theta) * radius;
+                PointLatLng gpoi = new PointLatLng(a, b);
+                gpollist.Add(gpoi);
+            }
+            GMapPolygon gpol = new GMapPolygon(gpollist, "Triangulacion");
+            gpol.Fill = new SolidBrush(Color.FromArgb(100,100,100,100));
+            gpol.Stroke = new Pen(Color.Red, 1);
+            TriangulationsOverlays.Polygons.Add(gpol);
+            MainMap.Overlays.Add(TriangulationsOverlays);
         }
 
     }

@@ -14,6 +14,11 @@ namespace CellTrack.Models.DataBases
     
     public partial class malocalizations
     {
+        public malocalizations()
+        {
+            this.masmsrecibidos = new HashSet<masmsrecibidos>();
+        }
+    
         public int id { get; set; }
         public int idUser { get; set; }
         public string nombre { get; set; }
@@ -32,5 +37,6 @@ namespace CellTrack.Models.DataBases
         public virtual cacarriers cacarriers { get; set; }
         public virtual causuarios causuarios { get; set; }
         public virtual causuarios causuarios1 { get; set; }
+        public virtual ICollection<masmsrecibidos> masmsrecibidos { get; set; }
     }
 }

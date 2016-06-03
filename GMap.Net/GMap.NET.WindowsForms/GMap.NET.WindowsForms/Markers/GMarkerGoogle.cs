@@ -52,6 +52,7 @@ namespace GMap.NET.WindowsForms.Markers
       red_big_stop,
       black_small,
       white_small,
+      target_red
    }
 
 #if !PocketPC
@@ -180,6 +181,17 @@ namespace GMap.NET.WindowsForms.Markers
                BitmapShadow = pushpin_shadow;
             }
             break;
+            case GMarkerGoogleType.target_red:
+            {
+                Offset = new Point(-Size.Width / 2, -Size.Height + 1);
+                /*if (msmarker_shadow == null)
+                {
+                    msmarker_shadow = Resources.msmarker_shadow;
+                }
+                BitmapShadow = msmarker_shadow;*/
+            }
+            break;
+
          }
       }
 
