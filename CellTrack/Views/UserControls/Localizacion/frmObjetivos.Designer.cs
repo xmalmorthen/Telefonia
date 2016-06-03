@@ -67,9 +67,11 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.txtCel = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.txtFind = new MetroFramework.Controls.MetroTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gdObjetivos = new MetroFramework.Controls.MetroGrid();
-            this.localizationsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asuntoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +81,7 @@
             this.idCarrierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carrierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localizationsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -275,6 +278,9 @@
             // 
             // splitContainer.Panel2
             // 
+            this.splitContainer.Panel2.Controls.Add(this.metroLabel11);
+            this.splitContainer.Panel2.Controls.Add(this.metroLabel10);
+            this.splitContainer.Panel2.Controls.Add(this.txtFind);
             this.splitContainer.Panel2.Controls.Add(this.panel1);
             this.splitContainer.Panel2.Controls.Add(this.gdObjetivos);
             this.splitContainer.Panel2MinSize = 200;
@@ -474,6 +480,7 @@
             // cmbNotification
             // 
             this.cmbNotification.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cmbNotification.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsObjetivos, "idNotification", true));
             this.cmbNotification.DataSource = this.bsNotifications;
             this.cmbNotification.DisplayMember = "Usuario";
             this.cmbNotification.FormattingEnabled = true;
@@ -701,6 +708,67 @@
             this.txtCel.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtCel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCel_KeyPress);
             // 
+            // metroLabel11
+            // 
+            this.metroLabel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel11.Location = new System.Drawing.Point(324, 6);
+            this.metroLabel11.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(267, 15);
+            this.metroLabel11.TabIndex = 55;
+            this.metroLabel11.Text = "Filtra por [ Nombre | Objetivo | Notificación | Carrier]";
+            this.metroLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel10.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel10.Location = new System.Drawing.Point(3, 24);
+            this.metroLabel10.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(62, 25);
+            this.metroLabel10.TabIndex = 54;
+            this.metroLabel10.Text = "Filtrar";
+            this.metroLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtFind
+            // 
+            this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFind.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtFind.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            // 
+            // 
+            // 
+            this.txtFind.CustomButton.Image = null;
+            this.txtFind.CustomButton.Location = new System.Drawing.Point(492, 1);
+            this.txtFind.CustomButton.Name = "";
+            this.txtFind.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.txtFind.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtFind.CustomButton.TabIndex = 1;
+            this.txtFind.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtFind.CustomButton.UseSelectable = true;
+            this.txtFind.CustomButton.Visible = false;
+            this.txtFind.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtFind.Lines = new string[0];
+            this.txtFind.Location = new System.Drawing.Point(71, 23);
+            this.txtFind.MaxLength = 30;
+            this.txtFind.Name = "txtFind";
+            this.txtFind.PasswordChar = '\0';
+            this.txtFind.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtFind.SelectedText = "";
+            this.txtFind.SelectionLength = 0;
+            this.txtFind.SelectionStart = 0;
+            this.txtFind.Size = new System.Drawing.Size(520, 29);
+            this.txtFind.TabIndex = 53;
+            this.txtFind.UseSelectable = true;
+            this.txtFind.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtFind.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -761,7 +829,7 @@
             this.gdObjetivos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gdObjetivos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gdObjetivos.HighLightPercentage = 0.5F;
-            this.gdObjetivos.Location = new System.Drawing.Point(3, 3);
+            this.gdObjetivos.Location = new System.Drawing.Point(3, 58);
             this.gdObjetivos.MultiSelect = false;
             this.gdObjetivos.Name = "gdObjetivos";
             this.gdObjetivos.ReadOnly = true;
@@ -778,16 +846,12 @@
             this.gdObjetivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdObjetivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdObjetivos.ShowEditingIcon = false;
-            this.gdObjetivos.Size = new System.Drawing.Size(865, 331);
+            this.gdObjetivos.Size = new System.Drawing.Size(865, 252);
             this.gdObjetivos.StandardTab = true;
             this.gdObjetivos.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdObjetivos.TabIndex = 0;
             this.gdObjetivos.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdObjetivos.UseStyleColors = true;
-            // 
-            // localizationsModelBindingSource
-            // 
-            this.localizationsModelBindingSource.DataSource = typeof(CellTrack.Models.localizationsModel);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -863,6 +927,10 @@
             this.agendaDataGridViewTextBoxColumn.HeaderText = "Agenda";
             this.agendaDataGridViewTextBoxColumn.Name = "agendaDataGridViewTextBoxColumn";
             this.agendaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // localizationsModelBindingSource
+            // 
+            this.localizationsModelBindingSource.DataSource = typeof(CellTrack.Models.localizationsModel);
             // 
             // frmObjetivos
             // 
@@ -946,5 +1014,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idCarrierDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn carrierDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agendaDataGridViewTextBoxColumn;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private MetroFramework.Controls.MetroLabel metroLabel10;
+        private MetroFramework.Controls.MetroTextBox txtFind;
     }
 }

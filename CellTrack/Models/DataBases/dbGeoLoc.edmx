@@ -63,8 +63,8 @@
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="carrier" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="descrip" Type="varchar" MaxLength="200" />
-          <Property Name="fIns" Type="datetime" />
-          <Property Name="fAct" Type="datetime" Nullable="false" />
+          <Property Name="fIns" Type="datetime" Nullable="false" />
+          <Property Name="fAct" Type="datetime" />
           <Property Name="active" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="cagrupos">
@@ -319,8 +319,8 @@
           <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="carrier" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="descrip" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
-          <Property Name="fIns" Type="DateTime" />
-          <Property Name="fAct" Type="DateTime" Nullable="false" />
+          <Property Name="fIns" Type="DateTime" Nullable="false" />
+          <Property Name="fAct" Type="DateTime" />
           <Property Name="active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="malocalizations" Relationship="dbgeolocModel.fk_maLocalizations_cacarriers_1" FromRole="cacarriers" ToRole="malocalizations" />
         </EntityType>

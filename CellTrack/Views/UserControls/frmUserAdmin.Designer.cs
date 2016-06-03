@@ -38,9 +38,31 @@
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.splitContainerUsuarios = new System.Windows.Forms.SplitContainer();
-            this.txtPwd = new MetroFramework.Controls.MetroTextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.pBtns = new System.Windows.Forms.Panel();
+            this.btnAccept = new MetroFramework.Controls.MetroButton();
+            this.btnClear = new MetroFramework.Controls.MetroButton();
+            this.txtPwd2 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.txtPwd = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.fRegistro = new MetroFramework.Controls.MetroLabel();
+            this.fAct = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.lblLocalizaciones = new MetroFramework.Controls.MetroLabel();
+            this.lblActivo = new MetroFramework.Controls.MetroLabel();
+            this.lblSupervisor = new MetroFramework.Controls.MetroLabel();
+            this.lblGrupo = new MetroFramework.Controls.MetroLabel();
+            this.lblPerfil = new MetroFramework.Controls.MetroLabel();
+            this.lblUsuario = new MetroFramework.Controls.MetroLabel();
+            this.lblNombre = new MetroFramework.Controls.MetroLabel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
@@ -48,27 +70,9 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.txtPwd2 = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblNombre = new MetroFramework.Controls.MetroLabel();
-            this.pBtns = new System.Windows.Forms.Panel();
-            this.btnAccept = new MetroFramework.Controls.MetroButton();
-            this.btnClear = new MetroFramework.Controls.MetroButton();
-            this.btnrefresh = new MetroFramework.Controls.MetroButton();
-            this.lblUsuario = new MetroFramework.Controls.MetroLabel();
-            this.lblPerfil = new MetroFramework.Controls.MetroLabel();
-            this.lblGrupo = new MetroFramework.Controls.MetroLabel();
-            this.lblSupervisor = new MetroFramework.Controls.MetroLabel();
-            this.lblActivo = new MetroFramework.Controls.MetroLabel();
-            this.lblLocalizaciones = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.gdObjetivos = new MetroFramework.Controls.MetroGrid();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.fAct = new MetroFramework.Controls.MetroLabel();
-            this.fRegistro = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.btnrefresh = new MetroFramework.Controls.MetroButton();
             this.usuarioModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,9 +89,9 @@
             this.splitContainerUsuarios.Panel1.SuspendLayout();
             this.splitContainerUsuarios.Panel2.SuspendLayout();
             this.splitContainerUsuarios.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pBtns.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdObjetivos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.localizationsModelBindingSource)).BeginInit();
@@ -149,7 +153,7 @@
             // 
             this.splitContainerUsuarios.Panel1.Controls.Add(this.panel3);
             this.splitContainerUsuarios.Panel1.Controls.Add(this.panel2);
-            this.splitContainerUsuarios.Panel1MinSize = 220;
+            this.splitContainerUsuarios.Panel1MinSize = 280;
             // 
             // splitContainerUsuarios.Panel2
             // 
@@ -158,9 +162,119 @@
             this.splitContainerUsuarios.Panel2.Controls.Add(this.btnrefresh);
             this.splitContainerUsuarios.Panel2MinSize = 200;
             this.splitContainerUsuarios.Size = new System.Drawing.Size(968, 553);
-            this.splitContainerUsuarios.SplitterDistance = 220;
+            this.splitContainerUsuarios.SplitterDistance = 280;
             this.splitContainerUsuarios.SplitterWidth = 5;
             this.splitContainerUsuarios.TabIndex = 22;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.metroLabel12);
+            this.panel3.Controls.Add(this.pBtns);
+            this.panel3.Controls.Add(this.txtPwd2);
+            this.panel3.Controls.Add(this.metroLabel3);
+            this.panel3.Controls.Add(this.txtPwd);
+            this.panel3.Controls.Add(this.metroLabel1);
+            this.panel3.Location = new System.Drawing.Point(642, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(320, 271);
+            this.panel3.TabIndex = 49;
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel12.Location = new System.Drawing.Point(3, 3);
+            this.metroLabel12.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(157, 14);
+            this.metroLabel12.TabIndex = 52;
+            this.metroLabel12.Text = "Cambiar Contraseña";
+            // 
+            // pBtns
+            // 
+            this.pBtns.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pBtns.AutoSize = true;
+            this.pBtns.Controls.Add(this.btnAccept);
+            this.pBtns.Controls.Add(this.btnClear);
+            this.pBtns.Location = new System.Drawing.Point(202, 203);
+            this.pBtns.Name = "pBtns";
+            this.pBtns.Size = new System.Drawing.Size(113, 63);
+            this.pBtns.TabIndex = 51;
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.AutoSize = true;
+            this.btnAccept.BackgroundImage = global::CellTrack.Properties.Resources._1464227257_save;
+            this.btnAccept.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnAccept.Location = new System.Drawing.Point(3, 3);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(66, 57);
+            this.btnAccept.TabIndex = 10;
+            this.btnAccept.UseSelectable = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.AutoSize = true;
+            this.btnClear.BackgroundImage = global::CellTrack.Properties.Resources._1464225333_checkbox_unchecked;
+            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClear.Location = new System.Drawing.Point(75, 3);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(35, 36);
+            this.btnClear.TabIndex = 11;
+            this.btnClear.UseSelectable = true;
+            // 
+            // txtPwd2
+            // 
+            this.txtPwd2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPwd2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            // 
+            // 
+            // 
+            this.txtPwd2.CustomButton.Image = null;
+            this.txtPwd2.CustomButton.Location = new System.Drawing.Point(284, 1);
+            this.txtPwd2.CustomButton.Name = "";
+            this.txtPwd2.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.txtPwd2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtPwd2.CustomButton.TabIndex = 1;
+            this.txtPwd2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtPwd2.CustomButton.UseSelectable = true;
+            this.txtPwd2.CustomButton.Visible = false;
+            this.txtPwd2.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtPwd2.Lines = new string[0];
+            this.txtPwd2.Location = new System.Drawing.Point(3, 141);
+            this.txtPwd2.MaxLength = 30;
+            this.txtPwd2.Name = "txtPwd2";
+            this.txtPwd2.PasswordChar = '?';
+            this.txtPwd2.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtPwd2.SelectedText = "";
+            this.txtPwd2.SelectionLength = 0;
+            this.txtPwd2.SelectionStart = 0;
+            this.txtPwd2.Size = new System.Drawing.Size(312, 29);
+            this.txtPwd2.TabIndex = 49;
+            this.txtPwd2.UseSelectable = true;
+            this.txtPwd2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtPwd2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel3.Location = new System.Drawing.Point(3, 58);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(108, 25);
+            this.metroLabel3.TabIndex = 28;
+            this.metroLabel3.Text = "Contraseña";
+            this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtPwd
             // 
@@ -180,7 +294,7 @@
             this.txtPwd.CustomButton.Visible = false;
             this.txtPwd.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtPwd.Lines = new string[0];
-            this.txtPwd.Location = new System.Drawing.Point(3, 54);
+            this.txtPwd.Location = new System.Drawing.Point(3, 84);
             this.txtPwd.MaxLength = 30;
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '?';
@@ -194,19 +308,19 @@
             this.txtPwd.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPwd.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroLabel3
+            // metroLabel1
             // 
-            this.metroLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel3.Location = new System.Drawing.Point(3, 28);
-            this.metroLabel3.Margin = new System.Windows.Forms.Padding(3);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(108, 25);
-            this.metroLabel3.TabIndex = 28;
-            this.metroLabel3.Text = "Contraseña";
-            this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel1.Location = new System.Drawing.Point(3, 115);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(175, 25);
+            this.metroLabel1.TabIndex = 50;
+            this.metroLabel1.Text = "Repetir Contraseña";
+            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
             // 
@@ -214,6 +328,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.metroLabel16);
+            this.panel2.Controls.Add(this.metroLabel17);
+            this.panel2.Controls.Add(this.metroLabel13);
+            this.panel2.Controls.Add(this.metroLabel14);
             this.panel2.Controls.Add(this.fRegistro);
             this.panel2.Controls.Add(this.fAct);
             this.panel2.Controls.Add(this.metroLabel11);
@@ -234,15 +352,227 @@
             this.panel2.Controls.Add(this.metroLabel2);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(633, 211);
+            this.panel2.Size = new System.Drawing.Size(633, 271);
             this.panel2.TabIndex = 48;
+            // 
+            // metroLabel16
+            // 
+            this.metroLabel16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel16.AutoSize = true;
+            this.metroLabel16.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "disponibles", true));
+            this.metroLabel16.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.metroLabel16.Location = new System.Drawing.Point(166, 249);
+            this.metroLabel16.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel16.Name = "metroLabel16";
+            this.metroLabel16.Size = new System.Drawing.Size(23, 15);
+            this.metroLabel16.TabIndex = 70;
+            this.metroLabel16.Text = "No";
+            this.metroLabel16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroLabel16.UseCustomForeColor = true;
+            // 
+            // metroLabel17
+            // 
+            this.metroLabel17.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.metroLabel17.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel17.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel17.Location = new System.Drawing.Point(3, 245);
+            this.metroLabel17.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel17.Name = "metroLabel17";
+            this.metroLabel17.Size = new System.Drawing.Size(157, 23);
+            this.metroLabel17.TabIndex = 69;
+            this.metroLabel17.Text = "Disponibles";
+            this.metroLabel17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "utilizados", true));
+            this.metroLabel13.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.metroLabel13.Location = new System.Drawing.Point(166, 226);
+            this.metroLabel13.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(23, 15);
+            this.metroLabel13.TabIndex = 68;
+            this.metroLabel13.Text = "No";
+            this.metroLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroLabel13.UseCustomForeColor = true;
+            // 
+            // metroLabel14
+            // 
+            this.metroLabel14.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.metroLabel14.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel14.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel14.Location = new System.Drawing.Point(3, 222);
+            this.metroLabel14.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel14.Name = "metroLabel14";
+            this.metroLabel14.Size = new System.Drawing.Size(157, 23);
+            this.metroLabel14.TabIndex = 67;
+            this.metroLabel14.Text = "Utilizados";
+            this.metroLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // fRegistro
+            // 
+            this.fRegistro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.fRegistro.AutoSize = true;
+            this.fRegistro.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "fIns", true));
+            this.fRegistro.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.fRegistro.Location = new System.Drawing.Point(166, 142);
+            this.fRegistro.Margin = new System.Windows.Forms.Padding(3);
+            this.fRegistro.Name = "fRegistro";
+            this.fRegistro.Size = new System.Drawing.Size(23, 15);
+            this.fRegistro.TabIndex = 66;
+            this.fRegistro.Text = "No";
+            this.fRegistro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // fAct
+            // 
+            this.fAct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.fAct.AutoSize = true;
+            this.fAct.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "fAct", true));
+            this.fAct.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.fAct.Location = new System.Drawing.Point(166, 165);
+            this.fAct.Margin = new System.Windows.Forms.Padding(3);
+            this.fAct.Name = "fAct";
+            this.fAct.Size = new System.Drawing.Size(23, 15);
+            this.fAct.TabIndex = 65;
+            this.fAct.Text = "No";
+            this.fAct.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel11.Location = new System.Drawing.Point(3, 161);
+            this.metroLabel11.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(157, 23);
+            this.metroLabel11.TabIndex = 64;
+            this.metroLabel11.Text = "Ultima Actualización";
+            this.metroLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel7.Location = new System.Drawing.Point(3, 138);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(157, 23);
+            this.metroLabel7.TabIndex = 63;
+            this.metroLabel7.Text = "Fecha de Registro";
+            this.metroLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblLocalizaciones
+            // 
+            this.lblLocalizaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLocalizaciones.AutoSize = true;
+            this.lblLocalizaciones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "cantidadLocalizaciones", true));
+            this.lblLocalizaciones.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblLocalizaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblLocalizaciones.Location = new System.Drawing.Point(166, 203);
+            this.lblLocalizaciones.Margin = new System.Windows.Forms.Padding(3);
+            this.lblLocalizaciones.Name = "lblLocalizaciones";
+            this.lblLocalizaciones.Size = new System.Drawing.Size(23, 15);
+            this.lblLocalizaciones.TabIndex = 62;
+            this.lblLocalizaciones.Text = "No";
+            this.lblLocalizaciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLocalizaciones.UseCustomForeColor = true;
+            // 
+            // lblActivo
+            // 
+            this.lblActivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblActivo.AutoSize = true;
+            this.lblActivo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "active", true));
+            this.lblActivo.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblActivo.Location = new System.Drawing.Point(166, 119);
+            this.lblActivo.Margin = new System.Windows.Forms.Padding(3);
+            this.lblActivo.Name = "lblActivo";
+            this.lblActivo.Size = new System.Drawing.Size(23, 15);
+            this.lblActivo.TabIndex = 61;
+            this.lblActivo.Text = "No";
+            this.lblActivo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSupervisor
+            // 
+            this.lblSupervisor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSupervisor.AutoSize = true;
+            this.lblSupervisor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "esSupervisor", true));
+            this.lblSupervisor.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblSupervisor.Location = new System.Drawing.Point(166, 96);
+            this.lblSupervisor.Margin = new System.Windows.Forms.Padding(3);
+            this.lblSupervisor.Name = "lblSupervisor";
+            this.lblSupervisor.Size = new System.Drawing.Size(23, 15);
+            this.lblSupervisor.TabIndex = 60;
+            this.lblSupervisor.Text = "No";
+            this.lblSupervisor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblGrupo
+            // 
+            this.lblGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGrupo.AutoSize = true;
+            this.lblGrupo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "Grupo", true));
+            this.lblGrupo.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblGrupo.Location = new System.Drawing.Point(166, 73);
+            this.lblGrupo.Margin = new System.Windows.Forms.Padding(3);
+            this.lblGrupo.Name = "lblGrupo";
+            this.lblGrupo.Size = new System.Drawing.Size(23, 15);
+            this.lblGrupo.TabIndex = 59;
+            this.lblGrupo.Text = "No";
+            this.lblGrupo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPerfil
+            // 
+            this.lblPerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPerfil.AutoSize = true;
+            this.lblPerfil.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "Perfil", true));
+            this.lblPerfil.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblPerfil.Location = new System.Drawing.Point(166, 50);
+            this.lblPerfil.Margin = new System.Windows.Forms.Padding(3);
+            this.lblPerfil.Name = "lblPerfil";
+            this.lblPerfil.Size = new System.Drawing.Size(23, 15);
+            this.lblPerfil.TabIndex = 58;
+            this.lblPerfil.Text = "No";
+            this.lblPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "usuario", true));
+            this.lblUsuario.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblUsuario.Location = new System.Drawing.Point(166, 27);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(3);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(23, 15);
+            this.lblUsuario.TabIndex = 57;
+            this.lblUsuario.Text = "No";
+            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "NombreCompleto", true));
+            this.lblNombre.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblNombre.Location = new System.Drawing.Point(166, 4);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(3);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(23, 15);
+            this.lblNombre.TabIndex = 56;
+            this.lblNombre.Text = "No";
+            this.lblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // metroLabel10
             // 
             this.metroLabel10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.metroLabel10.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel10.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel10.Location = new System.Drawing.Point(3, 118);
+            this.metroLabel10.Location = new System.Drawing.Point(3, 115);
             this.metroLabel10.Margin = new System.Windows.Forms.Padding(3);
             this.metroLabel10.Name = "metroLabel10";
             this.metroLabel10.Size = new System.Drawing.Size(157, 23);
@@ -255,7 +585,7 @@
             this.metroLabel9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel9.Location = new System.Drawing.Point(3, 95);
+            this.metroLabel9.Location = new System.Drawing.Point(3, 92);
             this.metroLabel9.Margin = new System.Windows.Forms.Padding(3);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(157, 23);
@@ -268,7 +598,7 @@
             this.metroLabel8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel8.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel8.Location = new System.Drawing.Point(3, 141);
+            this.metroLabel8.Location = new System.Drawing.Point(3, 199);
             this.metroLabel8.Margin = new System.Windows.Forms.Padding(3);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(157, 23);
@@ -281,7 +611,7 @@
             this.metroLabel6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel6.Location = new System.Drawing.Point(3, 72);
+            this.metroLabel6.Location = new System.Drawing.Point(3, 69);
             this.metroLabel6.Margin = new System.Windows.Forms.Padding(3);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(157, 23);
@@ -294,7 +624,7 @@
             this.metroLabel4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel4.Location = new System.Drawing.Point(3, 49);
+            this.metroLabel4.Location = new System.Drawing.Point(3, 46);
             this.metroLabel4.Margin = new System.Windows.Forms.Padding(3);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(157, 23);
@@ -307,7 +637,7 @@
             this.metroLabel15.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.metroLabel15.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel15.Location = new System.Drawing.Point(3, 3);
+            this.metroLabel15.Location = new System.Drawing.Point(3, 0);
             this.metroLabel15.Margin = new System.Windows.Forms.Padding(3);
             this.metroLabel15.Name = "metroLabel15";
             this.metroLabel15.Size = new System.Drawing.Size(157, 23);
@@ -320,237 +650,13 @@
             this.metroLabel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel2.Location = new System.Drawing.Point(3, 26);
+            this.metroLabel2.Location = new System.Drawing.Point(3, 23);
             this.metroLabel2.Margin = new System.Windows.Forms.Padding(3);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(157, 23);
             this.metroLabel2.TabIndex = 49;
             this.metroLabel2.Text = "Nombre de Usuario";
             this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtPwd2
-            // 
-            this.txtPwd2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPwd2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            // 
-            // 
-            // 
-            this.txtPwd2.CustomButton.Image = null;
-            this.txtPwd2.CustomButton.Location = new System.Drawing.Point(284, 1);
-            this.txtPwd2.CustomButton.Name = "";
-            this.txtPwd2.CustomButton.Size = new System.Drawing.Size(27, 27);
-            this.txtPwd2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtPwd2.CustomButton.TabIndex = 1;
-            this.txtPwd2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtPwd2.CustomButton.UseSelectable = true;
-            this.txtPwd2.CustomButton.Visible = false;
-            this.txtPwd2.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtPwd2.Lines = new string[0];
-            this.txtPwd2.Location = new System.Drawing.Point(3, 111);
-            this.txtPwd2.MaxLength = 30;
-            this.txtPwd2.Name = "txtPwd2";
-            this.txtPwd2.PasswordChar = '?';
-            this.txtPwd2.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtPwd2.SelectedText = "";
-            this.txtPwd2.SelectionLength = 0;
-            this.txtPwd2.SelectionStart = 0;
-            this.txtPwd2.Size = new System.Drawing.Size(312, 29);
-            this.txtPwd2.TabIndex = 49;
-            this.txtPwd2.UseSelectable = true;
-            this.txtPwd2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtPwd2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel1.Location = new System.Drawing.Point(3, 85);
-            this.metroLabel1.Margin = new System.Windows.Forms.Padding(3);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(175, 25);
-            this.metroLabel1.TabIndex = 50;
-            this.metroLabel1.Text = "Repetir Contraseña";
-            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.metroLabel12);
-            this.panel3.Controls.Add(this.pBtns);
-            this.panel3.Controls.Add(this.txtPwd2);
-            this.panel3.Controls.Add(this.metroLabel3);
-            this.panel3.Controls.Add(this.txtPwd);
-            this.panel3.Controls.Add(this.metroLabel1);
-            this.panel3.Location = new System.Drawing.Point(642, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(320, 211);
-            this.panel3.TabIndex = 49;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "NombreCompleto", true));
-            this.lblNombre.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblNombre.Location = new System.Drawing.Point(166, 7);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(3);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(23, 15);
-            this.lblNombre.TabIndex = 56;
-            this.lblNombre.Text = "No";
-            this.lblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pBtns
-            // 
-            this.pBtns.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pBtns.AutoSize = true;
-            this.pBtns.Controls.Add(this.btnAccept);
-            this.pBtns.Controls.Add(this.btnClear);
-            this.pBtns.Location = new System.Drawing.Point(202, 143);
-            this.pBtns.Name = "pBtns";
-            this.pBtns.Size = new System.Drawing.Size(113, 63);
-            this.pBtns.TabIndex = 51;
-            // 
-            // btnAccept
-            // 
-            this.btnAccept.AutoSize = true;
-            this.btnAccept.BackgroundImage = global::CellTrack.Properties.Resources._1464227257_save;
-            this.btnAccept.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAccept.Location = new System.Drawing.Point(3, 3);
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(66, 57);
-            this.btnAccept.TabIndex = 10;
-            this.btnAccept.UseSelectable = true;
-            // 
-            // btnClear
-            // 
-            this.btnClear.AutoSize = true;
-            this.btnClear.BackgroundImage = global::CellTrack.Properties.Resources._1464225333_checkbox_unchecked;
-            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClear.Location = new System.Drawing.Point(75, 3);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 3, 3, 5);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(35, 36);
-            this.btnClear.TabIndex = 11;
-            this.btnClear.UseSelectable = true;
-            // 
-            // btnrefresh
-            // 
-            this.btnrefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnrefresh.AutoSize = true;
-            this.btnrefresh.BackgroundImage = global::CellTrack.Properties.Resources._1463558222_Update;
-            this.btnrefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnrefresh.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnrefresh.Location = new System.Drawing.Point(928, 3);
-            this.btnrefresh.Name = "btnrefresh";
-            this.btnrefresh.Size = new System.Drawing.Size(35, 36);
-            this.btnrefresh.TabIndex = 46;
-            this.btnrefresh.UseSelectable = true;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "usuario", true));
-            this.lblUsuario.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblUsuario.Location = new System.Drawing.Point(166, 30);
-            this.lblUsuario.Margin = new System.Windows.Forms.Padding(3);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(23, 15);
-            this.lblUsuario.TabIndex = 57;
-            this.lblUsuario.Text = "No";
-            this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPerfil
-            // 
-            this.lblPerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPerfil.AutoSize = true;
-            this.lblPerfil.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "Perfil", true));
-            this.lblPerfil.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblPerfil.Location = new System.Drawing.Point(166, 53);
-            this.lblPerfil.Margin = new System.Windows.Forms.Padding(3);
-            this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(23, 15);
-            this.lblPerfil.TabIndex = 58;
-            this.lblPerfil.Text = "No";
-            this.lblPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblGrupo
-            // 
-            this.lblGrupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblGrupo.AutoSize = true;
-            this.lblGrupo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "Grupo", true));
-            this.lblGrupo.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblGrupo.Location = new System.Drawing.Point(166, 76);
-            this.lblGrupo.Margin = new System.Windows.Forms.Padding(3);
-            this.lblGrupo.Name = "lblGrupo";
-            this.lblGrupo.Size = new System.Drawing.Size(23, 15);
-            this.lblGrupo.TabIndex = 59;
-            this.lblGrupo.Text = "No";
-            this.lblGrupo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblSupervisor
-            // 
-            this.lblSupervisor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSupervisor.AutoSize = true;
-            this.lblSupervisor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "esSupervisor", true));
-            this.lblSupervisor.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblSupervisor.Location = new System.Drawing.Point(166, 99);
-            this.lblSupervisor.Margin = new System.Windows.Forms.Padding(3);
-            this.lblSupervisor.Name = "lblSupervisor";
-            this.lblSupervisor.Size = new System.Drawing.Size(23, 15);
-            this.lblSupervisor.TabIndex = 60;
-            this.lblSupervisor.Text = "No";
-            this.lblSupervisor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblActivo
-            // 
-            this.lblActivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblActivo.AutoSize = true;
-            this.lblActivo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "active", true));
-            this.lblActivo.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblActivo.Location = new System.Drawing.Point(166, 122);
-            this.lblActivo.Margin = new System.Windows.Forms.Padding(3);
-            this.lblActivo.Name = "lblActivo";
-            this.lblActivo.Size = new System.Drawing.Size(23, 15);
-            this.lblActivo.TabIndex = 61;
-            this.lblActivo.Text = "No";
-            this.lblActivo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblLocalizaciones
-            // 
-            this.lblLocalizaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblLocalizaciones.AutoSize = true;
-            this.lblLocalizaciones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "cantidadLocalizaciones", true));
-            this.lblLocalizaciones.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblLocalizaciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblLocalizaciones.Location = new System.Drawing.Point(166, 145);
-            this.lblLocalizaciones.Margin = new System.Windows.Forms.Padding(3);
-            this.lblLocalizaciones.Name = "lblLocalizaciones";
-            this.lblLocalizaciones.Size = new System.Drawing.Size(23, 15);
-            this.lblLocalizaciones.TabIndex = 62;
-            this.lblLocalizaciones.Text = "No";
-            this.lblLocalizaciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblLocalizaciones.UseCustomForeColor = true;
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel5.Location = new System.Drawing.Point(3, 24);
-            this.metroLabel5.Margin = new System.Windows.Forms.Padding(3);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(125, 15);
-            this.metroLabel5.TabIndex = 53;
-            this.metroLabel5.Text = "Objetivos registrados";
-            this.metroLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // gdObjetivos
             // 
@@ -616,77 +722,38 @@
             this.gdObjetivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdObjetivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdObjetivos.ShowEditingIcon = false;
-            this.gdObjetivos.Size = new System.Drawing.Size(960, 278);
+            this.gdObjetivos.Size = new System.Drawing.Size(960, 215);
             this.gdObjetivos.StandardTab = true;
             this.gdObjetivos.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdObjetivos.TabIndex = 54;
             this.gdObjetivos.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdObjetivos.UseStyleColors = true;
             // 
-            // metroLabel7
+            // metroLabel5
             // 
-            this.metroLabel7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel7.Location = new System.Drawing.Point(3, 164);
-            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(157, 23);
-            this.metroLabel7.TabIndex = 63;
-            this.metroLabel7.Text = "Fecha de Registro";
-            this.metroLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel5.Location = new System.Drawing.Point(3, 24);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(125, 15);
+            this.metroLabel5.TabIndex = 53;
+            this.metroLabel5.Text = "Objetivos registrados";
+            this.metroLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // metroLabel11
+            // btnrefresh
             // 
-            this.metroLabel11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel11.Location = new System.Drawing.Point(3, 187);
-            this.metroLabel11.Margin = new System.Windows.Forms.Padding(3);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(157, 23);
-            this.metroLabel11.TabIndex = 64;
-            this.metroLabel11.Text = "Ultima Actualización";
-            this.metroLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // fAct
-            // 
-            this.fAct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.fAct.AutoSize = true;
-            this.fAct.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "fAct", true));
-            this.fAct.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.fAct.Location = new System.Drawing.Point(166, 191);
-            this.fAct.Margin = new System.Windows.Forms.Padding(3);
-            this.fAct.Name = "fAct";
-            this.fAct.Size = new System.Drawing.Size(23, 15);
-            this.fAct.TabIndex = 65;
-            this.fAct.Text = "No";
-            this.fAct.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // fRegistro
-            // 
-            this.fRegistro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.fRegistro.AutoSize = true;
-            this.fRegistro.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuarioModelBindingSource, "fIns", true));
-            this.fRegistro.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.fRegistro.Location = new System.Drawing.Point(166, 168);
-            this.fRegistro.Margin = new System.Windows.Forms.Padding(3);
-            this.fRegistro.Name = "fRegistro";
-            this.fRegistro.Size = new System.Drawing.Size(23, 15);
-            this.fRegistro.TabIndex = 66;
-            this.fRegistro.Text = "No";
-            this.fRegistro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // metroLabel12
-            // 
-            this.metroLabel12.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel12.Location = new System.Drawing.Point(3, 3);
-            this.metroLabel12.Margin = new System.Windows.Forms.Padding(3);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(157, 14);
-            this.metroLabel12.TabIndex = 52;
-            this.metroLabel12.Text = "Cambiar Contraseña";
+            this.btnrefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnrefresh.AutoSize = true;
+            this.btnrefresh.BackgroundImage = global::CellTrack.Properties.Resources._1463558222_Update;
+            this.btnrefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnrefresh.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnrefresh.Location = new System.Drawing.Point(928, 3);
+            this.btnrefresh.Name = "btnrefresh";
+            this.btnrefresh.Size = new System.Drawing.Size(35, 36);
+            this.btnrefresh.TabIndex = 46;
+            this.btnrefresh.UseSelectable = true;
             // 
             // usuarioModelBindingSource
             // 
@@ -790,12 +857,12 @@
             this.splitContainerUsuarios.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerUsuarios)).EndInit();
             this.splitContainerUsuarios.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.pBtns.ResumeLayout(false);
             this.pBtns.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdObjetivos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.localizationsModelBindingSource)).EndInit();
@@ -854,6 +921,10 @@
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLabel metroLabel16;
+        private MetroFramework.Controls.MetroLabel metroLabel17;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroLabel metroLabel14;
 
 
 

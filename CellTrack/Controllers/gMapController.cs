@@ -13,24 +13,24 @@ using System.Windows.Forms;
 
 namespace CellTrack.Controllers
 {
-    static class gMapController
+    public class gMapController
     {
-        private static GMapControl mainMap = new GMapControl();
-        public static GMapControl MainMap
+        private GMapControl mainMap = new GMapControl();
+        public GMapControl MainMap
         {
-            get { return gMapController.mainMap; }
-            set { gMapController.mainMap = value; }
+            get { return  mainMap; }
+            set {  mainMap = value; }
         }
 
-        private static GMapOverlay overlays = new GMapOverlay();
-        public static GMapOverlay Overlays
+        private GMapOverlay overlays = new GMapOverlay("Markers");
+        public GMapOverlay Overlays
         {
-            get { return gMapController.overlays; }
-            set { gMapController.overlays = value; }
+            get { return  overlays; }
+            set {  overlays = value; }
         }
 
-        public static GMapControl initMap()
-        {            
+        public gMapController(Double lat, Double lng, Double zoom)
+        {
             MainMap.Dock = DockStyle.Fill;
             if (!GMapControl.IsDesignerHosted)
             {
@@ -40,22 +40,39 @@ namespace CellTrack.Controllers
                 }
                 catch
                 {
-                    throw;
+                    
+                    //GMap.NET.CacheProviders.SQLitePureImageCache MySQLPureImageCache ch = new GMap.NET.CacheProviders.MySQLPureImageCache();
+                    //ch.ConnectionString = @"server=sql2008;User Id=trolis;Persist Security Info=True;database=gmapnetcache;password=trolis;";
+                    //MainMap.Manager.SecondaryCache = ch;
+
+                    //throw;
                 }
 
                 // config map         
                 MainMap.MapProvider = GMapProviders.OpenStreetMap;
-                MainMap.Position = new PointLatLng(19.255185, -103.688263);
-                MainMap.MinZoom = 0;
+                MainMap.Position = new PointLatLng(lat, lng);
+                MainMap.MinZoom = 1;
                 MainMap.MaxZoom = 24;
-                MainMap.Zoom = 9;
+                MainMap.Zoom = zoom;
 
-                MainMap.ScaleMode = ScaleModes.Fractional;
+                //MainMap.ScaleMode = ScaleModes.Fractional;
             }
-            return MainMap;            
         }
 
-        public static void AddMarker(double lat, double lng, string txt)
+        ~gMapController() {
+            try
+            {
+                Overlays.Dispose();
+                Overlays = null;
+                MainMap.Dispose();
+                MainMap = null;
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        public void AddMarker(double lat, double lng, string txt)
         {
             GMarkerGoogle marker = new GMarkerGoogle(new GMap.NET.PointLatLng(lat, lng), GMarkerGoogleType.red);
             marker.ToolTipMode = MarkerTooltipMode.Always;
@@ -64,12 +81,12 @@ namespace CellTrack.Controllers
             MainMap.Overlays.Add(Overlays);
         }
 
-        public static void AddMarker(markersModel mark)
+        public void AddMarker(markersModel mark)
         {
             AddMarker(mark.Lat, mark.Lng, mark.Desc);
         }
 
-        public static void AddMarker(List<markersModel> markers)
+        public void AddMarker(List<markersModel> markers)
         {
             foreach (markersModel item in markers)
             {
@@ -81,20 +98,24 @@ namespace CellTrack.Controllers
             MainMap.Overlays.Add(Overlays);
         }
 
-        public static void setPosition(double lat, double lng)
+        public void setPosition(double lat, double lng)
         {
             MainMap.Position = new PointLatLng(lat,lng);
         }
 
-        public static void setPosition(markersModel mark)
+        public void setPosition(markersModel mark, int? zoom = null)
         {
             MainMap.Position = new PointLatLng(mark.Lat,mark.Lng);
+            this.zoom(zoom.GetValueOrDefault(Convert.ToInt16(MainMap.Zoom)));
         }
 
-        public static void zoom(int value) {
+        public void zoom(int value) {
             MainMap.Zoom = value;
         }
 
+        public void centerInMarkers() {
+            MainMap.ZoomAndCenterMarkers("Markers");
+        }
 
     }
 }

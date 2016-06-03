@@ -36,30 +36,6 @@ namespace CellTrack.Views.UserControls
         private void populate()
         {
             bsNotifications.DataSource = usuarioController.usersNotifications;
-
-            /*
-             * MODELO DE PRUEBA
-             * TODO: Eliminar al implementar
-             */
-            for (int i = 1; i < 10; i++)
-            {
-                objetivos.Add(new localizationsModel()
-                {
-                    id = i,
-                    nombre = Guid.NewGuid().ToString(),
-                    asunto = Guid.NewGuid().ToString(),
-                    objetivo = Guid.NewGuid().ToString().Substring(0, 10),
-                    idNotification = 7,
-                    NotificationName = Guid.NewGuid().ToString(),
-                    idCarrier = 3,
-                    Carrier = "TELCEL",
-                    Agenda = string.Format("De {0} a {1} frecuencia {2} min.", 10, 20, 10),
-                    agendaDe = 10,
-                    agendaA = 22,
-                    agendaFrecuencia = 5
-                });
-            }
-
             this.Objetivos();
         }
 

@@ -10,18 +10,14 @@ namespace CellTrack.Controllers
 {
     public static class PDUController
     {
-        public static markersModel PDUFind(localizationsModel item)
+        public static markersModel PDUFind(PDUModel item, gMapController controller)
         {
             markersModel marker = null;
             try
             {
-                marker = new markersModel();
-
-                marker.Lat = 20.675159;
-                marker.Lng = -103.358840;
-                marker.Desc = "Position inserted";
-                gMapController.AddMarker(marker);
-                gMapController.setPosition(marker);
+                marker = new markersModel(20.675159,-103.358840,item.descrip);
+                controller.AddMarker(marker);
+                controller.setPosition(marker);
             }
             catch (Exception ex)
             {

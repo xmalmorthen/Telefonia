@@ -115,6 +115,25 @@ namespace CellTrack.Controllers
             }
             return returnResult;
         }
+
+        public static bool changePassword(string pwd)
+        {
+            Boolean returnResult = false;
+            try
+            {
+                causuarios user = usuarioLogueado.info;
+                user.contrasenia = md5.Get(pwd);
+                user.fAct = DateTime.Now;
+                DAL.Db.SaveChanges();
+                returnResult = true;
+            }
+            catch (Exception ex)
+            {
+                exceptionHandlerCatch.registerLogException(ex);
+            }
+            return returnResult;
+        }
+    
     }
 
 }

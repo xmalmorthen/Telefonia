@@ -26,6 +26,8 @@ namespace CellTrack.Views.UserControls.Localización
             }
         }
 
+        private gMapView gMapViewRender = new gMapView(19.255185, -103.688263);
+
         public frmPDU()
         {
             InitializeComponent();
@@ -41,8 +43,10 @@ namespace CellTrack.Views.UserControls.Localización
 
             FrmState = enums.frmState.Normal;
 
-            this.pMap.Controls.Add(gMapController.initMap());
             this.populate();
+
+            gMapViewRender.Dock = DockStyle.Fill;
+            this.splitContainer.Panel2.Controls.Add(gMapViewRender);
         }
 
         private void populate()
@@ -52,31 +56,7 @@ namespace CellTrack.Views.UserControls.Localización
 
         private void Objetivos()
         {
-            List<localizationsModel> objetivos = new List<localizationsModel>();
-
-            /*
-             * MODELO DE PRUEBA
-             * TODO: Eliminar al implementar
-             */
-            for (int i = 1; i < 10; i++)
-            {
-                objetivos.Add(new localizationsModel()
-                {
-                    id = i,
-                    nombre = Guid.NewGuid().ToString(),
-                    asunto = Guid.NewGuid().ToString(),
-                    objetivo = Guid.NewGuid().ToString().Substring(0,10),
-                    idNotification = i,
-                    NotificationName = Guid.NewGuid().ToString(),
-                    idCarrier = 3,
-                    Carrier = "TELCEL",
-                    Agenda = string.Format("De {0} a {1} frecuencia {2} min.",10,20,10),
-                    agendaDe = 10,
-                    agendaA = 22,
-                    agendaFrecuencia = 5
-                });    
-            }
-
+            List<PDUModel> objetivos = new List<PDUModel>();
             //Obtener lista de objetivos
             foreach (malocalizations item in objetivosController.getTargets(usuarioController.usuarioLogueado.info.id))
             {
@@ -95,27 +75,17 @@ namespace CellTrack.Views.UserControls.Localización
                 string Carrier = string.Empty;
                 try
                 {
-                    Carrier = string.Format("{0} {1} {2}", userNotification.Nombres, userNotification.PrimerApellido, userNotification.SegundoApellido);
+                    Carrier = carrier.carrier;
                 }
                 catch (Exception)
                 {
                     Carrier = "El carrier no se encuentra registrado";
                 }
 
-                objetivos.Add(new localizationsModel()
+                objetivos.Add(new PDUModel()
                 {
                     id = item.id,
-                    nombre = item.nombre,
-                    asunto = item.asunto,
-                    objetivo = item.objetivo,
-                    idNotification = item.idNotification,
-                    NotificationName = NotificationName,
-                    idCarrier = item.idCarrier,
-                    Carrier = Carrier,
-                    agendaDe = item.agendaDe,
-                    agendaA = item.agendaA,
-                    agendaFrecuencia = item.agendaFrecuencia,
-                    Agenda = item.agendaDe != null ? string.Format("De {0} a {1} frecuencia {2} min.", item.agendaDe, item.agendaA, item.agendaFrecuencia) : string.Empty
+                    descrip = string.Format("{0} [ {1} ] - {2}", item.nombre,item.objetivo, item.cacarriers.carrier )
                 });
             }
             bsObjetivos.DataSource = objetivos;
@@ -126,7 +96,7 @@ namespace CellTrack.Views.UserControls.Localización
         {
             try
             {
-                markersModel marker = PDUController.PDUFind(bsObjetivos.Current as localizationsModel);
+                markersModel marker = PDUController.PDUFind(bsObjetivos.Current as PDUModel, gMapViewRender.gMap);
                 if (marker == null) throw new NullReferenceException("No se pudo localizar");
             }
             catch (Exception ex)
@@ -138,7 +108,7 @@ namespace CellTrack.Views.UserControls.Localización
 
         private void metroTrackBar1_ValueChanged(object sender, EventArgs e)
         {
-            gMapController.zoom(tkBarZoom.Value);
+            
         }
         
     }

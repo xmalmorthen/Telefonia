@@ -22,8 +22,8 @@ namespace CellTrack.Models.DataBases
         public int id { get; set; }
         public string carrier { get; set; }
         public string descrip { get; set; }
-        public Nullable<System.DateTime> fIns { get; set; }
-        public System.DateTime fAct { get; set; }
+        public System.DateTime fIns { get; set; }
+        public Nullable<System.DateTime> fAct { get; set; }
         public bool active { get; set; }
     
         public virtual ICollection<malocalizations> malocalizations { get; set; }

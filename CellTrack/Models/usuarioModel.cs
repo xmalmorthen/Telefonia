@@ -16,6 +16,18 @@ namespace CellTrack.Models
         public string esSupervisor { get; set; }
         public string active { get; set; }
         public string cantidadLocalizaciones { get; set; }
+        public string utilizados { get; set; }
+        public string disponibles { get {
+                if (string.IsNullOrEmpty(this.cantidadLocalizaciones)) 
+                    return "Ilimitado";
+                else {
+                    if (string.IsNullOrEmpty(this.utilizados))
+                        return this.cantidadLocalizaciones;
+                    else
+                        return (int.Parse(this.cantidadLocalizaciones) - int.Parse(this.utilizados)).ToString();
+                } 
+            } 
+        }
         public string fIns { get; set; }
         public string fAct { get; set; }
     }

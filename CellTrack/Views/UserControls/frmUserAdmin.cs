@@ -11,6 +11,7 @@ using CellTrack.Classes;
 using CellTrack.Models;
 using CellTrack.Controllers;
 using CellTrack.Models.DataBases;
+using MetroFramework;
 
 namespace CellTrack.Views.UserControls
 {
@@ -51,30 +52,6 @@ namespace CellTrack.Views.UserControls
         private void Objetivos()
         {
             List<localizationsModel> objetivos = new List<localizationsModel>();
-
-            /*
-             * MODELO DE PRUEBA
-             * TODO: Eliminar al implementar
-             */
-            for (int i = 1; i < 10; i++)
-            {
-                objetivos.Add(new localizationsModel()
-                {
-                    id = i,
-                    nombre = Guid.NewGuid().ToString(),
-                    asunto = Guid.NewGuid().ToString(),
-                    objetivo = Guid.NewGuid().ToString().Substring(0, 10),
-                    idNotification = i,
-                    NotificationName = Guid.NewGuid().ToString(),
-                    idCarrier = 3,
-                    Carrier = "TELCEL",
-                    Agenda = string.Format("De {0} a {1} frecuencia {2} min.", 10, 20, 10),
-                    agendaDe = 10,
-                    agendaA = 22,
-                    agendaFrecuencia = 5
-                });
-            }
-
             //Obtener lista de objetivos
             foreach (malocalizations item in objetivosController.getTargets(usuarioController.usuarioLogueado.info.id))
             {
@@ -118,6 +95,31 @@ namespace CellTrack.Views.UserControls
             }
             localizationsModelBindingSource.DataSource = objetivos;
             gdObjetivos.DataSource = localizationsModelBindingSource;
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPwd.Text.Trim())) 
+                if (!string.IsNullOrEmpty(txtPwd2.Text.Trim()))
+                {
+                    if (!txtPwd.Text.Trim().Equals(txtPwd2.Text.Trim())) {
+                        MetroMessageBox.Show(this,"La contraseña no coincide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtPwd2.SelectAll();
+                        txtPwd2.Focus();
+                        return;
+                    }
+                } else {
+                    MetroMessageBox.Show(this,"Debe repetir la contraseña", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtPwd2.Focus();
+                    return;
+                }
+            else{
+                MetroMessageBox.Show(this,"Debe especificar la contraseña", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtPwd.Focus();
+                return;
+            }
+
+            usuarioController.changePassword(txtPwd.Text.Trim());
         }
     }
 }

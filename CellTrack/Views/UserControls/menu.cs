@@ -130,6 +130,11 @@ namespace CellTrack.Views.UserControls
             }
             this.openFrm<frmPDU>();
         }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            this.openFrm<frmRecibidos>();
+        }
         
     }
 }

@@ -117,7 +117,7 @@
     <Compile Include="Controllers\objetivosController.cs" />
     <Compile Include="Controllers\PDUController.cs" />
     <Compile Include="Controllers\usuarioController.cs" />
-    <Compile Include="Models\usuarioModel.cs" />
+    <Compile Include="Models\PDUModel.cs" />
     <Compile Include="Models\DataBases\cacarriers.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
@@ -163,6 +163,7 @@
     <Compile Include="Models\DataBases\vwusernotifications.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\usuarioModel.cs" />
     <Compile Include="Models\enums.cs" />
     <Compile Include="Models\localizationsModel.cs" />
     <Compile Include="Models\markersModel.cs" />
@@ -264,6 +265,18 @@
     <Compile Include="Views\UserControls\frmUserInformation.Designer.cs">
       <DependentUpon>frmUserInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\gMapView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\gMapView.Designer.cs">
+      <DependentUpon>gMapView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Localizacion\frmRecibidos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Localizacion\frmRecibidos.Designer.cs">
+      <DependentUpon>frmRecibidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Localizacion\frmPDU.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -295,6 +308,7 @@
     <None Include="Models\DataBases\dbGeoLoc.edmx.diagram">
       <DependentUpon>dbGeoLoc.edmx</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\CellTrack.Models.PDUModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.usuarioModel.datasource" />
     <None Include="Resources\1464813353_zoom.png" />
     <None Include="Resources\1464722820_layers_2.png" />
@@ -312,6 +326,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Admin\usrCtrlUsuarios.resx">
       <DependentUpon>usrCtrlUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\gMapView.resx">
+      <DependentUpon>gMapView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Localizacion\frmRecibidos.resx">
+      <DependentUpon>frmRecibidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Users\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>

@@ -50,39 +50,26 @@ namespace CellTrack.Views.UserControls
         private void populate()
         {
             bsCarriers.DataSource = catalogosController.activeCarriers;
-            bsNotifications.DataSource = usuarioController.usersNotifications;
+            bsNotifications.DataSource = usuarioController.usersNotifications;            
             this.Objetivos();
         }
-
+        
         private void Objetivos()
         {
-            List<localizationsModel> objetivos = new List<localizationsModel>();
-
-            /*
-             * MODELO DE PRUEBA
-             * TODO: Eliminar al implementar
-             */
-            for (int i = 1; i < 10; i++)
+            List<malocalizations> dataTmp;
+            string filter = txtFind.Text;
+            if (string.IsNullOrEmpty(filter))
             {
-                objetivos.Add(new localizationsModel()
-                {
-                    id = i,
-                    nombre = Guid.NewGuid().ToString(),
-                    asunto = Guid.NewGuid().ToString(),
-                    objetivo = Guid.NewGuid().ToString().Substring(0,10),
-                    idNotification = i,
-                    NotificationName = Guid.NewGuid().ToString(),
-                    idCarrier = 3,
-                    Carrier = "TELCEL",
-                    Agenda = string.Format("De {0} a {1} frecuencia {2} min.",10,20,10),
-                    agendaDe = 10,
-                    agendaA = 22,
-                    agendaFrecuencia = 5
-                });    
+                dataTmp = objetivosController.getTargets(usuarioController.usuarioLogueado.info.id);
+            }
+            else
+            {
+                dataTmp = objetivosController.getTargets(usuarioController.usuarioLogueado.info.id).Where(qry => qry.nombre.Contains(filter) || qry.objetivo.Contains(filter) || string.Format("{0} {1} {2}", qry.causuarios1.Nombres, qry.causuarios1.PrimerApellido, qry.causuarios1.SegundoApellido).Contains(filter) || qry.cacarriers.carrier.Contains(filter) && qry.active.Equals(true) && qry.isDeleted.Equals(false)).ToList();
             }
 
+            List<localizationsModel> objetivos = new List<localizationsModel>();
             //Obtener lista de objetivos
-            foreach (malocalizations item in objetivosController.getTargets(usuarioController.usuarioLogueado.info.id))
+            foreach (malocalizations item in dataTmp)
             {
                 causuarios userNotification = usuarioController.getUserById(item.idNotification, false);
                 string NotificationName = string.Empty;
@@ -99,7 +86,7 @@ namespace CellTrack.Views.UserControls
                 string Carrier = string.Empty;
                 try
                 {
-                    Carrier = string.Format("{0} {1} {2}", userNotification.Nombres, userNotification.PrimerApellido, userNotification.SegundoApellido);
+                    Carrier = carrier.carrier;
                 }
                 catch (Exception)
                 {
@@ -185,6 +172,26 @@ namespace CellTrack.Views.UserControls
                 txtCel.Focus();
                 return;
             }
+
+            if (txtCel.Text.Trim().Length != 10)
+            {
+                MetroMessageBox.Show(this, "Longitud de número de celular incorrecta", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCel.Focus();
+                return;
+            }
+            
+            if (cmbAgendaDe.SelectedIndex != -1 || cmbAgendaA.SelectedIndex != -1 || !string.IsNullOrEmpty(txtfrecuencia.Text))
+            {
+                MetroMessageBox.Show(this, "Debe configurar por completo la agenda", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmbAgendaDe.SelectedIndex >= cmbAgendaA.SelectedIndex)
+            {
+                MetroMessageBox.Show(this, "Configuración de agenda incorrecta el horario de inicio no puede ser mayor o igual al de fin", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             #endregion FORM VALIDATIONS
 
             try
@@ -213,7 +220,13 @@ namespace CellTrack.Views.UserControls
         private void btnCancel_Click(object sender, EventArgs e)
         {
             if ( MetroMessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                bsObjetivos.CancelEdit();
+                if (FrmState.Equals(enums.frmState.Add))
+                    bsObjetivos.CancelEdit();
+                else
+                {
+                    Objetivos();
+                    bsObjetivos.ResetCurrentItem();                    
+                }
                 FrmState = enums.frmState.Normal;
             }
         }
@@ -234,7 +247,10 @@ namespace CellTrack.Views.UserControls
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            FrmState = enums.frmState.Edit;
+            if (bsObjetivos.Current != null)
+                FrmState = enums.frmState.Edit;
+            else
+                MetroMessageBox.Show(this, "No hay registro para modificar", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -258,6 +274,11 @@ namespace CellTrack.Views.UserControls
         private void txtCel_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtFind_KeyUp(object sender, KeyEventArgs e)
+        {
+            Objetivos();
         }        
         
     }

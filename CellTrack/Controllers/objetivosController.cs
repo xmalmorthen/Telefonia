@@ -89,7 +89,7 @@ namespace CellTrack.Controllers
 
                 if (item == null) throw new NullReferenceException(string.Format("No se encontró el registro [ {0} | {1} | {2} | {3} ], es posible que se haya eliminado desde otra instancia", Item.id, Item.nombre, Item.Carrier, Item.objetivo));
 
-                item.active = false;
+                item.isDeleted = true;
                 item.fAct = DateTime.Now;
 
                 DAL.Db.SaveChanges();

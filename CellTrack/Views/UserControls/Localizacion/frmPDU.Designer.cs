@@ -37,18 +37,12 @@
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.cmbTargets = new MetroFramework.Controls.MetroComboBox();
-            this.localizationsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.pMap = new System.Windows.Forms.Panel();
-            this.tkBarZoom = new MetroFramework.Controls.MetroTrackBar();
             this.bsObjetivos = new System.Windows.Forms.BindingSource(this.components);
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
-            this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.localizationsModelBindingSource)).BeginInit();
-            this.pMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsObjetivos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,22 +119,18 @@
             this.splitContainer.Panel1.Controls.Add(this.cmbTargets);
             this.splitContainer.Panel1.Controls.Add(this.metroLabel1);
             this.splitContainer.Panel1MinSize = 80;
-            // 
-            // splitContainer.Panel2
-            // 
-            this.splitContainer.Panel2.Controls.Add(this.pMap);
             this.splitContainer.Panel2MinSize = 200;
             this.splitContainer.Size = new System.Drawing.Size(969, 553);
             this.splitContainer.SplitterDistance = 80;
-            this.splitContainer.SplitterWidth = 10;
+            this.splitContainer.SplitterWidth = 5;
             this.splitContainer.TabIndex = 19;
             // 
             // cmbTargets
             // 
             this.cmbTargets.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbTargets.DataSource = this.localizationsModelBindingSource;
-            this.cmbTargets.DisplayMember = "nombre";
+            this.cmbTargets.DataSource = this.bsObjetivos;
+            this.cmbTargets.DisplayMember = "descrip";
             this.cmbTargets.FontWeight = MetroFramework.MetroComboBoxWeight.Bold;
             this.cmbTargets.FormattingEnabled = true;
             this.cmbTargets.ItemHeight = 23;
@@ -153,9 +143,9 @@
             this.cmbTargets.UseStyleColors = true;
             this.cmbTargets.ValueMember = "id";
             // 
-            // localizationsModelBindingSource
+            // bsObjetivos
             // 
-            this.localizationsModelBindingSource.DataSource = typeof(CellTrack.Models.localizationsModel);
+            this.bsObjetivos.DataSource = typeof(CellTrack.Models.PDUModel);
             // 
             // metroLabel1
             // 
@@ -169,33 +159,6 @@
             this.metroLabel1.TabIndex = 24;
             this.metroLabel1.Text = "Objetivo";
             this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pMap
-            // 
-            this.pMap.Controls.Add(this.tkBarZoom);
-            this.pMap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pMap.Location = new System.Drawing.Point(0, 0);
-            this.pMap.Name = "pMap";
-            this.pMap.Size = new System.Drawing.Size(969, 463);
-            this.pMap.TabIndex = 0;
-            // 
-            // tkBarZoom
-            // 
-            this.tkBarZoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tkBarZoom.BackColor = System.Drawing.Color.Transparent;
-            this.tkBarZoom.LargeChange = 2;
-            this.tkBarZoom.Location = new System.Drawing.Point(729, 437);
-            this.tkBarZoom.Maximum = 17;
-            this.tkBarZoom.Minimum = 1;
-            this.tkBarZoom.Name = "tkBarZoom";
-            this.tkBarZoom.Size = new System.Drawing.Size(237, 23);
-            this.tkBarZoom.TabIndex = 33;
-            this.tkBarZoom.Value = 4;
-            this.tkBarZoom.ValueChanged += new System.EventHandler(this.metroTrackBar1_ValueChanged);
-            // 
-            // bsObjetivos
-            // 
-            this.bsObjetivos.DataSource = typeof(CellTrack.Models.localizationsModel);
             // 
             // frmPDU
             // 
@@ -212,11 +175,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();
-            this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.localizationsModelBindingSource)).EndInit();
-            this.pMap.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsObjetivos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -233,10 +193,7 @@
         private System.Windows.Forms.SplitContainer splitContainer;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroComboBox cmbTargets;
-        private System.Windows.Forms.BindingSource bsObjetivos;
         private MetroFramework.Controls.MetroButton btnFind;
-        private System.Windows.Forms.Panel pMap;
-        private System.Windows.Forms.BindingSource localizationsModelBindingSource;
-        private MetroFramework.Controls.MetroTrackBar tkBarZoom;
+        private System.Windows.Forms.BindingSource bsObjetivos;
     }
 }

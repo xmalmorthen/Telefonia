@@ -28,5 +28,15 @@ namespace CellTrack.Models
             get { return desc; }
             set { desc = value; }
         }
+
+        public markersModel() { 
+        }
+
+        public markersModel(double lat, double lng, string desc) {
+            Lat = lat;
+            Lng = lng;
+            Desc = desc;
+        }
+
     }
 }
