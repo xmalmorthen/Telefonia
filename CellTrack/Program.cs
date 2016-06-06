@@ -48,18 +48,20 @@ namespace CellTrack
                 Properties.Settings.Default.mainStyle.Style = MetroFramework.MetroColorStyle.Black;
                 Properties.Settings.Default.mainStyle.Theme = MetroFramework.MetroThemeStyle.Light;
 
-                /*frmSshCnn FrmSshCnn = new frmSshCnn();
+                frmSshCnn FrmSshCnn = new frmSshCnn();
                 if (FrmSshCnn.ShowDialog() == DialogResult.Yes) {
                     frmLogIn FrmLogIn = new frmLogIn();
                     Application.Run(FrmLogIn);
                     if (FrmLogIn.dlgRes == DialogResult.No) Application.Exit();
-                }*/
+                }
 
+                /*
                 //USUARIO DE SIMULACIÓN
                 //TODO: Borrar al implementar el formulario de inicio de sesión
                 causuarios data = DAL.Db.causuarios.SingleOrDefault(qry => qry.id.Equals(7));
                 usuarioController.usuarioLogueado.info = data;
                 //USUARIO DE SIMULACIÓN
+                */
 
                 FrmDashboard = new frmDashboard();
 

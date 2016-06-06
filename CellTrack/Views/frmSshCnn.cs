@@ -14,6 +14,10 @@ namespace CellTrack.Views
 {
     public partial class frmSshCnn : MetroForm
     {
+        private List<string> cnns = new List<string>(new string[]{
+            "PDU"
+        });
+
         private List<BackgroundWorker> bkgndWrkrs = new List<BackgroundWorker>();
 
         private DialogResult dlgRes = DialogResult.Yes;
@@ -29,22 +33,22 @@ namespace CellTrack.Views
         }
 
         private void init() {
-            for (int i = 0; i < 1; i++)
+            foreach (string item in cnns)
             {
                 BackgroundWorker wrker = new BackgroundWorker();
                 wrker.WorkerSupportsCancellation = true;
                 wrker.DoWork += wrker_DoWork;
                 wrker.RunWorkerCompleted += wrker_RunWorkerCompleted;
                 bkgndWrkrs.Add(wrker);
-                wrker.RunWorkerAsync();
-            }            
+                wrker.RunWorkerAsync(item);
+            }
         }
 
         void wrker_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
-                string cnnName = String.Format("Enlace {0}", Guid.NewGuid().ToString());
+                string cnnName = String.Format("{0}", e.Argument.ToString());
                 Program.SshCnn.Add(cnnName, new sshCnn(Properties.Settings.Default.sshUser, Properties.Settings.Default.sshPass, Properties.Settings.Default.sshHost));
                 e.Result = cnnName;
             }

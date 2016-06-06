@@ -40,6 +40,8 @@ namespace CellTrack.Controllers
         public gMapController(Double lat, Double lng, Double zoom)
         {
             MainMap.Dock = DockStyle.Fill;
+            MainMap.DragButton = MouseButtons.Left;
+
             if (!GMapControl.IsDesignerHosted)
             {
                 try
@@ -127,11 +129,10 @@ namespace CellTrack.Controllers
             MainMap.Zoom = zoom;
         }
 
-        public void CreateCircle(PointF point, double radius, int segments)
-        {
+        private GMapPolygon createCircle(PointF point, double radius, int segments) {
             List<PointLatLng> gpollist = new List<PointLatLng>();
             double seg = Math.PI * 2 / segments;
-
+            radius = radius / 10000;
             int y = 0;
             for (int i = 0; i < segments; i++)
             {
@@ -141,11 +142,29 @@ namespace CellTrack.Controllers
                 PointLatLng gpoi = new PointLatLng(a, b);
                 gpollist.Add(gpoi);
             }
-            GMapPolygon gpol = new GMapPolygon(gpollist, "Triangulacion");
-            gpol.Fill = new SolidBrush(Color.FromArgb(100,100,100,100));
-            gpol.Stroke = new Pen(Color.Red, 1);
+            return new GMapPolygon(gpollist, "Triangulacion");
+        }
+
+        public void CreateCircle(PointF point, double radius, int segments, Color fillColor, Pen stroke )
+        {
+            GMapPolygon gpol = createCircle(point,radius,segments);
+            gpol.Fill = new SolidBrush(fillColor);
+            gpol.Stroke = stroke;
             TriangulationsOverlays.Polygons.Add(gpol);
             MainMap.Overlays.Add(TriangulationsOverlays);
+        }
+
+        public void CreateCircle(PointF point, double radius, int segments, Pen stroke)
+        {
+            GMapPolygon gpol = createCircle(point, radius, segments);
+            gpol.Fill = new SolidBrush(Color.FromArgb(0,0,0,0));
+            gpol.Stroke = stroke;
+            TriangulationsOverlays.Polygons.Add(gpol);
+            MainMap.Overlays.Add(TriangulationsOverlays);
+        }
+
+        public void changeMapType(GMapProvider type) {
+            MainMap.MapProvider = type;
         }
 
     }

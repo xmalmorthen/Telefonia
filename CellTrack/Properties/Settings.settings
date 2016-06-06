@@ -6,13 +6,13 @@
       <Value Profile="(Default)">sudo</Value>
     </Setting>
     <Setting Name="sshUser" Type="System.String" Scope="User">
-      <Value Profile="(Default)">admin</Value>
+      <Value Profile="(Default)">xmal</Value>
     </Setting>
     <Setting Name="sshPass" Type="System.String" Scope="User">
-      <Value Profile="(Default)">121212qw</Value>
+      <Value Profile="(Default)">xmal2016</Value>
     </Setting>
     <Setting Name="sshHost" Type="System.String" Scope="User">
-      <Value Profile="(Default)">10.10.20.196</Value>
+      <Value Profile="(Default)">184.107.189.202</Value>
     </Setting>
     <Setting Name="mainStyle" Type="MetroFramework.Components.MetroStyleManager" Scope="User">
       <Value Profile="(Default)" />
@@ -24,6 +24,18 @@
   &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">server=localhost;user id=root;persistsecurityinfo=True;database=dbgeoloc;password=""</Value>
+    </Setting>
+    <Setting Name="mapRadioCircle" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="mapSegments" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="commandPDU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ping google.com -c 3</Value>
+    </Setting>
+    <Setting Name="PDUCountDown" Type="System.String" Scope="User">
+      <Value Profile="(Default)">4</Value>
     </Setting>
   </Settings>
 </SettingsFile>

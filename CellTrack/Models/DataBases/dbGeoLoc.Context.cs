@@ -33,7 +33,7 @@ namespace CellTrack.Models.DataBases
         public DbSet<desmsrecibidos> desmsrecibidos { get; set; }
         public DbSet<gmapnetcache> gmapnetcache { get; set; }
         public DbSet<malocalizations> malocalizations { get; set; }
-        public DbSet<masmsrecibidos> masmsrecibidos { get; set; }
+        public DbSet<mapdu> mapdu { get; set; }
         public DbSet<reperfilroles> reperfilroles { get; set; }
         public DbSet<tbllogs> tbllogs { get; set; }
         public DbSet<vwactivecarriers> vwactivecarriers { get; set; }

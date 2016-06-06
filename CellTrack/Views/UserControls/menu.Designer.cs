@@ -31,6 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
+            this.btnLocalizations = new MetroFramework.Controls.MetroButton();
+            this.btnRegs = new MetroFramework.Controls.MetroButton();
+            this.btnFinder = new MetroFramework.Controls.MetroButton();
+            this.btnUser = new MetroFramework.Controls.MetroButton();
+            this.btnConfigs = new MetroFramework.Controls.MetroButton();
             this.mCMLocalizations = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -52,11 +57,6 @@
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnLocalizations = new MetroFramework.Controls.MetroButton();
-            this.btnRegs = new MetroFramework.Controls.MetroButton();
-            this.btnFinder = new MetroFramework.Controls.MetroButton();
-            this.btnUser = new MetroFramework.Controls.MetroButton();
-            this.btnConfigs = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.mCMLocalizations.SuspendLayout();
             this.mCMRegs.SuspendLayout();
@@ -75,6 +75,90 @@
             this.metroToolTip.Style = MetroFramework.MetroColorStyle.Orange;
             this.metroToolTip.StyleManager = null;
             this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // btnLocalizations
+            // 
+            this.btnLocalizations.AutoSize = true;
+            this.btnLocalizations.BackgroundImage = global::CellTrack.Properties.Resources._1463451442_target;
+            this.btnLocalizations.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnLocalizations.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnLocalizations.Location = new System.Drawing.Point(5, 5);
+            this.btnLocalizations.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.btnLocalizations.Name = "btnLocalizations";
+            this.btnLocalizations.Size = new System.Drawing.Size(60, 60);
+            this.btnLocalizations.TabIndex = 1;
+            this.btnLocalizations.Tag = "0";
+            this.metroToolTip.SetToolTip(this.btnLocalizations, "Localización");
+            this.btnLocalizations.UseSelectable = true;
+            this.btnLocalizations.UseStyleColors = true;
+            this.btnLocalizations.Click += new System.EventHandler(this.btnLocalizations_Click);
+            // 
+            // btnRegs
+            // 
+            this.btnRegs.AutoSize = true;
+            this.btnRegs.BackgroundImage = global::CellTrack.Properties.Resources._1463451426_db;
+            this.btnRegs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnRegs.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnRegs.Location = new System.Drawing.Point(70, 5);
+            this.btnRegs.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.btnRegs.Name = "btnRegs";
+            this.btnRegs.Size = new System.Drawing.Size(60, 60);
+            this.btnRegs.TabIndex = 2;
+            this.btnRegs.Tag = "1";
+            this.metroToolTip.SetToolTip(this.btnRegs, "Registros");
+            this.btnRegs.UseSelectable = true;
+            this.btnRegs.UseStyleColors = true;
+            this.btnRegs.Click += new System.EventHandler(this.btnDataBases_Click);
+            // 
+            // btnFinder
+            // 
+            this.btnFinder.AutoSize = true;
+            this.btnFinder.BackgroundImage = global::CellTrack.Properties.Resources._1463451359_zoom;
+            this.btnFinder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnFinder.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnFinder.Location = new System.Drawing.Point(135, 5);
+            this.btnFinder.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.btnFinder.Name = "btnFinder";
+            this.btnFinder.Size = new System.Drawing.Size(60, 60);
+            this.btnFinder.TabIndex = 3;
+            this.btnFinder.Tag = "2";
+            this.metroToolTip.SetToolTip(this.btnFinder, "Investigación");
+            this.btnFinder.UseSelectable = true;
+            this.btnFinder.UseStyleColors = true;
+            this.btnFinder.Click += new System.EventHandler(this.btnFinder_Click);
+            // 
+            // btnUser
+            // 
+            this.btnUser.AutoSize = true;
+            this.btnUser.BackgroundImage = global::CellTrack.Properties.Resources._1463451253_user;
+            this.btnUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnUser.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnUser.Location = new System.Drawing.Point(5, 5);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(5);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(23, 23);
+            this.btnUser.TabIndex = 0;
+            this.metroToolTip.SetToolTip(this.btnUser, "Información de usuario");
+            this.btnUser.UseSelectable = true;
+            this.btnUser.UseStyleColors = true;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            // 
+            // btnConfigs
+            // 
+            this.btnConfigs.AutoSize = true;
+            this.btnConfigs.BackgroundImage = global::CellTrack.Properties.Resources._1463451293_cog;
+            this.btnConfigs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnConfigs.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnConfigs.Location = new System.Drawing.Point(5, 39);
+            this.btnConfigs.Margin = new System.Windows.Forms.Padding(5);
+            this.btnConfigs.Name = "btnConfigs";
+            this.btnConfigs.Size = new System.Drawing.Size(23, 23);
+            this.btnConfigs.TabIndex = 4;
+            this.btnConfigs.Tag = "3";
+            this.metroToolTip.SetToolTip(this.btnConfigs, "Configuraciones");
+            this.btnConfigs.UseSelectable = true;
+            this.btnConfigs.UseStyleColors = true;
+            this.btnConfigs.Click += new System.EventHandler(this.btnConfigs_Click);
             // 
             // mCMLocalizations
             // 
@@ -149,6 +233,7 @@
             this.toolStripMenuItem5.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem5.Tag = "0-5";
             this.toolStripMenuItem5.Text = "Seguimiento";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -247,90 +332,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(33, 67);
             this.panel1.TabIndex = 4;
-            // 
-            // btnLocalizations
-            // 
-            this.btnLocalizations.AutoSize = true;
-            this.btnLocalizations.BackgroundImage = global::CellTrack.Properties.Resources._1463451442_target;
-            this.btnLocalizations.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnLocalizations.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnLocalizations.Location = new System.Drawing.Point(5, 5);
-            this.btnLocalizations.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
-            this.btnLocalizations.Name = "btnLocalizations";
-            this.btnLocalizations.Size = new System.Drawing.Size(60, 60);
-            this.btnLocalizations.TabIndex = 1;
-            this.btnLocalizations.Tag = "0";
-            this.metroToolTip.SetToolTip(this.btnLocalizations, "Localización");
-            this.btnLocalizations.UseSelectable = true;
-            this.btnLocalizations.UseStyleColors = true;
-            this.btnLocalizations.Click += new System.EventHandler(this.btnLocalizations_Click);
-            // 
-            // btnRegs
-            // 
-            this.btnRegs.AutoSize = true;
-            this.btnRegs.BackgroundImage = global::CellTrack.Properties.Resources._1463451426_db;
-            this.btnRegs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnRegs.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnRegs.Location = new System.Drawing.Point(70, 5);
-            this.btnRegs.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
-            this.btnRegs.Name = "btnRegs";
-            this.btnRegs.Size = new System.Drawing.Size(60, 60);
-            this.btnRegs.TabIndex = 2;
-            this.btnRegs.Tag = "1";
-            this.metroToolTip.SetToolTip(this.btnRegs, "Registros");
-            this.btnRegs.UseSelectable = true;
-            this.btnRegs.UseStyleColors = true;
-            this.btnRegs.Click += new System.EventHandler(this.btnDataBases_Click);
-            // 
-            // btnFinder
-            // 
-            this.btnFinder.AutoSize = true;
-            this.btnFinder.BackgroundImage = global::CellTrack.Properties.Resources._1463451359_zoom;
-            this.btnFinder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnFinder.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnFinder.Location = new System.Drawing.Point(135, 5);
-            this.btnFinder.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
-            this.btnFinder.Name = "btnFinder";
-            this.btnFinder.Size = new System.Drawing.Size(60, 60);
-            this.btnFinder.TabIndex = 3;
-            this.btnFinder.Tag = "2";
-            this.metroToolTip.SetToolTip(this.btnFinder, "Investigación");
-            this.btnFinder.UseSelectable = true;
-            this.btnFinder.UseStyleColors = true;
-            this.btnFinder.Click += new System.EventHandler(this.btnFinder_Click);
-            // 
-            // btnUser
-            // 
-            this.btnUser.AutoSize = true;
-            this.btnUser.BackgroundImage = global::CellTrack.Properties.Resources._1463451253_user;
-            this.btnUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnUser.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnUser.Location = new System.Drawing.Point(5, 5);
-            this.btnUser.Margin = new System.Windows.Forms.Padding(5);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(23, 23);
-            this.btnUser.TabIndex = 0;
-            this.metroToolTip.SetToolTip(this.btnUser, "Información de usuario");
-            this.btnUser.UseSelectable = true;
-            this.btnUser.UseStyleColors = true;
-            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
-            // 
-            // btnConfigs
-            // 
-            this.btnConfigs.AutoSize = true;
-            this.btnConfigs.BackgroundImage = global::CellTrack.Properties.Resources._1463451293_cog;
-            this.btnConfigs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnConfigs.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnConfigs.Location = new System.Drawing.Point(5, 39);
-            this.btnConfigs.Margin = new System.Windows.Forms.Padding(5);
-            this.btnConfigs.Name = "btnConfigs";
-            this.btnConfigs.Size = new System.Drawing.Size(23, 23);
-            this.btnConfigs.TabIndex = 4;
-            this.btnConfigs.Tag = "3";
-            this.metroToolTip.SetToolTip(this.btnConfigs, "Configuraciones");
-            this.btnConfigs.UseSelectable = true;
-            this.btnConfigs.UseStyleColors = true;
-            this.btnConfigs.Click += new System.EventHandler(this.btnConfigs_Click);
             // 
             // menu
             // 

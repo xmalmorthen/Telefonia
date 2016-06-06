@@ -102,6 +102,7 @@
     <Compile Include="Classes\sshCnn.cs" />
     <Compile Include="Classes\visualStyles.cs" />
     <Compile Include="Controllers\catalogosController.cs" />
+    <Compile Include="Controllers\seguimientoController.cs" />
     <Compile Include="Controllers\recibidosController.cs" />
     <Compile Include="Controllers\reasignarObjetivosController.cs" />
     <Compile Include="Controllers\rolesPerfilesController.cs" />
@@ -150,7 +151,7 @@
     <Compile Include="Models\DataBases\malocalizations.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataBases\masmsrecibidos.cs">
+    <Compile Include="Models\DataBases\mapdu.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataBases\reperfilroles.cs">
@@ -165,6 +166,7 @@
     <Compile Include="Models\DataBases\vwusernotifications.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\seguimientoModel.cs" />
     <Compile Include="Models\recibidosModel.cs" />
     <Compile Include="Models\PDUModel.cs" />
     <Compile Include="Models\usuarioModel.cs" />
@@ -275,6 +277,12 @@
     <Compile Include="Views\UserControls\gMapView.Designer.cs">
       <DependentUpon>gMapView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\Localizacion\frmSeguimiento.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Localizacion\frmSeguimiento.Designer.cs">
+      <DependentUpon>frmSeguimiento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Localizacion\frmRecibidos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -335,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\gMapView.resx">
       <DependentUpon>gMapView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Localizacion\frmSeguimiento.resx">
+      <DependentUpon>frmSeguimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Localizacion\frmRecibidos.resx">
       <DependentUpon>frmRecibidos.cs</DependentUpon>

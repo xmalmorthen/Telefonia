@@ -36,6 +36,7 @@
             this.btnCentrar = new MetroFramework.Controls.MetroButton();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.cmbMapsTypes = new MetroFramework.Controls.MetroComboBox();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.SuspendLayout();
@@ -127,12 +128,30 @@
             this.msmMain.Owner = this;
             this.msmMain.Style = MetroFramework.MetroColorStyle.Black;
             // 
+            // cmbMapsTypes
+            // 
+            this.cmbMapsTypes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbMapsTypes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbMapsTypes.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.cmbMapsTypes.FontWeight = MetroFramework.MetroComboBoxWeight.Light;
+            this.cmbMapsTypes.FormattingEnabled = true;
+            this.cmbMapsTypes.ItemHeight = 19;
+            this.cmbMapsTypes.Location = new System.Drawing.Point(614, 3);
+            this.cmbMapsTypes.Name = "cmbMapsTypes";
+            this.cmbMapsTypes.Size = new System.Drawing.Size(294, 25);
+            this.cmbMapsTypes.Style = MetroFramework.MetroColorStyle.Black;
+            this.cmbMapsTypes.TabIndex = 38;
+            this.cmbMapsTypes.UseSelectable = true;
+            this.cmbMapsTypes.UseStyleColors = true;
+            this.cmbMapsTypes.DropDownClosed += new System.EventHandler(this.cmbMapsTypes_DropDownClosed);
+            // 
             // gMapView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.cmbMapsTypes);
             this.Controls.Add(this.btnCentrar);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "gMapView";
@@ -154,5 +173,6 @@
         private MetroFramework.Controls.MetroButton btnCentrar;
         private MetroFramework.Components.MetroToolTip metroToolTip;
         private MetroFramework.Components.MetroStyleManager msmMain;
+        private MetroFramework.Controls.MetroComboBox cmbMapsTypes;
     }
 }

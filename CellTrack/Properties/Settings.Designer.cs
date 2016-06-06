@@ -37,7 +37,7 @@ namespace CellTrack.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("admin")]
+        [global::System.Configuration.DefaultSettingValueAttribute("xmal")]
         public string sshUser {
             get {
                 return ((string)(this["sshUser"]));
@@ -49,7 +49,7 @@ namespace CellTrack.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("121212qw")]
+        [global::System.Configuration.DefaultSettingValueAttribute("xmal2016")]
         public string sshPass {
             get {
                 return ((string)(this["sshPass"]));
@@ -61,7 +61,7 @@ namespace CellTrack.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10.10.20.196")]
+        [global::System.Configuration.DefaultSettingValueAttribute("184.107.189.202")]
         public string sshHost {
             get {
                 return ((string)(this["sshHost"]));
@@ -90,6 +90,54 @@ namespace CellTrack.Properties {
         public string MapCache {
             get {
                 return ((string)(this["MapCache"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public double mapRadioCircle {
+            get {
+                return ((double)(this["mapRadioCircle"]));
+            }
+            set {
+                this["mapRadioCircle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int mapSegments {
+            get {
+                return ((int)(this["mapSegments"]));
+            }
+            set {
+                this["mapSegments"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ping google.com -c 3")]
+        public string commandPDU {
+            get {
+                return ((string)(this["commandPDU"]));
+            }
+            set {
+                this["commandPDU"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public string PDUCountDown {
+            get {
+                return ((string)(this["PDUCountDown"]));
+            }
+            set {
+                this["PDUCountDown"] = value;
             }
         }
     }

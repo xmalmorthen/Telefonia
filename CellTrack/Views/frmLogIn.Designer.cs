@@ -103,7 +103,8 @@
             this.txtUsr.CustomButton.UseSelectable = true;
             this.txtUsr.CustomButton.Visible = false;
             this.txtUsr.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtUsr.Lines = new string[0];
+            this.txtUsr.Lines = new string[] {
+        "xmalmorthen"};
             this.txtUsr.Location = new System.Drawing.Point(24, 89);
             this.txtUsr.MaxLength = 32767;
             this.txtUsr.Name = "txtUsr";
@@ -114,6 +115,7 @@
             this.txtUsr.SelectionStart = 0;
             this.txtUsr.Size = new System.Drawing.Size(298, 30);
             this.txtUsr.TabIndex = 0;
+            this.txtUsr.Text = "xmalmorthen";
             this.txtUsr.UseSelectable = true;
             this.txtUsr.UseStyleColors = true;
             this.txtUsr.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -160,7 +162,8 @@
             this.txtPwd.CustomButton.UseSelectable = true;
             this.txtPwd.CustomButton.Visible = false;
             this.txtPwd.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtPwd.Lines = new string[0];
+            this.txtPwd.Lines = new string[] {
+        "..121212qw"};
             this.txtPwd.Location = new System.Drawing.Point(24, 147);
             this.txtPwd.MaxLength = 32767;
             this.txtPwd.Name = "txtPwd";
@@ -171,6 +174,7 @@
             this.txtPwd.SelectionStart = 0;
             this.txtPwd.Size = new System.Drawing.Size(298, 30);
             this.txtPwd.TabIndex = 1;
+            this.txtPwd.Text = "..121212qw";
             this.txtPwd.UseSelectable = true;
             this.txtPwd.UseStyleColors = true;
             this.txtPwd.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));

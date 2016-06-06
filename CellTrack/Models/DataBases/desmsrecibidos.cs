@@ -16,7 +16,7 @@ namespace CellTrack.Models.DataBases
     {
         public desmsrecibidos()
         {
-            this.masmsrecibidos = new HashSet<masmsrecibidos>();
+            this.mapdu = new HashSet<mapdu>();
         }
     
         public int id { get; set; }
@@ -29,6 +29,6 @@ namespace CellTrack.Models.DataBases
         public Nullable<double> LAT { get; set; }
         public Nullable<double> LNG { get; set; }
     
-        public virtual ICollection<masmsrecibidos> masmsrecibidos { get; set; }
+        public virtual ICollection<mapdu> mapdu { get; set; }
     }
 }

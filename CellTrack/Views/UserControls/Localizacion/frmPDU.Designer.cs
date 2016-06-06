@@ -39,11 +39,20 @@
             this.cmbTargets = new MetroFramework.Controls.MetroComboBox();
             this.bsObjetivos = new System.Windows.Forms.BindingSource(this.components);
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.tmCountDown = new System.Windows.Forms.Timer(this.components);
+            this.pnlCountDown = new System.Windows.Forms.FlowLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblCountDown = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnCancel = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsObjetivos)).BeginInit();
+            this.pnlCountDown.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroToolTip
@@ -160,12 +169,113 @@
             this.metroLabel1.Text = "Objetivo";
             this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tmCountDown
+            // 
+            this.tmCountDown.Interval = 1000;
+            this.tmCountDown.Tick += new System.EventHandler(this.tmCountDown_Tick);
+            // 
+            // pnlCountDown
+            // 
+            this.pnlCountDown.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlCountDown.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlCountDown.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlCountDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCountDown.Controls.Add(this.label3);
+            this.pnlCountDown.Controls.Add(this.lblCountDown);
+            this.pnlCountDown.Controls.Add(this.label4);
+            this.pnlCountDown.Controls.Add(this.label5);
+            this.pnlCountDown.Controls.Add(this.label6);
+            this.pnlCountDown.Controls.Add(this.btnCancel);
+            this.pnlCountDown.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.pnlCountDown.Location = new System.Drawing.Point(267, 192);
+            this.pnlCountDown.Name = "pnlCountDown";
+            this.pnlCountDown.Size = new System.Drawing.Size(448, 212);
+            this.pnlCountDown.TabIndex = 22;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(303, 79);
+            this.label3.Margin = new System.Windows.Forms.Padding(0, 79, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 31);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "segundos";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCountDown
+            // 
+            this.lblCountDown.AutoSize = true;
+            this.lblCountDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 90F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblCountDown.Location = new System.Drawing.Point(110, 0);
+            this.lblCountDown.Margin = new System.Windows.Forms.Padding(0);
+            this.lblCountDown.Name = "lblCountDown";
+            this.lblCountDown.Size = new System.Drawing.Size(193, 135);
+            this.lblCountDown.TabIndex = 0;
+            this.lblCountDown.Text = "60";
+            this.lblCountDown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 79);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 79, 0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(107, 31);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Restan";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(310, 135);
+            this.label5.Margin = new System.Windows.Forms.Padding(0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(136, 20);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "favor de esperar...";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(9, 135);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(301, 20);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "                                                                         ";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.AutoSize = true;
+            this.btnCancel.BackgroundImage = global::CellTrack.Properties.Resources._1463426130_delete;
+            this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(399, 165);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(44, 44);
+            this.btnCancel.TabIndex = 33;
+            this.metroToolTip.SetToolTip(this.btnCancel, "Cancelar");
+            this.btnCancel.UseSelectable = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // frmPDU
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.pnlCountDown);
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.shapeContainer1);
@@ -178,6 +288,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsObjetivos)).EndInit();
+            this.pnlCountDown.ResumeLayout(false);
+            this.pnlCountDown.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +307,13 @@
         private MetroFramework.Controls.MetroComboBox cmbTargets;
         private MetroFramework.Controls.MetroButton btnFind;
         private System.Windows.Forms.BindingSource bsObjetivos;
+        private System.Windows.Forms.Timer tmCountDown;
+        private System.Windows.Forms.FlowLayoutPanel pnlCountDown;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblCountDown;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private MetroFramework.Controls.MetroButton btnCancel;
     }
 }

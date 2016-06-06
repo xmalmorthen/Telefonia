@@ -15,7 +15,7 @@ using MetroFramework;
 
 namespace CellTrack.Views.UserControls.Localización    
 {
-    public partial class frmRecibidos : UserControl
+    public partial class frmSeguimiento : UserControl
     {
         enums.frmState frmState;
         public enums.frmState FrmState
@@ -28,7 +28,7 @@ namespace CellTrack.Views.UserControls.Localización
 
         private gMapView gMapViewRender = new gMapView(19.255185, -103.688263);
 
-        public frmRecibidos()
+        public frmSeguimiento()
         {
             InitializeComponent();
             this.init();
@@ -42,6 +42,12 @@ namespace CellTrack.Views.UserControls.Localización
             splitContainer.SplitterDistance = 100;
             
             FrmState = enums.frmState.Normal;
+
+            dtPeriodoDe.MaxDate = DateTime.Now;
+            dtPeriodoA.MaxDate = DateTime.Now;
+
+            dtPeriodoDe.Value = dtPeriodoDe.MaxDate;
+            dtPeriodoA.Value = dtPeriodoA.MaxDate;
 
             this.populate();
 
@@ -96,25 +102,13 @@ namespace CellTrack.Views.UserControls.Localización
         {
             try
             {
-                recibidosModelBindingSource.DataSource = recibidosController.smsRecibidosByObjetivo(((PDUModel)bsObjetivos.Current).descrip.Substring(((PDUModel)bsObjetivos.Current).descrip.IndexOf('[') + 2, 10));
+                seguimientoController.markObjetivos(gMapViewRender.gMap);
             }
             catch (Exception ex)
             {
                 MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
-        }
-
-
-        private int? idMarked = null;
-        private void recibidosModelBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-            if (!idMarked.Equals((recibidosModelBindingSource.Current as recibidosModel).id))
-            {
-                idMarked = (recibidosModelBindingSource.Current as recibidosModel).id;
-                markersModel marker = recibidosController.setMarker(recibidosModelBindingSource.Current as recibidosModel, gMapViewRender.gMap);
-                if (marker == null) throw new NullReferenceException("No se pudo localizar");
-            }
         }
         
     }

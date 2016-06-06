@@ -22,7 +22,19 @@ namespace CellTrack.Views.UserControls.Localización
         {
             get { return frmState; }
             set {
-                frmState = value; 
+                frmState = value;
+
+                splitContainer.Enabled = value != enums.frmState.Find;
+
+                pnlCountDown.Visible = value == enums.frmState.Find;
+                tmCountDown.Enabled = value == enums.frmState.Find;
+                if (value == enums.frmState.Find)
+                {
+                    lblCountDown.Text = Properties.Settings.Default.PDUCountDown;
+                    tmCountDown.Start();
+                }
+                else
+                    tmCountDown.Stop();
             }
         }
 
@@ -85,19 +97,25 @@ namespace CellTrack.Views.UserControls.Localización
                 objetivos.Add(new PDUModel()
                 {
                     id = item.id,
-                    descrip = string.Format("{0} [ {1} ] - {2}", item.nombre,item.objetivo, item.cacarriers.carrier )
+                    descrip = string.Format("{0} [ {1} ] - {2}", item.nombre,item.objetivo, item.cacarriers.carrier ),
+                    obj = item
                 });
             }
             bsObjetivos.DataSource = objetivos;
             cmbTargets.DataSource = bsObjetivos;
         }
 
+        BackgroundWorker wrker;
         private void btnFind_Click(object sender, EventArgs e)
         {
             try
             {
-                markersModel marker = PDUController.PDUFind(bsObjetivos.Current as PDUModel, gMapViewRender.gMap);
-                if (marker == null) throw new NullReferenceException("No se pudo localizar");
+                FrmState = enums.frmState.Find;
+                wrker = new BackgroundWorker();
+                wrker.WorkerSupportsCancellation = true;
+                wrker.DoWork += wrker_DoWork;
+                wrker.RunWorkerCompleted += wrker_RunWorkerCompleted;
+                wrker.RunWorkerAsync(bsObjetivos.Current as PDUModel);
             }
             catch (Exception ex)
             {
@@ -106,9 +124,37 @@ namespace CellTrack.Views.UserControls.Localización
             
         }
 
-        private void metroTrackBar1_ValueChanged(object sender, EventArgs e)
+        void wrker_DoWork(object sender, DoWorkEventArgs e)
         {
-            
+            Application.DoEvents();
+            markersModel marker = PDUController.PDUFind(e.Argument as PDUModel, gMapViewRender.gMap);
+            e.Result = marker;
+        }
+
+        markersModel result = null;
+        void wrker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (((markersModel)e.Result) != null)
+                result = (markersModel)e.Result;
+            wrker.CancelAsync();
+        }
+
+        private void tmCountDown_Tick(object sender, EventArgs e)
+        {
+            int cnt = int.Parse(lblCountDown.Text) - 1;
+            lblCountDown.Text = (cnt).ToString();
+            if (cnt == 0)
+            {
+                FrmState = enums.frmState.Normal;
+                if (result == null)
+                    MetroMessageBox.Show(this, "No se obtuvo respuesta, favor de consultar en los recibidos mas tarde...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            wrker.CancelAsync();
+            FrmState = enums.frmState.Normal;
         }
         
     }

@@ -3,6 +3,7 @@ using CellTrack.Models;
 using CellTrack.Models.DataBases;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +15,10 @@ namespace CellTrack.Controllers
         public static List<recibidosModel> smsRecibidos
         {
             get {
-                List<masmsrecibidos> data = DAL.Db.masmsrecibidos.Where(qry => qry.malocalizations.idNotification.Equals(usuarioController.usuarioLogueado.info.id)).ToList();
+                List<mapdu> data = DAL.Db.mapdu.Where(qry => qry.malocalizations.idNotification.Equals(usuarioController.usuarioLogueado.info.id) && qry.toNotify.Equals(true)).ToList();
                 //List<masmsrecibidos> data = DAL.Db.masmsrecibidos.ToList();                
                 List<recibidosModel> recibidos = new List<recibidosModel>(data.Count());
-                foreach (masmsrecibidos item in data)
+                foreach (mapdu item in data)
                 {
                     recibidos.Add(new recibidosModel()
                     {
@@ -47,7 +48,7 @@ namespace CellTrack.Controllers
 
         public static List<recibidosModel> smsRecibidosByObjetivo(string objetivo)
         {
-            return smsRecibidos.Where(qry => qry.objetivo.Equals(objetivo)).ToList();
+            return smsRecibidos.Where(qry => qry.objetivo.Equals(objetivo) ).ToList();
         }
 
 
@@ -56,8 +57,12 @@ namespace CellTrack.Controllers
             markersModel marker = null;
             try
             {
+                controller.MarkersOverlays.Clear();
+                controller.TriangulationsOverlays.Clear();
+                controller.MainMap.Overlays.Clear();
+
                 marker = new markersModel(Double.Parse(recibidosModel.LAT),Double.Parse(recibidosModel.LNG), string.Format("{0} [ {1} ] - {2}",recibidosModel.nombre,recibidosModel.objetivo,recibidosModel.Carrier));
-                controller.CreateCircle(new System.Drawing.PointF((float)marker.Lat,(float)marker.Lng), .005,50);
+                controller.CreateCircle(new System.Drawing.PointF((float)marker.Lat, (float)marker.Lng), Properties.Settings.Default.mapRadioCircle, Properties.Settings.Default.mapSegments, Color.FromArgb(80, 153, 0, 0),new Pen(Color.DarkRed, 2));
                 controller.AddMarker(marker);
                 controller.setPosition(marker);
             }

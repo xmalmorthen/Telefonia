@@ -76,9 +76,15 @@ namespace CellTrack
         void bkgnd_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             frmState = FrmState.Normal;
-            if (!(Boolean)e.Result) {
+            if (!(Boolean)e.Result)
+            {
                 MetroMessageBox.Show(this, "Usuario y/o contraseña incorrectos", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else {
+                dlgRes = System.Windows.Forms.DialogResult.Yes;
+                this.Close();
+            }
+
         }
         
         void btnCancel_Click(object sender, EventArgs e)

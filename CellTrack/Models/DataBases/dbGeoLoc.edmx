@@ -14,7 +14,7 @@
           <EntitySet Name="desmsrecibidos" EntityType="dbgeolocModel.Store.desmsrecibidos" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="gmapnetcache" EntityType="dbgeolocModel.Store.gmapnetcache" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="malocalizations" EntityType="dbgeolocModel.Store.malocalizations" store:Type="Tables" Schema="dbgeoloc" />
-          <EntitySet Name="masmsrecibidos" EntityType="dbgeolocModel.Store.masmsrecibidos" store:Type="Tables" Schema="dbgeoloc" />
+          <EntitySet Name="mapdu" EntityType="dbgeolocModel.Store.mapdu" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="reperfilroles" EntityType="dbgeolocModel.Store.reperfilroles" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="tbllogs" EntityType="dbgeolocModel.Store.tbllogs" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="vwactivecarriers" EntityType="dbgeolocModel.Store.vwactivecarriers" store:Type="Views" store:Schema="dbgeoloc" store:Name="vwactivecarriers">
@@ -50,13 +50,13 @@
             <End Role="causuarios" EntitySet="causuarios" />
             <End Role="malocalizations" EntitySet="malocalizations" />
           </AssociationSet>
-          <AssociationSet Name="fk_masmsrecibidos_desmsrecibidos_1" Association="dbgeolocModel.Store.fk_masmsrecibidos_desmsrecibidos_1">
+          <AssociationSet Name="fk_maPDU_desmsrecibidos_1" Association="dbgeolocModel.Store.fk_maPDU_desmsrecibidos_1">
             <End Role="desmsrecibidos" EntitySet="desmsrecibidos" />
-            <End Role="masmsrecibidos" EntitySet="masmsrecibidos" />
+            <End Role="mapdu" EntitySet="mapdu" />
           </AssociationSet>
-          <AssociationSet Name="fk_masmsrecibidos_malocalizations_1" Association="dbgeolocModel.Store.fk_masmsrecibidos_malocalizations_1">
+          <AssociationSet Name="fk_mapdu_malocalizations_1" Association="dbgeolocModel.Store.fk_mapdu_malocalizations_1">
             <End Role="malocalizations" EntitySet="malocalizations" />
-            <End Role="masmsrecibidos" EntitySet="masmsrecibidos" />
+            <End Role="mapdu" EntitySet="mapdu" />
           </AssociationSet>
           <AssociationSet Name="fk_rePerfilRoles_caPerfiles_1" Association="dbgeolocModel.Store.fk_rePerfilRoles_caPerfiles_1">
             <End Role="caperfiles" EntitySet="caperfiles" />
@@ -179,15 +179,16 @@
           <Property Name="active" Type="bit" Nullable="false" />
           <Property Name="isDeleted" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="masmsrecibidos">
+        <EntityType Name="mapdu">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="tipo" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="tipo" Type="varchar" MaxLength="100" />
           <Property Name="idDetalle" Type="int" Nullable="false" />
           <Property Name="idLocalizations" Type="int" Nullable="false" />
           <Property Name="fIns" Type="date" Nullable="false" />
+          <Property Name="toNotify" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="reperfilroles">
           <Key>
@@ -291,26 +292,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_masmsrecibidos_desmsrecibidos_1">
+        <Association Name="fk_maPDU_desmsrecibidos_1">
           <End Role="desmsrecibidos" Type="dbgeolocModel.Store.desmsrecibidos" Multiplicity="1" />
-          <End Role="masmsrecibidos" Type="dbgeolocModel.Store.masmsrecibidos" Multiplicity="*" />
+          <End Role="mapdu" Type="dbgeolocModel.Store.mapdu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="desmsrecibidos">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="masmsrecibidos">
+            <Dependent Role="mapdu">
               <PropertyRef Name="idDetalle" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_masmsrecibidos_malocalizations_1">
+        <Association Name="fk_mapdu_malocalizations_1">
           <End Role="malocalizations" Type="dbgeolocModel.Store.malocalizations" Multiplicity="1" />
-          <End Role="masmsrecibidos" Type="dbgeolocModel.Store.masmsrecibidos" Multiplicity="*" />
+          <End Role="mapdu" Type="dbgeolocModel.Store.mapdu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="malocalizations">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="masmsrecibidos">
+            <Dependent Role="mapdu">
               <PropertyRef Name="idLocalizations" />
             </Dependent>
           </ReferentialConstraint>
@@ -353,7 +354,7 @@
           <EntitySet Name="desmsrecibidos" EntityType="dbgeolocModel.desmsrecibidos" />
           <EntitySet Name="gmapnetcache" EntityType="dbgeolocModel.gmapnetcache" />
           <EntitySet Name="malocalizations" EntityType="dbgeolocModel.malocalizations" />
-          <EntitySet Name="masmsrecibidos" EntityType="dbgeolocModel.masmsrecibidos" />
+          <EntitySet Name="mapdu" EntityType="dbgeolocModel.mapdu" />
           <EntitySet Name="reperfilroles" EntityType="dbgeolocModel.reperfilroles" />
           <EntitySet Name="tbllogs" EntityType="dbgeolocModel.tbllogs" />
           <EntitySet Name="vwactivecarriers" EntityType="dbgeolocModel.vwactivecarriers" />
@@ -386,13 +387,13 @@
             <End Role="causuarios" EntitySet="causuarios" />
             <End Role="malocalizations" EntitySet="malocalizations" />
           </AssociationSet>
-          <AssociationSet Name="fk_masmsrecibidos_desmsrecibidos_1" Association="dbgeolocModel.fk_masmsrecibidos_desmsrecibidos_1">
+          <AssociationSet Name="fk_maPDU_desmsrecibidos_1" Association="dbgeolocModel.fk_maPDU_desmsrecibidos_1">
             <End Role="desmsrecibidos" EntitySet="desmsrecibidos" />
-            <End Role="masmsrecibidos" EntitySet="masmsrecibidos" />
+            <End Role="mapdu" EntitySet="mapdu" />
           </AssociationSet>
-          <AssociationSet Name="fk_masmsrecibidos_malocalizations_1" Association="dbgeolocModel.fk_masmsrecibidos_malocalizations_1">
+          <AssociationSet Name="fk_mapdu_malocalizations_1" Association="dbgeolocModel.fk_mapdu_malocalizations_1">
             <End Role="malocalizations" EntitySet="malocalizations" />
-            <End Role="masmsrecibidos" EntitySet="masmsrecibidos" />
+            <End Role="mapdu" EntitySet="mapdu" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="cacarriers">
@@ -483,7 +484,7 @@
           <Property Name="V" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="LAT" Type="Double" />
           <Property Name="LNG" Type="Double" />
-          <NavigationProperty Name="masmsrecibidos" Relationship="dbgeolocModel.fk_masmsrecibidos_desmsrecibidos_1" FromRole="desmsrecibidos" ToRole="masmsrecibidos" />
+          <NavigationProperty Name="mapdu" Relationship="dbgeolocModel.fk_maPDU_desmsrecibidos_1" FromRole="desmsrecibidos" ToRole="mapdu" />
         </EntityType>
         <EntityType Name="gmapnetcache">
           <Key>
@@ -519,19 +520,20 @@
           <NavigationProperty Name="cacarriers" Relationship="dbgeolocModel.fk_maLocalizations_cacarriers_1" FromRole="malocalizations" ToRole="cacarriers" />
           <NavigationProperty Name="causuarios" Relationship="dbgeolocModel.fk_malocalizations_causuarios_1" FromRole="malocalizations" ToRole="causuarios" />
           <NavigationProperty Name="causuarios1" Relationship="dbgeolocModel.fk_malocalizations_causuarios_2" FromRole="malocalizations" ToRole="causuarios" />
-          <NavigationProperty Name="masmsrecibidos" Relationship="dbgeolocModel.fk_masmsrecibidos_malocalizations_1" FromRole="malocalizations" ToRole="masmsrecibidos" />
+          <NavigationProperty Name="mapdu" Relationship="dbgeolocModel.fk_mapdu_malocalizations_1" FromRole="malocalizations" ToRole="mapdu" />
         </EntityType>
-        <EntityType Name="masmsrecibidos">
+        <EntityType Name="mapdu">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="tipo" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="tipo" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="idDetalle" Type="Int32" Nullable="false" />
           <Property Name="idLocalizations" Type="Int32" Nullable="false" />
           <Property Name="fIns" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="desmsrecibidos" Relationship="dbgeolocModel.fk_masmsrecibidos_desmsrecibidos_1" FromRole="masmsrecibidos" ToRole="desmsrecibidos" />
-          <NavigationProperty Name="malocalizations" Relationship="dbgeolocModel.fk_masmsrecibidos_malocalizations_1" FromRole="masmsrecibidos" ToRole="malocalizations" />
+          <Property Name="toNotify" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="desmsrecibidos" Relationship="dbgeolocModel.fk_maPDU_desmsrecibidos_1" FromRole="mapdu" ToRole="desmsrecibidos" />
+          <NavigationProperty Name="malocalizations" Relationship="dbgeolocModel.fk_mapdu_malocalizations_1" FromRole="mapdu" ToRole="malocalizations" />
         </EntityType>
         <EntityType Name="reperfilroles">
           <Key>
@@ -655,26 +657,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_masmsrecibidos_desmsrecibidos_1">
+        <Association Name="fk_maPDU_desmsrecibidos_1">
           <End Role="desmsrecibidos" Type="dbgeolocModel.desmsrecibidos" Multiplicity="1" />
-          <End Role="masmsrecibidos" Type="dbgeolocModel.masmsrecibidos" Multiplicity="*" />
+          <End Role="mapdu" Type="dbgeolocModel.mapdu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="desmsrecibidos">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="masmsrecibidos">
+            <Dependent Role="mapdu">
               <PropertyRef Name="idDetalle" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_masmsrecibidos_malocalizations_1">
+        <Association Name="fk_mapdu_malocalizations_1">
           <End Role="malocalizations" Type="dbgeolocModel.malocalizations" Multiplicity="1" />
-          <End Role="masmsrecibidos" Type="dbgeolocModel.masmsrecibidos" Multiplicity="*" />
+          <End Role="mapdu" Type="dbgeolocModel.mapdu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="malocalizations">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="masmsrecibidos">
+            <Dependent Role="mapdu">
               <PropertyRef Name="idLocalizations" />
             </Dependent>
           </ReferentialConstraint>
@@ -802,14 +804,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="masmsrecibidos">
-            <EntityTypeMapping TypeName="dbgeolocModel.masmsrecibidos">
-              <MappingFragment StoreEntitySet="masmsrecibidos">
+          <EntitySetMapping Name="mapdu">
+            <EntityTypeMapping TypeName="dbgeolocModel.mapdu">
+              <MappingFragment StoreEntitySet="mapdu">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="tipo" ColumnName="tipo" />
                 <ScalarProperty Name="idDetalle" ColumnName="idDetalle" />
                 <ScalarProperty Name="idLocalizations" ColumnName="idLocalizations" />
                 <ScalarProperty Name="fIns" ColumnName="fIns" />
+                <ScalarProperty Name="toNotify" ColumnName="toNotify" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

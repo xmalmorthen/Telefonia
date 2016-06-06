@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CellTrack.Models.DataBases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,7 @@ namespace CellTrack.Models
     {
         public int id { get; set; }
         public string descrip { get; set; }
+
+        public malocalizations obj;
     }
 }

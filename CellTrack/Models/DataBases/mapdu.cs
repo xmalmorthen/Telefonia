@@ -12,13 +12,14 @@ namespace CellTrack.Models.DataBases
     using System;
     using System.Collections.Generic;
     
-    public partial class masmsrecibidos
+    public partial class mapdu
     {
         public int id { get; set; }
         public string tipo { get; set; }
         public int idDetalle { get; set; }
         public int idLocalizations { get; set; }
         public System.DateTime fIns { get; set; }
+        public bool toNotify { get; set; }
     
         public virtual desmsrecibidos desmsrecibidos { get; set; }
         public virtual malocalizations malocalizations { get; set; }
