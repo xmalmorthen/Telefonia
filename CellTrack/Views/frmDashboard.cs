@@ -38,7 +38,16 @@ namespace CellTrack.Views
         public frmDashboard()
         {
             InitializeComponent();
+
+            this.FormClosed += frmDashboard_FormClosed;
+
             this.init();
+        }
+
+        void frmDashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.panel.Controls.Clear();
+            this.panel.Dispose();
         }
 
         private void init()
@@ -50,11 +59,13 @@ namespace CellTrack.Views
             renderControl(new frmUserAdmin());
         }
 
+        private UserControl FrmActive;
         public void renderControl(UserControl ctrl) {
             Application.DoEvents();
             ctrl.Dock = System.Windows.Forms.DockStyle.Fill;
             ctrl.Location = new System.Drawing.Point(0, 0);            
             ctrl.TabIndex = 0;
+            FrmActive = ctrl;
 
             this.panel.Controls.Clear();
             this.panel.Controls.Add(ctrl);

@@ -12,6 +12,7 @@ using CellTrack.Models;
 using CellTrack.Controllers;
 using CellTrack.Models.DataBases;
 using MetroFramework;
+using GMap.NET.WindowsForms;
 
 namespace CellTrack.Views.UserControls.Localización    
 {
@@ -102,14 +103,34 @@ namespace CellTrack.Views.UserControls.Localización
         {
             try
             {
-                seguimientoController.markObjetivos(gMapViewRender.gMap);
+                int targets = seguimientoController.markObjetivos(gMapViewRender.gMap, dtPeriodoDe.Value.Date, dtPeriodoA.Value.Date, MainMap_OnMarkerEnter, MainMap_OnMarkerLeave);
+                if (targets == 0)
+                    MetroMessageBox.Show(this, "No se encontraron puntos para mostrar...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
-        
+
+        private void MainMap_OnMarkerEnter(GMapMarker item)
+        {
+            seguimientoModel tag = (seguimientoModel)item.Tag;
+
+            lblRadio.Text = tag.radio;
+            lblMCC.Text = tag.MCC;
+            lblMNC.Text = tag.MNC;
+            lblLAC.Text = tag.LAC;
+            lblBTS.Text = tag.BTS;
+            lblV.Text = tag.V;
+
+            pnlInfoTarget.Visible = true;
+        }
+
+        private void MainMap_OnMarkerLeave(GMapMarker item)
+        {
+            pnlInfoTarget.Visible = false;
+        }        
+
     }
 }

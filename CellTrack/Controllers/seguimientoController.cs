@@ -1,6 +1,7 @@
 ﻿using CellTrack.Classes;
 using CellTrack.Models;
 using CellTrack.Models.DataBases;
+using GMap.NET.WindowsForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,9 +13,14 @@ namespace CellTrack.Controllers
 {
     public static class seguimientoController
     {
-        public static void markObjetivos(gMapController controller)
+        public static int markObjetivos(gMapController controller, DateTime starDate, DateTime endDate, MarkerEnter OnMarkerEnter, MarkerLeave OnMarkerLeave)
         {
-            List<mapdu> data = DAL.Db.mapdu.Where(qry => qry.malocalizations.idNotification.Equals(usuarioController.usuarioLogueado.info.id)).ToList();
+            controller.MarkersOverlays.Clear();
+            controller.TriangulationsOverlays.Clear();
+            controller.MainMap.Overlays.Clear();
+
+            List<mapdu> data = DAL.Db.mapdu.Where(qry => qry.malocalizations.idNotification.Equals(usuarioController.usuarioLogueado.info.id)
+                && (qry.fIns >= starDate && qry.fIns <= endDate)).ToList();
             List<seguimientoModel> seguimiento = new List<seguimientoModel>(data.Count());
             foreach (mapdu item in data)
             {
@@ -42,18 +48,27 @@ namespace CellTrack.Controllers
                 seguimiento.Add(obj);
                 setMarker(obj, controller);
             }
+            controller.centerInMarkers();
 
+            controller.MainMap.OnMarkerEnter += OnMarkerEnter;
+            controller.MainMap.OnMarkerLeave += OnMarkerLeave;
+
+            return data.Count;
         }
+
+        
 
         private static markersModel setMarker(seguimientoModel seguimientoModel, gMapController controller)
         {
             markersModel marker = null;
             try
             {
-                marker = new markersModel(Double.Parse(seguimientoModel.LAT),Double.Parse(seguimientoModel.LNG), string.Format("{0} [ {1} ] - {2}",seguimientoModel.nombre,seguimientoModel.objetivo,seguimientoModel.Carrier));
-                controller.CreateCircle(new System.Drawing.PointF((float)marker.Lat, (float)marker.Lng), Properties.Settings.Default.mapRadioCircle, Properties.Settings.Default.mapSegments, Color.FromArgb(80, 153, 0, 0),new Pen(Color.DarkRed, 2));
-                controller.AddMarker(marker);
-                controller.setPosition(marker);
+                marker = new markersModel(Double.Parse(seguimientoModel.LAT),
+                                          Double.Parse(seguimientoModel.LNG), 
+                                          string.Format("{0} [ {1} ] - {2} {3} LAT: {4} - LNG: {5}",seguimientoModel.nombre,seguimientoModel.objetivo,seguimientoModel.Carrier,Environment.NewLine,seguimientoModel.LAT,seguimientoModel.LNG),
+                                          seguimientoModel);
+                controller.CreateCircle(new System.Drawing.PointF((float)marker.Lat, (float)marker.Lng), Properties.Settings.Default.mapRadioCircle, Properties.Settings.Default.mapSegments, new Pen(Color.DarkRed, 2));
+                controller.AddMarker(marker, MarkerTooltipMode.OnMouseOver);
             }
             catch (Exception ex)
             {

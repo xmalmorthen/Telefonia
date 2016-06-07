@@ -16,6 +16,8 @@ namespace CellTrack.Controllers
 {
     public class gMapController
     {
+        #region GETERS - SETTERS
+
         private GMapControl mainMap = new GMapControl();
         public GMapControl MainMap
         {
@@ -36,6 +38,10 @@ namespace CellTrack.Controllers
             get { return triangulationsOverlays; }
             set { triangulationsOverlays = value; }
         }
+
+        #endregion GETERS - SETTERS
+
+        #region CONSTRUCTOR - DESTRUCTOR
 
         public gMapController(Double lat, Double lng, Double zoom)
         {
@@ -64,7 +70,6 @@ namespace CellTrack.Controllers
                 MainMap.MinZoom = 1;
                 MainMap.MaxZoom = 24;
                 MainMap.Zoom = zoom;
-
                 //MainMap.ScaleMode = ScaleModes.Fractional;
             }
         }
@@ -74,6 +79,8 @@ namespace CellTrack.Controllers
             {
                 MarkersOverlays.Dispose();
                 MarkersOverlays = null;
+                TriangulationsOverlays.Dispose();
+                TriangulationsOverlays = null;
                 MainMap.Dispose();
                 MainMap = null;
             }
@@ -82,53 +89,119 @@ namespace CellTrack.Controllers
             }
         }
 
-        public void AddMarker(double lat, double lng, string txt)
+        public void Dispose(){
+            MarkersOverlays.Dispose();
+            MarkersOverlays = null;
+            TriangulationsOverlays.Dispose();
+            TriangulationsOverlays = null;
+            MainMap.Dispose();
+            MainMap = null;
+        }
+
+        #endregion CONSTRUCTOR - DESTRUCTOR
+
+        public void zoom(int value)
         {
+            MainMap.Zoom = value;
+        }
+
+        public void centerInMarkers()
+        {
+            double zoom = MainMap.Zoom;
+            MainMap.ZoomAndCenterMarkers("Markers");
+            MainMap.Zoom = zoom;
+        }
+
+        public void changeMapType(GMapProvider type)
+        {
+            MainMap.MapProvider = type;
+        }
+
+        public void setPosition(double lat, double lng)
+        {
+            MainMap.Position = new PointLatLng(lat, lng);
+        }
+
+        public void setPosition(markersModel mark, int? zoom = null)
+        {
+            MainMap.Position = new PointLatLng(mark.Lat, mark.Lng);
+            this.zoom(zoom.GetValueOrDefault(Convert.ToInt16(MainMap.Zoom)));
+        }
+
+        #region MARKERS
+
+        private GMarkerGoogle configMarker(double lat, double lng, MarkerTooltipMode toolTipMode, object tag){
             GMarkerGoogle marker = new GMarkerGoogle(new GMap.NET.PointLatLng(lat, lng), GMarkerGoogleType.target_red);
-            marker.ToolTipMode = MarkerTooltipMode.Always;
+            marker.Tag = tag;
+
+            GMapToolTip toolTip = new GMapToolTip(marker);
+            toolTip.Stroke = new Pen(Color.FromArgb(140, Color.DarkRed));
+            toolTip.Fill = new SolidBrush(Color.FromArgb(200, Color.WhiteSmoke));
+            toolTip.Foreground = new SolidBrush(Color.DarkRed);
+            toolTip.TextPadding = new Size(12, 12);
+            marker.ToolTip = toolTip;
+            marker.ToolTipMode = toolTipMode;
+            return marker;
+        }
+
+        private void _addMarker(double lat, double lng, string txt, MarkerTooltipMode toolTipMode, object tag)
+        {
+            GMarkerGoogle marker = configMarker(lat, lng,toolTipMode,tag);
             marker.ToolTipText = txt;
             MarkersOverlays.Markers.Add(marker);
             MainMap.Overlays.Add(MarkersOverlays);
         }
 
-        public void AddMarker(markersModel mark)
-        {
-            AddMarker(mark.Lat, mark.Lng, mark.Desc);
+        public void AddMarker(double lat, double lng){
+            _addMarker(lat, lng,string.Empty, MarkerTooltipMode.Never,null);
         }
 
-        public void AddMarker(List<markersModel> markers)
+        public void AddMarker(double lat, double lng, string txt){
+            _addMarker(lat, lng, txt, MarkerTooltipMode.Always,null);
+        }
+
+        public void AddMarker(double lat, double lng, string txt, MarkerTooltipMode toolTipMode)
+        {
+            _addMarker(lat, lng, txt, toolTipMode,null);
+        }
+
+        public void AddMarker(double lat, double lng, string txt, MarkerTooltipMode toolTipMode, object tag){
+            _addMarker(lat, lng, txt, toolTipMode,tag);
+        }
+
+        public void AddMarker(markersModel mark){
+            AddMarker(mark.Lat, mark.Lng);
+        }
+
+        public void AddMarker(markersModel mark, MarkerTooltipMode toolTipMode){
+            AddMarker(mark.Lat, mark.Lng, mark.Desc, toolTipMode, mark.Tag);
+        }        
+
+        private void _addMarker(List<markersModel> markers, MarkerTooltipMode toolTipMode)
         {
             foreach (markersModel item in markers)
             {
-                GMarkerGoogle marker = new GMarkerGoogle(new GMap.NET.PointLatLng(item.Lat,item.Lng), GMarkerGoogleType.red);
-                marker.ToolTipMode = MarkerTooltipMode.Always;
+                GMarkerGoogle marker = configMarker(item.Lat, item.Lng, MarkerTooltipMode.Always, item.Tag);
                 marker.ToolTipText = item.Desc;
                 MarkersOverlays.Markers.Add(marker);
             }
             MainMap.Overlays.Add(MarkersOverlays);
         }
 
-        public void setPosition(double lat, double lng)
+        public void AddMarker(List<markersModel> markers)
         {
-            MainMap.Position = new PointLatLng(lat,lng);
+            _addMarker(markers, MarkerTooltipMode.Always);            
         }
 
-        public void setPosition(markersModel mark, int? zoom = null)
+        public void AddMarker(List<markersModel> markers, MarkerTooltipMode toolTipMode)
         {
-            MainMap.Position = new PointLatLng(mark.Lat,mark.Lng);
-            this.zoom(zoom.GetValueOrDefault(Convert.ToInt16(MainMap.Zoom)));
+            _addMarker(markers, toolTipMode);
         }
 
-        public void zoom(int value) {
-            MainMap.Zoom = value;
-        }
+        #endregion MARKERS
 
-        public void centerInMarkers() {
-            double zoom = MainMap.Zoom;
-            MainMap.ZoomAndCenterMarkers("Markers");
-            MainMap.Zoom = zoom;
-        }
-
+        #region POLIGONS
+        
         private GMapPolygon createCircle(PointF point, double radius, int segments) {
             List<PointLatLng> gpollist = new List<PointLatLng>();
             double seg = Math.PI * 2 / segments;
@@ -162,10 +235,8 @@ namespace CellTrack.Controllers
             TriangulationsOverlays.Polygons.Add(gpol);
             MainMap.Overlays.Add(TriangulationsOverlays);
         }
-
-        public void changeMapType(GMapProvider type) {
-            MainMap.MapProvider = type;
-        }
+        
+        #endregion POLIGONS
 
     }
 }

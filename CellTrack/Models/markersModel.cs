@@ -29,13 +29,29 @@ namespace CellTrack.Models
             set { desc = value; }
         }
 
+        private object tag;
+        public object Tag
+        {
+            get { return tag; }
+            set { tag = value; }
+        }
+
         public markersModel() { 
+        }
+
+        public markersModel(double lat, double lng, string desc, object tag)
+        {
+            Lat = lat;
+            Lng = lng;
+            Desc = desc;
+            Tag = tag;
         }
 
         public markersModel(double lat, double lng, string desc) {
             Lat = lat;
             Lng = lng;
             Desc = desc;
+            Tag = null;
         }
 
     }

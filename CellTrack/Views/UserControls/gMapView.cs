@@ -26,7 +26,7 @@ namespace CellTrack.Views.UserControls
             gMap = new gMapController(lat, lng, tkBarZoom.Value);
             this.init();            
         }
-
+        
         void MainMap_OnMapZoomChanged()
         {
             tkBarZoom.Value = (int)gMap.MainMap.Zoom;

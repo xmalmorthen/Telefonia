@@ -105,9 +105,10 @@ namespace CellTrack.Views.UserControls
             mCMLocalizations.Show((MetroButton)sender, new Point(0,((MetroButton)sender).Height));            
         }
 
+        private frmProccessingShow FrmProccessingShow = new frmProccessingShow();        
         private void openFrm<TForm>() where TForm : UserControl, new()
         {
-            Program.FrmDashboard.renderControl(new frmProccessingShow());
+            Program.FrmDashboard.renderControl(FrmProccessingShow);
             Application.DoEvents();
             Program.FrmDashboard.renderControl(new TForm());
         }

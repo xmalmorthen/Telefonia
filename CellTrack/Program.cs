@@ -72,8 +72,18 @@ namespace CellTrack
             {
                 MessageBox.Show("Problemas al intentar conectar a la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            Application.ExitThread();
+
             Application.Exit();            
+
+            if (System.Windows.Forms.Application.MessageLoop)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
+            else
+            {
+                System.Environment.Exit(0);
+            }
+            
         }
     }
 }

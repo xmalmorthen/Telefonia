@@ -13,7 +13,7 @@ namespace GMap.NET.WindowsForms.ToolTips
    [Serializable]
    public class GMapRoundedToolTip : GMapToolTip, ISerializable
    {
-      public float Radius = 10f;
+      public float Radius = 5f;
 
       public GMapRoundedToolTip(GMapMarker marker)
          : base(marker)
