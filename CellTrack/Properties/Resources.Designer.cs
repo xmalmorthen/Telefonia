@@ -313,9 +313,9 @@ namespace CellTrack.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap targetRed {
+        internal static System.Drawing.Bitmap target_red {
             get {
-                object obj = ResourceManager.GetObject("targetRed", resourceCulture);
+                object obj = ResourceManager.GetObject("target_red", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

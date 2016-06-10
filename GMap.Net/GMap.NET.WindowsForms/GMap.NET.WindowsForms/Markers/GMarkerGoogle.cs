@@ -8,6 +8,7 @@ namespace GMap.NET.WindowsForms.Markers
    using System.Windows.Forms.Properties;
    using System;
    using System.Runtime.Serialization;
+    using System.Text;
 #else
    using GMap.NET.WindowsMobile.Properties;
 #endif
@@ -86,7 +87,7 @@ namespace GMap.NET.WindowsForms.Markers
 
       void LoadBitmap()
       {
-         Bitmap = GetIcon(Type.ToString());
+          Bitmap = GetIcon(Type.ToString());        
          Size = new System.Drawing.Size(Bitmap.Width, Bitmap.Height);
 
          switch(Type)
@@ -184,11 +185,11 @@ namespace GMap.NET.WindowsForms.Markers
             case GMarkerGoogleType.target_red:
             {
                 Offset = new Point(-Size.Width / 2, -Size.Height + 1);
-                /*if (msmarker_shadow == null)
-                {
-                    msmarker_shadow = Resources.msmarker_shadow;
-                }
-                BitmapShadow = msmarker_shadow;*/
+                //if (msmarker_shadow == null)
+                //{
+                //    msmarker_shadow = Resources.target_red_shadow;
+                //}
+                //BitmapShadow = msmarker_shadow;
             }
             break;
 

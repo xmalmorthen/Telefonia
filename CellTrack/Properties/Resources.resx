@@ -157,9 +157,6 @@
   <data name="1464385007_doc_plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1464385007_doc_plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="targetRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1464400316_target.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="1464227143_trash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1464227143_trash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -195,5 +192,8 @@
   </data>
   <data name="1465000215_globe_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1465000215_globe_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="target_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1464400316_target.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

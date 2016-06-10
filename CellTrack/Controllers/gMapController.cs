@@ -130,24 +130,44 @@ namespace CellTrack.Controllers
 
         #region MARKERS
 
-        private GMarkerGoogle configMarker(double lat, double lng, MarkerTooltipMode toolTipMode, object tag){
-            GMarkerGoogle marker = new GMarkerGoogle(new GMap.NET.PointLatLng(lat, lng), GMarkerGoogleType.target_red);
-            marker.Tag = tag;
+        private GMarkerGoogle configMarker(double lat, double lng, MarkerTooltipMode toolTipMode, object tag, string mrkLabel = null)
+        {
+            Bitmap ret = Properties.Resources.ResourceManager.GetObject("target_red", Properties.Resources.Culture) as Bitmap;
+            if (!string.IsNullOrEmpty(mrkLabel))
+            {
+                PointF loc = new PointF(0f, 0f);
+                using (Graphics graphics = Graphics.FromImage(ret))
+                {
+                    using (Font arialFont = new Font("Arial", 18))
+                    {
+                        graphics.DrawString(mrkLabel, arialFont, Brushes.Black, loc);
+                    }
+                }
+            }
+            GMarkerGoogle marker = new GMarkerGoogle(new GMap.NET.PointLatLng(lat, lng), ret);
+            
+            if (tag != null)
+                marker.Tag = tag;
 
-            GMapToolTip toolTip = new GMapToolTip(marker);
-            toolTip.Stroke = new Pen(Color.FromArgb(140, Color.DarkRed));
-            toolTip.Fill = new SolidBrush(Color.FromArgb(200, Color.WhiteSmoke));
-            toolTip.Foreground = new SolidBrush(Color.DarkRed);
-            toolTip.TextPadding = new Size(12, 12);
-            marker.ToolTip = toolTip;
-            marker.ToolTipMode = toolTipMode;
+            if (toolTipMode != MarkerTooltipMode.Never)
+            {
+                GMapToolTip toolTip = new GMapToolTip(marker);
+                toolTip.Format.Alignment = StringAlignment.Near;
+                toolTip.Stroke = new Pen(Color.FromArgb(140, Color.DarkRed));
+                toolTip.Fill = new SolidBrush(Color.FromArgb(200, Color.WhiteSmoke));
+                toolTip.Foreground = new SolidBrush(Color.DarkRed);
+                toolTip.TextPadding = new Size(12, 12);
+                marker.ToolTip = toolTip;
+                marker.ToolTipMode = toolTipMode;
+            }
             return marker;
         }
 
-        private void _addMarker(double lat, double lng, string txt, MarkerTooltipMode toolTipMode, object tag)
+        private void _addMarker(double lat, double lng, string tooltipText, MarkerTooltipMode toolTipMode, object tag, string mrkLabel = null)
         {
-            GMarkerGoogle marker = configMarker(lat, lng,toolTipMode,tag);
-            marker.ToolTipText = txt;
+            GMarkerGoogle marker = configMarker(lat, lng, toolTipMode, tag, mrkLabel);
+            if (!string.IsNullOrEmpty(tooltipText))
+                marker.ToolTipText = tooltipText;
             MarkersOverlays.Markers.Add(marker);
             MainMap.Overlays.Add(MarkersOverlays);
         }
@@ -156,17 +176,23 @@ namespace CellTrack.Controllers
             _addMarker(lat, lng,string.Empty, MarkerTooltipMode.Never,null);
         }
 
-        public void AddMarker(double lat, double lng, string txt){
-            _addMarker(lat, lng, txt, MarkerTooltipMode.Always,null);
+        public void AddMarker(double lat, double lng, string tooltipText){
+            _addMarker(lat, lng, tooltipText, MarkerTooltipMode.Always,null);
         }
 
-        public void AddMarker(double lat, double lng, string txt, MarkerTooltipMode toolTipMode)
+        public void AddMarker(double lat, double lng, string tooltipText, MarkerTooltipMode toolTipMode)
         {
-            _addMarker(lat, lng, txt, toolTipMode,null);
+            _addMarker(lat, lng, tooltipText, toolTipMode,null);
         }
 
-        public void AddMarker(double lat, double lng, string txt, MarkerTooltipMode toolTipMode, object tag){
-            _addMarker(lat, lng, txt, toolTipMode,tag);
+        public void AddMarker(double lat, double lng, string tooltipText, MarkerTooltipMode toolTipMode, object tag)
+        {
+            _addMarker(lat, lng, tooltipText, toolTipMode, tag);
+        }
+
+        public void AddMarker(double lat, double lng, string tooltipText, string mrkLabel, MarkerTooltipMode toolTipMode, object tag)
+        {
+            _addMarker(lat, lng, tooltipText, toolTipMode, tag, mrkLabel);
         }
 
         public void AddMarker(markersModel mark){
@@ -174,7 +200,7 @@ namespace CellTrack.Controllers
         }
 
         public void AddMarker(markersModel mark, MarkerTooltipMode toolTipMode){
-            AddMarker(mark.Lat, mark.Lng, mark.Desc, toolTipMode, mark.Tag);
+            AddMarker(mark.Lat, mark.Lng, mark.Desc, mark.MrkLabel, toolTipMode, mark.Tag);
         }        
 
         private void _addMarker(List<markersModel> markers, MarkerTooltipMode toolTipMode)

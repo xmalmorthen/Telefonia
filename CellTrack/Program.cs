@@ -21,8 +21,6 @@ namespace CellTrack
             set { sshCnn = value; }
         }
 
-        
-
         private static void closeAllConnections() {
             foreach (KeyValuePair<string, sshCnn> item in Program.SshCnn)
             {
@@ -34,6 +32,21 @@ namespace CellTrack
         #endregion SSHREFERENCES
 
         public static frmDashboard FrmDashboard = null;
+
+        private static void terminateProgramm() {
+            Application.Exit();
+
+            if (System.Windows.Forms.Application.MessageLoop)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
+            else
+            {
+                System.Environment.Exit(0);
+            }
+        }
+
+
 
         [STAThread]
         static void Main()
@@ -52,38 +65,19 @@ namespace CellTrack
                 if (FrmSshCnn.ShowDialog() == DialogResult.Yes) {
                     frmLogIn FrmLogIn = new frmLogIn();
                     Application.Run(FrmLogIn);
-                    if (FrmLogIn.dlgRes == DialogResult.No) Application.Exit();
+                    if (FrmLogIn.dlgRes == DialogResult.No) terminateProgramm();
+
+                    FrmDashboard = new frmDashboard();
+
+                    Application.Run(FrmDashboard);
+                    Program.closeAllConnections();
                 }
-
-                /*
-                //USUARIO DE SIMULACIÓN
-                //TODO: Borrar al implementar el formulario de inicio de sesión
-                causuarios data = DAL.Db.causuarios.SingleOrDefault(qry => qry.id.Equals(7));
-                usuarioController.usuarioLogueado.info = data;
-                //USUARIO DE SIMULACIÓN
-                */
-
-                FrmDashboard = new frmDashboard();
-
-                Application.Run(FrmDashboard);
-                Program.closeAllConnections();
             }
             catch (Exception)
             {
                 MessageBox.Show("Problemas al intentar conectar a la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            Application.Exit();            
-
-            if (System.Windows.Forms.Application.MessageLoop)
-            {
-                System.Windows.Forms.Application.Exit();
-            }
-            else
-            {
-                System.Environment.Exit(0);
-            }
-            
+            terminateProgramm();
         }
     }
 }

@@ -141,8 +141,8 @@ namespace CellTrack.Views.UserControls.Localización
 
         private void tmCountDown_Tick(object sender, EventArgs e)
         {
-            int cnt = int.Parse(lblCountDown.Text) - 1;
-            lblCountDown.Text = (cnt).ToString();
+            int cnt =  int.Parse(lblCountDown.Text) - 1;
+            lblCountDown.Text = (cnt).ToString("00");
             if (cnt == 0)
             {
                 FrmState = enums.frmState.Normal;

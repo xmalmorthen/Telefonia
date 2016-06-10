@@ -147,6 +147,7 @@
     <Content Include="Resources\red-pushpin.png" />
     <Content Include="Resources\red.png" />
     <Content Include="Resources\red_small.png" />
+    <None Include="Resources\shadow.png" />
     <Content Include="Resources\shadow_small.png" />
     <Content Include="Resources\stop-big-red.png" />
     <Content Include="Resources\white_small.png" />

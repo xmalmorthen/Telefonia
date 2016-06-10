@@ -9,4 +9,5 @@ namespace CellTrack.Models
     public class seguimientoModel : recibidosModel
     {        
     }
+
 }

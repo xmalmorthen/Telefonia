@@ -35,7 +35,7 @@
       <Value Profile="(Default)">ping google.com -c 3</Value>
     </Setting>
     <Setting Name="PDUCountDown" Type="System.String" Scope="User">
-      <Value Profile="(Default)">4</Value>
+      <Value Profile="(Default)">04</Value>
     </Setting>
   </Settings>
 </SettingsFile>

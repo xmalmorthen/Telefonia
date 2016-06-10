@@ -99,12 +99,13 @@ namespace CellTrack.Views.UserControls.Localización
             cmbTargets.DataSource = bsObjetivos;
         }
 
+        private List<seguimientoModel> targets = null;
         private void btnFind_Click(object sender, EventArgs e)
         {
             try
             {
-                int targets = seguimientoController.markObjetivos(gMapViewRender.gMap, dtPeriodoDe.Value.Date, dtPeriodoA.Value.Date, MainMap_OnMarkerEnter, MainMap_OnMarkerLeave);
-                if (targets == 0)
+                targets = seguimientoController.markObjetivos(gMapViewRender.gMap, dtPeriodoDe.Value.Date, dtPeriodoA.Value.Date, MainMap_OnMarkerEnter, MainMap_OnMarkerLeave);
+                if (targets.Count == 0)
                     MetroMessageBox.Show(this, "No se encontraron puntos para mostrar...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -130,7 +131,11 @@ namespace CellTrack.Views.UserControls.Localización
         private void MainMap_OnMarkerLeave(GMapMarker item)
         {
             pnlInfoTarget.Visible = false;
-        }        
+        }
 
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            seguimientoController.makeReport(gMapViewRender.gMap, targets);
+        }
     }
 }
