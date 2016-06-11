@@ -101,7 +101,10 @@ namespace CellTrack.Controllers
 
                     frmRpt.reportViewer.LocalReport.ReportEmbeddedResource = "CellTrack.Reports.seguimientoReport.rdlc";
                     frmRpt.reportViewer.LocalReport.EnableExternalImages = true;
-                    ReportParameter param = new ReportParameter("Map", frm.FullPathMap,true);
+
+                    string path = string.Format(@"file:\{0}",frm.FullPathMap);
+
+                    ReportParameter param = new ReportParameter("Map", path, true);
                     frmRpt.reportViewer.LocalReport.SetParameters(param);
                     frmRpt.reportViewer.LocalReport.DataSources.Add(rds);
                     frmRpt.reportViewer.LocalReport.Refresh();
