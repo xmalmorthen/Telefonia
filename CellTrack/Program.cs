@@ -61,8 +61,8 @@ namespace CellTrack
                 Properties.Settings.Default.mainStyle.Style = MetroFramework.MetroColorStyle.Black;
                 Properties.Settings.Default.mainStyle.Theme = MetroFramework.MetroThemeStyle.Light;
 
-                frmSshCnn FrmSshCnn = new frmSshCnn();
-                if (FrmSshCnn.ShowDialog() == DialogResult.Yes) {
+                //frmSshCnn FrmSshCnn = new frmSshCnn();
+                //if (FrmSshCnn.ShowDialog() == DialogResult.Yes) {
                     frmLogIn FrmLogIn = new frmLogIn();
                     Application.Run(FrmLogIn);
                     if (FrmLogIn.dlgRes == DialogResult.No) terminateProgramm();
@@ -71,7 +71,7 @@ namespace CellTrack
 
                     Application.Run(FrmDashboard);
                     Program.closeAllConnections();
-                }
+                //}
             }
             catch (Exception)
             {

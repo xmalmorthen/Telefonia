@@ -38,7 +38,7 @@
             this.panel = new System.Windows.Forms.Panel();
             this.frmUserInformation = new CellTrack.Views.UserControls.frmUserInformation();
             this.frmModemSignal1 = new CellTrack.Views.UserControls.frmModemSignal();
-            this.frmSaldo1 = new CellTrack.Views.UserControls.frmSaldo();
+            this.frmSaldo = new CellTrack.Views.UserControls.frmSaldo();
             this.mainMenu = new CellTrack.Views.UserControls.menu();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.SuspendLayout();
@@ -90,6 +90,7 @@
             this.panel.Location = new System.Drawing.Point(30, 97);
             this.panel.Margin = new System.Windows.Forms.Padding(10);
             this.panel.Name = "panel";
+            this.panel.Padding = new System.Windows.Forms.Padding(5);
             this.panel.Size = new System.Drawing.Size(964, 624);
             this.panel.TabIndex = 28;
             // 
@@ -111,14 +112,15 @@
             this.frmModemSignal1.Size = new System.Drawing.Size(395, 26);
             this.frmModemSignal1.TabIndex = 32;
             // 
-            // frmSaldo1
+            // frmSaldo
             // 
-            this.frmSaldo1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.frmSaldo1.BackColor = System.Drawing.Color.Transparent;
-            this.frmSaldo1.Location = new System.Drawing.Point(11, 734);
-            this.frmSaldo1.Name = "frmSaldo1";
-            this.frmSaldo1.Size = new System.Drawing.Size(192, 26);
-            this.frmSaldo1.TabIndex = 31;
+            this.frmSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.frmSaldo.BackColor = System.Drawing.Color.Transparent;
+            this.frmSaldo.Location = new System.Drawing.Point(11, 734);
+            this.frmSaldo.Name = "frmSaldo";
+            this.frmSaldo.Size = new System.Drawing.Size(192, 26);
+            this.frmSaldo.TabIndex = 31;
+            this.frmSaldo.Visible = false;
             // 
             // mainMenu
             // 
@@ -127,7 +129,7 @@
             this.mainMenu.BackColor = System.Drawing.Color.Transparent;
             this.mainMenu.Location = new System.Drawing.Point(26, 16);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(228, 70);
+            this.mainMenu.Size = new System.Drawing.Size(240, 79);
             this.mainMenu.TabIndex = 27;
             // 
             // frmDashboard
@@ -142,12 +144,12 @@
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.frmUserInformation);
             this.Controls.Add(this.frmModemSignal1);
-            this.Controls.Add(this.frmSaldo1);
+            this.Controls.Add(this.frmSaldo);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.mainMenu);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1024, 768);
+            this.MinimumSize = new System.Drawing.Size(1024, 736);
             this.Movable = false;
             this.Name = "frmDashboard";
             this.Resizable = false;
@@ -170,7 +172,7 @@
         private UserControls.menu mainMenu;
         private MetroFramework.Components.MetroToolTip metroToolTip;
         private System.Windows.Forms.Panel panel;
-        private UserControls.frmSaldo frmSaldo1;
+        private UserControls.frmSaldo frmSaldo;
         private UserControls.frmModemSignal frmModemSignal1;
         private UserControls.frmUserInformation frmUserInformation;
     }

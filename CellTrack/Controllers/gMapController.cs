@@ -61,7 +61,7 @@ namespace CellTrack.Controllers
 
                     ch.ConnectionString = Properties.Settings.Default.MapCache;
                     MainMap.Manager.SecondaryCache = ch;
-                    MainMap.Manager.Mode = AccessMode.CacheOnly;
+                    MainMap.Manager.Mode = AccessMode.ServerAndCache;
                 }
 
                 // config map         
@@ -70,7 +70,7 @@ namespace CellTrack.Controllers
                 MainMap.MinZoom = 1;
                 MainMap.MaxZoom = 24;
                 MainMap.Zoom = zoom;
-                //MainMap.ScaleMode = ScaleModes.Fractional;
+                MainMap.ScaleMode = ScaleModes.Integer;
             }
         }
 

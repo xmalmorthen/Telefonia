@@ -80,5 +80,10 @@ namespace CellTrack.Views.UserControls
             gMap.changeMapType(((MetroComboBox)sender).SelectedItem as GMapProvider);
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            gMap.MainMap.ReloadMap();
+        }
+
     }
 }

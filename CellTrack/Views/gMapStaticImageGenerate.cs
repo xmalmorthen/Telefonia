@@ -62,7 +62,7 @@ namespace CellTrack.Views
                     tileArea.TrimExcess();
                 }
 
-                //progressBar1.Value = 0;
+                pb.Value = 0;
                 gMap.MainMap.HoldInvalidation = true;
 
                 bg.RunWorkerAsync(
@@ -81,6 +81,9 @@ namespace CellTrack.Views
             if (!info.Area.IsEmpty)
             {
                 string applicationPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+#if DEBUG
+                applicationPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\";
+#endif
                 string fileName = @"map.jpg";
                 string bigImage = string.Format(@"{0}\{1}", applicationPath, fileName);
                 

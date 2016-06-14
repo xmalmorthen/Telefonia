@@ -329,6 +329,7 @@
     <Compile Include="Views\UserControls\Users\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\1465680503_clipboard_past.png" />
     <None Include="Properties\DataSources\CellTrack.Models.seguimientoModel.datasource" />
     <None Include="Resources\1464400316_target.png" />
     <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">

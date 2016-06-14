@@ -50,6 +50,7 @@
             // 
             this.reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer.LocalReport.EnableExternalImages = true;
+            this.reportViewer.LocalReport.EnableHyperlinks = true;
             this.reportViewer.Location = new System.Drawing.Point(20, 30);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.Size = new System.Drawing.Size(740, 354);
@@ -69,6 +70,7 @@
             this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
             this.Resizable = false;
             this.ShowInTaskbar = false;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmReportViewer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.ResumeLayout(false);

@@ -100,13 +100,20 @@ namespace CellTrack.Controllers
                     frmReportViewer frmRpt = new frmReportViewer();
 
                     frmRpt.reportViewer.LocalReport.ReportEmbeddedResource = "CellTrack.Reports.seguimientoReport.rdlc";
+
+                    frmRpt.reportViewer.LocalReport.SetParameters(new ReportParameter("txtSegTitle", string.Format("{0} | {1} | {2}", targets[0].objetivo, targets[0].nombre, targets[0].Carrier), true));
+                    frmRpt.reportViewer.LocalReport.SetParameters(new ReportParameter("txtSegTitle2", string.Format("{0}", targets[0].asunto), true));
+
+
                     frmRpt.reportViewer.LocalReport.EnableExternalImages = true;
-
-                    string path = string.Format(@"file:\{0}",frm.FullPathMap);
-
-                    ReportParameter param = new ReportParameter("Map", path, true);
-                    frmRpt.reportViewer.LocalReport.SetParameters(param);
+                    frmRpt.reportViewer.LocalReport.SetParameters(new ReportParameter("mapImage", "file:///" + frm.FullPathMap, true));
+                    
                     frmRpt.reportViewer.LocalReport.DataSources.Add(rds);
+
+                    frmRpt.reportViewer.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+                    frmRpt.reportViewer.ZoomPercent = 100;
+                    frmRpt.reportViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.FullPage;
+                    
                     frmRpt.reportViewer.LocalReport.Refresh();
                     
                     frmRpt.ShowDialog();            

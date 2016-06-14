@@ -37,6 +37,7 @@
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.cmbMapsTypes = new MetroFramework.Controls.MetroComboBox();
+            this.btnRefresh = new MetroFramework.Controls.MetroButton();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.SuspendLayout();
@@ -136,7 +137,7 @@
             this.cmbMapsTypes.FontWeight = MetroFramework.MetroComboBoxWeight.Light;
             this.cmbMapsTypes.FormattingEnabled = true;
             this.cmbMapsTypes.ItemHeight = 19;
-            this.cmbMapsTypes.Location = new System.Drawing.Point(614, 3);
+            this.cmbMapsTypes.Location = new System.Drawing.Point(584, 3);
             this.cmbMapsTypes.Name = "cmbMapsTypes";
             this.cmbMapsTypes.Size = new System.Drawing.Size(294, 25);
             this.cmbMapsTypes.Style = MetroFramework.MetroColorStyle.Black;
@@ -145,12 +146,30 @@
             this.cmbMapsTypes.UseStyleColors = true;
             this.cmbMapsTypes.DropDownClosed += new System.EventHandler(this.cmbMapsTypes_DropDownClosed);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.AutoSize = true;
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnRefresh.BackgroundImage = global::CellTrack.Properties.Resources._1463558222_Update;
+            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnRefresh.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnRefresh.Location = new System.Drawing.Point(884, 3);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(24, 25);
+            this.btnRefresh.TabIndex = 39;
+            this.metroToolTip.SetToolTip(this.btnRefresh, "Refrescar mapa");
+            this.btnRefresh.UseSelectable = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // gMapView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.cmbMapsTypes);
             this.Controls.Add(this.btnCentrar);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -174,5 +193,6 @@
         private MetroFramework.Components.MetroToolTip metroToolTip;
         private MetroFramework.Components.MetroStyleManager msmMain;
         private MetroFramework.Controls.MetroComboBox cmbMapsTypes;
+        private MetroFramework.Controls.MetroButton btnRefresh;
     }
 }

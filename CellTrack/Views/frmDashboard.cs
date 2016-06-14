@@ -54,6 +54,9 @@ namespace CellTrack.Views
         {
             visualStyles.apply(this, msmMain);
             metroToolTip.StyleManager = msmMain;
+
+            frmSaldo.Visible = false;
+            
             frmUserInformation.refreshUserName();
             frmState = FrmState.Normal;
             renderControl(new frmUserAdmin());
@@ -63,7 +66,9 @@ namespace CellTrack.Views
         public void renderControl(UserControl ctrl) {
             Application.DoEvents();
             ctrl.Dock = System.Windows.Forms.DockStyle.Fill;
-            ctrl.Location = new System.Drawing.Point(0, 0);            
+            ctrl.Location = new System.Drawing.Point(0, 0);
+            ctrl.MinimumSize = new Size(0, 0);
+            ctrl.Margin = new Padding(3);
             ctrl.TabIndex = 0;
             FrmActive = ctrl;
 

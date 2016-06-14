@@ -722,7 +722,7 @@
             this.gdObjetivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdObjetivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdObjetivos.ShowEditingIcon = false;
-            this.gdObjetivos.Size = new System.Drawing.Size(960, 215);
+            this.gdObjetivos.Size = new System.Drawing.Size(960, 214);
             this.gdObjetivos.StandardTab = true;
             this.gdObjetivos.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdObjetivos.TabIndex = 54;
@@ -848,7 +848,7 @@
             this.Controls.Add(this.splitContainerUsuarios);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.shapeContainer1);
-            this.MinimumSize = new System.Drawing.Size(984, 598);
+            this.MinimumSize = new System.Drawing.Size(982, 596);
             this.Name = "frmUserAdmin";
             this.Size = new System.Drawing.Size(982, 596);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
