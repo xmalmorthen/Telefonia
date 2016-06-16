@@ -6,7 +6,7 @@
         <Source>External</Source>
         <Value>=Parameters!mapImage.Value</Value>
         <MIMEType>image/jpeg</MIMEType>
-        <Sizing>FitProportional</Sizing>
+        <Sizing>Fit</Sizing>
         <Top>0.00896cm</Top>
         <Height>9.28036cm</Height>
         <Width>27.48879cm</Width>
@@ -339,14 +339,82 @@
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Seguimientos encontrados:</Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>10.93639cm</Top>
+        <Height>0.75875cm</Height>
+        <Width>6.9716cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Count(Fields!fIns.Value)</Value>
+                <Style>
+                  <FontSize>20pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>Red</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>10.80233cm</Top>
+        <Left>7.09505cm</Left>
+        <Height>0.93338cm</Height>
+        <Width>3.16146cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>4.23622in</Height>
+    <Height>4.62036in</Height>
     <Style />
   </Body>
   <Width>10.82236in</Width>
   <Page>
     <PageHeader>
-      <Height>1.91974cm</Height>
+      <Height>2.89157cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -400,9 +468,10 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Left>10.44348cm</Left>
+          <Top>1.05875cm</Top>
+          <Left>1.88276cm</Left>
           <Height>0.97042cm</Height>
-          <Width>17.04531cm</Width>
+          <Width>25.60603cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -433,7 +502,7 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>1.01275cm</Top>
+          <Top>2.12442cm</Top>
           <Left>1.88276cm</Left>
           <Height>0.73229cm</Height>
           <Width>25.60603cm</Width>
@@ -462,7 +531,7 @@
           </Style>
         </Image>
         <Line Name="Line1">
-          <Top>1.78032cm</Top>
+          <Top>2.89157cm</Top>
           <Height>0cm</Height>
           <Width>27.48879cm</Width>
           <ZIndex>4</ZIndex>
@@ -480,9 +549,42 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.34938cm</Height>
+      <Height>0.91145cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="OverallPageNumber">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Página " &amp; Globals!OverallPageNumber &amp; " de " &amp; Globals!OverallTotalPages</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>OverallPageNumber</rd:DefaultName>
+          <Top>0.14111cm</Top>
+          <Left>19.85588cm</Left>
+          <Height>0.6cm</Height>
+          <Width>7.63292cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>

@@ -93,7 +93,7 @@
             this.btnReport.BackgroundImage = global::CellTrack.Properties.Resources._1465680503_clipboard_past;
             this.btnReport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnReport.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnReport.Location = new System.Drawing.Point(12, 189);
+            this.btnReport.Location = new System.Drawing.Point(10, 3);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(63, 59);
             this.btnReport.TabIndex = 45;

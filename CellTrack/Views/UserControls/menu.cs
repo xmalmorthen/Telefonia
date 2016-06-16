@@ -139,7 +139,17 @@ namespace CellTrack.Views.UserControls
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            this.openFrm<frmSeguimiento>();            
+            this.openFrm<frmSeguimiento>();
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            //this.openFrm<frmGlobal>();
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            this.openFrm<frmIFE>();
         }
         
     }

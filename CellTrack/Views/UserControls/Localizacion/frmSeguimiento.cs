@@ -50,6 +50,8 @@ namespace CellTrack.Views.UserControls.Localización
             dtPeriodoDe.Value = dtPeriodoDe.MaxDate;
             dtPeriodoA.Value = dtPeriodoA.MaxDate;
 
+            btnReport.Location = new Point(splitContainer.Panel2.Left + 10, splitContainer.Panel2.Top + 110);
+
             this.populate();
 
             gMapViewRender.Dock = DockStyle.Fill;

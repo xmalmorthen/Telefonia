@@ -105,6 +105,8 @@
     <Compile Include="Classes\sshCnn.cs" />
     <Compile Include="Classes\visualStyles.cs" />
     <Compile Include="Controllers\catalogosController.cs" />
+    <Compile Include="Controllers\RegistrosControllers\entidadesController.cs" />
+    <Compile Include="Controllers\RegistrosControllers\IFEController.cs" />
     <Compile Include="Controllers\seguimientoController.cs" />
     <Compile Include="Controllers\recibidosController.cs" />
     <Compile Include="Controllers\reasignarObjetivosController.cs" />
@@ -115,6 +117,21 @@
     <Compile Include="Controllers\objetivosController.cs" />
     <Compile Include="Controllers\PDUController.cs" />
     <Compile Include="Controllers\usuarioController.cs" />
+    <Compile Include="Models\DataBases\bdRegistros.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdRegistros.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\bdRegistros.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdRegistros.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\bdRegistros.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdRegistros.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataBases\cacarriers.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
@@ -170,6 +187,8 @@
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MapInfo.cs" />
+    <Compile Include="Models\Registros\entidadesModel.cs" />
+    <Compile Include="Models\Registros\IFEModel.cs" />
     <Compile Include="Models\seguimientoModel.cs" />
     <Compile Include="Models\recibidosModel.cs" />
     <Compile Include="Models\PDUModel.cs" />
@@ -323,12 +342,27 @@
     <Compile Include="Views\UserControls\menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\Registros\frmIFE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Registros\frmIFE.Designer.cs">
+      <DependentUpon>frmIFE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Users\frmUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\UserControls\Users\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <EntityDeploy Include="Models\DataBases\bdRegistros.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>bdRegistros.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DataBases\bdRegistros.edmx.diagram">
+      <DependentUpon>bdRegistros.edmx</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\CellTrack.Models.Registros.entidadesModel.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.Registros.IFEModel.datasource" />
     <None Include="Resources\1465680503_clipboard_past.png" />
     <None Include="Properties\DataSources\CellTrack.Models.seguimientoModel.datasource" />
     <None Include="Resources\1464400316_target.png" />
@@ -375,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Localizacion\frmRecibidos.resx">
       <DependentUpon>frmRecibidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Registros\frmIFE.resx">
+      <DependentUpon>frmIFE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Users\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
@@ -460,6 +497,16 @@
     <EmbeddedResource Include="Views\frmSshCnn.resx">
       <DependentUpon>frmSshCnn.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="Models\DataBases\bdRegistros.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bdRegistros.edmx</DependentUpon>
+      <LastGenOutput>bdRegistros.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataBases\bdRegistros.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bdRegistros.edmx</DependentUpon>
+      <LastGenOutput>bdRegistros.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\DataBases\dbGeoLoc.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>dbGeoLoc.edmx</DependentUpon>
