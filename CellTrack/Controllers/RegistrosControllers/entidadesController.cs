@@ -1,4 +1,5 @@
-﻿using CellTrack.Models.DataBases;
+﻿using CellTrack.Classes;
+using CellTrack.Models.DataBases;
 using CellTrack.Models.Registros;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,18 @@ namespace CellTrack.Controllers.RegistrosControllers
         private static List<entidadesModel> entidades;
 
         public static List<entidadesModel> getEntidades {get {
-            if (entidades == null)
-                entidades = bd.Database.SqlQuery<entidadesModel>("select nument,noment from entidades").ToList();
-
+            try
+            {
+                if (entidades == null)
+                {
+                    bd.Database.CommandTimeout = 0;
+                    entidades = bd.Database.SqlQuery<entidadesModel>("select nument,noment from entidades").ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                exceptionHandlerCatch.registerLogException(ex);
+            }            
             return entidades;
         }}
     }

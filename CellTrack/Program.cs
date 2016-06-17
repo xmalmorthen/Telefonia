@@ -46,7 +46,7 @@ namespace CellTrack
             }
         }
 
-
+        public static Dictionary<string, UserControl> frmsOpenned = new Dictionary<string, UserControl>();
 
         [STAThread]
         static void Main()

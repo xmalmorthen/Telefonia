@@ -110,7 +110,23 @@ namespace CellTrack.Views.UserControls
         {
             Program.FrmDashboard.renderControl(FrmProccessingShow);
             Application.DoEvents();
-            Program.FrmDashboard.renderControl(new TForm());
+            UserControl frm = null;
+            Type type = typeof(TForm);
+            try
+            {
+                if (!Program.frmsOpenned.TryGetValue(type.Name, out frm))
+                {
+                    frm = new TForm();
+                    Program.frmsOpenned.Add(type.Name, frm);
+                }
+                Program.FrmDashboard.renderControl(frm);
+            }
+            catch (Exception ex)
+            {
+                string msgErr = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                MetroMessageBox.Show(this, msgErr, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Program.FrmDashboard.renderNone();
+            }
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)

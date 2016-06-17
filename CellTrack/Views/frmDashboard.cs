@@ -71,9 +71,14 @@ namespace CellTrack.Views
             ctrl.Margin = new Padding(3);
             ctrl.TabIndex = 0;
             FrmActive = ctrl;
-
             this.panel.Controls.Clear();
             this.panel.Controls.Add(ctrl);
+        }
+
+        public void renderNone() {
+            Application.DoEvents();
+            FrmActive = null;
+            this.panel.Controls.Clear();
         }
 
     }
