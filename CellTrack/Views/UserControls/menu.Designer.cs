@@ -279,6 +279,7 @@
             this.toolStripMenuItem8.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem8.Tag = "1-2";
             this.toolStripMenuItem8.Text = "CFE";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // toolStripMenuItem9
             // 
@@ -286,6 +287,7 @@
             this.toolStripMenuItem9.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem9.Tag = "1-3";
             this.toolStripMenuItem9.Text = "IMSS";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // toolStripMenuItem12
             // 
@@ -307,6 +309,7 @@
             this.toolStripMenuItem14.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem14.Tag = "1-6";
             this.toolStripMenuItem14.Text = "TELCEL";
+            this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
             // 
             // toolStripMenuItem15
             // 

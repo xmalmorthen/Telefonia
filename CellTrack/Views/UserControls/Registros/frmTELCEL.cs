@@ -16,11 +16,11 @@ using MySql.Data.MySqlClient;
 using CellTrack.Models.Registros;
 using MetroFramework.Controls;
 using CellTrack.Controllers.RegistrosControllers;
-using System.Diagnostics;
+using System.Threading;
 
 namespace CellTrack.Views.UserControls
 {
-    public partial class frmIFE : UserControl
+    public partial class frmTELCEL : UserControl
     {
         enums.frmState frmState;
         public enums.frmState FrmState
@@ -32,11 +32,11 @@ namespace CellTrack.Views.UserControls
                 tlpProc.Visible = frmState == enums.frmState.Find;
                 splitContainer.Enabled = frmState == enums.frmState.Normal;
 
-                lblCantReg.Visible = frmState == enums.frmState.Normal && (bsIFE != null ? bsIFE.Count > 0 : false);
+                lblCantReg.Visible = frmState == enums.frmState.Normal && (bsTELCEL != null ? bsTELCEL.Count > 0 : false);
             }
         }
 
-        public frmIFE()
+        public frmTELCEL()
         {
             InitializeComponent();
             this.init();
@@ -56,23 +56,6 @@ namespace CellTrack.Views.UserControls
 
         private void populate()
         {
-            List<entidadesModel> entidades = new List<entidadesModel>();
-            entidades.Add(new entidadesModel()
-            {
-                noment = "TODAS",
-                nument = "00"
-            });
-
-            try
-            {
-                entidades.AddRange(entidadesController.getEntidades);
-                bsEntidades.DataSource = entidades;    
-            }
-            catch (Exception ex)
-            {
-                exceptionHandlerCatch.registerLogException(ex);
-                throw new NullReferenceException("Error al obtener la lista de entidades");
-            }
         }
 
         private void tgExacta_CheckedChanged(object sender, EventArgs e)
@@ -83,7 +66,6 @@ namespace CellTrack.Views.UserControls
         BackgroundWorker wrker = null;
         struct wrkerStruct
         {
-            public string idEntidad;
             public List<string> searchFields;
             public string cad;
             public Boolean exacta;
@@ -95,28 +77,27 @@ namespace CellTrack.Views.UserControls
                 txtCad.Focus();
                 return;
             }
-            if (!chkNombre.Checked && !chkClave.Checked && !chkCalle.Checked && !chkCP.Checked) {
+            if (!chkNombre.Checked && !chkCelular.Checked) {
                 MetroMessageBox.Show(this, "Debe seleccionar al menos un campo en donde buscar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 flowLayoutPanel1.Focus();
                 return;
             }
 
+            btnCancel.Click += btnCancel_Click;
+
             FrmState = enums.frmState.Find;
 
             Application.DoEvents();
 
-            bsIFE.DataSource = null;
+            bsTELCEL.DataSource = null;
 
             List<string> searchFields = new List<string>();
 
             if (chkNombre.Checked) searchFields.Add("nombre");
-            if (chkClave.Checked) searchFields.Add("clave");
-            if (chkCalle.Checked) searchFields.Add("calle");
-            if (chkCP.Checked) searchFields.Add("cp");
+            if (chkCelular.Checked) searchFields.Add("celular");
 
             wrkerStruct str = new wrkerStruct()
             {
-                idEntidad = ((entidadesModel)bsEntidades.Current).nument,
                 searchFields = searchFields,
                 cad = txtCad.Text.Trim(),
                 exacta = tgExacta.Checked
@@ -128,7 +109,7 @@ namespace CellTrack.Views.UserControls
             wrker.RunWorkerCompleted += wrker_RunWorkerCompleted;
             wrker.RunWorkerAsync(str);
             
-            Application.DoEvents();            
+            Application.DoEvents();
         }
 
         private void wrker_DoWork(object sender, DoWorkEventArgs e)
@@ -141,8 +122,7 @@ namespace CellTrack.Views.UserControls
 
             wrkerStruct str = (wrkerStruct)e.Argument;
 
-            e.Result = IFEController.find(str.idEntidad,
-                                          str.searchFields,
+            e.Result = TELCELController.find(str.searchFields,
                                           str.cad,
                                           str.exacta);
 
@@ -157,15 +137,15 @@ namespace CellTrack.Views.UserControls
         {
             if (!e.Cancelled)
             {
-                List<IFEModel> data = (List<IFEModel>)e.Result;
+                List<TELCELModel> data = (List<TELCELModel>)e.Result;
                 ((BackgroundWorker)sender).CancelAsync();
 
                 if (data != null)
                 {
                     if (unFilterList != null) unFilterList.Clear();
 
-                    unFilterList = new List<IFEModel>(data);
-                    bsIFE.DataSource = data;
+                    unFilterList = new List<TELCELModel>(data);
+                    bsTELCEL.DataSource = data;
                     lblCantReg.Text = string.Format("[ {0} ] Registros Encontrados", data.Count.ToString());
                     FrmState = enums.frmState.Normal;
                 }
@@ -174,8 +154,8 @@ namespace CellTrack.Views.UserControls
                     FrmState = enums.frmState.Normal;
                     MetroMessageBox.Show(this, "No se encontraron resultados que coincidan con la búsqueda", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
             }
+            btnCancel.Click -= btnCancel_Click;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -185,24 +165,24 @@ namespace CellTrack.Views.UserControls
             FrmState = enums.frmState.Normal;
         }
 
-        private List<IFEModel> unFilterList;
+        private List<TELCELModel> unFilterList;
         private BackgroundWorker wrk = new BackgroundWorker();
         private void btnFilter_Click(object sender, EventArgs e)
         {
             btnCancel.Click += btnCancelFilter_Click;
-
+            
             FrmState = enums.frmState.Find;
 
             Application.DoEvents();
 
-            bsIFE.DataSource = null;
-
+            bsTELCEL.DataSource = null;
+            
             wrk.WorkerSupportsCancellation = true;
             wrk.DoWork += wrk_DoWork;
             wrk.RunWorkerCompleted += wrk_RunWorkerCompleted;
             wrk.RunWorkerAsync(txtFind.Text);
 
-            Application.DoEvents();
+            Application.DoEvents();     
         }
 
         void wrk_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -210,7 +190,7 @@ namespace CellTrack.Views.UserControls
             if (!e.Cancelled)
             {
                 if (e.Result != null)
-                    bsIFE.DataSource = (List<IFEModel>)e.Result;
+                    bsTELCEL.DataSource = (List<TELCELModel>)e.Result;
             }
             btnCancel.Click -= btnCancelFilter_Click;
             FrmState = enums.frmState.Normal;
@@ -226,23 +206,22 @@ namespace CellTrack.Views.UserControls
 
             string filter = (string)e.Argument;
 
-            List<IFEModel> data = null;
+            List<TELCELModel> data = null;
             if (string.IsNullOrEmpty(filter))
-                data = new List<IFEModel>(unFilterList);
+                data = new List<TELCELModel>(unFilterList);
             else
             {
-                data = new List<IFEModel>(unFilterList.Where(qry => qry.clave.Contains(filter) ||
-                                                                        qry.nombre.Contains(filter) ||
-                                                                        qry.fnac.Contains(filter) ||
-                                                                        qry.calle.Contains(filter) ||
-                                                                        qry.numext.Contains(filter) ||
-                                                                        qry.numint.Contains(filter) ||
-                                                                        qry.colonia.Contains(filter) ||
-                                                                        qry.codpos.Contains(filter) ||
-                                                                        qry.nmpio.Contains(filter) ||
-                                                                        qry.entidad.Contains(filter)));                
+                data = new List<TELCELModel>(unFilterList.Where(qry => qry.celular.Contains(filter) ||
+                                                                    qry.nombre.Contains(filter) ||
+                                                                    qry.direccion.Contains(filter) ||
+                                                                    qry.rfc.Contains(filter) ||
+                                                                    qry.colonia.Contains(filter) ||
+                                                                    qry.ciudad.Contains(filter) ||
+                                                                    qry.cpostal.Contains(filter)));
             }
+            
             e.Result = data;
+
             if (((BackgroundWorker)sender).CancellationPending)
             {
                 e.Cancel = true;
@@ -253,10 +232,10 @@ namespace CellTrack.Views.UserControls
         private void btnCancelFilter_Click(object sender, EventArgs e)
         {
             wrk.CancelAsync();
-            bsIFE.DataSource = unFilterList;
+            bsTELCEL.DataSource = unFilterList;
 
             FrmState = enums.frmState.Normal;
         }
-        
+
     }
 }

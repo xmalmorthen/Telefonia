@@ -11,28 +11,25 @@ using System.Threading.Tasks;
 
 namespace CellTrack.Controllers.RegistrosControllers
 {
-    public static class IFEController
+    public static class CFEController
     {
-        private static List<IFEModel> dataList = new List<IFEModel>();
+        private static List<CFEModel> dataList = new List<CFEModel>();
         private static List<BackgroundWorker> wrkers = new List<BackgroundWorker>();
 
-        public static List<IFEModel> find(string idEntidad, List<string> searchFields, string cad, Boolean exacta)
+        public static List<CFEModel> find(string idEntidad, List<string> searchFields, string cad, Boolean exacta)
         {
             string qry = @"
 (
 SELECT
-    clave,
-    CONCAT_WS(' ',nombre,paterno,materno) nombre,
-    fnac,
-    calle,
-    numext,
-    numint,
-    colonia,
-    codpos,
-    nmpio,
-    entidad
+    servicio,
+    campo1,
+    nombre,
+    direccion,
+    campo2,
+    municipio,
+    estado
 FROM
-    ife{0}
+    cfe{0}
 WHERE
     {1}
 )";
@@ -43,17 +40,14 @@ WHERE
 		        switch (item.ToLower())
 	            {
                     case "nombre":
-                        where += string.Format (@"CONCAT_WS(' ',nombre,paterno,materno) {0}",preFab);
+                        where += string.Format (@"nombre {0}",preFab);
                     break;
-                    case "clave":
-                        where += string.Format (@"{0} clave {1}",!string.IsNullOrEmpty(where) ? " AND " : string.Empty,preFab);
+                    case "servicio":
+                        where += string.Format (@"{0} servicio {1}",!string.IsNullOrEmpty(where) ? " AND " : string.Empty,preFab);
                     break;
-                    case "calle":
-                        where += string.Format (@"{0} CONCAT_WS(' ',calle,numext,numint) {1}",!string.IsNullOrEmpty(where) ? " AND " : string.Empty,preFab);
-                    break;
-                    case "cp":
-                        where += string.Format (@"{0} codpos {1}",!string.IsNullOrEmpty(where) ? " AND " : string.Empty,preFab);
-                    break;
+                    case "domicilio":
+                        where += string.Format (@"{0} direccion {1}",!string.IsNullOrEmpty(where) ? " AND " : string.Empty,preFab);
+                    break;                    
 	            }
 	        }
 
@@ -113,11 +107,11 @@ WHERE
 
             string qry = e.Argument.ToString();
             bdRegistrosEntities bd = new bdRegistrosEntities();
-            List<IFEModel> data = null;
+            List<CFEModel> data = null;
             try
             {
                 bd.Database.CommandTimeout = 0;
-                data = bd.Database.SqlQuery<IFEModel>(qry).ToList();
+                data = bd.Database.SqlQuery<CFEModel>(qry).ToList();
             }
             catch (Exception ex)
             {
@@ -130,7 +124,7 @@ WHERE
         {
             if (!e.Cancelled)
             {
-                List<IFEModel> data = (List<IFEModel>)e.Result;
+                List<CFEModel> data = (List<CFEModel>)e.Result;
                 if (data != null)
                     if (data.Count > 0)
                         lock (dataList)

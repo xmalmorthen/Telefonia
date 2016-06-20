@@ -1,6 +1,6 @@
 ﻿namespace CellTrack.Views.UserControls
 {
-    partial class frmIFE
+    partial class frmTELCEL
     {
         /// <summary> 
         /// Variable del diseñador requerida.
@@ -29,16 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.btnFind = new MetroFramework.Controls.MetroButton();
             this.btnCancel = new MetroFramework.Controls.MetroButton();
-            this.chkClave = new MetroFramework.Controls.MetroCheckBox();
+            this.btnFilter = new MetroFramework.Controls.MetroButton();
+            this.chkCelular = new MetroFramework.Controls.MetroCheckBox();
             this.chkNombre = new MetroFramework.Controls.MetroCheckBox();
-            this.chkCalle = new MetroFramework.Controls.MetroCheckBox();
-            this.chkCP = new MetroFramework.Controls.MetroCheckBox();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
@@ -49,40 +48,32 @@
             this.tgExacta = new MetroFramework.Controls.MetroToggle();
             this.lblExacta = new MetroFramework.Controls.MetroLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.cmbEntidad = new MetroFramework.Controls.MetroComboBox();
-            this.bsEntidades = new System.Windows.Forms.BindingSource(this.components);
             this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             this.txtCad = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.lblCantReg = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.txtFind = new MetroFramework.Controls.MetroTextBox();
             this.gdIFE = new MetroFramework.Controls.MetroGrid();
-            this.claveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fnacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.calleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numintDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coloniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codposDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nmpioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.entidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsIFE = new System.Windows.Forms.BindingSource(this.components);
             this.tlpProc = new System.Windows.Forms.FlowLayoutPanel();
             this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.btnFilter = new MetroFramework.Controls.MetroButton();
+            this.bsTELCEL = new System.Windows.Forms.BindingSource(this.components);
+            this.celularDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rfcDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coloniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpostalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsEntidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gdIFE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsIFE)).BeginInit();
             this.tlpProc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTELCEL)).BeginInit();
             this.SuspendLayout();
             // 
             // metroToolTip
@@ -101,7 +92,7 @@
             this.btnFind.Location = new System.Drawing.Point(899, 77);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(63, 59);
-            this.btnFind.TabIndex = 7;
+            this.btnFind.TabIndex = 6;
             this.metroToolTip.SetToolTip(this.btnFind, "Buscar");
             this.btnFind.UseSelectable = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
@@ -117,22 +108,38 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 9, 5, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(44, 44);
-            this.btnCancel.TabIndex = 11;
+            this.btnCancel.TabIndex = 10;
             this.metroToolTip.SetToolTip(this.btnCancel, "Cancelar");
             this.btnCancel.UseSelectable = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // chkClave
+            // btnFilter
             // 
-            this.chkClave.AutoSize = true;
-            this.chkClave.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.chkClave.Location = new System.Drawing.Point(110, 3);
-            this.chkClave.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.chkClave.Name = "chkClave";
-            this.chkClave.Size = new System.Drawing.Size(70, 25);
-            this.chkClave.TabIndex = 3;
-            this.chkClave.Text = "Clave";
-            this.chkClave.UseSelectable = true;
+            this.btnFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFilter.AutoSize = true;
+            this.btnFilter.BackgroundImage = global::CellTrack.Properties.Resources._1464813353_zoom;
+            this.btnFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnFilter.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnFilter.Location = new System.Drawing.Point(429, 3);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(3, 9, 5, 3);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(30, 30);
+            this.btnFilter.TabIndex = 8;
+            this.metroToolTip.SetToolTip(this.btnFilter, "Filtrar");
+            this.btnFilter.UseSelectable = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
+            // chkCelular
+            // 
+            this.chkCelular.AutoSize = true;
+            this.chkCelular.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.chkCelular.Location = new System.Drawing.Point(110, 3);
+            this.chkCelular.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.chkCelular.Name = "chkCelular";
+            this.chkCelular.Size = new System.Drawing.Size(81, 25);
+            this.chkCelular.TabIndex = 3;
+            this.chkCelular.Text = "Celular";
+            this.chkCelular.UseSelectable = true;
             // 
             // chkNombre
             // 
@@ -148,30 +155,6 @@
             this.chkNombre.Text = "Nombre";
             this.chkNombre.UseSelectable = true;
             // 
-            // chkCalle
-            // 
-            this.chkCalle.AutoSize = true;
-            this.chkCalle.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.chkCalle.Location = new System.Drawing.Point(193, 3);
-            this.chkCalle.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.chkCalle.Name = "chkCalle";
-            this.chkCalle.Size = new System.Drawing.Size(65, 25);
-            this.chkCalle.TabIndex = 4;
-            this.chkCalle.Text = "Calle";
-            this.chkCalle.UseSelectable = true;
-            // 
-            // chkCP
-            // 
-            this.chkCP.AutoSize = true;
-            this.chkCP.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.chkCP.Location = new System.Drawing.Point(271, 3);
-            this.chkCP.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.chkCP.Name = "chkCP";
-            this.chkCP.Size = new System.Drawing.Size(139, 25);
-            this.chkCP.TabIndex = 5;
-            this.chkCP.Text = "Código Postal";
-            this.chkCP.UseSelectable = true;
-            // 
             // msmMain
             // 
             this.msmMain.Owner = this;
@@ -186,9 +169,9 @@
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 31);
+            this.label1.Size = new System.Drawing.Size(270, 31);
             this.label1.TabIndex = 16;
-            this.label1.Text = "Registros [ IFE ]";
+            this.label1.Text = "Registros [ TELCEL ]";
             // 
             // lineShape1
             // 
@@ -227,10 +210,8 @@
             this.splitContainer.Panel1.Controls.Add(this.tgExacta);
             this.splitContainer.Panel1.Controls.Add(this.lblExacta);
             this.splitContainer.Panel1.Controls.Add(this.flowLayoutPanel1);
-            this.splitContainer.Panel1.Controls.Add(this.cmbEntidad);
             this.splitContainer.Panel1.Controls.Add(this.metroLabel15);
             this.splitContainer.Panel1.Controls.Add(this.txtCad);
-            this.splitContainer.Panel1.Controls.Add(this.metroLabel1);
             this.splitContainer.Panel1MinSize = 150;
             // 
             // splitContainer.Panel2
@@ -284,7 +265,7 @@
             this.tgExacta.Location = new System.Drawing.Point(635, 106);
             this.tgExacta.Name = "tgExacta";
             this.tgExacta.Size = new System.Drawing.Size(50, 17);
-            this.tgExacta.TabIndex = 6;
+            this.tgExacta.TabIndex = 5;
             this.tgExacta.Text = "Off";
             this.tgExacta.UseSelectable = true;
             this.tgExacta.CheckedChanged += new System.EventHandler(this.tgExacta_CheckedChanged);
@@ -308,34 +289,11 @@
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.chkNombre);
-            this.flowLayoutPanel1.Controls.Add(this.chkClave);
-            this.flowLayoutPanel1.Controls.Add(this.chkCalle);
-            this.flowLayoutPanel1.Controls.Add(this.chkCP);
+            this.flowLayoutPanel1.Controls.Add(this.chkCelular);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 99);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(420, 31);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(201, 31);
             this.flowLayoutPanel1.TabIndex = 40;
-            // 
-            // cmbEntidad
-            // 
-            this.cmbEntidad.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cmbEntidad.DataSource = this.bsEntidades;
-            this.cmbEntidad.DisplayMember = "noment";
-            this.cmbEntidad.FontWeight = MetroFramework.MetroComboBoxWeight.Bold;
-            this.cmbEntidad.FormattingEnabled = true;
-            this.cmbEntidad.ItemHeight = 23;
-            this.cmbEntidad.Location = new System.Drawing.Point(3, 33);
-            this.cmbEntidad.Name = "cmbEntidad";
-            this.cmbEntidad.Size = new System.Drawing.Size(420, 29);
-            this.cmbEntidad.Style = MetroFramework.MetroColorStyle.Black;
-            this.cmbEntidad.TabIndex = 0;
-            this.cmbEntidad.UseSelectable = true;
-            this.cmbEntidad.UseStyleColors = true;
-            this.cmbEntidad.ValueMember = "nument";
-            // 
-            // bsEntidades
-            // 
-            this.bsEntidades.DataSource = typeof(CellTrack.Models.Registros.entidadesModel);
             // 
             // metroLabel15
             // 
@@ -343,7 +301,7 @@
             this.metroLabel15.AutoSize = true;
             this.metroLabel15.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel15.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel15.Location = new System.Drawing.Point(432, 3);
+            this.metroLabel15.Location = new System.Drawing.Point(6, 3);
             this.metroLabel15.Margin = new System.Windows.Forms.Padding(3);
             this.metroLabel15.Name = "metroLabel15";
             this.metroLabel15.Size = new System.Drawing.Size(151, 25);
@@ -360,7 +318,7 @@
             // 
             // 
             this.txtCad.CustomButton.Image = null;
-            this.txtCad.CustomButton.Location = new System.Drawing.Point(502, 1);
+            this.txtCad.CustomButton.Location = new System.Drawing.Point(928, 1);
             this.txtCad.CustomButton.Name = "";
             this.txtCad.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.txtCad.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -370,7 +328,7 @@
             this.txtCad.CustomButton.Visible = false;
             this.txtCad.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtCad.Lines = new string[0];
-            this.txtCad.Location = new System.Drawing.Point(432, 33);
+            this.txtCad.Location = new System.Drawing.Point(6, 33);
             this.txtCad.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.txtCad.MaxLength = 32767;
             this.txtCad.Name = "txtCad";
@@ -379,25 +337,11 @@
             this.txtCad.SelectedText = "";
             this.txtCad.SelectionLength = 0;
             this.txtCad.SelectionStart = 0;
-            this.txtCad.Size = new System.Drawing.Size(530, 29);
+            this.txtCad.Size = new System.Drawing.Size(956, 29);
             this.txtCad.TabIndex = 1;
             this.txtCad.UseSelectable = true;
             this.txtCad.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCad.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel1.Location = new System.Drawing.Point(3, 3);
-            this.metroLabel1.Margin = new System.Windows.Forms.Padding(3);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(77, 25);
-            this.metroLabel1.TabIndex = 24;
-            this.metroLabel1.Text = "Entidad";
-            this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCantReg
             // 
@@ -405,7 +349,7 @@
             this.lblCantReg.AutoSize = true;
             this.lblCantReg.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblCantReg.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblCantReg.Location = new System.Drawing.Point(6, 363);
+            this.lblCantReg.Location = new System.Drawing.Point(3, 339);
             this.lblCantReg.Margin = new System.Windows.Forms.Padding(3);
             this.lblCantReg.Name = "lblCantReg";
             this.lblCantReg.Size = new System.Drawing.Size(251, 25);
@@ -456,7 +400,7 @@
             this.txtFind.SelectionLength = 0;
             this.txtFind.SelectionStart = 0;
             this.txtFind.Size = new System.Drawing.Size(354, 29);
-            this.txtFind.TabIndex = 8;
+            this.txtFind.TabIndex = 7;
             this.txtFind.UseSelectable = true;
             this.txtFind.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtFind.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -475,36 +419,33 @@
             this.gdIFE.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gdIFE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gdIFE.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gdIFE.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gdIFE.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gdIFE.ColumnHeadersHeight = 30;
             this.gdIFE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gdIFE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.claveDataGridViewTextBoxColumn,
+            this.celularDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
-            this.fnacDataGridViewTextBoxColumn,
-            this.calleDataGridViewTextBoxColumn,
-            this.numextDataGridViewTextBoxColumn,
-            this.numintDataGridViewTextBoxColumn,
+            this.rfcDataGridViewTextBoxColumn,
+            this.direccionDataGridViewTextBoxColumn,
             this.coloniaDataGridViewTextBoxColumn,
-            this.codposDataGridViewTextBoxColumn,
-            this.nmpioDataGridViewTextBoxColumn,
-            this.entidadDataGridViewTextBoxColumn});
-            this.gdIFE.DataSource = this.bsIFE;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdIFE.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ciudadDataGridViewTextBoxColumn,
+            this.cpostalDataGridViewTextBoxColumn});
+            this.gdIFE.DataSource = this.bsTELCEL;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdIFE.DefaultCellStyle = dataGridViewCellStyle2;
             this.gdIFE.EnableHeadersVisualStyles = false;
             this.gdIFE.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gdIFE.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -514,116 +455,24 @@
             this.gdIFE.Name = "gdIFE";
             this.gdIFE.ReadOnly = true;
             this.gdIFE.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gdIFE.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gdIFE.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gdIFE.RowHeadersVisible = false;
             this.gdIFE.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdIFE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdIFE.ShowEditingIcon = false;
-            this.gdIFE.Size = new System.Drawing.Size(956, 319);
+            this.gdIFE.Size = new System.Drawing.Size(956, 295);
             this.gdIFE.StandardTab = true;
             this.gdIFE.Style = MetroFramework.MetroColorStyle.Orange;
-            this.gdIFE.TabIndex = 10;
+            this.gdIFE.TabIndex = 9;
             this.gdIFE.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdIFE.UseStyleColors = true;
-            // 
-            // claveDataGridViewTextBoxColumn
-            // 
-            this.claveDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.claveDataGridViewTextBoxColumn.DataPropertyName = "clave";
-            this.claveDataGridViewTextBoxColumn.HeaderText = "Clave";
-            this.claveDataGridViewTextBoxColumn.Name = "claveDataGridViewTextBoxColumn";
-            this.claveDataGridViewTextBoxColumn.ReadOnly = true;
-            this.claveDataGridViewTextBoxColumn.Width = 65;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fnacDataGridViewTextBoxColumn
-            // 
-            this.fnacDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.fnacDataGridViewTextBoxColumn.DataPropertyName = "fnac";
-            this.fnacDataGridViewTextBoxColumn.HeaderText = "Fecha de Nacimiento";
-            this.fnacDataGridViewTextBoxColumn.Name = "fnacDataGridViewTextBoxColumn";
-            this.fnacDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fnacDataGridViewTextBoxColumn.Width = 159;
-            // 
-            // calleDataGridViewTextBoxColumn
-            // 
-            this.calleDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.calleDataGridViewTextBoxColumn.DataPropertyName = "calle";
-            this.calleDataGridViewTextBoxColumn.HeaderText = "Calle";
-            this.calleDataGridViewTextBoxColumn.Name = "calleDataGridViewTextBoxColumn";
-            this.calleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // numextDataGridViewTextBoxColumn
-            // 
-            this.numextDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.numextDataGridViewTextBoxColumn.DataPropertyName = "numext";
-            this.numextDataGridViewTextBoxColumn.HeaderText = "Num. Ext.";
-            this.numextDataGridViewTextBoxColumn.Name = "numextDataGridViewTextBoxColumn";
-            this.numextDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numextDataGridViewTextBoxColumn.Width = 90;
-            // 
-            // numintDataGridViewTextBoxColumn
-            // 
-            this.numintDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.numintDataGridViewTextBoxColumn.DataPropertyName = "numint";
-            this.numintDataGridViewTextBoxColumn.HeaderText = "Num. Int.";
-            this.numintDataGridViewTextBoxColumn.Name = "numintDataGridViewTextBoxColumn";
-            this.numintDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numintDataGridViewTextBoxColumn.Width = 89;
-            // 
-            // coloniaDataGridViewTextBoxColumn
-            // 
-            this.coloniaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.coloniaDataGridViewTextBoxColumn.DataPropertyName = "colonia";
-            this.coloniaDataGridViewTextBoxColumn.HeaderText = "Colonia";
-            this.coloniaDataGridViewTextBoxColumn.Name = "coloniaDataGridViewTextBoxColumn";
-            this.coloniaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.coloniaDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // codposDataGridViewTextBoxColumn
-            // 
-            this.codposDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.codposDataGridViewTextBoxColumn.DataPropertyName = "codpos";
-            this.codposDataGridViewTextBoxColumn.HeaderText = "Código Postal";
-            this.codposDataGridViewTextBoxColumn.Name = "codposDataGridViewTextBoxColumn";
-            this.codposDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codposDataGridViewTextBoxColumn.Width = 116;
-            // 
-            // nmpioDataGridViewTextBoxColumn
-            // 
-            this.nmpioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nmpioDataGridViewTextBoxColumn.DataPropertyName = "nmpio";
-            this.nmpioDataGridViewTextBoxColumn.HeaderText = "Municipio";
-            this.nmpioDataGridViewTextBoxColumn.Name = "nmpioDataGridViewTextBoxColumn";
-            this.nmpioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nmpioDataGridViewTextBoxColumn.Width = 92;
-            // 
-            // entidadDataGridViewTextBoxColumn
-            // 
-            this.entidadDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.entidadDataGridViewTextBoxColumn.DataPropertyName = "entidad";
-            this.entidadDataGridViewTextBoxColumn.HeaderText = "Entidad";
-            this.entidadDataGridViewTextBoxColumn.Name = "entidadDataGridViewTextBoxColumn";
-            this.entidadDataGridViewTextBoxColumn.ReadOnly = true;
-            this.entidadDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // bsIFE
-            // 
-            this.bsIFE.DataSource = typeof(CellTrack.Models.Registros.IFEModel);
             // 
             // tlpProc
             // 
@@ -663,23 +512,72 @@
             this.metroLabel4.TabIndex = 22;
             this.metroLabel4.Text = "Buscando, favor de esperar...";
             // 
-            // btnFilter
+            // bsTELCEL
             // 
-            this.btnFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFilter.AutoSize = true;
-            this.btnFilter.BackgroundImage = global::CellTrack.Properties.Resources._1464813353_zoom;
-            this.btnFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnFilter.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnFilter.Location = new System.Drawing.Point(429, 3);
-            this.btnFilter.Margin = new System.Windows.Forms.Padding(3, 9, 5, 3);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(30, 30);
-            this.btnFilter.TabIndex = 9;
-            this.metroToolTip.SetToolTip(this.btnFilter, "Filtrar");
-            this.btnFilter.UseSelectable = true;
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            this.bsTELCEL.DataSource = typeof(CellTrack.Models.Registros.TELCELModel);
             // 
-            // frmIFE
+            // celularDataGridViewTextBoxColumn
+            // 
+            this.celularDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.celularDataGridViewTextBoxColumn.DataPropertyName = "celular";
+            this.celularDataGridViewTextBoxColumn.HeaderText = "Celular";
+            this.celularDataGridViewTextBoxColumn.Name = "celularDataGridViewTextBoxColumn";
+            this.celularDataGridViewTextBoxColumn.ReadOnly = true;
+            this.celularDataGridViewTextBoxColumn.Width = 74;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rfcDataGridViewTextBoxColumn
+            // 
+            this.rfcDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.rfcDataGridViewTextBoxColumn.DataPropertyName = "rfc";
+            this.rfcDataGridViewTextBoxColumn.HeaderText = "RFC";
+            this.rfcDataGridViewTextBoxColumn.Name = "rfcDataGridViewTextBoxColumn";
+            this.rfcDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rfcDataGridViewTextBoxColumn.Width = 56;
+            // 
+            // direccionDataGridViewTextBoxColumn
+            // 
+            this.direccionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
+            this.direccionDataGridViewTextBoxColumn.HeaderText = "Domicilio";
+            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
+            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // coloniaDataGridViewTextBoxColumn
+            // 
+            this.coloniaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.coloniaDataGridViewTextBoxColumn.DataPropertyName = "colonia";
+            this.coloniaDataGridViewTextBoxColumn.HeaderText = "Colonia";
+            this.coloniaDataGridViewTextBoxColumn.Name = "coloniaDataGridViewTextBoxColumn";
+            this.coloniaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.coloniaDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // ciudadDataGridViewTextBoxColumn
+            // 
+            this.ciudadDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ciudadDataGridViewTextBoxColumn.DataPropertyName = "ciudad";
+            this.ciudadDataGridViewTextBoxColumn.HeaderText = "Ciudad";
+            this.ciudadDataGridViewTextBoxColumn.Name = "ciudadDataGridViewTextBoxColumn";
+            this.ciudadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ciudadDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // cpostalDataGridViewTextBoxColumn
+            // 
+            this.cpostalDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cpostalDataGridViewTextBoxColumn.DataPropertyName = "cpostal";
+            this.cpostalDataGridViewTextBoxColumn.HeaderText = "Código Postal";
+            this.cpostalDataGridViewTextBoxColumn.Name = "cpostalDataGridViewTextBoxColumn";
+            this.cpostalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cpostalDataGridViewTextBoxColumn.Width = 116;
+            // 
+            // frmTELCEL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -690,7 +588,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.shapeContainer1);
             this.MinimumSize = new System.Drawing.Size(984, 598);
-            this.Name = "frmIFE";
+            this.Name = "frmTELCEL";
             this.Size = new System.Drawing.Size(982, 596);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.splitContainer.Panel1.ResumeLayout(false);
@@ -701,11 +599,10 @@
             this.splitContainer.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsEntidades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gdIFE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsIFE)).EndInit();
             this.tlpProc.ResumeLayout(false);
             this.tlpProc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTELCEL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -721,31 +618,16 @@
         private System.Windows.Forms.SplitContainer splitContainer;
         private MetroFramework.Controls.MetroLabel metroLabel15;
         private MetroFramework.Controls.MetroTextBox txtCad;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroComboBox cmbEntidad;
         private MetroFramework.Controls.MetroGrid gdIFE;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private MetroFramework.Controls.MetroCheckBox chkClave;
+        private MetroFramework.Controls.MetroCheckBox chkCelular;
         private MetroFramework.Controls.MetroCheckBox chkNombre;
-        private MetroFramework.Controls.MetroCheckBox chkCalle;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroToggle tgExacta;
         private MetroFramework.Controls.MetroLabel lblExacta;
         private MetroFramework.Controls.MetroButton btnFind;
-        private MetroFramework.Controls.MetroCheckBox chkCP;
-        private System.Windows.Forms.BindingSource bsEntidades;
-        private System.Windows.Forms.BindingSource bsIFE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn claveDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fnacDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn calleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numextDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numintDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coloniaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codposDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nmpioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn entidadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bsTELCEL;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner3;
         private System.Windows.Forms.FlowLayoutPanel tlpProc;
@@ -754,5 +636,12 @@
         private MetroFramework.Controls.MetroTextBox txtFind;
         private MetroFramework.Controls.MetroLabel lblCantReg;
         private MetroFramework.Controls.MetroButton btnFilter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn celularDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rfcDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coloniaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ciudadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cpostalDataGridViewTextBoxColumn;
     }
 }

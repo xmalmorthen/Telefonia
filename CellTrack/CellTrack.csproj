@@ -105,6 +105,8 @@
     <Compile Include="Classes\sshCnn.cs" />
     <Compile Include="Classes\visualStyles.cs" />
     <Compile Include="Controllers\catalogosController.cs" />
+    <Compile Include="Controllers\RegistrosControllers\CFEController.cs" />
+    <Compile Include="Controllers\RegistrosControllers\TELCELController.cs" />
     <Compile Include="Controllers\RegistrosControllers\entidadesController.cs" />
     <Compile Include="Controllers\RegistrosControllers\IFEController.cs" />
     <Compile Include="Controllers\seguimientoController.cs" />
@@ -187,6 +189,8 @@
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MapInfo.cs" />
+    <Compile Include="Models\Registros\CFEModel.cs" />
+    <Compile Include="Models\Registros\TELCELModel.cs" />
     <Compile Include="Models\Registros\entidadesModel.cs" />
     <Compile Include="Models\Registros\IFEModel.cs" />
     <Compile Include="Models\seguimientoModel.cs" />
@@ -342,6 +346,18 @@
     <Compile Include="Views\UserControls\menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\Registros\frmTELCEL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Registros\frmTELCEL.Designer.cs">
+      <DependentUpon>frmTELCEL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Registros\frmCFE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Registros\frmCFE.Designer.cs">
+      <DependentUpon>frmCFE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Registros\frmIFE.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -361,8 +377,10 @@
     <None Include="Models\DataBases\bdRegistros.edmx.diagram">
       <DependentUpon>bdRegistros.edmx</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\CellTrack.Models.Registros.CFEModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.Registros.entidadesModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.Registros.IFEModel.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.Registros.TELCELModel.datasource" />
     <None Include="Resources\1465680503_clipboard_past.png" />
     <None Include="Properties\DataSources\CellTrack.Models.seguimientoModel.datasource" />
     <None Include="Resources\1464400316_target.png" />
@@ -409,6 +427,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Localizacion\frmRecibidos.resx">
       <DependentUpon>frmRecibidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Registros\frmTELCEL.resx">
+      <DependentUpon>frmTELCEL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Registros\frmCFE.resx">
+      <DependentUpon>frmCFE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Registros\frmIFE.resx">
       <DependentUpon>frmIFE.cs</DependentUpon>

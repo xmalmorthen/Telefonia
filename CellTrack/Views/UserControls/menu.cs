@@ -167,6 +167,21 @@ namespace CellTrack.Views.UserControls
         {
             this.openFrm<frmIFE>();
         }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            this.openFrm<frmCFE>();
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        {
+            this.openFrm<frmTELCEL>();
+        }
         
     }
 }

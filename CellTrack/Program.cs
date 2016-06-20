@@ -73,9 +73,10 @@ namespace CellTrack
                     Program.closeAllConnections();
                 //}
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Problemas al intentar conectar a la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Problemas al intentar conectar a la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             terminateProgramm();
         }
