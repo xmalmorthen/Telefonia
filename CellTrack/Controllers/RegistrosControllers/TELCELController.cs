@@ -43,7 +43,7 @@ WHERE
                         where += string.Format(@"nombre {0}", preFab);
                     break;
                     case "celular":
-                        where += string.Format(@"{0} celular {1}", !string.IsNullOrEmpty(where) ? " AND " : string.Empty, preFab);
+                        where += string.Format(@"{0} celular {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
                     break;
 	            }
 	        }

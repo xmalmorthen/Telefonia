@@ -11,30 +11,41 @@ using System.Threading.Tasks;
 
 namespace CellTrack.Controllers.RegistrosControllers
 {
-    public static class IFEController
+    public static class NEXTELController
     {
-        private static List<IFEModel> dataList = new List<IFEModel>();
+        private static List<NEXTELModel> dataList = new List<NEXTELModel>();
         private static List<BackgroundWorker> wrkers = new List<BackgroundWorker>();
 
-        public static List<IFEModel> find(string idEntidad, List<string> searchFields, string cad, Boolean exacta)
+        public static List<NEXTELModel> find(List<string> searchFields, string cad, Boolean exacta)
         {
             string qry = @"
 (
 SELECT
-    clave,
-    CONCAT_WS(' ',nombre,paterno,materno) nombre,
-    fnac,
-    calle,
-    numext,
-    numint,
+    radio,
+    empresa,
+    rfc,
+    empresa1,
+    tipocta,
+    direccion,
     colonia,
-    codpos,
-    nmpio,
-    entidad
+    cpostal,
+    telefono,
+    direccion1,
+    colonia1,
+    ciudad,
+    estado,
+    cpostal1,
+    telefono1,
+    nombre,
+    telefono2,
+    empresa3,
+    digitos,
+    telefono3,
+    registro
 FROM
-    ife{0}
+    nextel
 WHERE
-    {1}
+    {0}
 )";
             string preFab = exacta ? string.Format(@"= '{0}'",cad) : string.Format(@"LIKE '%{0}%'",cad.Replace(" ","%"));
             string where = string.Empty;
@@ -42,47 +53,39 @@ WHERE
 	        {
 		        switch (item.ToLower())
 	            {
+                    case "radio":
+                        where += string.Format(@"radio {0}", preFab);
+                    break;
+                    case "empresa":
+                        where += string.Format(@"{0} empresa {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
+                        where += string.Format(@"{0} empresa1 {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
+                        where += string.Format(@"{0} empresa3 {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
+                    break;
                     case "nombre":
-                        where += string.Format (@"CONCAT_WS(' ',nombre,paterno,materno) {0}",preFab);
+                        where += string.Format(@"{0} nombre {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
                     break;
-                    case "clave":
-                        where += string.Format (@"{0} clave {1}",!string.IsNullOrEmpty(where) ? " OR " : string.Empty,preFab);
+                    case "domicilio":
+                        where += string.Format(@"{0} direccion {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
+                        where += string.Format(@"{0} direccion1 {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
                     break;
-                    case "calle":
-                        where += string.Format (@"{0} CONCAT_WS(' ',calle,numext,numint) {1}",!string.IsNullOrEmpty(where) ? " OR " : string.Empty,preFab);
-                    break;
-                    case "cp":
-                        where += string.Format (@"{0} codpos {1}",!string.IsNullOrEmpty(where) ? " OR " : string.Empty,preFab);
+                    case "telefono":
+                    where += string.Format(@"{0} telefono {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
+                    where += string.Format(@"{0} telefono1 {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
+                    where += string.Format(@"{0} telefono2 {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
+                    where += string.Format(@"{0} telefono3 {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
                     break;
 	            }
 	        }
 
             dataList.Clear();
 
-            if (idEntidad.Equals("00"))
-            {
-                for (int i = 1; i <= 32; i++)
-                {
-                    string qryFab = string.Format(qry, i.ToString("00"), where);
-
-                    BackgroundWorker wrker = new BackgroundWorker();
-                    wrker.WorkerSupportsCancellation = true;
-                    wrker.DoWork += wrker_DoWork;
-                    wrker.RunWorkerCompleted += wrker_RunWorkerCompleted;
-                    wrker.RunWorkerAsync(qryFab);
-                    wrkers.Add(wrker);
-                }
-            }
-            else {
-                string qryFab = string.Format(qry,idEntidad, where);
-                BackgroundWorker wrker = new BackgroundWorker();
-                wrker.WorkerSupportsCancellation = true;
-                wrker.DoWork += wrker_DoWork;
-                wrker.RunWorkerCompleted += wrker_RunWorkerCompleted;
-                wrker.RunWorkerAsync(qryFab);
-                wrkers.Add(wrker);
-            }
-
+            string qryFab = string.Format(qry, where);
+            BackgroundWorker wrker = new BackgroundWorker();
+            wrker.WorkerSupportsCancellation = true;
+            wrker.DoWork += wrker_DoWork;
+            wrker.RunWorkerCompleted += wrker_RunWorkerCompleted;
+            wrker.RunWorkerAsync(qryFab);
+            wrkers.Add(wrker);
 
             Boolean waith = true;
             while (waith == true)
@@ -113,11 +116,11 @@ WHERE
 
             string qry = e.Argument.ToString();
             bdRegistrosEntities bd = new bdRegistrosEntities();
-            List<IFEModel> data = null;
+            List<NEXTELModel> data = null;
             try
             {
                 bd.Database.CommandTimeout = 0;
-                data = bd.Database.SqlQuery<IFEModel>(qry).ToList();
+                data = bd.Database.SqlQuery<NEXTELModel>(qry).ToList();
             }
             catch (Exception ex)
             {
@@ -130,7 +133,7 @@ WHERE
         {
             if (!e.Cancelled)
             {
-                List<IFEModel> data = (List<IFEModel>)e.Result;
+                List<NEXTELModel> data = (List<NEXTELModel>)e.Result;
                 if (data != null)
                     if (data.Count > 0)
                         lock (dataList)

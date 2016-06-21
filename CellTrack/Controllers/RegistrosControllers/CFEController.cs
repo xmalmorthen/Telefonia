@@ -43,10 +43,10 @@ WHERE
                         where += string.Format (@"nombre {0}",preFab);
                     break;
                     case "servicio":
-                        where += string.Format (@"{0} servicio {1}",!string.IsNullOrEmpty(where) ? " AND " : string.Empty,preFab);
+                        where += string.Format (@"{0} servicio {1}",!string.IsNullOrEmpty(where) ? " OR " : string.Empty,preFab);
                     break;
                     case "domicilio":
-                        where += string.Format (@"{0} direccion {1}",!string.IsNullOrEmpty(where) ? " AND " : string.Empty,preFab);
+                        where += string.Format (@"{0} direccion {1}",!string.IsNullOrEmpty(where) ? " OR " : string.Empty,preFab);
                     break;                    
 	            }
 	        }

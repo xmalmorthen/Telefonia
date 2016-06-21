@@ -302,6 +302,7 @@
             this.toolStripMenuItem13.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem13.Tag = "1-5";
             this.toolStripMenuItem13.Text = "TELMEX";
+            this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
             // 
             // toolStripMenuItem14
             // 
@@ -317,6 +318,7 @@
             this.toolStripMenuItem15.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem15.Tag = "1-7";
             this.toolStripMenuItem15.Text = "NEXTEL";
+            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
             // 
             // toolStripSeparator2
             // 

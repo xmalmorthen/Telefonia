@@ -11,59 +11,78 @@ using System.Threading.Tasks;
 
 namespace CellTrack.Controllers.RegistrosControllers
 {
-    public static class IFEController
+    public static class TELMEXController
     {
-        private static List<IFEModel> dataList = new List<IFEModel>();
+        private static List<TELMEXModel> dataList = new List<TELMEXModel>();
         private static List<BackgroundWorker> wrkers = new List<BackgroundWorker>();
 
-        public static List<IFEModel> find(string idEntidad, List<string> searchFields, string cad, Boolean exacta)
+        public static List<TELMEXModel> find(string idEntidad, string tipo, List<string> searchFields, string cad, Boolean exacta)
         {
-            string qry = @"
+            string qry = string.Empty;
+
+            if (tipo.Equals("telbca") || tipo.Equals("telpriv"))
+            {
+                qry = @"
 (
 SELECT
-    clave,
-    CONCAT_WS(' ',nombre,paterno,materno) nombre,
-    fnac,
-    calle,
-    numext,
-    numint,
+    numero,
+    CONCAT_WS(' ',nombre,paterno,materno) as nombre,
+    direccion,
+    cpostal,
     colonia,
-    codpos,
-    nmpio,
-    entidad
+    municipio,
+    estado ";
+            }
+            else {
+                qry = @"
+(
+SELECT
+    numero,
+    direccion,
+    municipio,
+    central ";
+            }
+
+        qry += @"
 FROM
-    ife{0}
+    {0}{1}
 WHERE
-    {1}
+    {2}
 )";
             string preFab = exacta ? string.Format(@"= '{0}'",cad) : string.Format(@"LIKE '%{0}%'",cad.Replace(" ","%"));
             string where = string.Empty;
-            foreach (string item in searchFields)
-	        {
-		        switch (item.ToLower())
-	            {
-                    case "nombre":
-                        where += string.Format (@"CONCAT_WS(' ',nombre,paterno,materno) {0}",preFab);
-                    break;
-                    case "clave":
-                        where += string.Format (@"{0} clave {1}",!string.IsNullOrEmpty(where) ? " OR " : string.Empty,preFab);
-                    break;
-                    case "calle":
-                        where += string.Format (@"{0} CONCAT_WS(' ',calle,numext,numint) {1}",!string.IsNullOrEmpty(where) ? " OR " : string.Empty,preFab);
-                    break;
-                    case "cp":
-                        where += string.Format (@"{0} codpos {1}",!string.IsNullOrEmpty(where) ? " OR " : string.Empty,preFab);
-                    break;
-	            }
-	        }
+            if (!tipo.Equals("telcas"))
+            {
+                foreach (string item in searchFields)
+                {
+                    switch (item.ToLower())
+                    {
+                        case "nombre":
+                            where += string.Format(@"CONCAT_WS(' ',nombre,paterno,materno) {0}", preFab);
+                            break;
+                        case "numero":
+                            where += string.Format(@"{0} numero {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
+                            break;
+                        case "domicilio":
+                            where += string.Format(@"{0} direccion {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
+                            break;
+                        case "cp":
+                            where += string.Format(@"{0} cpostal {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
+                            break;
+                    }
+                }
+            }
+            else {
+                where += string.Format(@"{0} numero {1}", !string.IsNullOrEmpty(where) ? " OR " : string.Empty, preFab);
+            }
 
             dataList.Clear();
 
             if (idEntidad.Equals("00"))
             {
-                for (int i = 1; i <= 32; i++)
+                for (int i = 1; i <= (tipo.Equals("telcas") ? 9 : 32); i++)
                 {
-                    string qryFab = string.Format(qry, i.ToString("00"), where);
+                    string qryFab = string.Format(qry,tipo,i.ToString("00"), where);
 
                     BackgroundWorker wrker = new BackgroundWorker();
                     wrker.WorkerSupportsCancellation = true;
@@ -74,7 +93,7 @@ WHERE
                 }
             }
             else {
-                string qryFab = string.Format(qry,idEntidad, where);
+                string qryFab = string.Format(qry,tipo,idEntidad, where);
                 BackgroundWorker wrker = new BackgroundWorker();
                 wrker.WorkerSupportsCancellation = true;
                 wrker.DoWork += wrker_DoWork;
@@ -113,11 +132,11 @@ WHERE
 
             string qry = e.Argument.ToString();
             bdRegistrosEntities bd = new bdRegistrosEntities();
-            List<IFEModel> data = null;
+            List<TELMEXModel> data = null;
             try
             {
                 bd.Database.CommandTimeout = 0;
-                data = bd.Database.SqlQuery<IFEModel>(qry).ToList();
+                data = bd.Database.SqlQuery<TELMEXModel>(qry).ToList();
             }
             catch (Exception ex)
             {
@@ -130,7 +149,7 @@ WHERE
         {
             if (!e.Cancelled)
             {
-                List<IFEModel> data = (List<IFEModel>)e.Result;
+                List<TELMEXModel> data = (List<TELMEXModel>)e.Result;
                 if (data != null)
                     if (data.Count > 0)
                         lock (dataList)

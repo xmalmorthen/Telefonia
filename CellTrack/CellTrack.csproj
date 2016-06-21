@@ -106,6 +106,8 @@
     <Compile Include="Classes\visualStyles.cs" />
     <Compile Include="Controllers\catalogosController.cs" />
     <Compile Include="Controllers\RegistrosControllers\CFEController.cs" />
+    <Compile Include="Controllers\RegistrosControllers\TELMEXController.cs" />
+    <Compile Include="Controllers\RegistrosControllers\NEXTELController.cs" />
     <Compile Include="Controllers\RegistrosControllers\TELCELController.cs" />
     <Compile Include="Controllers\RegistrosControllers\entidadesController.cs" />
     <Compile Include="Controllers\RegistrosControllers\IFEController.cs" />
@@ -190,6 +192,9 @@
     </Compile>
     <Compile Include="Models\MapInfo.cs" />
     <Compile Include="Models\Registros\CFEModel.cs" />
+    <Compile Include="Models\Registros\TELMEXModel.cs" />
+    <Compile Include="Models\Registros\tipoTELMEXModel.cs" />
+    <Compile Include="Models\Registros\NEXTELModel.cs" />
     <Compile Include="Models\Registros\TELCELModel.cs" />
     <Compile Include="Models\Registros\entidadesModel.cs" />
     <Compile Include="Models\Registros\IFEModel.cs" />
@@ -346,6 +351,18 @@
     <Compile Include="Views\UserControls\menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\Registros\frmTELMEX.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Registros\frmTELMEX.Designer.cs">
+      <DependentUpon>frmTELMEX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Registros\frmNEXTEL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Registros\frmNEXTEL.Designer.cs">
+      <DependentUpon>frmNEXTEL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Registros\frmTELCEL.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -380,7 +397,10 @@
     <None Include="Properties\DataSources\CellTrack.Models.Registros.CFEModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.Registros.entidadesModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.Registros.IFEModel.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.Registros.NEXTELModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.Registros.TELCELModel.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.Registros.TELMEXModel.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.Registros.tipoTELCELModel.datasource" />
     <None Include="Resources\1465680503_clipboard_past.png" />
     <None Include="Properties\DataSources\CellTrack.Models.seguimientoModel.datasource" />
     <None Include="Resources\1464400316_target.png" />
@@ -427,6 +447,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Localizacion\frmRecibidos.resx">
       <DependentUpon>frmRecibidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Registros\frmTELMEX.resx">
+      <DependentUpon>frmTELMEX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Registros\frmNEXTEL.resx">
+      <DependentUpon>frmNEXTEL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Registros\frmTELCEL.resx">
       <DependentUpon>frmTELCEL.cs</DependentUpon>
