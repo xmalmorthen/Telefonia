@@ -22,7 +22,7 @@ namespace CellTrack.Views.UserControls
         public menu()
         {
             InitializeComponent();
-            this.init();
+            //this.init();
         }
 
         private void init()
@@ -191,6 +191,11 @@ namespace CellTrack.Views.UserControls
         private void toolStripMenuItem13_Click(object sender, EventArgs e)
         {
             this.openFrm<frmTELMEX>();
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            this.openFrm<frmRENAUT>();
         }
         
     }

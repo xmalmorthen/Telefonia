@@ -295,6 +295,7 @@
             this.toolStripMenuItem12.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem12.Tag = "1-4";
             this.toolStripMenuItem12.Text = "RENAUT";
+            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
             // toolStripMenuItem13
             // 

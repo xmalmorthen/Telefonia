@@ -57,10 +57,6 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.txtFind = new MetroFramework.Controls.MetroTextBox();
             this.gdIFE = new MetroFramework.Controls.MetroGrid();
-            this.tlpProc = new System.Windows.Forms.FlowLayoutPanel();
-            this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.bsNEXTEL = new System.Windows.Forms.BindingSource(this.components);
             this.radioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rfcDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,6 +78,10 @@
             this.tipoctaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.digitosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsNEXTEL = new System.Windows.Forms.BindingSource(this.components);
+            this.tlpProc = new System.Windows.Forms.FlowLayoutPanel();
+            this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -89,8 +89,8 @@
             this.splitContainer.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdIFE)).BeginInit();
-            this.tlpProc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsNEXTEL)).BeginInit();
+            this.tlpProc.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroToolTip
@@ -412,7 +412,6 @@
             this.lblCantReg.TabIndex = 55;
             this.lblCantReg.Text = "[ 00 ] Registros Encontrados";
             this.lblCantReg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblCantReg.Visible = false;
             // 
             // metroLabel5
             // 
@@ -543,48 +542,6 @@
             this.gdIFE.TabIndex = 9;
             this.gdIFE.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdIFE.UseStyleColors = true;
-            // 
-            // tlpProc
-            // 
-            this.tlpProc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tlpProc.AutoSize = true;
-            this.tlpProc.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpProc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tlpProc.Controls.Add(this.metroProgressSpinner3);
-            this.tlpProc.Controls.Add(this.metroLabel4);
-            this.tlpProc.Controls.Add(this.btnCancel);
-            this.tlpProc.Location = new System.Drawing.Point(300, 365);
-            this.tlpProc.Name = "tlpProc";
-            this.tlpProc.Size = new System.Drawing.Size(378, 62);
-            this.tlpProc.TabIndex = 24;
-            // 
-            // metroProgressSpinner3
-            // 
-            this.metroProgressSpinner3.Location = new System.Drawing.Point(5, 5);
-            this.metroProgressSpinner3.Margin = new System.Windows.Forms.Padding(5);
-            this.metroProgressSpinner3.Maximum = 100;
-            this.metroProgressSpinner3.Name = "metroProgressSpinner3";
-            this.metroProgressSpinner3.Size = new System.Drawing.Size(50, 50);
-            this.metroProgressSpinner3.TabIndex = 21;
-            this.metroProgressSpinner3.UseSelectable = true;
-            this.metroProgressSpinner3.Value = 50;
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.metroLabel4.Location = new System.Drawing.Point(63, 18);
-            this.metroLabel4.Margin = new System.Windows.Forms.Padding(3, 18, 3, 3);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(258, 25);
-            this.metroLabel4.TabIndex = 22;
-            this.metroLabel4.Text = "Buscando, favor de esperar...";
-            // 
-            // bsNEXTEL
-            // 
-            this.bsNEXTEL.DataSource = typeof(CellTrack.Models.Registros.NEXTELModel);
             // 
             // radioDataGridViewTextBoxColumn
             // 
@@ -773,6 +730,49 @@
             this.registroDataGridViewTextBoxColumn.ReadOnly = true;
             this.registroDataGridViewTextBoxColumn.Visible = false;
             // 
+            // bsNEXTEL
+            // 
+            this.bsNEXTEL.DataSource = typeof(CellTrack.Models.Registros.NEXTELModel);
+            this.bsNEXTEL.DataSourceChanged += new System.EventHandler(this.bsNEXTEL_DataSourceChanged);
+            // 
+            // tlpProc
+            // 
+            this.tlpProc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlpProc.AutoSize = true;
+            this.tlpProc.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlpProc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tlpProc.Controls.Add(this.metroProgressSpinner3);
+            this.tlpProc.Controls.Add(this.metroLabel4);
+            this.tlpProc.Controls.Add(this.btnCancel);
+            this.tlpProc.Location = new System.Drawing.Point(300, 365);
+            this.tlpProc.Name = "tlpProc";
+            this.tlpProc.Size = new System.Drawing.Size(378, 62);
+            this.tlpProc.TabIndex = 24;
+            // 
+            // metroProgressSpinner3
+            // 
+            this.metroProgressSpinner3.Location = new System.Drawing.Point(5, 5);
+            this.metroProgressSpinner3.Margin = new System.Windows.Forms.Padding(5);
+            this.metroProgressSpinner3.Maximum = 100;
+            this.metroProgressSpinner3.Name = "metroProgressSpinner3";
+            this.metroProgressSpinner3.Size = new System.Drawing.Size(50, 50);
+            this.metroProgressSpinner3.TabIndex = 21;
+            this.metroProgressSpinner3.UseSelectable = true;
+            this.metroProgressSpinner3.Value = 50;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.metroLabel4.Location = new System.Drawing.Point(63, 18);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(3, 18, 3, 3);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(258, 25);
+            this.metroLabel4.TabIndex = 22;
+            this.metroLabel4.Text = "Buscando, favor de esperar...";
+            // 
             // frmNEXTEL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -796,9 +796,9 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdIFE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsNEXTEL)).EndInit();
             this.tlpProc.ResumeLayout(false);
             this.tlpProc.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsNEXTEL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

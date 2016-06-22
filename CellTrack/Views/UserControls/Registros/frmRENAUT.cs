@@ -20,7 +20,7 @@ using System.Threading;
 
 namespace CellTrack.Views.UserControls
 {
-    public partial class frmCFE : UserControl
+    public partial class frmRENAUT : UserControl
     {
         enums.frmState frmState;
         public enums.frmState FrmState
@@ -34,10 +34,10 @@ namespace CellTrack.Views.UserControls
             }
         }
 
-        public frmCFE()
+        public frmRENAUT()
         {
             InitializeComponent();
-            this.init();            
+            this.init();
         }
 
         private void init()
@@ -54,23 +54,6 @@ namespace CellTrack.Views.UserControls
 
         private void populate()
         {
-            List<entidadesModel> entidades = new List<entidadesModel>();
-            entidades.Add(new entidadesModel()
-            {
-                noment = "TODAS",
-                nument = "00"
-            });
-
-            try
-            {
-                entidades.AddRange(entidadesController.getEntidades);
-                bsEntidades.DataSource = entidades;    
-            }
-            catch (Exception ex)
-            {
-                exceptionHandlerCatch.registerLogException(ex);
-                throw new NullReferenceException("Error al obtener la lista de entidades");
-            }
         }
 
         private void tgExacta_CheckedChanged(object sender, EventArgs e)
@@ -81,7 +64,6 @@ namespace CellTrack.Views.UserControls
         BackgroundWorker wrker = null;
         struct wrkerStruct
         {
-            public string idEntidad;
             public List<string> searchFields;
             public string cad;
             public Boolean exacta;
@@ -93,7 +75,7 @@ namespace CellTrack.Views.UserControls
                 txtCad.Focus();
                 return;
             }
-            if (!chkNombre.Checked && !chkServicio.Checked && !chkDomicilio.Checked) {
+            if (!chkNombre.Checked && !chkCelular.Checked) {
                 MetroMessageBox.Show(this, "Debe seleccionar al menos un campo en donde buscar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 flowLayoutPanel1.Focus();
                 return;
@@ -105,17 +87,15 @@ namespace CellTrack.Views.UserControls
 
             Application.DoEvents();
 
-            bsCFE.DataSource = null;
+            bsRENAUT.DataSource = null;
 
             List<string> searchFields = new List<string>();
 
             if (chkNombre.Checked) searchFields.Add("nombre");
-            if (chkServicio.Checked) searchFields.Add("servicio");
-            if (chkDomicilio.Checked) searchFields.Add("domicilio");
+            if (chkCelular.Checked) searchFields.Add("celular");
 
             wrkerStruct str = new wrkerStruct()
             {
-                idEntidad = ((entidadesModel)bsEntidades.Current).nument,
                 searchFields = searchFields,
                 cad = txtCad.Text.Trim(),
                 exacta = tgExacta.Checked
@@ -140,8 +120,7 @@ namespace CellTrack.Views.UserControls
 
             wrkerStruct str = (wrkerStruct)e.Argument;
 
-            e.Result = CFEController.find(str.idEntidad,
-                                          str.searchFields,
+            e.Result = RENAUTController.find(str.searchFields,
                                           str.cad,
                                           str.exacta);
 
@@ -156,7 +135,7 @@ namespace CellTrack.Views.UserControls
         {
             if (!e.Cancelled)
             {
-                List<CFEModel> data = (List<CFEModel>)e.Result;
+                List<RENAUTModel> data = (List<RENAUTModel>)e.Result;
                 ((BackgroundWorker)sender).CancelAsync();
 
                 if (data != null)
@@ -164,10 +143,10 @@ namespace CellTrack.Views.UserControls
                     FrmState = enums.frmState.Finded;
                     if (unFilterList != null) 
                         unFilterList.Clear();
-                    unFilterList = new List<CFEModel>(data);
-                    bsCFE.DataSource = data;
+                    unFilterList = new List<RENAUTModel>(data);
+                    bsRENAUT.DataSource = data;                    
                 }
-                FrmState = enums.frmState.Normal;
+                FrmState = enums.frmState.Normal;                    
             }
             btnCancel.Click -= btnCancel_Click;
         }
@@ -179,7 +158,7 @@ namespace CellTrack.Views.UserControls
             FrmState = enums.frmState.Normal;
         }
 
-        private List<CFEModel> unFilterList;
+        private List<RENAUTModel> unFilterList;
         private BackgroundWorker wrk = new BackgroundWorker();
         private void btnFilter_Click(object sender, EventArgs e)
         {
@@ -189,7 +168,7 @@ namespace CellTrack.Views.UserControls
 
             Application.DoEvents();
 
-            bsCFE.DataSource = null;
+            bsRENAUT.DataSource = null;
             
             wrk.WorkerSupportsCancellation = true;
             wrk.DoWork += wrk_DoWork;
@@ -205,7 +184,7 @@ namespace CellTrack.Views.UserControls
             {
                 FrmState = enums.frmState.Finded;
                 if (e.Result != null)
-                    bsCFE.DataSource = (List<RENAUTModel>)e.Result;
+                    bsRENAUT.DataSource = (List<RENAUTModel>)e.Result;
             }
             btnCancel.Click -= btnCancelFilter_Click;
             FrmState = enums.frmState.Normal;
@@ -221,16 +200,23 @@ namespace CellTrack.Views.UserControls
 
             string filter = (string)e.Argument;
 
-            List<CFEModel> data = null;
+            List<RENAUTModel> data = null;
             if (string.IsNullOrEmpty(filter))
-                data = new List<CFEModel>(unFilterList);
+                data = new List<RENAUTModel>(unFilterList);
             else
             {
-                data = new List<CFEModel>(unFilterList.Where(qry => qry.servicio.Contains(filter) ||
+                data = new List<RENAUTModel>(unFilterList.Where(qry => qry.celular.Contains(filter) ||
                                                                     qry.nombre.Contains(filter) ||
-                                                                    qry.direccion.Contains(filter)));
+                                                                    qry.carrier.Contains(filter) ||
+                                                                    qry.numero.Contains(filter) ||
+                                                                    qry.tipo.Contains(filter) ||
+                                                                    qry.cpp.Contains(filter) ||
+                                                                    qry.campo1.Contains(filter) ||
+                                                                    qry.campo2.Contains(filter)));
             }
+            
             e.Result = data;
+
             if (((BackgroundWorker)sender).CancellationPending)
             {
                 e.Cancel = true;
@@ -241,12 +227,12 @@ namespace CellTrack.Views.UserControls
         private void btnCancelFilter_Click(object sender, EventArgs e)
         {
             wrk.CancelAsync();
-            bsCFE.DataSource = unFilterList;
+            bsRENAUT.DataSource = unFilterList;
 
             FrmState = enums.frmState.Normal;
         }
-
-        private void bsCFE_DataSourceChanged(object sender, EventArgs e)
+       
+        private void bsRENAUT_DataSourceChanged(object sender, EventArgs e)
         {
             if (FrmState == enums.frmState.Normal || FrmState == enums.frmState.Finded)
             {

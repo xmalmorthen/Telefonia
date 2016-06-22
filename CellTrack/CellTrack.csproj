@@ -106,6 +106,7 @@
     <Compile Include="Classes\visualStyles.cs" />
     <Compile Include="Controllers\catalogosController.cs" />
     <Compile Include="Controllers\RegistrosControllers\CFEController.cs" />
+    <Compile Include="Controllers\RegistrosControllers\RENAUTController.cs" />
     <Compile Include="Controllers\RegistrosControllers\TELMEXController.cs" />
     <Compile Include="Controllers\RegistrosControllers\NEXTELController.cs" />
     <Compile Include="Controllers\RegistrosControllers\TELCELController.cs" />
@@ -192,6 +193,7 @@
     </Compile>
     <Compile Include="Models\MapInfo.cs" />
     <Compile Include="Models\Registros\CFEModel.cs" />
+    <Compile Include="Models\Registros\RENAUTModel.cs" />
     <Compile Include="Models\Registros\TELMEXModel.cs" />
     <Compile Include="Models\Registros\tipoTELMEXModel.cs" />
     <Compile Include="Models\Registros\NEXTELModel.cs" />
@@ -351,6 +353,12 @@
     <Compile Include="Views\UserControls\menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\Registros\frmRENAUT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Registros\frmRENAUT.Designer.cs">
+      <DependentUpon>frmRENAUT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Registros\frmTELMEX.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -398,6 +406,7 @@
     <None Include="Properties\DataSources\CellTrack.Models.Registros.entidadesModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.Registros.IFEModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.Registros.NEXTELModel.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.Registros.RENAUTModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.Registros.TELCELModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.Registros.TELMEXModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.Registros.tipoTELCELModel.datasource" />
@@ -447,6 +456,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Localizacion\frmRecibidos.resx">
       <DependentUpon>frmRecibidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Registros\frmRENAUT.resx">
+      <DependentUpon>frmRENAUT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Registros\frmTELMEX.resx">
       <DependentUpon>frmTELMEX.cs</DependentUpon>

@@ -13,7 +13,8 @@ namespace CellTrack.Models
             Add,
             Edit,
             Delete,
-            Find
+            Find,
+            Finded
         }
 
     }

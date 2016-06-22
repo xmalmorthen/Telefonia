@@ -31,8 +31,6 @@ namespace CellTrack.Views.UserControls
 
                 tlpProc.Visible = frmState == enums.frmState.Find;
                 splitContainer.Enabled = frmState == enums.frmState.Normal;
-
-                lblCantReg.Visible = frmState == enums.frmState.Normal && (bsNEXTEL != null ? bsNEXTEL.Count > 0 : false);
             }
         }
 
@@ -145,18 +143,13 @@ namespace CellTrack.Views.UserControls
 
                 if (data != null)
                 {
-                    if (unFilterList != null) unFilterList.Clear();
-
+                    FrmState = enums.frmState.Finded;
+                    if (unFilterList != null) 
+                        unFilterList.Clear();
                     unFilterList = new List<NEXTELModel>(data);
                     bsNEXTEL.DataSource = data;
-                    lblCantReg.Text = string.Format("[ {0} ] Registros Encontrados", data.Count.ToString());
-                    FrmState = enums.frmState.Normal;
                 }
-                else
-                {
-                    FrmState = enums.frmState.Normal;
-                    MetroMessageBox.Show(this, "No se encontraron resultados que coincidan con la búsqueda", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                FrmState = enums.frmState.Normal;
             }
             btnCancel.Click -= btnCancel_Click;
         }
@@ -192,6 +185,7 @@ namespace CellTrack.Views.UserControls
         {
             if (!e.Cancelled)
             {
+                FrmState = enums.frmState.Finded;
                 if (e.Result != null)
                     bsNEXTEL.DataSource = (List<NEXTELModel>)e.Result;
             }
@@ -251,6 +245,16 @@ namespace CellTrack.Views.UserControls
             bsNEXTEL.DataSource = unFilterList;
 
             FrmState = enums.frmState.Normal;
+        }
+
+        private void bsNEXTEL_DataSourceChanged(object sender, EventArgs e)
+        {
+            if (FrmState == enums.frmState.Normal || FrmState == enums.frmState.Finded)
+            {
+                lblCantReg.Text = string.Format("[ {0} ] Registros Encontrados", ((BindingSource)sender).Count.ToString());
+                if (((BindingSource)sender).Count == 0)
+                    MetroMessageBox.Show(this, "No se encontraron resultados que coincidan con la búsqueda", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
     }
