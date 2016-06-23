@@ -15,7 +15,8 @@ namespace CellTrack.Views
     public partial class frmSshCnn : MetroForm
     {
         private List<string> cnns = new List<string>(new string[]{
-            "PDU"
+            "PDU",
+            "modemSignal"
         });
 
         private List<BackgroundWorker> bkgndWrkrs = new List<BackgroundWorker>();
@@ -37,8 +38,8 @@ namespace CellTrack.Views
             {
                 BackgroundWorker wrker = new BackgroundWorker();
                 wrker.WorkerSupportsCancellation = true;
-                wrker.DoWork += wrker_DoWork;
-                wrker.RunWorkerCompleted += wrker_RunWorkerCompleted;
+                wrker.DoWork += new DoWorkEventHandler(wrker_DoWork);
+                wrker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(wrker_RunWorkerCompleted);
                 bkgndWrkrs.Add(wrker);
                 wrker.RunWorkerAsync(item);
             }
@@ -46,15 +47,20 @@ namespace CellTrack.Views
 
         void wrker_DoWork(object sender, DoWorkEventArgs e)
         {
-            try
+            if (((BackgroundWorker)sender).CancellationPending)
             {
-                string cnnName = String.Format("{0}", e.Argument.ToString());
-                Program.SshCnn.Add(cnnName, new sshCnn(Properties.Settings.Default.sshUser, Properties.Settings.Default.sshPass, Properties.Settings.Default.sshHost));
-                e.Result = cnnName;
+                e.Cancel = true;
+                return;
             }
-            catch (Exception ex)
+
+            string cnnName = String.Format("{0}", e.Argument.ToString());
+            Program.SshCnn.Add(cnnName, new sshCnn(Properties.Settings.Default.sshUser, Properties.Settings.Default.sshPass, Properties.Settings.Default.sshHost));                
+            e.Result = cnnName;
+            
+            if (((BackgroundWorker)sender).CancellationPending)
             {
-                throw;
+                e.Cancel = true;
+                return;
             }
         }
 
@@ -62,23 +68,25 @@ namespace CellTrack.Views
         void wrker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             iter++;
-
-            if (e.Error != null)
+            if (!e.Cancelled)
             {
-                btnCancel_Click(null, null);
-                MessageBox.Show(this, "Error al intentar conectar con los dispositivos !!!", "Error de conección", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.DialogResult = System.Windows.Forms.DialogResult.No;
-                this.Close();
-            }
-            else
-            {
-                lblInfo.Text = String.Format("Iniciando servicio {0} ...", (string)e.Result);
-                pbSshCnn.Value = (iter * 100) / bkgndWrkrs.Count;
-
-                if (iter >= bkgndWrkrs.Count)
+                if (e.Error != null)
                 {
-                    this.DialogResult = this.dlgRes;
+                    btnCancel_Click(null, null);
+                    MessageBox.Show(this, "Error al intentar conectar con los dispositivos !!!", "Error de conección", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.DialogResult = System.Windows.Forms.DialogResult.No;
                     this.Close();
+                }
+                else
+                {
+                    lblInfo.Text = String.Format("Iniciando servicio {0} ...", (string)e.Result);
+                    pbSshCnn.Value = (iter * 100) / bkgndWrkrs.Count;
+
+                    if (iter >= bkgndWrkrs.Count)
+                    {
+                        this.DialogResult = this.dlgRes;
+                        this.Close();
+                    }
                 }
             }
         }

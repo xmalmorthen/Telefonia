@@ -17,7 +17,7 @@ namespace CellTrack.Controllers
             int signal = 0;
 
             sshCnn ssh;
-            Program.SshCnn.TryGetValue("PDU", out ssh);
+            Program.SshCnn.TryGetValue("modemSignal", out ssh);
             try
             {
                 //StringBuilder output = ssh.execute("pwd");

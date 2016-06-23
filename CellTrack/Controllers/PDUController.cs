@@ -4,6 +4,7 @@ using CellTrack.Models.DataBases;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -19,11 +20,7 @@ namespace CellTrack.Controllers
             try
             {
                 string message = string.Empty;
-
-                //TODO: Eliminar siguiente linea al implementar
-                Thread.Sleep( (int.Parse(Properties.Settings.Default.PDUCountDown) / 2) *  1000);
-
-                //if (sshCmds.PDU(item, out message)) { 
+                if (sshCmds.PDU(item, out message)) { 
                     // TODO: Leer respuesta y llenar modelo maPDU
 
                     //SIMULACIÓN DE MODELO
@@ -67,7 +64,7 @@ namespace CellTrack.Controllers
                         controller.AddMarker(marker);
                         controller.setPosition(marker);
                     }
-                //}
+                }
             }
             catch (Exception ex)
             {
@@ -83,24 +80,29 @@ namespace CellTrack.Controllers
             {
                 Boolean result = false;
                 message = string.Empty;
+                
                 sshCnn ssh;
-                Program.SshCnn.TryGetValue("PDU", out ssh);
+                if (Program.SshCnn.TryGetValue("PDU", out ssh));
                 try
                 {
-                    //item.obj.objetivo;
+                    string num = item.obj.objetivo;
+                    string objetivo = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}",num[1],num[0],num[3],num[2],num[5],num[4],num[7],num[6],num[9],num[8]);
+                    string cmnd = string.Format("PDU.sh {0} {1}",objetivo,(char)26);
 
-                    StringBuilder output = ssh.execute(String.Format("sudo {0}", Properties.Settings.Default.commandPDU));
-                    result = output.ToString().Trim().Length > 0;
-                    message = output.ToString();
+                    StringBuilder output = ssh.script(cmnd);
+                    if (output != null)
+                    {
+                        result = output.ToString().Trim().Length > 0;
+                        message = output.ToString();    
+                    }
                 }
                 catch (Exception ex)
                 {
                     exceptionHandlerCatch.registerLogException(ex);
                 }
+                
                 return result;
             }
         }
-
-
     }
 }

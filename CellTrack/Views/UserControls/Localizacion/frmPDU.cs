@@ -126,17 +126,32 @@ namespace CellTrack.Views.UserControls.Localización
 
         void wrker_DoWork(object sender, DoWorkEventArgs e)
         {
+            if (((BackgroundWorker)sender).CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
             Application.DoEvents();
             markersModel marker = PDUController.PDUFind(e.Argument as PDUModel, gMapViewRender.gMap);
             e.Result = marker;
+
+            if (((BackgroundWorker)sender).CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+
         }
 
         markersModel result = null;
         void wrker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (((markersModel)e.Result) != null)
-                result = (markersModel)e.Result;
-            wrker.CancelAsync();
+            if (!e.Cancelled)
+            {
+                if (((markersModel)e.Result) != null)
+                    result = (markersModel)e.Result;
+                wrker.CancelAsync();
+            }
         }
 
         private void tmCountDown_Tick(object sender, EventArgs e)

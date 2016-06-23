@@ -47,17 +47,20 @@ namespace CellTrack.Classes
             this.SshClient = new OwnSshClient(this.Host, this.User, this.Pass);
             try 
 	        {
-                this.SshClient.Tag = Program.KeepAliveWrkers.Count + 1;
+                BackgroundWorker wrk = new BackgroundWorker();
+                lock (Program.KeepAliveWrkers)
+                {
+                    this.SshClient.Tag = Program.KeepAliveWrkers.Count + 1;
+                    Program.KeepAliveWrkers.Add((int)this.SshClient.Tag, wrk);
+                }
                 this.SshClient.ConnectionInfo.Encoding = Encoding.UTF8;
                 this.SshClient.KeepAliveInterval = Properties.Settings.Default.sshTimeOut;
                 this.SshClient.ConnectionInfo.Timeout = Properties.Settings.Default.sshTimeOut;
-		        this.SshClient.Connect();
-
-                BackgroundWorker wrk = new BackgroundWorker();
+                this.SshClient.Connect();
+                    
                 wrk.WorkerSupportsCancellation = true;
                 wrk.DoWork += wrk_DoWork;
                 wrk.RunWorkerAsync(this.SshClient);
-                Program.KeepAliveWrkers.Add((int)this.SshClient.Tag, wrk);
 	        }
 	        catch (Exception ex)
 	        {
@@ -77,20 +80,25 @@ namespace CellTrack.Classes
 
             while (true) {
                 Thread.Sleep(Properties.Settings.Default.sshSendKeepAliveTime);
+                if (((BackgroundWorker)sender).CancellationPending)
+                {
+                    e.Cancel = true;
+                    break;
+                }
                 sshclient.SendKeepAlive();
-            }
-
-            if (((BackgroundWorker)sender).CancellationPending)
-            {
-                e.Cancel = true;
-                return;
             }
         }
 
         ~sshCnn(){
             BackgroundWorker wrk;
             if (Program.KeepAliveWrkers.TryGetValue((int)this.SshClient.Tag, out wrk))
-                wrk.CancelAsync();
+                try
+                {
+                    wrk.CancelAsync();
+                }
+                catch (Exception)
+                {
+                }
             this.SshClient.Disconnect();
         }
 
