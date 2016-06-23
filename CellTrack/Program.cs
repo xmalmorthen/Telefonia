@@ -4,6 +4,7 @@ using CellTrack.Models.DataBases;
 using CellTrack.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,6 +31,13 @@ namespace CellTrack
         }
 
         #endregion SSHREFERENCES
+
+        private static Dictionary<int, BackgroundWorker> keepAliveWrkers = new Dictionary<int, BackgroundWorker>();
+        public static Dictionary<int, BackgroundWorker> KeepAliveWrkers
+        {
+            get { return keepAliveWrkers; }
+            set { keepAliveWrkers = value; }
+        }
 
         public static frmDashboard FrmDashboard = null;
 
@@ -61,8 +69,8 @@ namespace CellTrack
                 Properties.Settings.Default.mainStyle.Style = MetroFramework.MetroColorStyle.Black;
                 Properties.Settings.Default.mainStyle.Theme = MetroFramework.MetroThemeStyle.Light;
 
-                //frmSshCnn FrmSshCnn = new frmSshCnn();
-                //if (FrmSshCnn.ShowDialog() == DialogResult.Yes) {
+                frmSshCnn FrmSshCnn = new frmSshCnn();
+                if (FrmSshCnn.ShowDialog() == DialogResult.Yes) {
                     frmLogIn FrmLogIn = new frmLogIn();
                     Application.Run(FrmLogIn);
                     if (FrmLogIn.dlgRes == DialogResult.No) terminateProgramm();
@@ -71,7 +79,7 @@ namespace CellTrack
 
                     Application.Run(FrmDashboard);
                     Program.closeAllConnections();
-                //}
+                }
             }
             catch (Exception ex)
             {

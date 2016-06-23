@@ -2,6 +2,7 @@
 using Renci.SshNet;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -32,8 +33,8 @@ namespace CellTrack.Classes
             set { host = value; }
         }
 
-        private SshClient sshClient;
-        public SshClient SshClient
+        private OwnSshClient sshClient;
+        public OwnSshClient SshClient
         {
           get { return sshClient; }
           set { sshClient = value; }
@@ -43,10 +44,20 @@ namespace CellTrack.Classes
             this.User = user;
             this.Pass = pass;
             this.Host = host;
-            this.SshClient = new SshClient(this.Host, this.User, this.Pass);
+            this.SshClient = new OwnSshClient(this.Host, this.User, this.Pass);
             try 
 	        {
+                this.SshClient.Tag = Program.KeepAliveWrkers.Count + 1;
+                this.SshClient.ConnectionInfo.Encoding = Encoding.UTF8;
+                this.SshClient.KeepAliveInterval = Properties.Settings.Default.sshTimeOut;
+                this.SshClient.ConnectionInfo.Timeout = Properties.Settings.Default.sshTimeOut;
 		        this.SshClient.Connect();
+
+                BackgroundWorker wrk = new BackgroundWorker();
+                wrk.WorkerSupportsCancellation = true;
+                wrk.DoWork += wrk_DoWork;
+                wrk.RunWorkerAsync(this.SshClient);
+                Program.KeepAliveWrkers.Add((int)this.SshClient.Tag, wrk);
 	        }
 	        catch (Exception ex)
 	        {
@@ -54,7 +65,32 @@ namespace CellTrack.Classes
 	        }
         }
 
+        void wrk_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (((BackgroundWorker)sender).CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            SshClient sshclient = (SshClient)e.Argument;
+
+            while (true) {
+                Thread.Sleep(Properties.Settings.Default.sshSendKeepAliveTime);
+                sshclient.SendKeepAlive();
+            }
+
+            if (((BackgroundWorker)sender).CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
+
         ~sshCnn(){
+            BackgroundWorker wrk;
+            if (Program.KeepAliveWrkers.TryGetValue((int)this.SshClient.Tag, out wrk))
+                wrk.CancelAsync();
             this.SshClient.Disconnect();
         }
 
@@ -72,6 +108,11 @@ namespace CellTrack.Classes
             return result;
         }
 
+        public StringBuilder script(string command)
+        {
+            return execute(string.Format("bash -l -c './{0}' 2>&1", command));
+        }
+
         public StringBuilder asyncExecute(string command) {
             StringBuilder result = new StringBuilder();
             SshCommand cmd = this.SshClient.CreateCommand(String.Format("{0} {1}",Properties.Settings.Default.superUserCommand,command));
@@ -84,7 +125,6 @@ namespace CellTrack.Classes
                 Thread.Sleep(100);
             cmd.EndExecute(asyncResult);
             return result;
-        }       
-
+        }
     }
 }

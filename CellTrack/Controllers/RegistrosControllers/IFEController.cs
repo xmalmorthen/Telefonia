@@ -124,6 +124,12 @@ WHERE
                 exceptionHandlerCatch.registerLogException(ex);
             }
             e.Result = data;
+
+            if (((BackgroundWorker)sender).CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
         }
 
         private static void wrker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

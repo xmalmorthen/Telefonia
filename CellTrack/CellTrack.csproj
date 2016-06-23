@@ -76,6 +76,10 @@
       <HintPath>..\packages\Renci.SshNet.Async.1.0.0\lib\net40\Renci.SshNet.Async.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -101,10 +105,13 @@
   <ItemGroup>
     <Compile Include="Classes\exceptionHandlerCatch.cs" />
     <Compile Include="Classes\md5.cs" />
+    <Compile Include="Classes\OwnSshClient.cs" />
     <Compile Include="Classes\scpCnn.cs" />
     <Compile Include="Classes\sshCnn.cs" />
     <Compile Include="Classes\visualStyles.cs" />
     <Compile Include="Controllers\catalogosController.cs" />
+    <Compile Include="Controllers\btsController.cs" />
+    <Compile Include="Controllers\modemSignalController.cs" />
     <Compile Include="Controllers\RegistrosControllers\CFEController.cs" />
     <Compile Include="Controllers\RegistrosControllers\RENAUTController.cs" />
     <Compile Include="Controllers\RegistrosControllers\TELMEXController.cs" />
@@ -122,6 +129,7 @@
     <Compile Include="Controllers\objetivosController.cs" />
     <Compile Include="Controllers\PDUController.cs" />
     <Compile Include="Controllers\usuarioController.cs" />
+    <Compile Include="Models\btsModel.cs" />
     <Compile Include="Models\DataBases\bdRegistros.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -191,6 +199,7 @@
     <Compile Include="Models\DataBases\vwusernotifications.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\googleGeolocApiModel.cs" />
     <Compile Include="Models\MapInfo.cs" />
     <Compile Include="Models\Registros\CFEModel.cs" />
     <Compile Include="Models\Registros\RENAUTModel.cs" />
@@ -323,6 +332,12 @@
     <Compile Include="Views\UserControls\gMapView.Designer.cs">
       <DependentUpon>gMapView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\Localizacion\frmBTS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Localizacion\frmBTS.Designer.cs">
+      <DependentUpon>frmBTS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Localizacion\frmSeguimiento.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -450,6 +465,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\gMapView.resx">
       <DependentUpon>gMapView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Localizacion\frmBTS.resx">
+      <DependentUpon>frmBTS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Localizacion\frmSeguimiento.resx">
       <DependentUpon>frmSeguimiento.cs</DependentUpon>

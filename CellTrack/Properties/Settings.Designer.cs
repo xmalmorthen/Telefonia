@@ -25,7 +25,7 @@ namespace CellTrack.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sudo")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string superUserCommand {
             get {
                 return ((string)(this["superUserCommand"]));
@@ -37,7 +37,7 @@ namespace CellTrack.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("xmal")]
+        [global::System.Configuration.DefaultSettingValueAttribute("geo")]
         public string sshUser {
             get {
                 return ((string)(this["sshUser"]));
@@ -49,7 +49,7 @@ namespace CellTrack.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("xmal2016")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10101011")]
         public string sshPass {
             get {
                 return ((string)(this["sshPass"]));
@@ -61,7 +61,7 @@ namespace CellTrack.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("184.107.189.202")]
+        [global::System.Configuration.DefaultSettingValueAttribute("geo2016.ddns.net")]
         public string sshHost {
             get {
                 return ((string)(this["sshHost"]));
@@ -138,6 +138,42 @@ namespace CellTrack.Properties {
             }
             set {
                 this["PDUCountDown"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("AIzaSyDSigfh6sBddlcVoNcYoV6WNpraYHVMh-A")]
+        public string GoogleApiKey {
+            get {
+                return ((string)(this["GoogleApiKey"]));
+            }
+            set {
+                this["GoogleApiKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:30:00")]
+        public global::System.TimeSpan sshTimeOut {
+            get {
+                return ((global::System.TimeSpan)(this["sshTimeOut"]));
+            }
+            set {
+                this["sshTimeOut"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:25:00")]
+        public global::System.TimeSpan sshSendKeepAliveTime {
+            get {
+                return ((global::System.TimeSpan)(this["sshSendKeepAliveTime"]));
+            }
+            set {
+                this["sshSendKeepAliveTime"] = value;
             }
         }
     }

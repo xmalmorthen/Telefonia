@@ -205,7 +205,7 @@ namespace CellTrack.Views.UserControls
             {
                 FrmState = enums.frmState.Finded;
                 if (e.Result != null)
-                    bsCFE.DataSource = (List<RENAUTModel>)e.Result;
+                    bsCFE.DataSource = (List<CFEModel>)e.Result;
             }
             btnCancel.Click -= btnCancelFilter_Click;
             FrmState = enums.frmState.Normal;

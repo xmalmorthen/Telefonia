@@ -43,7 +43,7 @@ namespace CellTrack.Views.UserControls.Localización
         public frmPDU()
         {
             InitializeComponent();
-            this.init();
+            this.init();            
         }
 
         private void init()

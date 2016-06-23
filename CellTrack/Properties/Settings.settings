@@ -3,16 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="superUserCommand" Type="System.String" Scope="User">
-      <Value Profile="(Default)">sudo</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="sshUser" Type="System.String" Scope="User">
-      <Value Profile="(Default)">xmal</Value>
+      <Value Profile="(Default)">geo</Value>
     </Setting>
     <Setting Name="sshPass" Type="System.String" Scope="User">
-      <Value Profile="(Default)">xmal2016</Value>
+      <Value Profile="(Default)">10101011</Value>
     </Setting>
     <Setting Name="sshHost" Type="System.String" Scope="User">
-      <Value Profile="(Default)">184.107.189.202</Value>
+      <Value Profile="(Default)">geo2016.ddns.net</Value>
     </Setting>
     <Setting Name="mainStyle" Type="MetroFramework.Components.MetroStyleManager" Scope="User">
       <Value Profile="(Default)" />
@@ -36,6 +36,15 @@
     </Setting>
     <Setting Name="PDUCountDown" Type="System.String" Scope="User">
       <Value Profile="(Default)">04</Value>
+    </Setting>
+    <Setting Name="GoogleApiKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AIzaSyDSigfh6sBddlcVoNcYoV6WNpraYHVMh-A</Value>
+    </Setting>
+    <Setting Name="sshTimeOut" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:30:00</Value>
+    </Setting>
+    <Setting Name="sshSendKeepAliveTime" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:25:00</Value>
     </Setting>
   </Settings>
 </SettingsFile>
