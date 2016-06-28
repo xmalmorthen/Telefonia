@@ -131,7 +131,7 @@ namespace CellTrack.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("04")]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
         public string PDUCountDown {
             get {
                 return ((string)(this["PDUCountDown"]));
@@ -174,6 +174,18 @@ namespace CellTrack.Properties {
             }
             set {
                 this["sshSendKeepAliveTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:00:40")]
+        public global::System.TimeSpan PDUWaith {
+            get {
+                return ((global::System.TimeSpan)(this["PDUWaith"]));
+            }
+            set {
+                this["PDUWaith"] = value;
             }
         }
     }

@@ -35,7 +35,7 @@
       <Value Profile="(Default)">ping google.com -c 3</Value>
     </Setting>
     <Setting Name="PDUCountDown" Type="System.String" Scope="User">
-      <Value Profile="(Default)">04</Value>
+      <Value Profile="(Default)">60</Value>
     </Setting>
     <Setting Name="GoogleApiKey" Type="System.String" Scope="User">
       <Value Profile="(Default)">AIzaSyDSigfh6sBddlcVoNcYoV6WNpraYHVMh-A</Value>
@@ -45,6 +45,9 @@
     </Setting>
     <Setting Name="sshSendKeepAliveTime" Type="System.TimeSpan" Scope="User">
       <Value Profile="(Default)">00:25:00</Value>
+    </Setting>
+    <Setting Name="PDUWaith" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:00:40</Value>
     </Setting>
   </Settings>
 </SettingsFile>

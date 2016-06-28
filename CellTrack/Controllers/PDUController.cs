@@ -19,10 +19,33 @@ namespace CellTrack.Controllers
             markersModel marker = null;
             try
             {
-                string message = string.Empty;
-                if (sshCmds.PDU(item, out message)) { 
-                    // TODO: Leer respuesta y llenar modelo maPDU
+                string message = null;
+                //if (sshCmds.PDU(item, out message))
+                {
+                    mapdu target = new mapdu();
+                    desmsrecibidos smsInfo = new desmsrecibidos();
 
+                    message = "+CMGL: 2,\"REC UNREAD\",\"3121220995\",,\"16/06/27,15:58:52-20\",33042013030FC3";
+
+                    string[] dataParts = message.Split(',');
+
+                    smsInfo.LAC = dataParts[dataParts.Length - 1].Substring(dataParts[dataParts.Length - 1].Length - 8, 4);
+                    smsInfo.BTS = dataParts[dataParts.Length - 1].Substring(dataParts[dataParts.Length - 1].Length - 4, 4);
+
+
+                    smsInfo.LAC = ((4096 * int.Parse(smsInfo.LAC[0].ToString())) + (256 * int.Parse(smsInfo.LAC[1].ToString())) + (16 * int.Parse(smsInfo.LAC[2].ToString())) + int.Parse(smsInfo.LAC[3].ToString())).ToString();
+                    smsInfo.BTS = ((4096 * int.Parse(smsInfo.BTS[0].ToString())) + (256 * int.Parse(smsInfo.BTS[1].ToString())) + (16 * int.Parse(smsInfo.BTS[2].ToString())) + int.Parse(smsInfo.BTS[3].ToString())).ToString();
+
+                    string qry = string.Format(@"select * from bts where lac={1} LIMIT 1", smsInfo.LAC);
+
+
+                    if ()
+                    string responseMessage = string.Empty;
+                    btsController.getApiGeoReference(controller, double.Parse(smsInfo.BTS), double.Parse(smsInfo.LAC), 334, 20, out responseMessage);
+
+
+
+                    /*
                     //SIMULACIÓN DE MODELO
                     // TODO: Eliminar al implementar
                     Random rng = new Random();
@@ -48,6 +71,8 @@ namespace CellTrack.Controllers
                             LNG = -103d - lon / 1000000000d
                         }
                     };
+                     */
+ 
 
                     DAL.Db.mapdu.Add(target);
                     DAL.Db.SaveChanges();
@@ -73,35 +98,62 @@ namespace CellTrack.Controllers
             return marker;
         }
 
-
+        private static sshCnn ssh;
         private static class sshCmds
         {
             public static Boolean PDU(PDUModel item, out string message)
             {
                 Boolean result = false;
-                message = string.Empty;
+                message = null;
                 
-                sshCnn ssh;
                 if (Program.SshCnn.TryGetValue("PDU", out ssh));
                 try
                 {
                     string num = item.obj.objetivo;
                     string objetivo = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}",num[1],num[0],num[3],num[2],num[5],num[4],num[7],num[6],num[9],num[8]);
                     string cmnd = string.Format("PDU.sh {0} {1}",objetivo,(char)26);
+                    ssh.script(cmnd);
 
-                    StringBuilder output = ssh.script(cmnd);
-                    if (output != null)
+                    short iter = 0;
+                    do
                     {
-                        result = output.ToString().Trim().Length > 0;
-                        message = output.ToString();    
-                    }
+                        message = checkSMS(item.obj.objetivo);
+                        iter++;
+                    } while (string.IsNullOrEmpty(message) && iter < 3 );
+
+                    result = !string.IsNullOrEmpty(message);
+
+                    borraSMS();
                 }
                 catch (Exception ex)
                 {
                     exceptionHandlerCatch.registerLogException(ex);
-                }
-                
+                }                
                 return result;
+            }
+
+            private static string checkSMS(string objetivo) {
+                string returnResult = string.Empty;
+                string cmnd = string.Format("checksms0.sh");
+                StringBuilder output = ssh.script(cmnd);
+                if (output != null)
+                    using (StringReader reader = new StringReader(output.ToString()))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                            if (line.Contains("+CMGL:") && line.Contains(objetivo))
+                            {
+                                reader.ReadLine();
+                                string datapos = reader.ReadLine();
+                                returnResult = string.Format("{0},{1}", line, datapos);
+                            }
+                    }
+                return returnResult;
+            }
+
+            private static void borraSMS() {
+                string cmnd = string.Format("borra0.sh");
+                ssh.script(cmnd);
             }
         }
     }
