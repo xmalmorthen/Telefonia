@@ -36,6 +36,7 @@
             this.tsmiCredito = new System.Windows.Forms.ToolStripMenuItem();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.panel = new System.Windows.Forms.Panel();
+            this.frmModemStatus1 = new CellTrack.Views.UserControls.frmModemStatus();
             this.frmUserInformation = new CellTrack.Views.UserControls.frmUserInformation();
             this.frmModemSignal1 = new CellTrack.Views.UserControls.frmModemSignal();
             this.frmSaldo = new CellTrack.Views.UserControls.frmSaldo();
@@ -94,6 +95,15 @@
             this.panel.Size = new System.Drawing.Size(964, 624);
             this.panel.TabIndex = 28;
             // 
+            // frmModemStatus1
+            // 
+            this.frmModemStatus1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.frmModemStatus1.BackColor = System.Drawing.Color.Transparent;
+            this.frmModemStatus1.Location = new System.Drawing.Point(328, 734);
+            this.frmModemStatus1.Name = "frmModemStatus1";
+            this.frmModemStatus1.Size = new System.Drawing.Size(285, 32);
+            this.frmModemStatus1.TabIndex = 34;
+            // 
             // frmUserInformation
             // 
             this.frmUserInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -142,6 +152,7 @@
             this.BackLocation = MetroFramework.Forms.BackLocation.BottomRight;
             this.BackMaxSize = 256;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.frmModemStatus1);
             this.Controls.Add(this.frmUserInformation);
             this.Controls.Add(this.frmModemSignal1);
             this.Controls.Add(this.frmSaldo);
@@ -175,5 +186,6 @@
         private UserControls.frmSaldo frmSaldo;
         private UserControls.frmModemSignal frmModemSignal1;
         private UserControls.frmUserInformation frmUserInformation;
+        private UserControls.frmModemStatus frmModemStatus1;
     }
 }

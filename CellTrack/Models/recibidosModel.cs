@@ -10,7 +10,16 @@ namespace CellTrack.Models
     {
         public int id { get; set; }
         public string tipo { get; set; }
-        public int idDetalle { get; set; }
+        public string fIns { get; set; }
+        public string nombre { get; set; }
+        public string asunto { get; set; }
+        public string objetivo { get; set; }
+        public string Carrier { get; set; }
+        public List<detalleRecibidosModel> detalle { get; set; }
+    }
+
+    public class detalleRecibidosModel {
+        public int id { get; set; }
         public string radio { get; set; }
         public string MCC { get; set; }
         public string MNC { get; set; }
@@ -19,12 +28,5 @@ namespace CellTrack.Models
         public string V { get; set; }
         public string LAT { get; set; }
         public string LNG { get; set; }
-        public int idLocalizations { get; set; }
-        public int idUser { get; set; }
-        public string nombre { get; set; }
-        public string asunto { get; set; }
-        public string objetivo { get; set; }
-        public string Carrier { get; set; }
-        public string fIns { get; set; }
     }
 }

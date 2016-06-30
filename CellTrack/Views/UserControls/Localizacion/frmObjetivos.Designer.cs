@@ -301,6 +301,7 @@
             this.metroLabel9.TabIndex = 39;
             this.metroLabel9.Text = "minutos";
             this.metroLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabel9.Visible = false;
             // 
             // txtfrecuencia
             // 
@@ -337,6 +338,7 @@
             this.txtfrecuencia.Text = "30";
             this.txtfrecuencia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtfrecuencia.UseSelectable = true;
+            this.txtfrecuencia.Visible = false;
             this.txtfrecuencia.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtfrecuencia.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtfrecuencia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtfrecuencia_KeyPress);
@@ -358,6 +360,7 @@
             this.metroLabel8.TabIndex = 37;
             this.metroLabel8.Text = "frecuencia";
             this.metroLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabel8.Visible = false;
             // 
             // metroLabel7
             // 
@@ -371,6 +374,7 @@
             this.metroLabel7.TabIndex = 36;
             this.metroLabel7.Text = "a";
             this.metroLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabel7.Visible = false;
             // 
             // cmbAgendaA
             // 
@@ -410,6 +414,7 @@
             this.cmbAgendaA.TabIndex = 11;
             this.cmbAgendaA.UseSelectable = true;
             this.cmbAgendaA.UseStyleColors = true;
+            this.cmbAgendaA.Visible = false;
             // 
             // metroLabel6
             // 
@@ -423,6 +428,7 @@
             this.metroLabel6.TabIndex = 34;
             this.metroLabel6.Text = "de";
             this.metroLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabel6.Visible = false;
             // 
             // metroLabel5
             // 
@@ -437,6 +443,7 @@
             this.metroLabel5.TabIndex = 33;
             this.metroLabel5.Text = "Agenda";
             this.metroLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroLabel5.Visible = false;
             // 
             // cmbAgendaDe
             // 
@@ -476,6 +483,7 @@
             this.cmbAgendaDe.TabIndex = 10;
             this.cmbAgendaDe.UseSelectable = true;
             this.cmbAgendaDe.UseStyleColors = true;
+            this.cmbAgendaDe.Visible = false;
             // 
             // cmbNotification
             // 
@@ -846,7 +854,7 @@
             this.gdObjetivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdObjetivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdObjetivos.ShowEditingIcon = false;
-            this.gdObjetivos.Size = new System.Drawing.Size(865, 252);
+            this.gdObjetivos.Size = new System.Drawing.Size(865, 246);
             this.gdObjetivos.StandardTab = true;
             this.gdObjetivos.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdObjetivos.TabIndex = 0;

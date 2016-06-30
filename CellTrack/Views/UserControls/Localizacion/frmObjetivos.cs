@@ -180,7 +180,7 @@ namespace CellTrack.Views.UserControls
                 return;
             }
             
-            if (cmbAgendaDe.SelectedIndex != -1 || cmbAgendaA.SelectedIndex != -1 || !string.IsNullOrEmpty(txtfrecuencia.Text))
+            /*if (cmbAgendaDe.SelectedIndex != -1 || cmbAgendaA.SelectedIndex != -1 || !string.IsNullOrEmpty(txtfrecuencia.Text))
             {
                 MetroMessageBox.Show(this, "Debe configurar por completo la agenda", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -190,7 +190,7 @@ namespace CellTrack.Views.UserControls
             {
                 MetroMessageBox.Show(this, "Configuración de agenda incorrecta el horario de inicio no puede ser mayor o igual al de fin", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            }
+            }*/
 
             #endregion FORM VALIDATIONS
 

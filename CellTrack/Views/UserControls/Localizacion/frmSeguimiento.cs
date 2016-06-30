@@ -106,7 +106,7 @@ namespace CellTrack.Views.UserControls.Localización
         {
             try
             {
-                targets = seguimientoController.markObjetivos(gMapViewRender.gMap, dtPeriodoDe.Value.Date, dtPeriodoA.Value.Date, MainMap_OnMarkerEnter, MainMap_OnMarkerLeave);
+                targets = seguimientoController.markObjetivos(gMapViewRender.gMap,(PDUModel)bsObjetivos.Current,dtPeriodoDe.Value.Date, dtPeriodoA.Value.Date, MainMap_OnMarkerEnter, MainMap_OnMarkerLeave);
                 if (targets.Count == 0)
                     MetroMessageBox.Show(this, "No se encontraron puntos para mostrar...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnReport.Visible = targets.Count > 0;
@@ -119,7 +119,7 @@ namespace CellTrack.Views.UserControls.Localización
 
         private void MainMap_OnMarkerEnter(GMapMarker item)
         {
-            seguimientoModel tag = (seguimientoModel)item.Tag;
+            detalleRecibidosModel tag = (detalleRecibidosModel)item.Tag;
 
             lblRadio.Text = tag.radio;
             lblMCC.Text = tag.MCC;

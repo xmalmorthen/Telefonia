@@ -18,10 +18,11 @@ namespace CellTrack.Controllers
 {
     public static class btsController
     {
-        public static Boolean getApiGeoReference(gMapController controller, double cellid, double lac, double mcc, double mnc, out string message)
+        private static Boolean _get(gMapController controller, double cellid, double lac, double mcc, double mnc, out string message, out btsModel model, Boolean putMarker)
         {
             Boolean returnResult = false;
             message = string.Empty;
+            model = null;
 
             string body = @"{'cellTowers':[{'cellId':" + cellid + ",'locationAreaCode':" + lac + ",'mobileCountryCode':" + mcc + ",'mobileNetworkCode':" + mnc + "}]}";
 
@@ -53,7 +54,7 @@ namespace CellTrack.Controllers
             }
             else
             {
-                btsModel model = new btsModel()
+                model = new btsModel()
                 {
                     cellid = cellid,
                     lac = lac,
@@ -65,11 +66,25 @@ namespace CellTrack.Controllers
                 };
                 returnResult = true;
 
-                setMarker(model, controller);
-                controller.centerInMarkers();
+                if (putMarker)
+                {
+                    setMarker(model, controller);
+                    controller.centerInMarkers();
+                }
             }
 
             return returnResult;
+        }
+
+        public static Boolean getApiGeoReference(gMapController controller, double cellid, double lac, double mcc, double mnc, out string message, out btsModel model, Boolean putMarker = true)
+        {
+            return _get(controller, cellid, lac, mcc, mnc, out message, out model, putMarker);
+        }
+
+        public static Boolean getApiGeoReference(gMapController controller, double cellid, double lac, double mcc, double mnc, out string message, Boolean putMarker = true)
+        {
+            btsModel model = null;
+            return _get(controller, cellid, lac, mcc, mnc, out message, out model, putMarker);
         }
 
         private static markersModel setMarker(btsModel model, gMapController controller)

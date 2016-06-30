@@ -179,7 +179,7 @@ namespace CellTrack.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("00:00:40")]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:00:10")]
         public global::System.TimeSpan PDUWaith {
             get {
                 return ((global::System.TimeSpan)(this["PDUWaith"]));

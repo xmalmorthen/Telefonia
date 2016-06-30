@@ -16,7 +16,8 @@ namespace CellTrack.Views
     {
         private List<string> cnns = new List<string>(new string[]{
             "PDU",
-            "modemSignal"
+            "modemSignal",
+            "recibidosDaemond"
         });
 
         private List<BackgroundWorker> bkgndWrkrs = new List<BackgroundWorker>();
@@ -53,9 +54,19 @@ namespace CellTrack.Views
                 return;
             }
 
-            string cnnName = String.Format("{0}", e.Argument.ToString());
-            Program.SshCnn.Add(cnnName, new sshCnn(Properties.Settings.Default.sshUser, Properties.Settings.Default.sshPass, Properties.Settings.Default.sshHost));                
-            e.Result = cnnName;
+            try
+            {                           
+                string cnnName = String.Format("{0}", e.Argument.ToString());
+                sshCnn cnn = new sshCnn(Properties.Settings.Default.sshUser, Properties.Settings.Default.sshPass, Properties.Settings.Default.sshHost);
+                if (Program.SshCnn == null) Program.SshCnn = new Dictionary<string, sshCnn>();
+                Program.SshCnn.Add(cnnName, cnn);
+                e.Result = cnnName;
+            }
+            catch (Exception ex)
+            {
+                exceptionHandlerCatch.registerLogException(ex);
+                throw;
+            }
             
             if (((BackgroundWorker)sender).CancellationPending)
             {
@@ -71,7 +82,7 @@ namespace CellTrack.Views
             if (!e.Cancelled)
             {
                 if (e.Error != null)
-                {
+                {                    
                     btnCancel_Click(null, null);
                     MessageBox.Show(this, "Error al intentar conectar con los dispositivos !!!", "Error de conección", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.DialogResult = System.Windows.Forms.DialogResult.No;

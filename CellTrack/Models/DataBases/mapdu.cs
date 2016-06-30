@@ -14,14 +14,18 @@ namespace CellTrack.Models.DataBases
     
     public partial class mapdu
     {
+        public mapdu()
+        {
+            this.desmsrecibidos = new HashSet<desmsrecibidos>();
+        }
+    
         public int id { get; set; }
         public string tipo { get; set; }
-        public int idDetalle { get; set; }
         public int idLocalizations { get; set; }
         public System.DateTime fIns { get; set; }
         public bool toNotify { get; set; }
     
-        public virtual desmsrecibidos desmsrecibidos { get; set; }
+        public virtual ICollection<desmsrecibidos> desmsrecibidos { get; set; }
         public virtual malocalizations malocalizations { get; set; }
     }
 }

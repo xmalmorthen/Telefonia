@@ -64,6 +64,7 @@ namespace CellTrack.Classes
 	        }
 	        catch (Exception ex)
 	        {
+                exceptionHandlerCatch.registerLogException(ex);
                 throw;                
 	        }
         }

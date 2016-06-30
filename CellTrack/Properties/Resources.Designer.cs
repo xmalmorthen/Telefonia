@@ -303,6 +303,66 @@ namespace CellTrack.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1467326378_padlock_open {
+            get {
+                object obj = ResourceManager.GetObject("1467326378_padlock_open", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1467326406_padlock_closed {
+            get {
+                object obj = ResourceManager.GetObject("1467326406_padlock_closed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1467326716_brush {
+            get {
+                object obj = ResourceManager.GetObject("1467326716_brush", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1467326737_brush {
+            get {
+                object obj = ResourceManager.GetObject("1467326737_brush", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1467326850_lighting {
+            get {
+                object obj = ResourceManager.GetObject("1467326850_lighting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hexloader2 {
+            get {
+                object obj = ResourceManager.GetObject("hexloader2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_039920_256 {
             get {
                 object obj = ResourceManager.GetObject("icon_039920_256", resourceCulture);
@@ -316,6 +376,16 @@ namespace CellTrack.Properties {
         internal static System.Drawing.Bitmap loading_gallery {
             get {
                 object obj = ResourceManager.GetObject("loading-gallery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap p_spinner {
+            get {
+                object obj = ResourceManager.GetObject("p_spinner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -14,4 +14,15 @@ namespace CellTrack.Models
 
         public malocalizations obj;
     }
+
+    public class BTSDataBaseModel
+    { 
+        public string radio {get;set;}
+        public string mcc {get;set;}
+        public string mnc {get;set;}
+        public string lac {get;set;}
+        public string cellid {get;set;}
+        public string rnc {get;set;}
+        public string enbi { get; set; }
+    }
 }

@@ -105,12 +105,14 @@
   <ItemGroup>
     <Compile Include="Classes\exceptionHandlerCatch.cs" />
     <Compile Include="Classes\md5.cs" />
+    <Compile Include="Classes\modemStatus.cs" />
     <Compile Include="Classes\OwnSshClient.cs" />
     <Compile Include="Classes\scpCnn.cs" />
     <Compile Include="Classes\sshCnn.cs" />
     <Compile Include="Classes\visualStyles.cs" />
     <Compile Include="Controllers\catalogosController.cs" />
     <Compile Include="Controllers\btsController.cs" />
+    <Compile Include="Controllers\toNotifyController.cs" />
     <Compile Include="Controllers\modemSignalController.cs" />
     <Compile Include="Controllers\RegistrosControllers\CFEController.cs" />
     <Compile Include="Controllers\RegistrosControllers\RENAUTController.cs" />
@@ -278,6 +280,12 @@
     <Compile Include="Views\UserControls\Admin\usrCtrlUsuarios.Designer.cs">
       <DependentUpon>usrCtrlUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\frmModemStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\frmModemStatus.Designer.cs">
+      <DependentUpon>frmModemStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\frmBaseDatos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -410,6 +418,20 @@
     <Compile Include="Views\UserControls\Users\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\1467326850_lighting.png" />
+    <None Include="Resources\1467326737_brush.png" />
+    <None Include="Resources\1467326716_brush.png" />
+    <None Include="Resources\1467326406_padlock_closed.png" />
+    <None Include="Resources\1467326378_padlock_open.png" />
+    <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbGeoLoc.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DataBases\dbGeoLoc.edmx.diagram">
+      <DependentUpon>dbGeoLoc.edmx</DependentUpon>
+    </None>
+    <None Include="Resources\p_spinner.gif" />
+    <None Include="Resources\hexloader2.gif" />
     <EntityDeploy Include="Models\DataBases\bdRegistros.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>bdRegistros.Designer.cs</LastGenOutput>
@@ -428,13 +450,6 @@
     <None Include="Resources\1465680503_clipboard_past.png" />
     <None Include="Properties\DataSources\CellTrack.Models.seguimientoModel.datasource" />
     <None Include="Resources\1464400316_target.png" />
-    <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbGeoLoc.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Models\DataBases\dbGeoLoc.edmx.diagram">
-      <DependentUpon>dbGeoLoc.edmx</DependentUpon>
-    </None>
     <None Include="Resources\1465000215_globe_3.png" />
     <None Include="Properties\DataSources\CellTrack.Models.PDUModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.recibidosModel.datasource" />
@@ -462,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Admin\usrCtrlUsuarios.resx">
       <DependentUpon>usrCtrlUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\frmModemStatus.resx">
+      <DependentUpon>frmModemStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\gMapView.resx">
       <DependentUpon>gMapView.cs</DependentUpon>

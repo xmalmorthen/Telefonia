@@ -30,8 +30,8 @@ namespace CellTrack.Views.UserControls
             visualStyles.apply(this, msmMain);
             metroToolTip.StyleManager = msmMain;
 
-            List<reperfilroles> roles = usuarioController.usuarioLogueado.info.caperfiles.reperfilroles.Where(qry => qry.caroles.isDeleted.Equals(false) && qry.caroles.activo.Equals(true)).ToList();            
-            
+            List<reperfilroles> roles = usuarioController.usuarioLogueado.info.caperfiles.reperfilroles.Where(qry => qry.caroles.isDeleted.Equals(false) && qry.caroles.activo.Equals(true)).ToList();
+
             this.changeAccessRoles(mCMLocalizations.Items, roles);
             this.changeAccessRoles(mCMRegs.Items, roles);
             this.changeAccessButtonsRoles(this.Controls, roles);

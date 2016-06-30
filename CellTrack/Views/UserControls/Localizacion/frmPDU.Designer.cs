@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.btnFind = new MetroFramework.Controls.MetroButton();
+            this.btnCancel = new MetroFramework.Controls.MetroButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
@@ -40,19 +42,23 @@
             this.bsObjetivos = new System.Windows.Forms.BindingSource(this.components);
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.tmCountDown = new System.Windows.Forms.Timer(this.components);
-            this.pnlCountDown = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlCountDown_ = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.lblCountDown = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnCancel = new MetroFramework.Controls.MetroButton();
+            this.pnlCountDown = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsObjetivos)).BeginInit();
+            this.pnlCountDown_.SuspendLayout();
             this.pnlCountDown.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // metroToolTip
@@ -75,6 +81,37 @@
             this.metroToolTip.SetToolTip(this.btnFind, "Buscar");
             this.btnFind.UseSelectable = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.AutoSize = true;
+            this.btnCancel.BackgroundImage = global::CellTrack.Properties.Resources._1463426130_delete;
+            this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(399, 165);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(44, 44);
+            this.btnCancel.TabIndex = 33;
+            this.metroToolTip.SetToolTip(this.btnCancel, "Cancelar");
+            this.btnCancel.UseSelectable = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroButton1.AutoSize = true;
+            this.metroButton1.BackgroundImage = global::CellTrack.Properties.Resources._1463426130_delete;
+            this.metroButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.metroButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.metroButton1.Location = new System.Drawing.Point(399, 5);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(44, 44);
+            this.metroButton1.TabIndex = 33;
+            this.metroToolTip.SetToolTip(this.metroButton1, "Cancelar");
+            this.metroButton1.UseSelectable = true;
             // 
             // msmMain
             // 
@@ -174,23 +211,24 @@
             this.tmCountDown.Interval = 1000;
             this.tmCountDown.Tick += new System.EventHandler(this.tmCountDown_Tick);
             // 
-            // pnlCountDown
+            // pnlCountDown_
             // 
-            this.pnlCountDown.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlCountDown.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlCountDown.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlCountDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCountDown.Controls.Add(this.label3);
-            this.pnlCountDown.Controls.Add(this.lblCountDown);
-            this.pnlCountDown.Controls.Add(this.label4);
-            this.pnlCountDown.Controls.Add(this.label5);
-            this.pnlCountDown.Controls.Add(this.label6);
-            this.pnlCountDown.Controls.Add(this.btnCancel);
-            this.pnlCountDown.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.pnlCountDown.Location = new System.Drawing.Point(267, 192);
-            this.pnlCountDown.Name = "pnlCountDown";
-            this.pnlCountDown.Size = new System.Drawing.Size(448, 212);
-            this.pnlCountDown.TabIndex = 22;
+            this.pnlCountDown_.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlCountDown_.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlCountDown_.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlCountDown_.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCountDown_.Controls.Add(this.label3);
+            this.pnlCountDown_.Controls.Add(this.lblCountDown);
+            this.pnlCountDown_.Controls.Add(this.label4);
+            this.pnlCountDown_.Controls.Add(this.label5);
+            this.pnlCountDown_.Controls.Add(this.label6);
+            this.pnlCountDown_.Controls.Add(this.btnCancel);
+            this.pnlCountDown_.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.pnlCountDown_.Location = new System.Drawing.Point(35, 3);
+            this.pnlCountDown_.Name = "pnlCountDown_";
+            this.pnlCountDown_.Size = new System.Drawing.Size(448, 212);
+            this.pnlCountDown_.TabIndex = 22;
+            this.pnlCountDown_.Visible = false;
             // 
             // label3
             // 
@@ -253,21 +291,43 @@
             this.label6.Text = "                                                                         ";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnCancel
+            // pnlCountDown
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.AutoSize = true;
-            this.btnCancel.BackgroundImage = global::CellTrack.Properties.Resources._1463426130_delete;
-            this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(399, 165);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(44, 44);
-            this.btnCancel.TabIndex = 33;
-            this.metroToolTip.SetToolTip(this.btnCancel, "Cancelar");
-            this.btnCancel.UseSelectable = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.pnlCountDown.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlCountDown.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlCountDown.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlCountDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCountDown.Controls.Add(this.metroButton1);
+            this.pnlCountDown.Controls.Add(this.label2);
+            this.pnlCountDown.Controls.Add(this.pictureBox1);
+            this.pnlCountDown.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.pnlCountDown.Location = new System.Drawing.Point(263, 208);
+            this.pnlCountDown.Name = "pnlCountDown";
+            this.pnlCountDown.Size = new System.Drawing.Size(448, 260);
+            this.pnlCountDown.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(260, 235);
+            this.label2.Margin = new System.Windows.Forms.Padding(0, 235, 0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 20);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "favor de esperar...";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::CellTrack.Properties.Resources.loading_gallery;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(254, 254);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 34;
+            this.pictureBox1.TabStop = false;
             // 
             // frmPDU
             // 
@@ -276,6 +336,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.pnlCountDown);
+            this.Controls.Add(this.pnlCountDown_);
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.shapeContainer1);
@@ -288,8 +349,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bsObjetivos)).EndInit();
+            this.pnlCountDown_.ResumeLayout(false);
+            this.pnlCountDown_.PerformLayout();
             this.pnlCountDown.ResumeLayout(false);
             this.pnlCountDown.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,12 +372,16 @@
         private MetroFramework.Controls.MetroButton btnFind;
         private System.Windows.Forms.BindingSource bsObjetivos;
         private System.Windows.Forms.Timer tmCountDown;
-        private System.Windows.Forms.FlowLayoutPanel pnlCountDown;
+        private System.Windows.Forms.FlowLayoutPanel pnlCountDown_;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblCountDown;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private MetroFramework.Controls.MetroButton btnCancel;
+        private System.Windows.Forms.FlowLayoutPanel pnlCountDown;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

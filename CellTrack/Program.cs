@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -56,6 +57,8 @@ namespace CellTrack
 
         public static Dictionary<string, UserControl> frmsOpenned = new Dictionary<string, UserControl>();
 
+        private static BackgroundWorker wrkertoNotify = new BackgroundWorker();
+
         [STAThread]
         static void Main()
         {
@@ -77,6 +80,11 @@ namespace CellTrack
 
                     FrmDashboard = new frmDashboard();
 
+                    modemStatus.Vacant();
+                    wrkertoNotify.WorkerSupportsCancellation = true;
+                    wrkertoNotify.DoWork += wrkertoNotify_DoWork;
+                    wrkertoNotify.RunWorkerAsync();
+
                     Application.Run(FrmDashboard);
                     Program.closeAllConnections();
                 }
@@ -87,6 +95,20 @@ namespace CellTrack
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             terminateProgramm();
+        }
+
+        static void wrkertoNotify_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                if (((BackgroundWorker)sender).CancellationPending)
+                    break;
+                toNotifyController.doProccess();
+                Thread.Sleep(new TimeSpan(0, 1, 0));
+            };
+
+            e.Cancel = true;
+            return;
         }
     }
 }

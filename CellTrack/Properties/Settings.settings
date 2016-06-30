@@ -47,7 +47,7 @@
       <Value Profile="(Default)">00:25:00</Value>
     </Setting>
     <Setting Name="PDUWaith" Type="System.TimeSpan" Scope="User">
-      <Value Profile="(Default)">00:00:40</Value>
+      <Value Profile="(Default)">00:00:10</Value>
     </Setting>
   </Settings>
 </SettingsFile>

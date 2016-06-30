@@ -24,17 +24,17 @@ namespace CellTrack.Controllers
                     {
                         id = item.id,
                         tipo = item.tipo,
-                        idDetalle = item.idDetalle,
-                        radio = item.desmsrecibidos.radio,
-                        MCC = item.desmsrecibidos.MCC,
-                        MNC = item.desmsrecibidos.MNC,
-                        LAC = item.desmsrecibidos.LAC,
-                        BTS = item.desmsrecibidos.BTS,
-                        V = item.desmsrecibidos.V,
-                        LAT = item.desmsrecibidos.LAT.ToString(),
-                        LNG = item.desmsrecibidos.LNG.ToString(),
-                        idLocalizations = item.idLocalizations,
-                        idUser = item.malocalizations.idUser,
+                        //idDetalle = item.idDetalle,
+                        //radio = item.desmsrecibidos.radio,
+                        //MCC = item.desmsrecibidos.MCC,
+                        //MNC = item.desmsrecibidos.MNC,
+                        //LAC = item.desmsrecibidos.LAC,
+                        //BTS = item.desmsrecibidos.BTS,
+                        //V = item.desmsrecibidos.V,
+                        //LAT = item.desmsrecibidos.LAT.ToString(),
+                        //LNG = item.desmsrecibidos.LNG.ToString(),
+                        //idLocalizations = item.idLocalizations,
+                        //idUser = item.malocalizations.idUser,
                         nombre = item.malocalizations.nombre,
                         asunto = item.malocalizations.asunto,
                         objetivo = item.malocalizations.objetivo,
@@ -61,7 +61,7 @@ namespace CellTrack.Controllers
                 controller.TriangulationsOverlays.Clear();
                 controller.MainMap.Overlays.Clear();
 
-                marker = new markersModel(Double.Parse(recibidosModel.LAT),Double.Parse(recibidosModel.LNG), string.Format("{0} [ {1} ] - {2}",recibidosModel.nombre,recibidosModel.objetivo,recibidosModel.Carrier));
+                //marker = new markersModel(Double.Parse(recibidosModel.LAT),Double.Parse(recibidosModel.LNG), string.Format("{0} [ {1} ] - {2}",recibidosModel.nombre,recibidosModel.objetivo,recibidosModel.Carrier));
                 controller.CreateCircle(new System.Drawing.PointF((float)marker.Lat, (float)marker.Lng), Properties.Settings.Default.mapRadioCircle, Properties.Settings.Default.mapSegments, Color.FromArgb(80, 153, 0, 0),new Pen(Color.DarkRed, 2));
                 controller.AddMarker(marker);
                 controller.setPosition(marker);

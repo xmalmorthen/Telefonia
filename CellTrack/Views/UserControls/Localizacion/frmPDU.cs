@@ -28,13 +28,13 @@ namespace CellTrack.Views.UserControls.Localización
 
                 pnlCountDown.Visible = value == enums.frmState.Find;
                 tmCountDown.Enabled = value == enums.frmState.Find;
-                if (value == enums.frmState.Find)
+                /*if (value == enums.frmState.Find)
                 {
                     lblCountDown.Text = Properties.Settings.Default.PDUCountDown;
                     tmCountDown.Start();
                 }
                 else
-                    tmCountDown.Stop();
+                    tmCountDown.Stop();*/
             }
         }
 
@@ -146,24 +146,32 @@ namespace CellTrack.Views.UserControls.Localización
         markersModel result = null;
         void wrker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            FrmState = enums.frmState.Normal;
             if (!e.Cancelled)
             {
                 if (((markersModel)e.Result) != null)
+                {
                     result = (markersModel)e.Result;
+                    gMapViewRender.gMap.zoom(16);
+                    gMapViewRender.gMap.centerInMarkers();
+                }
+                else {
+                    MetroMessageBox.Show(this, "No se obtuvo respuesta, favor de consultar en la ventana de seguimiento mas tarde...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 wrker.CancelAsync();
             }
         }
 
         private void tmCountDown_Tick(object sender, EventArgs e)
         {
-            int cnt =  int.Parse(lblCountDown.Text) - 1;
+            /*int cnt =  int.Parse(lblCountDown.Text) - 1;
             lblCountDown.Text = (cnt).ToString("00");
             if (cnt == 0)
             {
                 FrmState = enums.frmState.Normal;
                 if (result == null)
                     MetroMessageBox.Show(this, "No se obtuvo respuesta, favor de consultar en los recibidos mas tarde...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            }*/
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
