@@ -126,7 +126,7 @@ namespace CellTrack.Views.UserControls
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         

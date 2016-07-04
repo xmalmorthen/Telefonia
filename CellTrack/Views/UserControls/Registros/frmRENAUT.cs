@@ -71,12 +71,12 @@ namespace CellTrack.Views.UserControls
         private void btnFind_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtCad.Text.Trim())) {
-                MetroMessageBox.Show(this, "Debe indicar la cadena a buscar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe indicar la cadena a buscar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCad.Focus();
                 return;
             }
             if (!chkNombre.Checked && !chkCelular.Checked) {
-                MetroMessageBox.Show(this, "Debe seleccionar al menos un campo en donde buscar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe seleccionar al menos un campo en donde buscar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 flowLayoutPanel1.Focus();
                 return;
             }
@@ -238,7 +238,7 @@ namespace CellTrack.Views.UserControls
             {
                 lblCantReg.Text = string.Format("[ {0} ] Registros Encontrados", ((BindingSource)sender).Count.ToString());
                 if (((BindingSource)sender).Count == 0)
-                    MetroMessageBox.Show(this, "No se encontraron resultados que coincidan con la búsqueda", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, "No se encontraron resultados que coincidan con la búsqueda", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

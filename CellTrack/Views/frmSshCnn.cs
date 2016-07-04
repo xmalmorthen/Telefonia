@@ -28,8 +28,8 @@ namespace CellTrack.Views
         {
             InitializeComponent();
 
-            msmMain = Properties.Settings.Default.mainStyle;
-            this.StyleManager = msmMain;
+            visualStyles.apply(this, msmMain);
+            metroToolTip.StyleManager = msmMain;
 
             this.init();
         }
@@ -112,6 +112,11 @@ namespace CellTrack.Views
                     item.Value.SshClient.Disconnect();
             }
             dlgRes = System.Windows.Forms.DialogResult.No;
+        }
+
+        private void frmSshCnn_Shown(object sender, EventArgs e)
+        {
+            this.TopMost = true;
         }
 
     }

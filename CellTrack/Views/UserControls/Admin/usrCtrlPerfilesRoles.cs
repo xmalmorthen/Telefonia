@@ -112,7 +112,7 @@ namespace CellTrack.Views.UserControls.Admin
             #region FORM VALIDATIONS
             if (string.IsNullOrEmpty(txtPerfil.Text))
             {
-                MetroMessageBox.Show(this, "Debe indicar el Nombre del Perfil", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe indicar el Nombre del Perfil", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPerfil.Focus();
                 return;
             }
@@ -151,17 +151,17 @@ namespace CellTrack.Views.UserControls.Admin
                 caperfilesBindingSource.CancelEdit();
                 FrmState = enums.frmState.Normal;
                 Perfiles();
-                MetroMessageBox.Show(this, "Acción exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, "Acción exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            if (MetroMessageBox.Show(this, "Confirme la limpieza del formulario, la información introducida se perderá", "Limpiar formulario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(this, "Confirme la limpieza del formulario, la información introducida se perderá", "Limpiar formulario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 caperfilesBindingSource.CancelEdit();
                 if (FrmState.Equals(enums.frmState.Add))
@@ -178,7 +178,7 @@ namespace CellTrack.Views.UserControls.Admin
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (MetroMessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (FrmState.Equals(enums.frmState.Add))
                     caperfilesBindingSource.CancelEdit();
@@ -206,18 +206,18 @@ namespace CellTrack.Views.UserControls.Admin
         {
             try
             {
-                if (MetroMessageBox.Show(this, "Confirme la eliminación", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(this, "Confirme la eliminación", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (!rolesPerfilesController.delete(caperfilesBindingSource.Current as caperfiles))
                         throw new Exception("Ocurrió un error al eliminar, favor de intentarlo de nuevo." + Environment.NewLine + "Si el problema persiste ponerse en contacto con el administrador del sistema");
                     FrmState = enums.frmState.Normal;
                     Perfiles();
-                    MetroMessageBox.Show(this, "Acción exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, "Acción exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

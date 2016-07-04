@@ -329,7 +329,7 @@ namespace CellTrack.Views
             if (!e.Cancelled)
             {
                 if (e.Error != null)
-                    MetroMessageBox.Show(this, e.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this, e.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (e.Result != null)
                 {
                     try

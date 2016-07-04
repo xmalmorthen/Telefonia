@@ -164,9 +164,12 @@
             this.Movable = false;
             this.Name = "frmDashboard";
             this.Resizable = false;
+            this.ShowInTaskbar = false;
             this.Text = "Panel CellTrack";
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Right;
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.MaximizedBoundsChanged += new System.EventHandler(this.frmDashboard_MaximizedBoundsChanged);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

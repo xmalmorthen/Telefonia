@@ -164,6 +164,7 @@
             this.splitContainer.SplitterDistance = 140;
             this.splitContainer.SplitterWidth = 5;
             this.splitContainer.TabIndex = 19;
+            this.splitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer_SplitterMoved);
             // 
             // dtPeriodoA
             // 

@@ -89,42 +89,42 @@ namespace CellTrack.Views.UserControls.Admin
             #region FORM VALIDATIONS
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
-                MetroMessageBox.Show(this, "Debe indicar el/los Nombre(s)", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe indicar el/los Nombre(s)", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNombre.Focus();
                 return;
             }
 
             if (string.IsNullOrEmpty(txtPAp.Text))
             {
-                MetroMessageBox.Show(this, "Debe indicar el Primer Apellido", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe indicar el Primer Apellido", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPAp.Focus();
                 return;
             }
 
             if (string.IsNullOrEmpty(txtUser.Text))
             {
-                MetroMessageBox.Show(this, "Debe indicar el nombre de usuario", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe indicar el nombre de usuario", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtUser.Focus();
                 return;
             }
 
             if (FrmState == enums.frmState.Add && string.IsNullOrEmpty(txtPwd.Text))
             {
-                MetroMessageBox.Show(this, "Debe indicar la contraseña", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe indicar la contraseña", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPwd.Focus();
                 return;
             }
 
             if (cmbPerfil.SelectedIndex < 0)
             {
-                MetroMessageBox.Show(this, "Debe asignar un Perfil", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe asignar un Perfil", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbPerfil.Focus();
                 return;
             }
 
             if (cmbGpo.SelectedIndex < 0)
             {
-                MetroMessageBox.Show(this, "Debe asociar el usuario a un grupo", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe asociar el usuario a un grupo", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbGpo.Focus();
                 return;
             }
@@ -174,11 +174,11 @@ namespace CellTrack.Views.UserControls.Admin
                 causuariosBindingSource.CancelEdit();
                 FrmState = enums.frmState.Normal;
                 Usuarios();
-                MetroMessageBox.Show(this, "Acción exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, "Acción exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -193,7 +193,7 @@ namespace CellTrack.Views.UserControls.Admin
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            if (MetroMessageBox.Show(this, "Confirme la limpieza del formulario, la información introducida se perderá", "Limpiar formulario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(this, "Confirme la limpieza del formulario, la información introducida se perderá", "Limpiar formulario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 causuariosBindingSource.CancelEdit();
                 if (FrmState.Equals(enums.frmState.Add))
@@ -207,7 +207,7 @@ namespace CellTrack.Views.UserControls.Admin
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (MetroMessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (FrmState.Equals(enums.frmState.Add))
                     causuariosBindingSource.CancelEdit();
@@ -229,7 +229,7 @@ namespace CellTrack.Views.UserControls.Admin
         {
             try
             {
-                if (MetroMessageBox.Show(this, "Confirme la eliminación", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(this, "Confirme la eliminación", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (!usuarioController.delete(causuariosBindingSource.Current as causuarios))
                         throw new Exception("Ocurrió un error al eliminar, favor de intentarlo de nuevo." + Environment.NewLine + "Si el problema persiste ponerse en contacto con el administrador del sistema");
@@ -239,7 +239,7 @@ namespace CellTrack.Views.UserControls.Admin
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

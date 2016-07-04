@@ -71,7 +71,7 @@ namespace CellTrack.Views.UserControls.Admin
             #region FORM VALIDATIONS
             if (string.IsNullOrEmpty(txtGrupo.Text))
             {
-                MetroMessageBox.Show(this, "Debe indicar el Nombre del Grupo", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe indicar el Nombre del Grupo", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtGrupo.Focus();
                 return;
             }
@@ -95,11 +95,11 @@ namespace CellTrack.Views.UserControls.Admin
                 cagruposBindingSource.CancelEdit();
                 FrmState = enums.frmState.Normal;
                 Grupos();
-                MetroMessageBox.Show(this, "Acción exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, "Acción exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -114,7 +114,7 @@ namespace CellTrack.Views.UserControls.Admin
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            if (MetroMessageBox.Show(this, "Confirme la limpieza del formulario, la información introducida se perderá", "Limpiar formulario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(this, "Confirme la limpieza del formulario, la información introducida se perderá", "Limpiar formulario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
                 cagruposBindingSource.CancelEdit();
@@ -129,7 +129,7 @@ namespace CellTrack.Views.UserControls.Admin
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (MetroMessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (FrmState.Equals(enums.frmState.Add))
                     cagruposBindingSource.CancelEdit();
@@ -152,18 +152,18 @@ namespace CellTrack.Views.UserControls.Admin
         {
             try
             {
-                if (MetroMessageBox.Show(this, "Confirme la eliminación", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(this, "Confirme la eliminación", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (!gruposController.delete(cagruposBindingSource.Current as cagrupos))
                         throw new Exception("Ocurrió un error al eliminar, favor de intentarlo de nuevo." + Environment.NewLine + "Si el problema persiste ponerse en contacto con el administrador del sistema");
                     FrmState = enums.frmState.Normal;
                     Grupos();
-                    MetroMessageBox.Show(this, "Acción exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, "Acción exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

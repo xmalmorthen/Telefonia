@@ -106,7 +106,7 @@ namespace CellTrack.Views.UserControls
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -143,7 +143,7 @@ namespace CellTrack.Views.UserControls
                 }
                 else
                 {
-                    MetroMessageBox.Show(this, "No se encontraron registros de seguimiento...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, "No se encontraron registros de seguimiento...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 wrker.CancelAsync();
             }
@@ -162,7 +162,7 @@ namespace CellTrack.Views.UserControls
                     frmMap.ShowDialog(this);
                 }
                 else
-                    MetroMessageBox.Show(this, "No se encontró información de geoubicación...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, "No se encontró información de geoubicación...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

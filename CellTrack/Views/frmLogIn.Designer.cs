@@ -239,9 +239,10 @@
             this.Movable = false;
             this.Name = "frmLogIn";
             this.Resizable = false;
-            this.ShowInTaskbar = false;
             this.Text = "      CellTrack";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
+            this.TopMost = true;
+            this.Shown += new System.EventHandler(this.frmLogIn_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.tlpProc.ResumeLayout(false);
             this.tlpProc.PerformLayout();

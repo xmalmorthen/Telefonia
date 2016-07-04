@@ -62,7 +62,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmProccessingShow";
-            this.Size = new System.Drawing.Size(282, 74);
+            this.Size = new System.Drawing.Size(276, 74);
             this.ResumeLayout(false);
             this.PerformLayout();
 

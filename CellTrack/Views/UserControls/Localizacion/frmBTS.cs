@@ -64,11 +64,11 @@ namespace CellTrack.Views.UserControls.Localización
                                                         out message
                                                         ) 
                     )
-                    MetroMessageBox.Show(this, message, "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, message, "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

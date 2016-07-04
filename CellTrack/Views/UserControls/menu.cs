@@ -124,7 +124,7 @@ namespace CellTrack.Views.UserControls
             catch (Exception ex)
             {
                 string msgErr = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
-                MetroMessageBox.Show(this, msgErr, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, msgErr, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Program.FrmDashboard.renderNone();
             }
         }
@@ -142,7 +142,7 @@ namespace CellTrack.Views.UserControls
             }
             catch
             {
-                MetroMessageBox.Show(this,"No hay conexión a internet." + Environment.NewLine + "No es posible usar esta función", "Internet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this,"No hay conexión a internet." + Environment.NewLine + "No es posible usar esta función", "Internet", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             this.openFrm<frmPDU>();

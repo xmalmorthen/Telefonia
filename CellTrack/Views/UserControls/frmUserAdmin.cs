@@ -103,18 +103,18 @@ namespace CellTrack.Views.UserControls
                 if (!string.IsNullOrEmpty(txtPwd2.Text.Trim()))
                 {
                     if (!txtPwd.Text.Trim().Equals(txtPwd2.Text.Trim())) {
-                        MetroMessageBox.Show(this,"La contraseña no coincide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(this,"La contraseña no coincide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtPwd2.SelectAll();
                         txtPwd2.Focus();
                         return;
                     }
                 } else {
-                    MetroMessageBox.Show(this,"Debe repetir la contraseña", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this,"Debe repetir la contraseña", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtPwd2.Focus();
                     return;
                 }
             else{
-                MetroMessageBox.Show(this,"Debe especificar la contraseña", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this,"Debe especificar la contraseña", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtPwd.Focus();
                 return;
             }

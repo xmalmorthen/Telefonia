@@ -50,7 +50,7 @@ namespace CellTrack.Views.UserControls.Localización
             dtPeriodoDe.Value = dtPeriodoDe.MaxDate;
             dtPeriodoA.Value = dtPeriodoA.MaxDate;
 
-            btnReport.Location = new Point(splitContainer.Panel2.Left + 10, splitContainer.Panel2.Top + 110);
+            //btnReport.Location = new Point(splitContainer.Panel2.Left + 10, splitContainer.Panel2.Top + 110);
 
             this.populate();
 
@@ -108,12 +108,12 @@ namespace CellTrack.Views.UserControls.Localización
             {
                 targets = seguimientoController.markObjetivos(gMapViewRender.gMap,(PDUModel)bsObjetivos.Current,dtPeriodoDe.Value.Date, dtPeriodoA.Value.Date, MainMap_OnMarkerEnter, MainMap_OnMarkerLeave);
                 if (targets.Count == 0)
-                    MetroMessageBox.Show(this, "No se encontraron puntos para mostrar...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, "No se encontraron puntos para mostrar...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnReport.Visible = targets.Count > 0;
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -139,6 +139,11 @@ namespace CellTrack.Views.UserControls.Localización
         private void btnReport_Click(object sender, EventArgs e)
         {
             seguimientoController.makeReport(gMapViewRender.gMap, targets);
+        }
+
+        private void splitContainer_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+            btnReport.Location = new Point(splitContainer.Panel2.Left + 20, splitContainer.Panel2.Top + 50);
         }
     }
 }

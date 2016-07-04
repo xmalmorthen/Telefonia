@@ -81,5 +81,9 @@ namespace CellTrack.Views
             this.panel.Controls.Clear();
         }
 
+        private void frmDashboard_MaximizedBoundsChanged(object sender, EventArgs e)
+        {
+        }
+
     }
 }

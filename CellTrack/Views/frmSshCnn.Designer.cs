@@ -59,7 +59,7 @@
             this.lblInfo.Location = new System.Drawing.Point(18, 101);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(3);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(125, 19);
+            this.lblInfo.Size = new System.Drawing.Size(107, 15);
             this.lblInfo.TabIndex = 6;
             this.lblInfo.Text = "Iniciando proceso ...";
             this.lblInfo.UseStyleColors = true;
@@ -102,6 +102,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Iniciando sistema...";
             this.TopMost = true;
+            this.Shown += new System.EventHandler(this.frmSshCnn_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

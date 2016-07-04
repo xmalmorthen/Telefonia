@@ -55,10 +55,10 @@ namespace CellTrack
             frmState = FrmState.Proccesing;
 
             if (string.IsNullOrEmpty(txtUsr.Text.Trim())) { 
-                MetroMessageBox.Show(this, "Debe especificar el nombre de usuario", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show(this, "Debe especificar el nombre de usuario", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txtUsr.Focus();
             } else if (string.IsNullOrEmpty(txtPwd.Text.Trim())){
-                MetroMessageBox.Show(this, "Debe especificar la contraseña", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show(this, "Debe especificar la contraseña", "Falta información", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txtPwd.Focus();
             } else {
                 BackgroundWorker bkgnd = new BackgroundWorker();
@@ -90,7 +90,7 @@ namespace CellTrack
                 frmState = FrmState.Normal;
                 if (!(Boolean)e.Result)
                 {
-                    MetroMessageBox.Show(this, "Usuario y/o contraseña incorrectos", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(null,"Usuario y/o contraseña incorrectos", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -104,6 +104,11 @@ namespace CellTrack
         {
             dlgRes = System.Windows.Forms.DialogResult.No;
             this.Close();
+        }
+
+        private void frmLogIn_Shown(object sender, EventArgs e)
+        {
+            this.TopMost = true;
         }
         
     }

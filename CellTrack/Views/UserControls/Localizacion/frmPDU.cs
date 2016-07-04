@@ -119,7 +119,7 @@ namespace CellTrack.Views.UserControls.Localización
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
@@ -156,7 +156,7 @@ namespace CellTrack.Views.UserControls.Localización
                     gMapViewRender.gMap.centerInMarkers();
                 }
                 else {
-                    MetroMessageBox.Show(this, "No se obtuvo respuesta, favor de consultar en la ventana de seguimiento mas tarde...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, "No se obtuvo respuesta, favor de consultar en la ventana de seguimiento mas tarde...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 wrker.CancelAsync();
             }
@@ -170,7 +170,7 @@ namespace CellTrack.Views.UserControls.Localización
             {
                 FrmState = enums.frmState.Normal;
                 if (result == null)
-                    MetroMessageBox.Show(this, "No se obtuvo respuesta, favor de consultar en los recibidos mas tarde...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, "No se obtuvo respuesta, favor de consultar en los recibidos mas tarde...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }*/
         }
 

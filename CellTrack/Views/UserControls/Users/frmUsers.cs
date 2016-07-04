@@ -153,35 +153,35 @@ namespace CellTrack.Views.UserControls
         {            
             #region FORM VALIDATIONS
             if (string.IsNullOrEmpty(txtNombre.Text)) {
-                MetroMessageBox.Show(this, "Debe indicar el Nombre", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe indicar el Nombre", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNombre.Focus();
                 return;
             }
 
             if (cmbCarrier.SelectedIndex < 0)
             {
-                MetroMessageBox.Show(this, "Debe indicar el Carrier", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe indicar el Carrier", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbCarrier.Focus();
                 return;
             }
 
             if (string.IsNullOrEmpty(txtAsunto.Text))
             {
-                MetroMessageBox.Show(this, "Debe indicar el Asunto", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe indicar el Asunto", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtAsunto.Focus();
                 return;
             }
 
             if (cmbNotification.SelectedIndex < 0)
             {
-                MetroMessageBox.Show(this, "Debe indicar el usuario a notificar", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe indicar el usuario a notificar", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbNotification.Focus();
                 return;
             }
 
             if (string.IsNullOrEmpty(txtCel.Text))
             {
-                MetroMessageBox.Show(this, "Debe indicar el número de celular", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "Debe indicar el número de celular", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCel.Focus();
                 return;
             }
@@ -206,13 +206,13 @@ namespace CellTrack.Views.UserControls
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if ( MetroMessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+            if ( MessageBox.Show(this, "Confirme la cancelación", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 bsObjetivos.CancelEdit();
                 FrmState = enums.frmState.Normal;
             }
@@ -220,7 +220,7 @@ namespace CellTrack.Views.UserControls
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            if (MetroMessageBox.Show(this, "Confirme la limpieza del formulario, la información introducida se perderá", "Limpiar formulario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(this, "Confirme la limpieza del formulario, la información introducida se perderá", "Limpiar formulario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 bsObjetivos.CancelEdit();
                 btnAdd_Click(null, null);
@@ -241,7 +241,7 @@ namespace CellTrack.Views.UserControls
         {
             try
             {
-                if (MetroMessageBox.Show(this, "Confirme la eliminación", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(this, "Confirme la eliminación", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (!objetivosController.deleteTarget(bsObjetivos.Current as localizationsModel))
                         throw new Exception("Ocurrió un error al eliminar, favor de intentarlo de nuevo." + Environment.NewLine + "Si el problema persiste ponerse en contacto con el administrador del sistema");
@@ -251,7 +251,7 @@ namespace CellTrack.Views.UserControls
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }        
         
