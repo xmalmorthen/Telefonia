@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CellTrack.Controllers
@@ -22,7 +23,15 @@ namespace CellTrack.Controllers
             {
                 //StringBuilder output = ssh.execute("pwd");
                 //StringBuilder output = ssh.execute("bash -l -c '/home/geo/senal.sh'");
+
+                while (!modemStatus.Free)
+                {
+                    Thread.Sleep(1000);
+                }
+
+                modemStatus.Occupied();
                 StringBuilder output = ssh.script("senal.sh");
+                modemStatus.Vacant();
 
                 if (output != null)
                     using (StringReader reader = new StringReader(output.ToString()))

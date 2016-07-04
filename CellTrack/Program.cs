@@ -103,8 +103,8 @@ namespace CellTrack
             {
                 if (((BackgroundWorker)sender).CancellationPending)
                     break;
-                toNotifyController.doProccess();
-                Thread.Sleep(new TimeSpan(0, 1, 0));
+                Thread.Sleep(new TimeSpan(0, 0, 15));
+                toNotifyController.doProccess();                
             };
 
             e.Cancel = true;

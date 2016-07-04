@@ -37,7 +37,7 @@
             this.btnFree = new MetroFramework.Controls.MetroButton();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
-            this.tmGetModemSignal = new System.Windows.Forms.Timer(this.components);
+            this.wrkr = new System.ComponentModel.BackgroundWorker();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOcuppied)).BeginInit();
@@ -125,7 +125,7 @@
             this.btnFree.TabIndex = 40;
             this.metroToolTip.SetToolTip(this.btnFree, "Desocupar modem");
             this.btnFree.UseSelectable = true;
-            this.btnFree.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnFree.Visible = false;
             // 
             // msmMain
             // 
@@ -138,11 +138,12 @@
             this.metroToolTip.StyleManager = null;
             this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
-            // tmGetModemSignal
+            // wrkr
             // 
-            this.tmGetModemSignal.Enabled = true;
-            this.tmGetModemSignal.Interval = 500;
-            this.tmGetModemSignal.Tick += new System.EventHandler(this.tmGetModemSignal_Tick);
+            this.wrkr.WorkerReportsProgress = true;
+            this.wrkr.WorkerSupportsCancellation = true;
+            this.wrkr.DoWork += new System.ComponentModel.DoWorkEventHandler(this.wrkr_DoWork);
+            this.wrkr.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.wrkr_ProgressChanged);
             // 
             // frmModemStatus
             // 
@@ -169,9 +170,9 @@
         private System.Windows.Forms.PictureBox pbFree;
         private MetroFramework.Components.MetroStyleManager msmMain;
         private MetroFramework.Components.MetroToolTip metroToolTip;
-        private System.Windows.Forms.Timer tmGetModemSignal;
         private MetroFramework.Controls.MetroButton btnFree;
         private System.Windows.Forms.PictureBox pbOcuppied;
         private MetroFramework.Controls.MetroLabel lbl;
+        private System.ComponentModel.BackgroundWorker wrkr;
     }
 }

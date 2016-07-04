@@ -49,5 +49,8 @@
     <Setting Name="PDUWaith" Type="System.TimeSpan" Scope="User">
       <Value Profile="(Default)">00:00:10</Value>
     </Setting>
+    <Setting Name="ModemSignalRefreshTime" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:01:00</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

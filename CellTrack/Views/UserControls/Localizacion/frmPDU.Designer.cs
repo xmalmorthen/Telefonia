@@ -224,7 +224,7 @@
             this.pnlCountDown_.Controls.Add(this.label6);
             this.pnlCountDown_.Controls.Add(this.btnCancel);
             this.pnlCountDown_.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.pnlCountDown_.Location = new System.Drawing.Point(35, 3);
+            this.pnlCountDown_.Location = new System.Drawing.Point(922, 13);
             this.pnlCountDown_.Name = "pnlCountDown_";
             this.pnlCountDown_.Size = new System.Drawing.Size(448, 212);
             this.pnlCountDown_.TabIndex = 22;

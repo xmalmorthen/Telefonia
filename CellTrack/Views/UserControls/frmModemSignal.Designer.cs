@@ -33,11 +33,12 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mpbModemSignal = new MetroFramework.Controls.MetroProgressBar();
+            this.lblErr = new MetroFramework.Controls.MetroLabel();
+            this.btnRefresh = new MetroFramework.Controls.MetroButton();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.tmGetModemSignal = new System.Windows.Forms.Timer(this.components);
-            this.btnRefresh = new MetroFramework.Controls.MetroButton();
-            this.lblErr = new MetroFramework.Controls.MetroLabel();
+            this.wrkr = new System.ComponentModel.BackgroundWorker();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
@@ -94,25 +95,22 @@
             this.mpbModemSignal.Style = MetroFramework.MetroColorStyle.Black;
             this.mpbModemSignal.TabIndex = 14;
             this.mpbModemSignal.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroToolTip.SetToolTip(this.mpbModemSignal, "asdasdasd");
-            this.mpbModemSignal.Value = 15;
+            this.mpbModemSignal.Value = 1;
             // 
-            // msmMain
+            // lblErr
             // 
-            this.msmMain.Owner = this;
-            this.msmMain.Style = MetroFramework.MetroColorStyle.Black;
-            // 
-            // metroToolTip
-            // 
-            this.metroToolTip.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroToolTip.StyleManager = null;
-            this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
-            // tmGetModemSignal
-            // 
-            this.tmGetModemSignal.Enabled = true;
-            this.tmGetModemSignal.Interval = 60000;
-            this.tmGetModemSignal.Tick += new System.EventHandler(this.tmGetModemSignal_Tick);
+            this.lblErr.AutoSize = true;
+            this.lblErr.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lblErr.Location = new System.Drawing.Point(361, 9);
+            this.lblErr.Margin = new System.Windows.Forms.Padding(3, 9, 11, 3);
+            this.lblErr.Name = "lblErr";
+            this.lblErr.Size = new System.Drawing.Size(213, 15);
+            this.lblErr.Style = MetroFramework.MetroColorStyle.Black;
+            this.lblErr.TabIndex = 41;
+            this.lblErr.Text = "No se pudo obtener la señal del modem.";
+            this.lblErr.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.lblErr.UseStyleColors = true;
+            this.lblErr.Visible = false;
             // 
             // btnRefresh
             // 
@@ -131,20 +129,28 @@
             this.btnRefresh.UseSelectable = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // lblErr
+            // msmMain
             // 
-            this.lblErr.AutoSize = true;
-            this.lblErr.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblErr.Location = new System.Drawing.Point(361, 9);
-            this.lblErr.Margin = new System.Windows.Forms.Padding(3, 9, 11, 3);
-            this.lblErr.Name = "lblErr";
-            this.lblErr.Size = new System.Drawing.Size(213, 15);
-            this.lblErr.Style = MetroFramework.MetroColorStyle.Black;
-            this.lblErr.TabIndex = 41;
-            this.lblErr.Text = "No se pudo obtener la señal del modem.";
-            this.lblErr.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.lblErr.UseStyleColors = true;
-            this.lblErr.Visible = false;
+            this.msmMain.Owner = this;
+            this.msmMain.Style = MetroFramework.MetroColorStyle.Black;
+            // 
+            // metroToolTip
+            // 
+            this.metroToolTip.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroToolTip.StyleManager = null;
+            this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // tmGetModemSignal
+            // 
+            this.tmGetModemSignal.Enabled = true;
+            this.tmGetModemSignal.Interval = 60000;
+            // 
+            // wrkr
+            // 
+            this.wrkr.WorkerReportsProgress = true;
+            this.wrkr.WorkerSupportsCancellation = true;
+            this.wrkr.DoWork += new System.ComponentModel.DoWorkEventHandler(this.wrkr_DoWork);
+            this.wrkr.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.wrkr_ProgressChanged);
             // 
             // frmModemSignal
             // 
@@ -174,5 +180,6 @@
         private System.Windows.Forms.Timer tmGetModemSignal;
         private MetroFramework.Controls.MetroButton btnRefresh;
         private MetroFramework.Controls.MetroLabel lblErr;
+        private System.ComponentModel.BackgroundWorker wrkr;
     }
 }

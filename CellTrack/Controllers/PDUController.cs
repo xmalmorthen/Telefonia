@@ -43,16 +43,28 @@ namespace CellTrack.Controllers
                     //message = "+CMGL: 2,\"REC UNREAD\",\"3121220995\",,\"16/06/27,15:58:52-20\",33042013030FC3";
                     //UMTS
                     //message = "+CMGL: 2,\"REC UNREAD\",\"3121329762\",,\"16/06/30,10:34:54-20\",330420792B9AF8";
+                    //Respuestas longitud larga                    
+                    //message = "+CMGL: 3,\"REC READ\",\"6643345656\",,\"16/06/12,20:38:32-20\",07330420794469F50BE4";
 
                     string[] dataParts = message.Split(',');
 
-                    int decValue = Convert.ToInt32("0", 16);
-                    
-                    smsInfo.LAC = dataParts[dataParts.Length - 1].Substring(dataParts[dataParts.Length - 1].Length - 8, 4);
-                    smsInfo.BTS = dataParts[dataParts.Length - 1].Substring(dataParts[dataParts.Length - 1].Length - 4, 4);
+                    if (dataParts[dataParts.Length - 1].Length == 14)
+                    {
+                        smsInfo.LAC = dataParts[dataParts.Length - 1].Substring(dataParts[dataParts.Length - 1].Length - 8, 4);
+                        smsInfo.BTS = dataParts[dataParts.Length - 1].Substring(dataParts[dataParts.Length - 1].Length - 4, 4);
+                    }
+                    else if (dataParts[dataParts.Length - 1].Length == 20) {
+                        smsInfo.LAC = dataParts[dataParts.Length - 1].Substring(dataParts[dataParts.Length - 1].Length - 12, 4);
+                        smsInfo.BTS = dataParts[dataParts.Length - 1].Substring(dataParts[dataParts.Length - 1].Length - 8, 4);
+                    }
 
-                    smsInfo.LAC = ((4096 * Convert.ToInt32(smsInfo.LAC[0].ToString(), 16)) + (256 * Convert.ToInt32(smsInfo.LAC[1].ToString(), 16)) + (16 * Convert.ToInt32(smsInfo.LAC[2].ToString(), 16)) + Convert.ToInt32(smsInfo.LAC[3].ToString(), 16)).ToString();
-                    smsInfo.BTS = ((4096 * Convert.ToInt32(smsInfo.BTS[0].ToString(), 16)) + (256 * Convert.ToInt32(smsInfo.BTS[1].ToString(), 16)) + (16 * Convert.ToInt32(smsInfo.BTS[2].ToString(), 16)) + Convert.ToInt32(smsInfo.BTS[3].ToString(), 16)).ToString();
+                    if (string.IsNullOrEmpty(smsInfo.LAC)) throw new NullReferenceException(string.Format("Error al obtener el LAC y BTS de la cadena [ {0} ] ", message));
+
+                    smsInfo.LAC = Convert.ToInt32(smsInfo.LAC.ToString(), 16).ToString();
+                    smsInfo.BTS = Convert.ToInt32(smsInfo.BTS.ToString(), 16).ToString();
+
+                    //smsInfo.LAC = ((4096 * smsInfo.LAC[0]) + (256 * smsInfo.LAC[1]) + (16 * smsInfo.LAC[2]) + smsInfo.LAC[3]).ToString();
+                    //smsInfo.BTS = ((4096 * smsInfo.BTS[0]) + (256 * smsInfo.BTS[1]) + (16 * smsInfo.BTS[2]) + smsInfo.BTS[3]).ToString();
 
                     string qry = string.Format(@"select radio,mcc,mnc,lac,cellid,rnc,enbi from bts where lac={0} LIMIT 1", smsInfo.LAC);
                     bdRegistrosEntities bd = new bdRegistrosEntities();
@@ -74,8 +86,8 @@ namespace CellTrack.Controllers
                             geoRef = btsController.getApiGeoReference(controller, double.Parse(smsInfo.BTS), double.Parse(smsInfo.LAC), double.Parse(smsInfo.MCC), double.Parse(smsInfo.MNC), out responseMessage, out model, false);
                         break;
                         case "UMTS":
-                            //smsInfo.BTS = (Convert.ToInt32(data.rnc) * 65536) + smsInfo.BTS;
-                            smsInfo.BTS = data.cellid;
+                            smsInfo.BTS = ((Convert.ToInt32(data.rnc) * 65536) + Convert.ToInt32(smsInfo.BTS)).ToString();
+                            //smsInfo.BTS = data.cellid;
                             geoRef = btsController.getApiGeoReference(controller, double.Parse(smsInfo.BTS), double.Parse(smsInfo.LAC), double.Parse(smsInfo.MCC), double.Parse(smsInfo.MNC), out responseMessage, out model, false);
                         break;
                         case "LTE":
@@ -180,8 +192,7 @@ namespace CellTrack.Controllers
                         controller.MainMap.Overlays.Clear();
 
                         controller.CreateCircle(new System.Drawing.PointF((float)marker.Lat, (float)marker.Lng), Properties.Settings.Default.mapRadioCircle, Properties.Settings.Default.mapSegments, new Pen(Color.DarkRed, 2));
-                        controller.AddMarker(marker, GMap.NET.WindowsForms.MarkerTooltipMode.Always);
-                        controller.setPosition(marker);
+                        controller.AddMarker(marker, GMap.NET.WindowsForms.MarkerTooltipMode.Always);                        
                     }
                 }
             }
@@ -222,7 +233,7 @@ namespace CellTrack.Controllers
                     {
                         string num = item.obj.objetivo;
                         string objetivo = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}", num[1], num[0], num[3], num[2], num[5], num[4], num[7], num[6], num[9], num[8]);
-                        string cmnd = string.Format("PDU.sh {0} {1}", objetivo, (char)26);
+                        string cmnd = string.Format("PDU.sh {0}", objetivo);
 
                         while (!modemStatus.Free)
                         {

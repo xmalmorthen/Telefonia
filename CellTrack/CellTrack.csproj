@@ -112,6 +112,7 @@
     <Compile Include="Classes\visualStyles.cs" />
     <Compile Include="Controllers\catalogosController.cs" />
     <Compile Include="Controllers\btsController.cs" />
+    <Compile Include="Controllers\investigacionController.cs" />
     <Compile Include="Controllers\toNotifyController.cs" />
     <Compile Include="Controllers\modemSignalController.cs" />
     <Compile Include="Controllers\RegistrosControllers\CFEController.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Controllers\PDUController.cs" />
     <Compile Include="Controllers\usuarioController.cs" />
     <Compile Include="Models\btsModel.cs" />
+    <Compile Include="Models\investigationModel.cs" />
     <Compile Include="Models\DataBases\bdRegistros.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -316,6 +318,12 @@
     <Compile Include="Views\UserControls\frmProccessingShow.Designer.cs">
       <DependentUpon>frmProccessingShow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\frmShowMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\frmShowMap.Designer.cs">
+      <DependentUpon>frmShowMap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\frmSaldo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -418,6 +426,9 @@
     <Compile Include="Views\UserControls\Users\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\CellTrack.Models.BTSDataBaseModel.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.detalleRecibidosModel.datasource" />
+    <None Include="Properties\DataSources\CellTrack.Models.investigationModel.datasource" />
     <None Include="Resources\1467326850_lighting.png" />
     <None Include="Resources\1467326737_brush.png" />
     <None Include="Resources\1467326716_brush.png" />
@@ -480,6 +491,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\frmModemStatus.resx">
       <DependentUpon>frmModemStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\frmShowMap.resx">
+      <DependentUpon>frmShowMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\gMapView.resx">
       <DependentUpon>gMapView.cs</DependentUpon>
