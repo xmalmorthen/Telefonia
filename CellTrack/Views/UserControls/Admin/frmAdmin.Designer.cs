@@ -82,7 +82,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(982, 596);
+            this.shapeContainer1.Size = new System.Drawing.Size(984, 598);
             this.shapeContainer1.TabIndex = 17;
             this.shapeContainer1.TabStop = false;
             // 
@@ -102,8 +102,8 @@
             this.tbConfigs.ItemSize = new System.Drawing.Size(100, 43);
             this.tbConfigs.Location = new System.Drawing.Point(9, 40);
             this.tbConfigs.Name = "tbConfigs";
-            this.tbConfigs.SelectedIndex = 0;
-            this.tbConfigs.Size = new System.Drawing.Size(970, 553);
+            this.tbConfigs.SelectedIndex = 1;
+            this.tbConfigs.Size = new System.Drawing.Size(972, 555);
             this.tbConfigs.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tbConfigs.Style = MetroFramework.MetroColorStyle.Orange;
             this.tbConfigs.TabIndex = 0;
@@ -127,15 +127,18 @@
             // 
             // tbPagePerfilesRoles
             // 
+            this.tbPagePerfilesRoles.AutoScroll = true;
             this.tbPagePerfilesRoles.BackColor = System.Drawing.Color.Transparent;
+            this.tbPagePerfilesRoles.HorizontalScrollbar = true;
             this.tbPagePerfilesRoles.HorizontalScrollbarBarColor = true;
             this.tbPagePerfilesRoles.HorizontalScrollbarHighlightOnWheel = false;
             this.tbPagePerfilesRoles.HorizontalScrollbarSize = 10;
             this.tbPagePerfilesRoles.Location = new System.Drawing.Point(4, 47);
             this.tbPagePerfilesRoles.Name = "tbPagePerfilesRoles";
-            this.tbPagePerfilesRoles.Size = new System.Drawing.Size(962, 502);
+            this.tbPagePerfilesRoles.Size = new System.Drawing.Size(964, 504);
             this.tbPagePerfilesRoles.TabIndex = 1;
             this.tbPagePerfilesRoles.Text = "Perfiles y Roles";
+            this.tbPagePerfilesRoles.VerticalScrollbar = true;
             this.tbPagePerfilesRoles.VerticalScrollbarBarColor = true;
             this.tbPagePerfilesRoles.VerticalScrollbarHighlightOnWheel = false;
             this.tbPagePerfilesRoles.VerticalScrollbarSize = 10;
@@ -180,7 +183,7 @@
             this.Controls.Add(this.shapeContainer1);
             this.MinimumSize = new System.Drawing.Size(984, 598);
             this.Name = "frmAdmin";
-            this.Size = new System.Drawing.Size(982, 596);
+            this.Size = new System.Drawing.Size(984, 598);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.tbConfigs.ResumeLayout(false);
             this.ResumeLayout(false);

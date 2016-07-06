@@ -88,9 +88,12 @@ namespace CellTrack
             if (!e.Cancelled)
             {
                 frmState = FrmState.Normal;
+
+                if (e.Error != null) throw new EntitySqlException("Error al intentar conectar",e.Error);
+
                 if (!(Boolean)e.Result)
                 {
-                    MessageBox.Show(null,"Usuario y/o contraseña incorrectos", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(this,"Usuario y/o contraseña incorrectos", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {

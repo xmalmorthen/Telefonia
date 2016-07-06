@@ -56,10 +56,11 @@
             this.pnlBtnsActions = new System.Windows.Forms.Panel();
             this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
             this.txtPerfil = new MetroFramework.Controls.MetroTextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.gd = new MetroFramework.Controls.MetroGrid();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.txtFind = new MetroFramework.Controls.MetroTextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.gd = new MetroFramework.Controls.MetroGrid();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +76,6 @@
             this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.causuariosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reperfilrolesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -236,7 +236,7 @@
             this.splitContainer.Panel1.Controls.Add(this.pnlBtnsActions);
             this.splitContainer.Panel1.Controls.Add(this.metroLabel20);
             this.splitContainer.Panel1.Controls.Add(this.txtPerfil);
-            this.splitContainer.Panel1MinSize = 400;
+            this.splitContainer.Panel1MinSize = 250;
             // 
             // splitContainer.Panel2
             // 
@@ -247,7 +247,7 @@
             this.splitContainer.Panel2.Controls.Add(this.gd);
             this.splitContainer.Panel2MinSize = 200;
             this.splitContainer.Size = new System.Drawing.Size(961, 614);
-            this.splitContainer.SplitterDistance = 401;
+            this.splitContainer.SplitterDistance = 250;
             this.splitContainer.SplitterWidth = 5;
             this.splitContainer.TabIndex = 24;
             // 
@@ -338,7 +338,7 @@
             this.gdRolesAsignados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdRolesAsignados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdRolesAsignados.ShowEditingIcon = false;
-            this.gdRolesAsignados.Size = new System.Drawing.Size(861, 295);
+            this.gdRolesAsignados.Size = new System.Drawing.Size(861, 144);
             this.gdRolesAsignados.StandardTab = true;
             this.gdRolesAsignados.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdRolesAsignados.TabIndex = 47;
@@ -459,6 +459,67 @@
             this.txtPerfil.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPerfil.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // metroLabel11
+            // 
+            this.metroLabel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.metroLabel11.Location = new System.Drawing.Point(411, 4);
+            this.metroLabel11.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(90, 15);
+            this.metroLabel11.TabIndex = 46;
+            this.metroLabel11.Text = "Filtra por [ Perfil ]";
+            this.metroLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel7.Location = new System.Drawing.Point(3, 21);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(62, 25);
+            this.metroLabel7.TabIndex = 40;
+            this.metroLabel7.Text = "Filtrar";
+            this.metroLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtFind
+            // 
+            this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFind.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtFind.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            // 
+            // 
+            // 
+            this.txtFind.CustomButton.Image = null;
+            this.txtFind.CustomButton.Location = new System.Drawing.Point(402, 1);
+            this.txtFind.CustomButton.Name = "";
+            this.txtFind.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.txtFind.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtFind.CustomButton.TabIndex = 1;
+            this.txtFind.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtFind.CustomButton.UseSelectable = true;
+            this.txtFind.CustomButton.Visible = false;
+            this.txtFind.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtFind.Lines = new string[0];
+            this.txtFind.Location = new System.Drawing.Point(71, 20);
+            this.txtFind.MaxLength = 30;
+            this.txtFind.Name = "txtFind";
+            this.txtFind.PasswordChar = '\0';
+            this.txtFind.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtFind.SelectedText = "";
+            this.txtFind.SelectionLength = 0;
+            this.txtFind.SelectionStart = 0;
+            this.txtFind.Size = new System.Drawing.Size(430, 29);
+            this.txtFind.TabIndex = 39;
+            this.txtFind.UseSelectable = true;
+            this.txtFind.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtFind.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
+            // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -534,60 +595,12 @@
             this.gd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gd.ShowEditingIcon = false;
-            this.gd.Size = new System.Drawing.Size(861, 144);
+            this.gd.Size = new System.Drawing.Size(861, 292);
             this.gd.StandardTab = true;
             this.gd.Style = MetroFramework.MetroColorStyle.Orange;
             this.gd.TabIndex = 6;
             this.gd.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gd.UseStyleColors = true;
-            // 
-            // metroLabel7
-            // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel7.Location = new System.Drawing.Point(3, 21);
-            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(62, 25);
-            this.metroLabel7.TabIndex = 40;
-            this.metroLabel7.Text = "Filtrar";
-            this.metroLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtFind
-            // 
-            this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFind.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtFind.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            // 
-            // 
-            // 
-            this.txtFind.CustomButton.Image = null;
-            this.txtFind.CustomButton.Location = new System.Drawing.Point(402, 1);
-            this.txtFind.CustomButton.Name = "";
-            this.txtFind.CustomButton.Size = new System.Drawing.Size(27, 27);
-            this.txtFind.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtFind.CustomButton.TabIndex = 1;
-            this.txtFind.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtFind.CustomButton.UseSelectable = true;
-            this.txtFind.CustomButton.Visible = false;
-            this.txtFind.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtFind.Lines = new string[0];
-            this.txtFind.Location = new System.Drawing.Point(71, 20);
-            this.txtFind.MaxLength = 30;
-            this.txtFind.Name = "txtFind";
-            this.txtFind.PasswordChar = '\0';
-            this.txtFind.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtFind.SelectedText = "";
-            this.txtFind.SelectionLength = 0;
-            this.txtFind.SelectionStart = 0;
-            this.txtFind.Size = new System.Drawing.Size(430, 29);
-            this.txtFind.TabIndex = 39;
-            this.txtFind.UseSelectable = true;
-            this.txtFind.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtFind.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -699,19 +712,6 @@
             this.reperfilrolesDataGridViewTextBoxColumn1.Name = "reperfilrolesDataGridViewTextBoxColumn1";
             this.reperfilrolesDataGridViewTextBoxColumn1.ReadOnly = true;
             this.reperfilrolesDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // metroLabel11
-            // 
-            this.metroLabel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel11.Location = new System.Drawing.Point(411, 4);
-            this.metroLabel11.Margin = new System.Windows.Forms.Padding(3);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(90, 15);
-            this.metroLabel11.TabIndex = 46;
-            this.metroLabel11.Text = "Filtra por [ Perfil ]";
-            this.metroLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // usrCtrlPerfilesRoles
             // 
