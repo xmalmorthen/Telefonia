@@ -150,47 +150,67 @@ namespace CellTrack.Views
                                 }
                             }
 
-                            // draw markers
+                            // draw polygons
+                            foreach (GMapPolygon r in gMap.TriangulationsOverlays.Polygons)
                             {
-                                foreach (GMapMarker r in gMap.MarkersOverlays.Markers)
+                                if (r.IsVisible)
                                 {
-                                    if (r.IsVisible)
+                                    using (GraphicsPath rp = new GraphicsPath())
                                     {
-                                        var pr = r.Position;
-                                        GPoint px = info.Type.Projection.FromLatLngToPixel(pr.Lat, pr.Lng, info.Zoom);
+                                        for (int j = 0; j < r.Points.Count; j++)
+                                        {
+                                            var pr = r.Points[j];
+                                            GPoint px = info.Type.Projection.FromLatLngToPixel(pr.Lat, pr.Lng, info.Zoom);
 
-                                        px.Offset(padding, padding);
-                                        px.Offset(-topLeftPx.X, -topLeftPx.Y);
-                                        px.Offset(r.Offset.X, r.Offset.Y);
+                                            px.Offset(padding, padding);
+                                            px.Offset(-topLeftPx.X, -topLeftPx.Y);
 
-                                        gfx.ResetTransform();
-                                        gfx.TranslateTransform(-r.LocalPosition.X, -r.LocalPosition.Y);
-                                        gfx.TranslateTransform((int)px.X, (int)px.Y);
+                                            GPoint p2 = px;
 
-                                        r.OnRender(gfx);
+                                            if (j == 0)
+                                            {
+                                                rp.AddLine(p2.X, p2.Y, p2.X, p2.Y);
+                                            }
+                                            else
+                                            {
+                                                System.Drawing.PointF p = rp.GetLastPoint();
+                                                rp.AddLine(p.X, p.Y, p2.X, p2.Y);
+                                            }
+                                        }
+
+                                        if (rp.PointCount > 0)
+                                        {
+                                            rp.CloseFigure();
+
+                                            gfx.FillPath(r.Fill, rp);
+
+                                            gfx.DrawPath(r.Stroke, rp);
+                                        }
                                     }
                                 }
-
-                                foreach (GMapMarker r in gMap.TriangulationsOverlays.Markers)
-                                {
-                                    if (r.IsVisible)
-                                    {
-                                        var pr = r.Position;
-                                        GPoint px = info.Type.Projection.FromLatLngToPixel(pr.Lat, pr.Lng, info.Zoom);
-
-                                        px.Offset(padding, padding);
-                                        px.Offset(-topLeftPx.X, -topLeftPx.Y);
-                                        px.Offset(r.Offset.X, r.Offset.Y);
-
-                                        gfx.ResetTransform();
-                                        gfx.TranslateTransform(-r.LocalPosition.X, -r.LocalPosition.Y);
-                                        gfx.TranslateTransform((int)px.X, (int)px.Y);
-
-                                        r.OnRender(gfx);
-                                    }
-                                }
-                                gfx.ResetTransform();
                             }
+
+                            // draw markers
+                            foreach (GMapMarker r in gMap.MarkersOverlays.Markers)
+                            {
+                                if (r.IsVisible)
+                                {
+                                    var pr = r.Position;
+                                    GPoint px = info.Type.Projection.FromLatLngToPixel(pr.Lat, pr.Lng, info.Zoom);
+
+                                    px.Offset(padding, padding);
+                                    px.Offset(-topLeftPx.X, -topLeftPx.Y);
+                                    px.Offset(r.Offset.X, r.Offset.Y);
+
+                                    gfx.ResetTransform();
+                                    gfx.TranslateTransform(-r.LocalPosition.X, -r.LocalPosition.Y);
+                                    gfx.TranslateTransform((int)px.X, (int)px.Y);
+
+                                    r.OnRender(gfx);
+                                }
+                            }
+
+                            gfx.ResetTransform();
 
                             // draw info
                             if (!info.MakeWorldFile)

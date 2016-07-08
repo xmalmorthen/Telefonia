@@ -265,7 +265,7 @@ namespace CellTrack.Controllers
         public void CreateTriangulation(List<PointLatLng> points, Color colorFill, Color colorStroke)
         {
             GMapPolygon gpol = new GMapPolygon(points, "Triangulacion");
-            gpol.Fill = new SolidBrush(Color.FromArgb(50, colorFill));
+            gpol.Fill = new SolidBrush(Color.FromArgb(30, colorFill));
             gpol.Stroke = new Pen(colorStroke, 1);
             TriangulationsOverlays.Polygons.Add(gpol);
             MainMap.Overlays.Add(TriangulationsOverlays);

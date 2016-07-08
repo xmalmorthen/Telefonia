@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GMap.Net", "GMap.Net", "{CA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMap.NET.WindowsForms", "GMap.Net\GMap.NET.WindowsForms\GMap.NET.WindowsForms.csproj", "{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CellTrackProject", "CellTrackProject", "{AF45D4B8-624E-43FB-BF60-D8C0B449B631}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CellTrackLauncher", "CellTrackLauncher\CellTrackLauncher.csproj", "{6C900757-DB6B-4732-B87A-7EE4E1E0B13F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,12 @@ Global
 		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.EasyTest|Any CPU.Build.0 = Release|Any CPU
 		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C900757-DB6B-4732-B87A-7EE4E1E0B13F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C900757-DB6B-4732-B87A-7EE4E1E0B13F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C900757-DB6B-4732-B87A-7EE4E1E0B13F}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
+		{6C900757-DB6B-4732-B87A-7EE4E1E0B13F}.EasyTest|Any CPU.Build.0 = Release|Any CPU
+		{6C900757-DB6B-4732-B87A-7EE4E1E0B13F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C900757-DB6B-4732-B87A-7EE4E1E0B13F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,5 +66,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D0C39D9D-BED0-418B-9A5E-713176CAF40C} = {CAC72503-0E09-4B32-8C51-0B79225FC2FC}
 		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98} = {CAC72503-0E09-4B32-8C51-0B79225FC2FC}
+		{6C900757-DB6B-4732-B87A-7EE4E1E0B13F} = {AF45D4B8-624E-43FB-BF60-D8C0B449B631}
+		{224AC313-1D8D-461E-B28B-E5FFA831B7F8} = {AF45D4B8-624E-43FB-BF60-D8C0B449B631}
 	EndGlobalSection
 EndGlobal
