@@ -37,6 +37,8 @@ namespace CellTrackLauncher
                     git.StartInfo.Arguments = "pull origin master";
                     try
                     {
+                        git.StartInfo.CreateNoWindow = true;
+                        git.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                         git.Start();
                         git.WaitForExit();
                     }
@@ -44,8 +46,6 @@ namespace CellTrackLauncher
                     {
                         throw new Exception(string.Format("Prublemas al ejecutar GIT [ {0} ]", cmnd));
                     }
-
-                    
 
                     System.Diagnostics.Process celltracker = new System.Diagnostics.Process();
                     cmnd = string.Format(@"{0}\{1}",path,"CellTrack.exe");
