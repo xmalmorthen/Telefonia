@@ -145,5 +145,10 @@ namespace CellTrack.Views.UserControls.Localización
         {
             btnReport.Location = new Point(splitContainer.Panel2.Left + 20, splitContainer.Panel2.Top + 50);
         }
+
+        private void cmbTargets_DropDown(object sender, EventArgs e)
+        {
+            this.Objetivos();
+        }
     }
 }

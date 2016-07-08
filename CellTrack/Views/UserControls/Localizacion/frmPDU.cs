@@ -179,6 +179,11 @@ namespace CellTrack.Views.UserControls.Localización
             wrker.CancelAsync();
             FrmState = enums.frmState.Normal;
         }
+
+        private void cmbTargets_DropDown(object sender, EventArgs e)
+        {
+            this.Objetivos();
+        }
         
     }
 }

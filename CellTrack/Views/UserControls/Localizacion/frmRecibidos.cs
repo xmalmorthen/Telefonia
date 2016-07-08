@@ -116,6 +116,11 @@ namespace CellTrack.Views.UserControls.Localización
                 if (marker == null) throw new NullReferenceException("No se pudo localizar");
             }
         }
+
+        private void cmbTargets_DropDown(object sender, EventArgs e)
+        {
+            this.Objetivos();
+        }
         
     }
 }

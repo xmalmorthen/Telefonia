@@ -174,6 +174,7 @@
             this.cmbTargets.UseSelectable = true;
             this.cmbTargets.UseStyleColors = true;
             this.cmbTargets.ValueMember = "id";
+            this.cmbTargets.DropDown += new System.EventHandler(this.cmbTargets_DropDown);
             // 
             // bsObjetivos
             // 

@@ -24,6 +24,8 @@ namespace CellTrack.Controllers
             controller.TriangulationsOverlays.Clear();
             controller.MainMap.Overlays.Clear();
 
+            endDate = endDate.AddHours(24);
+
             List<mapdu> data = DAL.Db.mapdu.Where(qry => qry.malocalizations.idNotification.Equals(usuarioController.usuarioLogueado.info.id)
                 && qry.malocalizations.id.Equals(tarjet.id)
                 && (qry.fIns >= starDate && qry.fIns <= endDate)).ToList();
