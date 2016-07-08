@@ -65,17 +65,17 @@
             this.metroLabel1.Location = new System.Drawing.Point(3, 7);
             this.metroLabel1.Margin = new System.Windows.Forms.Padding(3, 7, 11, 3);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(125, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(134, 19);
             this.metroLabel1.Style = MetroFramework.MetroColorStyle.Black;
             this.metroLabel1.TabIndex = 13;
-            this.metroLabel1.Text = "Estado del Model";
+            this.metroLabel1.Text = "Estado del Modem";
             this.metroLabel1.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroLabel1.UseStyleColors = true;
             // 
             // pbFree
             // 
             this.pbFree.Image = global::CellTrack.Properties.Resources._1467326378_padlock_open;
-            this.pbFree.Location = new System.Drawing.Point(142, 8);
+            this.pbFree.Location = new System.Drawing.Point(151, 8);
             this.pbFree.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.pbFree.Name = "pbFree";
             this.pbFree.Size = new System.Drawing.Size(16, 16);
@@ -87,7 +87,7 @@
             // pbOcuppied
             // 
             this.pbOcuppied.Image = global::CellTrack.Properties.Resources._1467326406_padlock_closed;
-            this.pbOcuppied.Location = new System.Drawing.Point(164, 8);
+            this.pbOcuppied.Location = new System.Drawing.Point(173, 8);
             this.pbOcuppied.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.pbOcuppied.Name = "pbOcuppied";
             this.pbOcuppied.Size = new System.Drawing.Size(16, 16);
@@ -100,7 +100,7 @@
             // 
             this.lbl.AutoSize = true;
             this.lbl.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lbl.Location = new System.Drawing.Point(186, 9);
+            this.lbl.Location = new System.Drawing.Point(195, 9);
             this.lbl.Margin = new System.Windows.Forms.Padding(3, 9, 11, 3);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(71, 15);
@@ -118,7 +118,7 @@
             this.btnFree.BackgroundImage = global::CellTrack.Properties.Resources._1467326850_lighting;
             this.btnFree.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnFree.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnFree.Location = new System.Drawing.Point(271, 3);
+            this.btnFree.Location = new System.Drawing.Point(280, 3);
             this.btnFree.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
             this.btnFree.Name = "btnFree";
             this.btnFree.Size = new System.Drawing.Size(24, 26);
