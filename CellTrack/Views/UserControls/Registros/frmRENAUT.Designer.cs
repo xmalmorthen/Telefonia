@@ -54,6 +54,7 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.txtFind = new MetroFramework.Controls.MetroTextBox();
             this.gdIFE = new MetroFramework.Controls.MetroGrid();
+            this.bsRENAUT = new System.Windows.Forms.BindingSource(this.components);
             this.tlpProc = new System.Windows.Forms.FlowLayoutPanel();
             this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
@@ -65,7 +66,6 @@
             this.cppDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.campo1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.campo2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsRENAUT = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -73,8 +73,8 @@
             this.splitContainer.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdIFE)).BeginInit();
-            this.tlpProc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsRENAUT)).BeginInit();
+            this.tlpProc.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroToolTip
@@ -350,7 +350,7 @@
             this.lblCantReg.AutoSize = true;
             this.lblCantReg.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblCantReg.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblCantReg.Location = new System.Drawing.Point(6, 357);
+            this.lblCantReg.Location = new System.Drawing.Point(6, 351);
             this.lblCantReg.Margin = new System.Windows.Forms.Padding(3);
             this.lblCantReg.Name = "lblCantReg";
             this.lblCantReg.Size = new System.Drawing.Size(251, 25);
@@ -468,12 +468,17 @@
             this.gdIFE.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdIFE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdIFE.ShowEditingIcon = false;
-            this.gdIFE.Size = new System.Drawing.Size(956, 313);
+            this.gdIFE.Size = new System.Drawing.Size(956, 307);
             this.gdIFE.StandardTab = true;
             this.gdIFE.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdIFE.TabIndex = 9;
             this.gdIFE.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdIFE.UseStyleColors = true;
+            // 
+            // bsRENAUT
+            // 
+            this.bsRENAUT.DataSource = typeof(CellTrack.Models.Registros.RENAUTModel);
+            this.bsRENAUT.DataSourceChanged += new System.EventHandler(this.bsRENAUT_DataSourceChanged);
             // 
             // tlpProc
             // 
@@ -515,11 +520,12 @@
             // 
             // nombreDataGridViewTextBoxColumn
             // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 82;
             // 
             // celularDataGridViewTextBoxColumn
             // 
@@ -584,11 +590,6 @@
             this.campo2DataGridViewTextBoxColumn.ReadOnly = true;
             this.campo2DataGridViewTextBoxColumn.Width = 88;
             // 
-            // bsRENAUT
-            // 
-            this.bsRENAUT.DataSource = typeof(CellTrack.Models.Registros.RENAUTModel);
-            this.bsRENAUT.DataSourceChanged += new System.EventHandler(this.bsRENAUT_DataSourceChanged);
-            // 
             // frmRENAUT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -612,9 +613,9 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdIFE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsRENAUT)).EndInit();
             this.tlpProc.ResumeLayout(false);
             this.tlpProc.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsRENAUT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

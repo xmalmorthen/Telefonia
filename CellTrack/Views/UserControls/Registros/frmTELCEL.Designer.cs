@@ -54,6 +54,10 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.txtFind = new MetroFramework.Controls.MetroTextBox();
             this.gdIFE = new MetroFramework.Controls.MetroGrid();
+            this.bsTELCEL = new System.Windows.Forms.BindingSource(this.components);
+            this.tlpProc = new System.Windows.Forms.FlowLayoutPanel();
+            this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.celularDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rfcDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,10 +65,6 @@
             this.coloniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpostalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsTELCEL = new System.Windows.Forms.BindingSource(this.components);
-            this.tlpProc = new System.Windows.Forms.FlowLayoutPanel();
-            this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -349,7 +349,7 @@
             this.lblCantReg.AutoSize = true;
             this.lblCantReg.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblCantReg.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblCantReg.Location = new System.Drawing.Point(6, 357);
+            this.lblCantReg.Location = new System.Drawing.Point(6, 351);
             this.lblCantReg.Margin = new System.Windows.Forms.Padding(3);
             this.lblCantReg.Name = "lblCantReg";
             this.lblCantReg.Size = new System.Drawing.Size(251, 25);
@@ -466,73 +466,12 @@
             this.gdIFE.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdIFE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdIFE.ShowEditingIcon = false;
-            this.gdIFE.Size = new System.Drawing.Size(956, 313);
+            this.gdIFE.Size = new System.Drawing.Size(956, 307);
             this.gdIFE.StandardTab = true;
             this.gdIFE.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdIFE.TabIndex = 9;
             this.gdIFE.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdIFE.UseStyleColors = true;
-            // 
-            // celularDataGridViewTextBoxColumn
-            // 
-            this.celularDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.celularDataGridViewTextBoxColumn.DataPropertyName = "celular";
-            this.celularDataGridViewTextBoxColumn.HeaderText = "Celular";
-            this.celularDataGridViewTextBoxColumn.Name = "celularDataGridViewTextBoxColumn";
-            this.celularDataGridViewTextBoxColumn.ReadOnly = true;
-            this.celularDataGridViewTextBoxColumn.Width = 74;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rfcDataGridViewTextBoxColumn
-            // 
-            this.rfcDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.rfcDataGridViewTextBoxColumn.DataPropertyName = "rfc";
-            this.rfcDataGridViewTextBoxColumn.HeaderText = "RFC";
-            this.rfcDataGridViewTextBoxColumn.Name = "rfcDataGridViewTextBoxColumn";
-            this.rfcDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rfcDataGridViewTextBoxColumn.Width = 56;
-            // 
-            // direccionDataGridViewTextBoxColumn
-            // 
-            this.direccionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
-            this.direccionDataGridViewTextBoxColumn.HeaderText = "Domicilio";
-            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
-            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // coloniaDataGridViewTextBoxColumn
-            // 
-            this.coloniaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.coloniaDataGridViewTextBoxColumn.DataPropertyName = "colonia";
-            this.coloniaDataGridViewTextBoxColumn.HeaderText = "Colonia";
-            this.coloniaDataGridViewTextBoxColumn.Name = "coloniaDataGridViewTextBoxColumn";
-            this.coloniaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.coloniaDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // ciudadDataGridViewTextBoxColumn
-            // 
-            this.ciudadDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ciudadDataGridViewTextBoxColumn.DataPropertyName = "ciudad";
-            this.ciudadDataGridViewTextBoxColumn.HeaderText = "Ciudad";
-            this.ciudadDataGridViewTextBoxColumn.Name = "ciudadDataGridViewTextBoxColumn";
-            this.ciudadDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ciudadDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // cpostalDataGridViewTextBoxColumn
-            // 
-            this.cpostalDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cpostalDataGridViewTextBoxColumn.DataPropertyName = "cpostal";
-            this.cpostalDataGridViewTextBoxColumn.HeaderText = "Código Postal";
-            this.cpostalDataGridViewTextBoxColumn.Name = "cpostalDataGridViewTextBoxColumn";
-            this.cpostalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cpostalDataGridViewTextBoxColumn.Width = 116;
             // 
             // bsTELCEL
             // 
@@ -576,6 +515,69 @@
             this.metroLabel4.Size = new System.Drawing.Size(258, 25);
             this.metroLabel4.TabIndex = 22;
             this.metroLabel4.Text = "Buscando, favor de esperar...";
+            // 
+            // celularDataGridViewTextBoxColumn
+            // 
+            this.celularDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.celularDataGridViewTextBoxColumn.DataPropertyName = "celular";
+            this.celularDataGridViewTextBoxColumn.HeaderText = "Celular";
+            this.celularDataGridViewTextBoxColumn.Name = "celularDataGridViewTextBoxColumn";
+            this.celularDataGridViewTextBoxColumn.ReadOnly = true;
+            this.celularDataGridViewTextBoxColumn.Width = 74;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 82;
+            // 
+            // rfcDataGridViewTextBoxColumn
+            // 
+            this.rfcDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.rfcDataGridViewTextBoxColumn.DataPropertyName = "rfc";
+            this.rfcDataGridViewTextBoxColumn.HeaderText = "RFC";
+            this.rfcDataGridViewTextBoxColumn.Name = "rfcDataGridViewTextBoxColumn";
+            this.rfcDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rfcDataGridViewTextBoxColumn.Width = 56;
+            // 
+            // direccionDataGridViewTextBoxColumn
+            // 
+            this.direccionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
+            this.direccionDataGridViewTextBoxColumn.HeaderText = "Domicilio";
+            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
+            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.direccionDataGridViewTextBoxColumn.Width = 88;
+            // 
+            // coloniaDataGridViewTextBoxColumn
+            // 
+            this.coloniaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.coloniaDataGridViewTextBoxColumn.DataPropertyName = "colonia";
+            this.coloniaDataGridViewTextBoxColumn.HeaderText = "Colonia";
+            this.coloniaDataGridViewTextBoxColumn.Name = "coloniaDataGridViewTextBoxColumn";
+            this.coloniaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.coloniaDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // ciudadDataGridViewTextBoxColumn
+            // 
+            this.ciudadDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ciudadDataGridViewTextBoxColumn.DataPropertyName = "ciudad";
+            this.ciudadDataGridViewTextBoxColumn.HeaderText = "Ciudad";
+            this.ciudadDataGridViewTextBoxColumn.Name = "ciudadDataGridViewTextBoxColumn";
+            this.ciudadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ciudadDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // cpostalDataGridViewTextBoxColumn
+            // 
+            this.cpostalDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cpostalDataGridViewTextBoxColumn.DataPropertyName = "cpostal";
+            this.cpostalDataGridViewTextBoxColumn.HeaderText = "Código Postal";
+            this.cpostalDataGridViewTextBoxColumn.Name = "cpostalDataGridViewTextBoxColumn";
+            this.cpostalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cpostalDataGridViewTextBoxColumn.Width = 116;
             // 
             // frmTELCEL
             // 

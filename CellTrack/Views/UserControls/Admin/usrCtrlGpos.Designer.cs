@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.btnAccept = new MetroFramework.Controls.MetroButton();
             this.btnCancel = new MetroFramework.Controls.MetroButton();
@@ -51,6 +51,9 @@
             this.txtGrupo = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
             this.txtDescrip = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.txtFind = new MetroFramework.Controls.MetroTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.gd = new MetroFramework.Controls.MetroGrid();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,9 +63,6 @@
             this.fActDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.causuariosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.txtFind = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -383,147 +383,6 @@
             this.txtDescrip.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtDescrip.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.AutoSize = true;
-            this.panel3.Controls.Add(this.btnAdd);
-            this.panel3.Controls.Add(this.btnEdit);
-            this.panel3.Controls.Add(this.btnrefresh);
-            this.panel3.Controls.Add(this.btnDelete);
-            this.panel3.Location = new System.Drawing.Point(867, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(85, 175);
-            this.panel3.TabIndex = 32;
-            // 
-            // gd
-            // 
-            this.gd.AllowUserToAddRows = false;
-            this.gd.AllowUserToDeleteRows = false;
-            this.gd.AllowUserToOrderColumns = true;
-            this.gd.AllowUserToResizeRows = false;
-            this.gd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gd.AutoGenerateColumns = false;
-            this.gd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gd.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.gd.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.gd.ColumnHeadersHeight = 30;
-            this.gd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.grupoDataGridViewTextBoxColumn,
-            this.descripDataGridViewTextBoxColumn,
-            this.fInsDataGridViewTextBoxColumn,
-            this.fActDataGridViewTextBoxColumn,
-            this.activoDataGridViewCheckBoxColumn,
-            this.causuariosDataGridViewTextBoxColumn});
-            this.gd.DataSource = this.cagruposBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gd.DefaultCellStyle = dataGridViewCellStyle5;
-            this.gd.EnableHeadersVisualStyles = false;
-            this.gd.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.gd.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gd.HighLightPercentage = 0.5F;
-            this.gd.Location = new System.Drawing.Point(3, 52);
-            this.gd.MultiSelect = false;
-            this.gd.Name = "gd";
-            this.gd.ReadOnly = true;
-            this.gd.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gd.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.gd.RowHeadersVisible = false;
-            this.gd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gd.ShowEditingIcon = false;
-            this.gd.Size = new System.Drawing.Size(855, 424);
-            this.gd.StandardTab = true;
-            this.gd.Style = MetroFramework.MetroColorStyle.Orange;
-            this.gd.TabIndex = 6;
-            this.gd.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.gd.UseStyleColors = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 44;
-            // 
-            // grupoDataGridViewTextBoxColumn
-            // 
-            this.grupoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.grupoDataGridViewTextBoxColumn.DataPropertyName = "grupo";
-            this.grupoDataGridViewTextBoxColumn.HeaderText = "Grupo";
-            this.grupoDataGridViewTextBoxColumn.Name = "grupoDataGridViewTextBoxColumn";
-            this.grupoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descripDataGridViewTextBoxColumn
-            // 
-            this.descripDataGridViewTextBoxColumn.DataPropertyName = "descrip";
-            this.descripDataGridViewTextBoxColumn.HeaderText = "descrip";
-            this.descripDataGridViewTextBoxColumn.Name = "descripDataGridViewTextBoxColumn";
-            this.descripDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fInsDataGridViewTextBoxColumn
-            // 
-            this.fInsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.fInsDataGridViewTextBoxColumn.DataPropertyName = "fIns";
-            this.fInsDataGridViewTextBoxColumn.HeaderText = "Fecha de Registro";
-            this.fInsDataGridViewTextBoxColumn.Name = "fInsDataGridViewTextBoxColumn";
-            this.fInsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fInsDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // fActDataGridViewTextBoxColumn
-            // 
-            this.fActDataGridViewTextBoxColumn.DataPropertyName = "fAct";
-            this.fActDataGridViewTextBoxColumn.HeaderText = "fAct";
-            this.fActDataGridViewTextBoxColumn.Name = "fActDataGridViewTextBoxColumn";
-            this.fActDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fActDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // activoDataGridViewCheckBoxColumn
-            // 
-            this.activoDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.activoDataGridViewCheckBoxColumn.DataPropertyName = "activo";
-            this.activoDataGridViewCheckBoxColumn.HeaderText = "Activo";
-            this.activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
-            this.activoDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.activoDataGridViewCheckBoxColumn.Width = 51;
-            // 
-            // causuariosDataGridViewTextBoxColumn
-            // 
-            this.causuariosDataGridViewTextBoxColumn.DataPropertyName = "causuarios";
-            this.causuariosDataGridViewTextBoxColumn.HeaderText = "causuarios";
-            this.causuariosDataGridViewTextBoxColumn.Name = "causuariosDataGridViewTextBoxColumn";
-            this.causuariosDataGridViewTextBoxColumn.ReadOnly = true;
-            this.causuariosDataGridViewTextBoxColumn.Visible = false;
-            // 
             // metroLabel11
             // 
             this.metroLabel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -585,6 +444,148 @@
             this.txtFind.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtFind.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFind_KeyUp);
             // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.btnAdd);
+            this.panel3.Controls.Add(this.btnEdit);
+            this.panel3.Controls.Add(this.btnrefresh);
+            this.panel3.Controls.Add(this.btnDelete);
+            this.panel3.Location = new System.Drawing.Point(867, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(85, 175);
+            this.panel3.TabIndex = 32;
+            // 
+            // gd
+            // 
+            this.gd.AllowUserToAddRows = false;
+            this.gd.AllowUserToDeleteRows = false;
+            this.gd.AllowUserToOrderColumns = true;
+            this.gd.AllowUserToResizeRows = false;
+            this.gd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gd.AutoGenerateColumns = false;
+            this.gd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gd.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gd.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.gd.ColumnHeadersHeight = 30;
+            this.gd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.grupoDataGridViewTextBoxColumn,
+            this.descripDataGridViewTextBoxColumn,
+            this.fInsDataGridViewTextBoxColumn,
+            this.fActDataGridViewTextBoxColumn,
+            this.activoDataGridViewCheckBoxColumn,
+            this.causuariosDataGridViewTextBoxColumn});
+            this.gd.DataSource = this.cagruposBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gd.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gd.EnableHeadersVisualStyles = false;
+            this.gd.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.gd.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gd.HighLightPercentage = 0.5F;
+            this.gd.Location = new System.Drawing.Point(3, 52);
+            this.gd.MultiSelect = false;
+            this.gd.Name = "gd";
+            this.gd.ReadOnly = true;
+            this.gd.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gd.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.gd.RowHeadersVisible = false;
+            this.gd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gd.ShowEditingIcon = false;
+            this.gd.Size = new System.Drawing.Size(855, 423);
+            this.gd.StandardTab = true;
+            this.gd.Style = MetroFramework.MetroColorStyle.Orange;
+            this.gd.TabIndex = 6;
+            this.gd.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.gd.UseStyleColors = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 44;
+            // 
+            // grupoDataGridViewTextBoxColumn
+            // 
+            this.grupoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.grupoDataGridViewTextBoxColumn.DataPropertyName = "grupo";
+            this.grupoDataGridViewTextBoxColumn.HeaderText = "Grupo";
+            this.grupoDataGridViewTextBoxColumn.Name = "grupoDataGridViewTextBoxColumn";
+            this.grupoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.grupoDataGridViewTextBoxColumn.Width = 71;
+            // 
+            // descripDataGridViewTextBoxColumn
+            // 
+            this.descripDataGridViewTextBoxColumn.DataPropertyName = "descrip";
+            this.descripDataGridViewTextBoxColumn.HeaderText = "descrip";
+            this.descripDataGridViewTextBoxColumn.Name = "descripDataGridViewTextBoxColumn";
+            this.descripDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descripDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fInsDataGridViewTextBoxColumn
+            // 
+            this.fInsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.fInsDataGridViewTextBoxColumn.DataPropertyName = "fIns";
+            this.fInsDataGridViewTextBoxColumn.HeaderText = "Fecha de Registro";
+            this.fInsDataGridViewTextBoxColumn.Name = "fInsDataGridViewTextBoxColumn";
+            this.fInsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fInsDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // fActDataGridViewTextBoxColumn
+            // 
+            this.fActDataGridViewTextBoxColumn.DataPropertyName = "fAct";
+            this.fActDataGridViewTextBoxColumn.HeaderText = "fAct";
+            this.fActDataGridViewTextBoxColumn.Name = "fActDataGridViewTextBoxColumn";
+            this.fActDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fActDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // activoDataGridViewCheckBoxColumn
+            // 
+            this.activoDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.activoDataGridViewCheckBoxColumn.DataPropertyName = "activo";
+            this.activoDataGridViewCheckBoxColumn.HeaderText = "Activo";
+            this.activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
+            this.activoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.activoDataGridViewCheckBoxColumn.Width = 51;
+            // 
+            // causuariosDataGridViewTextBoxColumn
+            // 
+            this.causuariosDataGridViewTextBoxColumn.DataPropertyName = "causuarios";
+            this.causuariosDataGridViewTextBoxColumn.HeaderText = "causuarios";
+            this.causuariosDataGridViewTextBoxColumn.Name = "causuariosDataGridViewTextBoxColumn";
+            this.causuariosDataGridViewTextBoxColumn.ReadOnly = true;
+            this.causuariosDataGridViewTextBoxColumn.Visible = false;
+            // 
             // usrCtrlGpos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -633,6 +634,9 @@
         private MetroFramework.Controls.MetroButton btnDelete;
         private MetroFramework.Controls.MetroGrid gd;
         private System.Windows.Forms.BindingSource cagruposBindingSource;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroTextBox txtFind;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn grupoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripDataGridViewTextBoxColumn;
@@ -640,8 +644,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fActDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn causuariosDataGridViewTextBoxColumn;
-        private MetroFramework.Controls.MetroLabel metroLabel11;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox txtFind;
     }
 }

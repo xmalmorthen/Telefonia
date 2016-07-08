@@ -177,7 +177,7 @@ BundleArtifacts/
 
 # Others
 ClientBin/
-~$*
+*.[Cc]ache/
 *~
 *.dbmdl
 *.dbproj.schemaview
@@ -234,3 +234,6 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+[Bb]uild/!*.bat
+[Bb]uild/

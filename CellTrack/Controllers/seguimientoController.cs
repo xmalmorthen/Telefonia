@@ -27,6 +27,8 @@ namespace CellTrack.Controllers
             List<mapdu> data = DAL.Db.mapdu.Where(qry => qry.malocalizations.idNotification.Equals(usuarioController.usuarioLogueado.info.id)
                 && qry.malocalizations.id.Equals(tarjet.id)
                 && (qry.fIns >= starDate && qry.fIns <= endDate)).ToList();
+
+
             List<seguimientoModel> seguimiento = new List<seguimientoModel>(data.Count());
             foreach (mapdu item in data)
             {
@@ -34,17 +36,21 @@ namespace CellTrack.Controllers
 
                 foreach (desmsrecibidos reg in item.desmsrecibidos)
                 {
-                    detalle.Add(new detalleRecibidosModel() { 
-                        id = reg.id,
-                        radio = reg.radio,
-                        MCC = reg.MCC,
-                        MNC = reg.MNC,
-                        LAC = reg.LAC,
-                        BTS = reg.BTS,
-                        V = reg.V,
-                        LAT = reg.LAT.ToString(),
-                        LNG = reg.LNG.ToString()
-                    });
+                    if (detalle.Find(qry => qry.LAT == reg.LAT.ToString() && qry.LNG == reg.LNG.ToString()) == null)
+                    {
+                        detalle.Add(new detalleRecibidosModel()
+                        {
+                            id = reg.id,
+                            radio = reg.radio,
+                            MCC = reg.MCC,
+                            MNC = reg.MNC,
+                            LAC = reg.LAC,
+                            BTS = reg.BTS,
+                            V = reg.V,
+                            LAT = reg.LAT.ToString(),
+                            LNG = reg.LNG.ToString()
+                        });
+                    }
                 }
 
                 seguimientoModel obj = new seguimientoModel()
@@ -100,18 +106,22 @@ namespace CellTrack.Controllers
 
                     Random randomGen = new Random();
                     KnownColor[] names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+                    KnownColor randomColorName = KnownColor.Green;
                     foreach (detalleRecibidosModel reg in seguimientoModel.detalle)
                     {
                         Color fill = Color.Green, stroke = Color.Green;
 
-                        if (group == 1 && iter == 1)
+                        if (group == 1 && iter <= 3)
                         {
                             fill = Color.Green;
                             stroke = Color.Green;
                         }
                         else if (iter == 1)
                         {
-                            KnownColor randomColorName = names[randomGen.Next(names.Length)];
+                            randomColorName = names[randomGen.Next(names.Length)];
+                            fill = stroke = Color.FromKnownColor(randomColorName);
+                        }
+                        else {
                             fill = stroke = Color.FromKnownColor(randomColorName);
                         }
 
@@ -157,6 +167,21 @@ namespace CellTrack.Controllers
         {
             try
             {
+                foreach (seguimientoModel item in targets)
+                {
+                    int iter = 1;
+                    foreach (detalleRecibidosModel det in item.detalle)
+                    {
+                        item.LAT += det.LAT;
+                        item.LNG += det.LNG;
+
+                        item.LAT += iter < item.detalle.Count() ? Environment.NewLine : "";
+                        item.LNG += iter < item.detalle.Count() ? Environment.NewLine : "";
+                        
+                        iter++;
+                    }
+                }
+
                 frmReportViewer frmRpt = new frmReportViewer();
                 gMapStaticImageGenerate frm = new gMapStaticImageGenerate(controller);
                 if (frm.ShowDialog() == System.Windows.Forms.DialogResult.Yes) {

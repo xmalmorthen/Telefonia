@@ -526,11 +526,12 @@
             // 
             // nombre
             // 
-            this.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.nombre.DataPropertyName = "nombre";
             this.nombre.HeaderText = "Nombre";
             this.nombre.Name = "nombre";
             this.nombre.ReadOnly = true;
+            this.nombre.Width = 82;
             // 
             // tipoDataGridViewTextBoxColumn
             // 
@@ -586,11 +587,6 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private System.Windows.Forms.SplitContainer splitContainer;
         private MetroFramework.Controls.MetroGrid gdObjetivos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn objetivo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Carrier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fInsDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource recibidosModelBindingSource;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroComboBox cmbTargets;
@@ -613,5 +609,10 @@
         private MetroFramework.Controls.MetroLabel metroLabel15;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroButton btnFind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn objetivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Carrier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fInsDataGridViewTextBoxColumn;
     }
 }

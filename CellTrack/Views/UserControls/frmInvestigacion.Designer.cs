@@ -354,7 +354,7 @@
             this.gdObjetivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdObjetivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdObjetivos.ShowEditingIcon = false;
-            this.gdObjetivos.Size = new System.Drawing.Size(964, 416);
+            this.gdObjetivos.Size = new System.Drawing.Size(964, 415);
             this.gdObjetivos.StandardTab = true;
             this.gdObjetivos.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdObjetivos.TabIndex = 56;
@@ -372,19 +372,21 @@
             // 
             // tipoDataGridViewTextBoxColumn
             // 
-            this.tipoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tipoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.tipoDataGridViewTextBoxColumn.DataPropertyName = "tipo";
             this.tipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
             this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
             this.tipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tipoDataGridViewTextBoxColumn.Width = 58;
             // 
             // fInsDataGridViewTextBoxColumn
             // 
-            this.fInsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fInsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.fInsDataGridViewTextBoxColumn.DataPropertyName = "fIns";
             this.fInsDataGridViewTextBoxColumn.HeaderText = "Fecha/Hora";
             this.fInsDataGridViewTextBoxColumn.Name = "fInsDataGridViewTextBoxColumn";
             this.fInsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fInsDataGridViewTextBoxColumn.Width = 102;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -412,11 +414,12 @@
             // 
             // carrierDataGridViewTextBoxColumn
             // 
-            this.carrierDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.carrierDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.carrierDataGridViewTextBoxColumn.DataPropertyName = "Carrier";
             this.carrierDataGridViewTextBoxColumn.HeaderText = "Carrier";
             this.carrierDataGridViewTextBoxColumn.Name = "carrierDataGridViewTextBoxColumn";
             this.carrierDataGridViewTextBoxColumn.ReadOnly = true;
+            this.carrierDataGridViewTextBoxColumn.Width = 73;
             // 
             // map
             // 

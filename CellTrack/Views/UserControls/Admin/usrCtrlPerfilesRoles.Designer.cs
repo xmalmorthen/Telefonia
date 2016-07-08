@@ -49,9 +49,10 @@
             this.btnSelectionNone = new MetroFramework.Controls.MetroButton();
             this.btnSelectAll = new MetroFramework.Controls.MetroButton();
             this.gdRolesAsignados = new MetroFramework.Controls.MetroGrid();
-            this.SelectRol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.carolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.tgGpoActivo = new MetroFramework.Controls.MetroToggle();
+            this.caperfilesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblActivo = new MetroFramework.Controls.MetroLabel();
             this.pnlBtnsActions = new System.Windows.Forms.Panel();
             this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
@@ -67,8 +68,7 @@
             this.fInsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fActDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reperfilrolesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.caperfilesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SelectRol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.perfilDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fInsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,11 +82,11 @@
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdRolesAsignados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carolesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.caperfilesBindingSource)).BeginInit();
             this.pnlBtnsActions.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carolesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.caperfilesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // metroToolTip
@@ -345,14 +345,9 @@
             this.gdRolesAsignados.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdRolesAsignados.UseStyleColors = true;
             // 
-            // SelectRol
+            // carolesBindingSource
             // 
-            this.SelectRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SelectRol.HeaderText = "Asignado";
-            this.SelectRol.MinimumWidth = 59;
-            this.SelectRol.Name = "SelectRol";
-            this.SelectRol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.SelectRol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.carolesBindingSource.DataSource = typeof(CellTrack.Models.DataBases.caroles);
             // 
             // metroLabel4
             // 
@@ -384,6 +379,11 @@
             this.tgGpoActivo.Text = "On";
             this.tgGpoActivo.UseSelectable = true;
             this.tgGpoActivo.CheckedChanged += new System.EventHandler(this.tgGpoActivo_CheckedChanged);
+            // 
+            // caperfilesBindingSource
+            // 
+            this.caperfilesBindingSource.DataSource = typeof(CellTrack.Models.DataBases.caperfiles);
+            this.caperfilesBindingSource.CurrentChanged += new System.EventHandler(this.caperfilesBindingSource_CurrentChanged);
             // 
             // lblActivo
             // 
@@ -595,7 +595,7 @@
             this.gd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gd.ShowEditingIcon = false;
-            this.gd.Size = new System.Drawing.Size(861, 292);
+            this.gd.Size = new System.Drawing.Size(861, 291);
             this.gd.StandardTab = true;
             this.gd.Style = MetroFramework.MetroColorStyle.Orange;
             this.gd.TabIndex = 6;
@@ -645,14 +645,15 @@
             this.reperfilrolesDataGridViewTextBoxColumn.Name = "reperfilrolesDataGridViewTextBoxColumn";
             this.reperfilrolesDataGridViewTextBoxColumn.Visible = false;
             // 
-            // carolesBindingSource
+            // SelectRol
             // 
-            this.carolesBindingSource.DataSource = typeof(CellTrack.Models.DataBases.caroles);
-            // 
-            // caperfilesBindingSource
-            // 
-            this.caperfilesBindingSource.DataSource = typeof(CellTrack.Models.DataBases.caperfiles);
-            this.caperfilesBindingSource.CurrentChanged += new System.EventHandler(this.caperfilesBindingSource_CurrentChanged);
+            this.SelectRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.SelectRol.HeaderText = "Asignado";
+            this.SelectRol.MinimumWidth = 59;
+            this.SelectRol.Name = "SelectRol";
+            this.SelectRol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.SelectRol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.SelectRol.Width = 89;
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -665,11 +666,12 @@
             // 
             // perfilDataGridViewTextBoxColumn
             // 
-            this.perfilDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.perfilDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.perfilDataGridViewTextBoxColumn.DataPropertyName = "perfil";
             this.perfilDataGridViewTextBoxColumn.HeaderText = "Perfil";
             this.perfilDataGridViewTextBoxColumn.Name = "perfilDataGridViewTextBoxColumn";
             this.perfilDataGridViewTextBoxColumn.ReadOnly = true;
+            this.perfilDataGridViewTextBoxColumn.Width = 61;
             // 
             // fInsDataGridViewTextBoxColumn1
             // 
@@ -729,13 +731,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gdRolesAsignados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carolesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.caperfilesBindingSource)).EndInit();
             this.pnlBtnsActions.ResumeLayout(false);
             this.pnlBtnsActions.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carolesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.caperfilesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -764,13 +766,11 @@
         private MetroFramework.Controls.MetroButton btnrefresh;
         private MetroFramework.Controls.MetroButton btnDelete;
         private MetroFramework.Controls.MetroGrid gd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn perfilDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fInsDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fActDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn causuariosDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reperfilrolesDataGridViewTextBoxColumn1;
+        private MetroFramework.Controls.MetroButton btnSelectionNone;
+        private MetroFramework.Controls.MetroButton btnSelectAll;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroTextBox txtFind;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rolDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
@@ -778,10 +778,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fActDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn reperfilrolesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelectRol;
-        private MetroFramework.Controls.MetroButton btnSelectionNone;
-        private MetroFramework.Controls.MetroButton btnSelectAll;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroTextBox txtFind;
-        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn perfilDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fInsDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fActDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn causuariosDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reperfilrolesDataGridViewTextBoxColumn1;
     }
 }

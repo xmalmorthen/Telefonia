@@ -71,6 +71,8 @@
             this.btnrefresh = new MetroFramework.Controls.MetroButton();
             this.btnDelete = new MetroFramework.Controls.MetroButton();
             this.gdUsers = new MetroFramework.Controls.MetroGrid();
+            this.metroToolTip = new MetroFramework.Components.MetroToolTip();
+            this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombresDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.primerApellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,8 +91,6 @@
             this.caperfilesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.malocalizationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.malocalizations1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metroToolTip = new MetroFramework.Components.MetroToolTip();
-            this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerUsuarios)).BeginInit();
             this.splitContainerUsuarios.Panel1.SuspendLayout();
             this.splitContainerUsuarios.Panel2.SuspendLayout();
@@ -862,12 +862,24 @@
             this.gdUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdUsers.ShowEditingIcon = false;
-            this.gdUsers.Size = new System.Drawing.Size(866, 260);
+            this.gdUsers.Size = new System.Drawing.Size(866, 259);
             this.gdUsers.StandardTab = true;
             this.gdUsers.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdUsers.TabIndex = 12;
             this.gdUsers.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdUsers.UseStyleColors = true;
+            // 
+            // metroToolTip
+            // 
+            this.metroToolTip.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroToolTip.StyleManager = null;
+            this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // msmMain
+            // 
+            this.msmMain.Owner = null;
+            this.msmMain.Style = MetroFramework.MetroColorStyle.Orange;
+            this.msmMain.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -880,35 +892,39 @@
             // 
             // nombresDataGridViewTextBoxColumn
             // 
-            this.nombresDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombresDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.nombresDataGridViewTextBoxColumn.DataPropertyName = "Nombres";
             this.nombresDataGridViewTextBoxColumn.HeaderText = "Nombre(s)";
             this.nombresDataGridViewTextBoxColumn.Name = "nombresDataGridViewTextBoxColumn";
             this.nombresDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombresDataGridViewTextBoxColumn.Width = 96;
             // 
             // primerApellidoDataGridViewTextBoxColumn
             // 
-            this.primerApellidoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.primerApellidoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.primerApellidoDataGridViewTextBoxColumn.DataPropertyName = "PrimerApellido";
             this.primerApellidoDataGridViewTextBoxColumn.HeaderText = "Primer Apellido";
             this.primerApellidoDataGridViewTextBoxColumn.Name = "primerApellidoDataGridViewTextBoxColumn";
             this.primerApellidoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.primerApellidoDataGridViewTextBoxColumn.Width = 125;
             // 
             // segundoApellidoDataGridViewTextBoxColumn
             // 
-            this.segundoApellidoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.segundoApellidoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.segundoApellidoDataGridViewTextBoxColumn.DataPropertyName = "SegundoApellido";
             this.segundoApellidoDataGridViewTextBoxColumn.HeaderText = "Segundo Apellido";
             this.segundoApellidoDataGridViewTextBoxColumn.Name = "segundoApellidoDataGridViewTextBoxColumn";
             this.segundoApellidoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.segundoApellidoDataGridViewTextBoxColumn.Width = 139;
             // 
             // usuarioDataGridViewTextBoxColumn
             // 
-            this.usuarioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.usuarioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.usuarioDataGridViewTextBoxColumn.DataPropertyName = "usuario";
             this.usuarioDataGridViewTextBoxColumn.HeaderText = "Nombre de Usuario";
             this.usuarioDataGridViewTextBoxColumn.Name = "usuarioDataGridViewTextBoxColumn";
             this.usuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usuarioDataGridViewTextBoxColumn.Width = 152;
             // 
             // contraseniaDataGridViewTextBoxColumn
             // 
@@ -1017,18 +1033,6 @@
             this.malocalizations1DataGridViewTextBoxColumn.ReadOnly = true;
             this.malocalizations1DataGridViewTextBoxColumn.Visible = false;
             // 
-            // metroToolTip
-            // 
-            this.metroToolTip.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroToolTip.StyleManager = null;
-            this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
-            // msmMain
-            // 
-            this.msmMain.Owner = null;
-            this.msmMain.Style = MetroFramework.MetroColorStyle.Orange;
-            this.msmMain.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
             // usrCtrlUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1096,6 +1100,9 @@
         private System.Windows.Forms.BindingSource caperfilesBindingSource;
         private MetroFramework.Components.MetroToolTip metroToolTip;
         private MetroFramework.Components.MetroStyleManager msmMain;
+        private MetroFramework.Controls.MetroTextBox txtFind;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombresDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn primerApellidoDataGridViewTextBoxColumn;
@@ -1114,8 +1121,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn caperfilesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn malocalizationsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn malocalizations1DataGridViewTextBoxColumn;
-        private MetroFramework.Controls.MetroTextBox txtFind;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroLabel metroLabel11;
     }
 }

@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 namespace CellTrack.Models
 {
     public class seguimientoModel : recibidosModel
-    {        
+    {
+        public string LAT { get; set; }
+        public string LNG { get; set; }
     }
 
 }

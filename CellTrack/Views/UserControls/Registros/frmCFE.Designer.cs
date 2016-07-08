@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.btnFind = new MetroFramework.Controls.MetroButton();
             this.btnCancel = new MetroFramework.Controls.MetroButton();
@@ -58,6 +58,10 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.txtFind = new MetroFramework.Controls.MetroTextBox();
             this.gdIFE = new MetroFramework.Controls.MetroGrid();
+            this.bsCFE = new System.Windows.Forms.BindingSource(this.components);
+            this.tlpProc = new System.Windows.Forms.FlowLayoutPanel();
+            this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.servicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.campo1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,10 +69,6 @@
             this.campo2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.municipioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsCFE = new System.Windows.Forms.BindingSource(this.components);
-            this.tlpProc = new System.Windows.Forms.FlowLayoutPanel();
-            this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -404,7 +404,7 @@
             this.lblCantReg.AutoSize = true;
             this.lblCantReg.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblCantReg.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblCantReg.Location = new System.Drawing.Point(1, 357);
+            this.lblCantReg.Location = new System.Drawing.Point(1, 351);
             this.lblCantReg.Margin = new System.Windows.Forms.Padding(3);
             this.lblCantReg.Name = "lblCantReg";
             this.lblCantReg.Size = new System.Drawing.Size(251, 25);
@@ -473,14 +473,14 @@
             this.gdIFE.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gdIFE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gdIFE.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gdIFE.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gdIFE.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gdIFE.ColumnHeadersHeight = 30;
             this.gdIFE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gdIFE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -492,14 +492,14 @@
             this.municipioDataGridViewTextBoxColumn,
             this.estadoDataGridViewTextBoxColumn});
             this.gdIFE.DataSource = this.bsCFE;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdIFE.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdIFE.DefaultCellStyle = dataGridViewCellStyle2;
             this.gdIFE.EnableHeadersVisualStyles = false;
             this.gdIFE.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gdIFE.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -509,86 +509,24 @@
             this.gdIFE.Name = "gdIFE";
             this.gdIFE.ReadOnly = true;
             this.gdIFE.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gdIFE.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gdIFE.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gdIFE.RowHeadersVisible = false;
             this.gdIFE.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdIFE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdIFE.ShowEditingIcon = false;
-            this.gdIFE.Size = new System.Drawing.Size(956, 313);
+            this.gdIFE.Size = new System.Drawing.Size(956, 307);
             this.gdIFE.StandardTab = true;
             this.gdIFE.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdIFE.TabIndex = 9;
             this.gdIFE.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdIFE.UseStyleColors = true;
-            // 
-            // servicioDataGridViewTextBoxColumn
-            // 
-            this.servicioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.servicioDataGridViewTextBoxColumn.DataPropertyName = "servicio";
-            this.servicioDataGridViewTextBoxColumn.HeaderText = "Servicio";
-            this.servicioDataGridViewTextBoxColumn.Name = "servicioDataGridViewTextBoxColumn";
-            this.servicioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.servicioDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // campo1DataGridViewTextBoxColumn
-            // 
-            this.campo1DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.campo1DataGridViewTextBoxColumn.DataPropertyName = "campo1";
-            this.campo1DataGridViewTextBoxColumn.HeaderText = "Campo 1";
-            this.campo1DataGridViewTextBoxColumn.Name = "campo1DataGridViewTextBoxColumn";
-            this.campo1DataGridViewTextBoxColumn.ReadOnly = true;
-            this.campo1DataGridViewTextBoxColumn.Width = 88;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // direccionDataGridViewTextBoxColumn
-            // 
-            this.direccionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
-            this.direccionDataGridViewTextBoxColumn.HeaderText = "Domicilio";
-            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
-            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.direccionDataGridViewTextBoxColumn.Width = 88;
-            // 
-            // campo2DataGridViewTextBoxColumn
-            // 
-            this.campo2DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.campo2DataGridViewTextBoxColumn.DataPropertyName = "campo2";
-            this.campo2DataGridViewTextBoxColumn.HeaderText = "Campo 2";
-            this.campo2DataGridViewTextBoxColumn.Name = "campo2DataGridViewTextBoxColumn";
-            this.campo2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.campo2DataGridViewTextBoxColumn.Width = 88;
-            // 
-            // municipioDataGridViewTextBoxColumn
-            // 
-            this.municipioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.municipioDataGridViewTextBoxColumn.DataPropertyName = "municipio";
-            this.municipioDataGridViewTextBoxColumn.HeaderText = "Municipio";
-            this.municipioDataGridViewTextBoxColumn.Name = "municipioDataGridViewTextBoxColumn";
-            this.municipioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.municipioDataGridViewTextBoxColumn.Width = 92;
-            // 
-            // estadoDataGridViewTextBoxColumn
-            // 
-            this.estadoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
-            this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
-            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
-            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.estadoDataGridViewTextBoxColumn.Width = 73;
             // 
             // bsCFE
             // 
@@ -632,6 +570,69 @@
             this.metroLabel4.Size = new System.Drawing.Size(258, 25);
             this.metroLabel4.TabIndex = 22;
             this.metroLabel4.Text = "Buscando, favor de esperar...";
+            // 
+            // servicioDataGridViewTextBoxColumn
+            // 
+            this.servicioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.servicioDataGridViewTextBoxColumn.DataPropertyName = "servicio";
+            this.servicioDataGridViewTextBoxColumn.HeaderText = "Servicio";
+            this.servicioDataGridViewTextBoxColumn.Name = "servicioDataGridViewTextBoxColumn";
+            this.servicioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.servicioDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // campo1DataGridViewTextBoxColumn
+            // 
+            this.campo1DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.campo1DataGridViewTextBoxColumn.DataPropertyName = "campo1";
+            this.campo1DataGridViewTextBoxColumn.HeaderText = "Campo 1";
+            this.campo1DataGridViewTextBoxColumn.Name = "campo1DataGridViewTextBoxColumn";
+            this.campo1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.campo1DataGridViewTextBoxColumn.Width = 88;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 82;
+            // 
+            // direccionDataGridViewTextBoxColumn
+            // 
+            this.direccionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
+            this.direccionDataGridViewTextBoxColumn.HeaderText = "Domicilio";
+            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
+            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.direccionDataGridViewTextBoxColumn.Width = 88;
+            // 
+            // campo2DataGridViewTextBoxColumn
+            // 
+            this.campo2DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.campo2DataGridViewTextBoxColumn.DataPropertyName = "campo2";
+            this.campo2DataGridViewTextBoxColumn.HeaderText = "Campo 2";
+            this.campo2DataGridViewTextBoxColumn.Name = "campo2DataGridViewTextBoxColumn";
+            this.campo2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.campo2DataGridViewTextBoxColumn.Width = 88;
+            // 
+            // municipioDataGridViewTextBoxColumn
+            // 
+            this.municipioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.municipioDataGridViewTextBoxColumn.DataPropertyName = "municipio";
+            this.municipioDataGridViewTextBoxColumn.HeaderText = "Municipio";
+            this.municipioDataGridViewTextBoxColumn.Name = "municipioDataGridViewTextBoxColumn";
+            this.municipioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.municipioDataGridViewTextBoxColumn.Width = 92;
+            // 
+            // estadoDataGridViewTextBoxColumn
+            // 
+            this.estadoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.estadoDataGridViewTextBoxColumn.DataPropertyName = "estado";
+            this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
+            this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
+            this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.estadoDataGridViewTextBoxColumn.Width = 73;
             // 
             // frmCFE
             // 
@@ -696,6 +697,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroTextBox txtFind;
         private MetroFramework.Controls.MetroLabel lblCantReg;
+        private MetroFramework.Controls.MetroButton btnFilter;
         private System.Windows.Forms.DataGridViewTextBoxColumn servicioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn campo1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
@@ -703,6 +705,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn campo2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn municipioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn estadoDataGridViewTextBoxColumn;
-        private MetroFramework.Controls.MetroButton btnFilter;
     }
 }

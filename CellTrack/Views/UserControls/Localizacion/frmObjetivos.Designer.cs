@@ -72,6 +72,7 @@
             this.txtFind = new MetroFramework.Controls.MetroTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gdObjetivos = new MetroFramework.Controls.MetroGrid();
+            this.localizationsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asuntoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,7 +82,6 @@
             this.idCarrierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carrierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localizationsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -854,12 +854,16 @@
             this.gdObjetivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdObjetivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdObjetivos.ShowEditingIcon = false;
-            this.gdObjetivos.Size = new System.Drawing.Size(865, 282);
+            this.gdObjetivos.Size = new System.Drawing.Size(865, 276);
             this.gdObjetivos.StandardTab = true;
             this.gdObjetivos.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdObjetivos.TabIndex = 0;
             this.gdObjetivos.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdObjetivos.UseStyleColors = true;
+            // 
+            // localizationsModelBindingSource
+            // 
+            this.localizationsModelBindingSource.DataSource = typeof(CellTrack.Models.localizationsModel);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -872,19 +876,21 @@
             // 
             // nombreDataGridViewTextBoxColumn
             // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 82;
             // 
             // asuntoDataGridViewTextBoxColumn
             // 
-            this.asuntoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.asuntoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.asuntoDataGridViewTextBoxColumn.DataPropertyName = "asunto";
             this.asuntoDataGridViewTextBoxColumn.HeaderText = "Asunto";
             this.asuntoDataGridViewTextBoxColumn.Name = "asuntoDataGridViewTextBoxColumn";
             this.asuntoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.asuntoDataGridViewTextBoxColumn.Width = 76;
             // 
             // objetivoDataGridViewTextBoxColumn
             // 
@@ -905,11 +911,12 @@
             // 
             // notificationNameDataGridViewTextBoxColumn
             // 
-            this.notificationNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.notificationNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.notificationNameDataGridViewTextBoxColumn.DataPropertyName = "NotificationName";
             this.notificationNameDataGridViewTextBoxColumn.HeaderText = "Notificación";
             this.notificationNameDataGridViewTextBoxColumn.Name = "notificationNameDataGridViewTextBoxColumn";
             this.notificationNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.notificationNameDataGridViewTextBoxColumn.Width = 103;
             // 
             // idCarrierDataGridViewTextBoxColumn
             // 
@@ -930,15 +937,12 @@
             // 
             // agendaDataGridViewTextBoxColumn
             // 
-            this.agendaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.agendaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.agendaDataGridViewTextBoxColumn.DataPropertyName = "Agenda";
             this.agendaDataGridViewTextBoxColumn.HeaderText = "Agenda";
             this.agendaDataGridViewTextBoxColumn.Name = "agendaDataGridViewTextBoxColumn";
             this.agendaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // localizationsModelBindingSource
-            // 
-            this.localizationsModelBindingSource.DataSource = typeof(CellTrack.Models.localizationsModel);
+            this.agendaDataGridViewTextBoxColumn.Width = 79;
             // 
             // frmObjetivos
             // 
@@ -1013,6 +1017,9 @@
         private System.Windows.Forms.BindingSource bsObjetivos;
         private System.Windows.Forms.BindingSource localizationsModelBindingSource;
         private MetroFramework.Controls.MetroButton btnAdd;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private MetroFramework.Controls.MetroLabel metroLabel10;
+        private MetroFramework.Controls.MetroTextBox txtFind;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn asuntoDataGridViewTextBoxColumn;
@@ -1022,8 +1029,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idCarrierDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn carrierDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn agendaDataGridViewTextBoxColumn;
-        private MetroFramework.Controls.MetroLabel metroLabel11;
-        private MetroFramework.Controls.MetroLabel metroLabel10;
-        private MetroFramework.Controls.MetroTextBox txtFind;
     }
 }

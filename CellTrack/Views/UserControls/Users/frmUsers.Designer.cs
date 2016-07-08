@@ -69,6 +69,7 @@
             this.txtCel = new MetroFramework.Controls.MetroTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gdObjetivos = new MetroFramework.Controls.MetroGrid();
+            this.localizationsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asuntoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,7 +79,6 @@
             this.idCarrierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carrierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localizationsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -777,12 +777,16 @@
             this.gdObjetivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdObjetivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdObjetivos.ShowEditingIcon = false;
-            this.gdObjetivos.Size = new System.Drawing.Size(865, 310);
+            this.gdObjetivos.Size = new System.Drawing.Size(865, 304);
             this.gdObjetivos.StandardTab = true;
             this.gdObjetivos.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdObjetivos.TabIndex = 0;
             this.gdObjetivos.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdObjetivos.UseStyleColors = true;
+            // 
+            // localizationsModelBindingSource
+            // 
+            this.localizationsModelBindingSource.DataSource = typeof(CellTrack.Models.localizationsModel);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -795,19 +799,21 @@
             // 
             // nombreDataGridViewTextBoxColumn
             // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 82;
             // 
             // asuntoDataGridViewTextBoxColumn
             // 
-            this.asuntoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.asuntoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.asuntoDataGridViewTextBoxColumn.DataPropertyName = "asunto";
             this.asuntoDataGridViewTextBoxColumn.HeaderText = "Asunto";
             this.asuntoDataGridViewTextBoxColumn.Name = "asuntoDataGridViewTextBoxColumn";
             this.asuntoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.asuntoDataGridViewTextBoxColumn.Width = 76;
             // 
             // objetivoDataGridViewTextBoxColumn
             // 
@@ -828,11 +834,12 @@
             // 
             // notificationNameDataGridViewTextBoxColumn
             // 
-            this.notificationNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.notificationNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.notificationNameDataGridViewTextBoxColumn.DataPropertyName = "NotificationName";
             this.notificationNameDataGridViewTextBoxColumn.HeaderText = "NotificationName";
             this.notificationNameDataGridViewTextBoxColumn.Name = "notificationNameDataGridViewTextBoxColumn";
             this.notificationNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.notificationNameDataGridViewTextBoxColumn.Width = 138;
             // 
             // idCarrierDataGridViewTextBoxColumn
             // 
@@ -853,17 +860,15 @@
             // 
             // agendaDataGridViewTextBoxColumn
             // 
-            this.agendaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.agendaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.agendaDataGridViewTextBoxColumn.DataPropertyName = "Agenda";
             this.agendaDataGridViewTextBoxColumn.HeaderText = "Agenda";
             this.agendaDataGridViewTextBoxColumn.Name = "agendaDataGridViewTextBoxColumn";
             this.agendaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.agendaDataGridViewTextBoxColumn.Visible = false;
+            this.agendaDataGridViewTextBoxColumn.Width = 79;
             // 
-            // localizationsModelBindingSource
-            // 
-            this.localizationsModelBindingSource.DataSource = typeof(CellTrack.Models.localizationsModel);
-            // 
-            // frmObjetivos
+            // frmUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -873,7 +878,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.shapeContainer1);
             this.MinimumSize = new System.Drawing.Size(984, 598);
-            this.Name = "frmObjetivos";
+            this.Name = "frmUsers";
             this.Size = new System.Drawing.Size(982, 596);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.splitContainer.Panel1.ResumeLayout(false);

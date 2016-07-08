@@ -59,6 +59,10 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.txtFind = new MetroFramework.Controls.MetroTextBox();
             this.gdIFE = new MetroFramework.Controls.MetroGrid();
+            this.bsIFE = new System.Windows.Forms.BindingSource(this.components);
+            this.tlpProc = new System.Windows.Forms.FlowLayoutPanel();
+            this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.claveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fnacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,10 +73,6 @@
             this.codposDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nmpioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsIFE = new System.Windows.Forms.BindingSource(this.components);
-            this.tlpProc = new System.Windows.Forms.FlowLayoutPanel();
-            this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -421,7 +421,7 @@
             this.lblCantReg.AutoSize = true;
             this.lblCantReg.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblCantReg.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblCantReg.Location = new System.Drawing.Point(6, 357);
+            this.lblCantReg.Location = new System.Drawing.Point(6, 351);
             this.lblCantReg.Margin = new System.Windows.Forms.Padding(3);
             this.lblCantReg.Name = "lblCantReg";
             this.lblCantReg.Size = new System.Drawing.Size(251, 25);
@@ -541,12 +541,55 @@
             this.gdIFE.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdIFE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdIFE.ShowEditingIcon = false;
-            this.gdIFE.Size = new System.Drawing.Size(956, 313);
+            this.gdIFE.Size = new System.Drawing.Size(956, 307);
             this.gdIFE.StandardTab = true;
             this.gdIFE.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdIFE.TabIndex = 10;
             this.gdIFE.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdIFE.UseStyleColors = true;
+            // 
+            // bsIFE
+            // 
+            this.bsIFE.DataSource = typeof(CellTrack.Models.Registros.IFEModel);
+            this.bsIFE.DataSourceChanged += new System.EventHandler(this.bsIFE_DataSourceChanged);
+            // 
+            // tlpProc
+            // 
+            this.tlpProc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlpProc.AutoSize = true;
+            this.tlpProc.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlpProc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tlpProc.Controls.Add(this.metroProgressSpinner3);
+            this.tlpProc.Controls.Add(this.metroLabel4);
+            this.tlpProc.Controls.Add(this.btnCancel);
+            this.tlpProc.Location = new System.Drawing.Point(300, 365);
+            this.tlpProc.Name = "tlpProc";
+            this.tlpProc.Size = new System.Drawing.Size(378, 62);
+            this.tlpProc.TabIndex = 24;
+            // 
+            // metroProgressSpinner3
+            // 
+            this.metroProgressSpinner3.Location = new System.Drawing.Point(5, 5);
+            this.metroProgressSpinner3.Margin = new System.Windows.Forms.Padding(5);
+            this.metroProgressSpinner3.Maximum = 100;
+            this.metroProgressSpinner3.Name = "metroProgressSpinner3";
+            this.metroProgressSpinner3.Size = new System.Drawing.Size(50, 50);
+            this.metroProgressSpinner3.TabIndex = 21;
+            this.metroProgressSpinner3.UseSelectable = true;
+            this.metroProgressSpinner3.Value = 50;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.metroLabel4.Location = new System.Drawing.Point(63, 18);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(3, 18, 3, 3);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(258, 25);
+            this.metroLabel4.TabIndex = 22;
+            this.metroLabel4.Text = "Buscando, favor de esperar...";
             // 
             // claveDataGridViewTextBoxColumn
             // 
@@ -559,11 +602,12 @@
             // 
             // nombreDataGridViewTextBoxColumn
             // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 82;
             // 
             // fnacDataGridViewTextBoxColumn
             // 
@@ -576,11 +620,12 @@
             // 
             // calleDataGridViewTextBoxColumn
             // 
-            this.calleDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.calleDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.calleDataGridViewTextBoxColumn.DataPropertyName = "calle";
             this.calleDataGridViewTextBoxColumn.HeaderText = "Calle";
             this.calleDataGridViewTextBoxColumn.Name = "calleDataGridViewTextBoxColumn";
             this.calleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.calleDataGridViewTextBoxColumn.Width = 61;
             // 
             // numextDataGridViewTextBoxColumn
             // 
@@ -635,49 +680,6 @@
             this.entidadDataGridViewTextBoxColumn.Name = "entidadDataGridViewTextBoxColumn";
             this.entidadDataGridViewTextBoxColumn.ReadOnly = true;
             this.entidadDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // bsIFE
-            // 
-            this.bsIFE.DataSource = typeof(CellTrack.Models.Registros.IFEModel);
-            this.bsIFE.DataSourceChanged += new System.EventHandler(this.bsIFE_DataSourceChanged);
-            // 
-            // tlpProc
-            // 
-            this.tlpProc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tlpProc.AutoSize = true;
-            this.tlpProc.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpProc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tlpProc.Controls.Add(this.metroProgressSpinner3);
-            this.tlpProc.Controls.Add(this.metroLabel4);
-            this.tlpProc.Controls.Add(this.btnCancel);
-            this.tlpProc.Location = new System.Drawing.Point(300, 365);
-            this.tlpProc.Name = "tlpProc";
-            this.tlpProc.Size = new System.Drawing.Size(378, 62);
-            this.tlpProc.TabIndex = 24;
-            // 
-            // metroProgressSpinner3
-            // 
-            this.metroProgressSpinner3.Location = new System.Drawing.Point(5, 5);
-            this.metroProgressSpinner3.Margin = new System.Windows.Forms.Padding(5);
-            this.metroProgressSpinner3.Maximum = 100;
-            this.metroProgressSpinner3.Name = "metroProgressSpinner3";
-            this.metroProgressSpinner3.Size = new System.Drawing.Size(50, 50);
-            this.metroProgressSpinner3.TabIndex = 21;
-            this.metroProgressSpinner3.UseSelectable = true;
-            this.metroProgressSpinner3.Value = 50;
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.metroLabel4.Location = new System.Drawing.Point(63, 18);
-            this.metroLabel4.Margin = new System.Windows.Forms.Padding(3, 18, 3, 3);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(258, 25);
-            this.metroLabel4.TabIndex = 22;
-            this.metroLabel4.Text = "Buscando, favor de esperar...";
             // 
             // frmIFE
             // 
@@ -736,6 +738,14 @@
         private MetroFramework.Controls.MetroCheckBox chkCP;
         private System.Windows.Forms.BindingSource bsEntidades;
         private System.Windows.Forms.BindingSource bsIFE;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner3;
+        private System.Windows.Forms.FlowLayoutPanel tlpProc;
+        private MetroFramework.Controls.MetroButton btnCancel;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroTextBox txtFind;
+        private MetroFramework.Controls.MetroLabel lblCantReg;
+        private MetroFramework.Controls.MetroButton btnFilter;
         private System.Windows.Forms.DataGridViewTextBoxColumn claveDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fnacDataGridViewTextBoxColumn;
@@ -746,13 +756,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn codposDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nmpioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn entidadDataGridViewTextBoxColumn;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner3;
-        private System.Windows.Forms.FlowLayoutPanel tlpProc;
-        private MetroFramework.Controls.MetroButton btnCancel;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroTextBox txtFind;
-        private MetroFramework.Controls.MetroLabel lblCantReg;
-        private MetroFramework.Controls.MetroButton btnFilter;
     }
 }

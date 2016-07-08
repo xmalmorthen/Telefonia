@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.btnFind = new MetroFramework.Controls.MetroButton();
             this.btnCancel = new MetroFramework.Controls.MetroButton();
@@ -62,6 +62,10 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.txtFind = new MetroFramework.Controls.MetroTextBox();
             this.gdTELMEX = new MetroFramework.Controls.MetroGrid();
+            this.bsTELMEX = new System.Windows.Forms.BindingSource(this.components);
+            this.tlpProc = new System.Windows.Forms.FlowLayoutPanel();
+            this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,10 +74,6 @@
             this.municipioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.centralDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsTELMEX = new System.Windows.Forms.BindingSource(this.components);
-            this.tlpProc = new System.Windows.Forms.FlowLayoutPanel();
-            this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -461,7 +461,7 @@
             this.lblCantReg.AutoSize = true;
             this.lblCantReg.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblCantReg.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblCantReg.Location = new System.Drawing.Point(3, 308);
+            this.lblCantReg.Location = new System.Drawing.Point(3, 302);
             this.lblCantReg.Margin = new System.Windows.Forms.Padding(3);
             this.lblCantReg.Name = "lblCantReg";
             this.lblCantReg.Size = new System.Drawing.Size(251, 25);
@@ -530,14 +530,14 @@
             this.gdTELMEX.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gdTELMEX.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gdTELMEX.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gdTELMEX.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gdTELMEX.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gdTELMEX.ColumnHeadersHeight = 30;
             this.gdTELMEX.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gdTELMEX.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -550,14 +550,14 @@
             this.estadoDataGridViewTextBoxColumn,
             this.centralDataGridViewTextBoxColumn});
             this.gdTELMEX.DataSource = this.bsTELMEX;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gdTELMEX.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gdTELMEX.DefaultCellStyle = dataGridViewCellStyle2;
             this.gdTELMEX.EnableHeadersVisualStyles = false;
             this.gdTELMEX.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gdTELMEX.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -567,24 +567,67 @@
             this.gdTELMEX.Name = "gdTELMEX";
             this.gdTELMEX.ReadOnly = true;
             this.gdTELMEX.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gdTELMEX.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(119)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(153)))), ((int)(((byte)(103)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gdTELMEX.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gdTELMEX.RowHeadersVisible = false;
             this.gdTELMEX.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdTELMEX.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdTELMEX.ShowEditingIcon = false;
-            this.gdTELMEX.Size = new System.Drawing.Size(956, 264);
+            this.gdTELMEX.Size = new System.Drawing.Size(956, 258);
             this.gdTELMEX.StandardTab = true;
             this.gdTELMEX.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdTELMEX.TabIndex = 10;
             this.gdTELMEX.Theme = MetroFramework.MetroThemeStyle.Light;
             this.gdTELMEX.UseStyleColors = true;
+            // 
+            // bsTELMEX
+            // 
+            this.bsTELMEX.DataSource = typeof(CellTrack.Models.Registros.TELMEXModel);
+            this.bsTELMEX.DataSourceChanged += new System.EventHandler(this.bsTELMEX_DataSourceChanged);
+            // 
+            // tlpProc
+            // 
+            this.tlpProc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tlpProc.AutoSize = true;
+            this.tlpProc.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlpProc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tlpProc.Controls.Add(this.metroProgressSpinner3);
+            this.tlpProc.Controls.Add(this.metroLabel4);
+            this.tlpProc.Controls.Add(this.btnCancel);
+            this.tlpProc.Location = new System.Drawing.Point(300, 365);
+            this.tlpProc.Name = "tlpProc";
+            this.tlpProc.Size = new System.Drawing.Size(378, 62);
+            this.tlpProc.TabIndex = 24;
+            // 
+            // metroProgressSpinner3
+            // 
+            this.metroProgressSpinner3.Location = new System.Drawing.Point(5, 5);
+            this.metroProgressSpinner3.Margin = new System.Windows.Forms.Padding(5);
+            this.metroProgressSpinner3.Maximum = 100;
+            this.metroProgressSpinner3.Name = "metroProgressSpinner3";
+            this.metroProgressSpinner3.Size = new System.Drawing.Size(50, 50);
+            this.metroProgressSpinner3.TabIndex = 21;
+            this.metroProgressSpinner3.UseSelectable = true;
+            this.metroProgressSpinner3.Value = 50;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.metroLabel4.Location = new System.Drawing.Point(63, 18);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(3, 18, 3, 3);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(258, 25);
+            this.metroLabel4.TabIndex = 22;
+            this.metroLabel4.Text = "Buscando, favor de esperar...";
             // 
             // numeroDataGridViewTextBoxColumn
             // 
@@ -597,19 +640,21 @@
             // 
             // nombreDataGridViewTextBoxColumn
             // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 82;
             // 
             // direccionDataGridViewTextBoxColumn
             // 
-            this.direccionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.direccionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.direccionDataGridViewTextBoxColumn.DataPropertyName = "direccion";
             this.direccionDataGridViewTextBoxColumn.HeaderText = "Dirección";
             this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
             this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.direccionDataGridViewTextBoxColumn.Width = 88;
             // 
             // cpostalDataGridViewTextBoxColumn
             // 
@@ -655,49 +700,6 @@
             this.centralDataGridViewTextBoxColumn.Name = "centralDataGridViewTextBoxColumn";
             this.centralDataGridViewTextBoxColumn.ReadOnly = true;
             this.centralDataGridViewTextBoxColumn.Width = 76;
-            // 
-            // bsTELMEX
-            // 
-            this.bsTELMEX.DataSource = typeof(CellTrack.Models.Registros.TELMEXModel);
-            this.bsTELMEX.DataSourceChanged += new System.EventHandler(this.bsTELMEX_DataSourceChanged);
-            // 
-            // tlpProc
-            // 
-            this.tlpProc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tlpProc.AutoSize = true;
-            this.tlpProc.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tlpProc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tlpProc.Controls.Add(this.metroProgressSpinner3);
-            this.tlpProc.Controls.Add(this.metroLabel4);
-            this.tlpProc.Controls.Add(this.btnCancel);
-            this.tlpProc.Location = new System.Drawing.Point(300, 365);
-            this.tlpProc.Name = "tlpProc";
-            this.tlpProc.Size = new System.Drawing.Size(378, 62);
-            this.tlpProc.TabIndex = 24;
-            // 
-            // metroProgressSpinner3
-            // 
-            this.metroProgressSpinner3.Location = new System.Drawing.Point(5, 5);
-            this.metroProgressSpinner3.Margin = new System.Windows.Forms.Padding(5);
-            this.metroProgressSpinner3.Maximum = 100;
-            this.metroProgressSpinner3.Name = "metroProgressSpinner3";
-            this.metroProgressSpinner3.Size = new System.Drawing.Size(50, 50);
-            this.metroProgressSpinner3.TabIndex = 21;
-            this.metroProgressSpinner3.UseSelectable = true;
-            this.metroProgressSpinner3.Value = 50;
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.metroLabel4.Location = new System.Drawing.Point(63, 18);
-            this.metroLabel4.Margin = new System.Windows.Forms.Padding(3, 18, 3, 3);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(258, 25);
-            this.metroLabel4.TabIndex = 22;
-            this.metroLabel4.Text = "Buscando, favor de esperar...";
             // 
             // frmTELMEX
             // 

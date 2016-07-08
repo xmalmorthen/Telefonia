@@ -250,10 +250,10 @@ namespace CellTrack.Controllers
                     {                        
                         message = checkSMS(item.obj.objetivo);
 
-                        if (string.IsNullOrEmpty(message) && iter < 3) Thread.Sleep(Properties.Settings.Default.PDUWaith);
+                        if (string.IsNullOrEmpty(message) && iter < 5) Thread.Sleep(Properties.Settings.Default.PDUWaith);
 
                         iter++;
-                    } while (string.IsNullOrEmpty(message) && iter < 3 );
+                    } while (string.IsNullOrEmpty(message) && iter < 5 );
 
                     result = !string.IsNullOrEmpty(message);                    
                 }
