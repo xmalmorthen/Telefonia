@@ -726,7 +726,7 @@
             this.gdObjetivos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gdObjetivos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gdObjetivos.ShowEditingIcon = false;
-            this.gdObjetivos.Size = new System.Drawing.Size(960, 213);
+            this.gdObjetivos.Size = new System.Drawing.Size(960, 212);
             this.gdObjetivos.StandardTab = true;
             this.gdObjetivos.Style = MetroFramework.MetroColorStyle.Orange;
             this.gdObjetivos.TabIndex = 54;
@@ -774,12 +774,11 @@
             // 
             // nombreDataGridViewTextBoxColumn
             // 
-            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nombreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 82;
             // 
             // asuntoDataGridViewTextBoxColumn
             // 
@@ -840,6 +839,7 @@
             this.agendaDataGridViewTextBoxColumn.HeaderText = "Agenda";
             this.agendaDataGridViewTextBoxColumn.Name = "agendaDataGridViewTextBoxColumn";
             this.agendaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.agendaDataGridViewTextBoxColumn.Visible = false;
             this.agendaDataGridViewTextBoxColumn.Width = 79;
             // 
             // frmUserAdmin
