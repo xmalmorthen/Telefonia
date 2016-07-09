@@ -38,7 +38,7 @@ namespace CellTrack.Views.UserControls.Localización
             }
         }
 
-        private gMapView gMapViewRender = new gMapView(19.255185, -103.688263);
+        private gMapView gMapViewRender = new gMapView(Properties.Settings.Default.MapInitPointLat,Properties.Settings.Default.MapInitPointLng);
 
         public frmPDU()
         {
@@ -152,8 +152,7 @@ namespace CellTrack.Views.UserControls.Localización
                 if (((markersModel)e.Result) != null)
                 {
                     result = (markersModel)e.Result;
-                    gMapViewRender.gMap.zoom(16);
-                    gMapViewRender.gMap.centerInMarkers();
+                    gMapViewRender.gMap.MainMap.ZoomAndCenterMarkers(null);
                 }
                 else {
                     MessageBox.Show(this, "No se obtuvo respuesta, favor de consultar en la ventana de seguimiento mas tarde...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);

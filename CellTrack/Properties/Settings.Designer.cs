@@ -200,5 +200,29 @@ namespace CellTrack.Properties {
                 this["ModemSignalRefreshTime"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("23.751272")]
+        public double MapInitPointLat {
+            get {
+                return ((double)(this["MapInitPointLat"]));
+            }
+            set {
+                this["MapInitPointLat"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-103.734932")]
+        public double MapInitPointLng {
+            get {
+                return ((double)(this["MapInitPointLng"]));
+            }
+            set {
+                this["MapInitPointLng"] = value;
+            }
+        }
     }
 }

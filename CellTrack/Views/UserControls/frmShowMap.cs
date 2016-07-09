@@ -20,7 +20,7 @@ namespace CellTrack.Views.UserControls.Localización
 {
     public partial class frmShowMap : MetroForm
     {
-        private gMapView gMapViewRender = new gMapView(19.255185, -103.688263);
+        private gMapView gMapViewRender = new gMapView(Properties.Settings.Default.MapInitPointLat, Properties.Settings.Default.MapInitPointLng);
         
         private investigationModel item {get; set;}
 

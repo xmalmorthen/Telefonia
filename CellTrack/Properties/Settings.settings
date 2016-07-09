@@ -52,5 +52,11 @@
     <Setting Name="ModemSignalRefreshTime" Type="System.TimeSpan" Scope="User">
       <Value Profile="(Default)">00:01:00</Value>
     </Setting>
+    <Setting Name="MapInitPointLat" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">23.751272</Value>
+    </Setting>
+    <Setting Name="MapInitPointLng" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">-103.734932</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

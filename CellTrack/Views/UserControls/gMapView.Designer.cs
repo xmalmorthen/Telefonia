@@ -35,9 +35,9 @@
             this.btnMoreZoom = new MetroFramework.Controls.MetroButton();
             this.btnCentrar = new MetroFramework.Controls.MetroButton();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
+            this.btnRefresh = new MetroFramework.Controls.MetroButton();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.cmbMapsTypes = new MetroFramework.Controls.MetroComboBox();
-            this.btnRefresh = new MetroFramework.Controls.MetroButton();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +53,7 @@
             this.tkBarZoom.Name = "tkBarZoom";
             this.tkBarZoom.Size = new System.Drawing.Size(237, 23);
             this.tkBarZoom.TabIndex = 34;
-            this.tkBarZoom.Value = 12;
+            this.tkBarZoom.Value = 5;
             this.tkBarZoom.ValueChanged += new System.EventHandler(this.tkBarZoom_ValueChanged);
             // 
             // flowLayoutPanel1
@@ -124,6 +124,23 @@
             this.metroToolTip.StyleManager = null;
             this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.AutoSize = true;
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnRefresh.BackgroundImage = global::CellTrack.Properties.Resources._1463558222_Update;
+            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnRefresh.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnRefresh.Location = new System.Drawing.Point(884, 3);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(24, 25);
+            this.btnRefresh.TabIndex = 39;
+            this.metroToolTip.SetToolTip(this.btnRefresh, "Refrescar mapa");
+            this.btnRefresh.UseSelectable = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // msmMain
             // 
             this.msmMain.Owner = this;
@@ -145,23 +162,6 @@
             this.cmbMapsTypes.UseSelectable = true;
             this.cmbMapsTypes.UseStyleColors = true;
             this.cmbMapsTypes.DropDownClosed += new System.EventHandler(this.cmbMapsTypes_DropDownClosed);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.AutoSize = true;
-            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnRefresh.BackgroundImage = global::CellTrack.Properties.Resources._1463558222_Update;
-            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnRefresh.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnRefresh.Location = new System.Drawing.Point(884, 3);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 3, 0, 0);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(24, 25);
-            this.btnRefresh.TabIndex = 39;
-            this.metroToolTip.SetToolTip(this.btnRefresh, "Refrescar mapa");
-            this.btnRefresh.UseSelectable = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // gMapView
             // 

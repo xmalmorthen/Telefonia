@@ -69,7 +69,8 @@ namespace CellTrack.Controllers
                 seguimiento.Add(obj);
                 setMarker(obj, controller);
             }
-            controller.centerInMarkers();
+
+            controller.MainMap.ZoomAndCenterMarkers(null);
 
             controller.MainMap.OnMarkerEnter += OnMarkerEnter;
             controller.MainMap.OnMarkerLeave += OnMarkerLeave;

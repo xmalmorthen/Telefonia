@@ -13,6 +13,7 @@ using CellTrack.Controllers;
 using CellTrack.Models.DataBases;
 using MetroFramework;
 using GMap.NET.WindowsForms;
+using System.Threading;
 
 namespace CellTrack.Views.UserControls.Localización    
 {
@@ -27,7 +28,7 @@ namespace CellTrack.Views.UserControls.Localización
             }
         }
 
-        private gMapView gMapViewRender = new gMapView(19.255185, -103.688263);
+        private gMapView gMapViewRender = new gMapView(Properties.Settings.Default.MapInitPointLat, Properties.Settings.Default.MapInitPointLng);
 
         public frmSeguimiento()
         {
@@ -109,6 +110,18 @@ namespace CellTrack.Views.UserControls.Localización
                 targets = seguimientoController.markObjetivos(gMapViewRender.gMap,(PDUModel)bsObjetivos.Current,dtPeriodoDe.Value.Date, dtPeriodoA.Value.Date, MainMap_OnMarkerEnter, MainMap_OnMarkerLeave);
                 if (targets.Count == 0)
                     MessageBox.Show(this, "No se encontraron puntos para mostrar...", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else {                    
+                    /*int iter = Convert.ToInt32(gMapViewRender.gMap.MainMap.Zoom) + 1;
+                    for (int i = iter; i <= iter + 8; i++)
+                    {
+                        Application.DoEvents();
+                        gMapViewRender.gMap.centerInMarkers();
+                        gMapViewRender.gMap.zoom(i);
+                        gMapViewRender.gMap.MainMap.ReloadMap();
+                        Thread.Sleep(500);
+                        Application.DoEvents();
+                    }*/
+                }
                 btnReport.Visible = targets.Count > 0;
             }
             catch (Exception ex)

@@ -30,6 +30,9 @@ namespace CellTrack.Classes
             {
                 ((MetroForm)frm).StyleManager = msmMain;
                 ((MetroForm)frm).TopMost = true;
+#if DEBUG
+                ((MetroForm)frm).TopMost = false;
+#endif
             }
             catch (Exception){}            
             visualStyles.iterControls(frm, msmMain);
