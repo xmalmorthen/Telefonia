@@ -2,6 +2,7 @@
 using CellTrack.Models;
 using CellTrack.Models.DataBases;
 using GMap.NET;
+using GMap.NET.WindowsForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,7 +16,8 @@ namespace CellTrack.Controllers
 {
     public static class PDUController
     {
-        public static markersModel PDUFind(PDUModel item, gMapController controller, Boolean onlyCheckSMS = false)
+
+        public static markersModel PDUFind(PDUModel item, gMapController controller, Boolean onlyCheckSMS = false, MarkerEnter OnMarkerEnter = null, MarkerLeave OnMarkerLeave = null)
         {
             markersModel marker = null;
 
@@ -25,11 +27,12 @@ namespace CellTrack.Controllers
             target.fIns = DateTime.Now;
             target.toNotify = true;
 
+            Boolean finded = false;
             try
             {
                 string message = null;
-                //TODO: Quitar comentarios
-                if (sshCmds.PDU(item, out message, onlyCheckSMS))
+                finded = sshCmds.PDU(item, out message, onlyCheckSMS);
+                if (finded)
                 {
                     
                     desmsrecibidos smsInfo = new desmsrecibidos();
@@ -128,10 +131,25 @@ namespace CellTrack.Controllers
                                     fill = stroke = Color.FromKnownColor(randomColorName);
                                 }
 
-                                marker = new markersModel(reg.lat,reg.lng,item.descrip);
+                                desmsrecibidos detalle = new desmsrecibidos()
+                                {
+                                    radio = data.radio,
+                                    MCC = reg.mcc.ToString(),
+                                    MNC = reg.mnc.ToString(),
+                                    LAC = reg.lac.ToString(),
+                                    BTS = reg.cellid.ToString(),
+                                    V = reg.cellid.ToString().Trim().Length == 4 ? "0" : reg.cellid.ToString().Trim()[0].ToString(),
+                                    LAT = reg.lat,
+                                    LNG = reg.lng
+                                };
+
+                                marker = new markersModel(reg.lat, reg.lng, item.descrip, detalle);
 
                                 if (controller != null)
                                 {
+                                    controller.MainMap.OnMarkerEnter += OnMarkerEnter;
+                                    controller.MainMap.OnMarkerLeave += OnMarkerLeave;
+
                                     controller.CreateCircle(new System.Drawing.PointF((float)reg.lat, (float)reg.lng), Properties.Settings.Default.mapRadioCircle, Properties.Settings.Default.mapSegments, new Pen(stroke, 2));
                                     controller.AddMarker(marker, GMap.NET.WindowsForms.MarkerTooltipMode.OnMouseOver);
                                 }
@@ -147,18 +165,8 @@ namespace CellTrack.Controllers
 
                                 group = iter == 3 ? group + 1 : group;
                                 iter = iter < 3 ? iter + 1 : 1;
-
-                                smsInfoList.Add(new desmsrecibidos()
-                                {
-                                    radio = data.radio,
-                                    MCC = reg.mcc.ToString(),
-                                    MNC = reg.mnc.ToString(),
-                                    LAC = reg.lac.ToString(),
-                                    BTS = reg.cellid.ToString(),
-                                    V = "0",
-                                    LAT = reg.lat,
-                                    LNG = reg.lng
-                                });
+                                
+                                smsInfoList.Add(detalle);
                             }
 
                             if (!onlyCheckSMS)
@@ -166,7 +174,7 @@ namespace CellTrack.Controllers
                                 DAL.Db.mapdu.Add(target);
                                 DAL.Db.SaveChanges();
                             }
-                            else
+                            else if (finded)
                             {
                                 mapdu reg = DAL.Db.mapdu.FirstOrDefault(qrySel => qrySel.id.Equals(item.id));
                                 reg.toNotify = false;
@@ -179,14 +187,18 @@ namespace CellTrack.Controllers
                     if (!geoRef) throw new NullReferenceException(String.Format("No se pudo geolocalizar por medio del api de google [ CellId: {0}, LAC: {1}, MCC: {2}, MNC: {3} ], mensaje recibido del API: {4}", smsInfo.BTS, smsInfo.LAC, smsInfo.MCC, smsInfo.MNC, responseMessage));
                     smsInfo.LAT = model.lat;
                     smsInfo.LNG = model.lng;
-                    smsInfo.V = "0";
+
+                    smsInfo.V = smsInfo.BTS.Trim().Length == 4 ? "0" : smsInfo.BTS.Trim()[0].ToString();
 
                     smsInfoList.Add(smsInfo);
 
-                    marker = new markersModel(smsInfo.LAT.Value,smsInfo.LNG.Value, item.descrip);
+                    marker = new markersModel(smsInfo.LAT.Value, smsInfo.LNG.Value, item.descrip, smsInfo);
 
                     if (controller != null)
                     {
+                        controller.MainMap.OnMarkerEnter += OnMarkerEnter;
+                        controller.MainMap.OnMarkerLeave += OnMarkerLeave;
+
                         controller.MarkersOverlays.Clear();
                         controller.TriangulationsOverlays.Clear();
                         controller.MainMap.Overlays.Clear();
@@ -207,7 +219,7 @@ namespace CellTrack.Controllers
                 DAL.Db.mapdu.Add(target);
                 DAL.Db.SaveChanges();
             }
-            else
+            else if (finded)
             {
                 mapdu reg = DAL.Db.mapdu.FirstOrDefault(qrySel => qrySel.id.Equals(item.id));
                 reg.toNotify = false;

@@ -504,6 +504,7 @@
     <None Include="Properties\DataSources\CellTrack.Models.usuarioModel.datasource" />
     <None Include="Resources\1464813353_zoom.png" />
     <None Include="Resources\1464722820_layers_2.png" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Reports\seguimientoReport.rdlc" />
     <EmbeddedResource Include="Views\frmReportViewer.resx">
       <DependentUpon>frmReportViewer.cs</DependentUpon>

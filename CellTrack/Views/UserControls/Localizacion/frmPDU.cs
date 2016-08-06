@@ -12,6 +12,7 @@ using CellTrack.Models;
 using CellTrack.Controllers;
 using CellTrack.Models.DataBases;
 using MetroFramework;
+using GMap.NET.WindowsForms;
 
 namespace CellTrack.Views.UserControls.Localización    
 {
@@ -132,7 +133,7 @@ namespace CellTrack.Views.UserControls.Localización
                 return;
             }
             Application.DoEvents();
-            markersModel marker = PDUController.PDUFind(e.Argument as PDUModel, gMapViewRender.gMap);
+            markersModel marker = PDUController.PDUFind(e.Argument as PDUModel, gMapViewRender.gMap, false, MainMap_OnMarkerEnter, MainMap_OnMarkerLeave);
             e.Result = marker;
 
             if (((BackgroundWorker)sender).CancellationPending)
@@ -141,6 +142,25 @@ namespace CellTrack.Views.UserControls.Localización
                 return;
             }
 
+        }
+
+        private void MainMap_OnMarkerEnter(GMapMarker item)
+        {
+            desmsrecibidos tag = (desmsrecibidos)item.Tag;
+
+            lblRadio.Text = tag.radio;
+            lblMCC.Text = tag.MCC;
+            lblMNC.Text = tag.MNC;
+            lblLAC.Text = tag.LAC;
+            lblBTS.Text = tag.BTS;
+            lblV.Text = tag.V;
+
+            pnlInfoTarget.Visible = true;
+        }
+
+        private void MainMap_OnMarkerLeave(GMapMarker item)
+        {
+            pnlInfoTarget.Visible = false;
         }
 
         markersModel result = null;

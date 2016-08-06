@@ -81,8 +81,49 @@ namespace CellTrack.Views
             this.panel.Controls.Clear();
         }
 
-        private void frmDashboard_MaximizedBoundsChanged(object sender, EventArgs e)
+        public void showAlert(string message) {
+            this._showAlert(string.Empty, message);
+        
+        }
+
+        public void showAlert(string title, string message)
         {
+            this._showAlert(title, message);
+        }
+
+        public void showAlert(string title, string message, object tag)
+        {
+            this._showAlert(title, message, tag);
+        }
+
+        private void _showAlert(string message, string title = "", object tag = null)
+        {
+            if (!string.IsNullOrEmpty(title)) notifyIcon.BalloonTipTitle = title;
+            notifyIcon.BalloonTipText = message;
+            notifyIcon.Tag = tag;
+            notifyIcon.ShowBalloonTip(1000);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            showAlert("Prueba", "Prueba de Alerta","data");
+        }
+
+        private void notifyIcon_BalloonTipClicked(object sender, EventArgs e)
+        {
+            NotifyIcon obj = (NotifyIcon)sender;
+            notifycationAction(obj.Tag);
+        }
+
+        private void notifycationAction(object tag) {
+            string Tag = (string)tag;
+            notifyIcon.Visible = false;
+        }
+
+        private void notifyIcon_Click(object sender, EventArgs e)
+        {
+            NotifyIcon obj = (NotifyIcon)sender;
+            obj.ShowBalloonTip(1000);
         }
 
     }

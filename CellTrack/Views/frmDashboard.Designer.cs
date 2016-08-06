@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.tsmiEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiObjetivos = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,6 +37,8 @@
             this.tsmiCredito = new System.Windows.Forms.ToolStripMenuItem();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.panel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.frmModemStatus1 = new CellTrack.Views.UserControls.frmModemStatus();
             this.frmUserInformation = new CellTrack.Views.UserControls.frmUserInformation();
             this.frmModemSignal1 = new CellTrack.Views.UserControls.frmModemSignal();
@@ -95,6 +98,25 @@
             this.panel.Size = new System.Drawing.Size(964, 624);
             this.panel.TabIndex = 28;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(386, 44);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // notifyIcon
+            // 
+            this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "notifyIcon1";
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.BalloonTipClicked += new System.EventHandler(this.notifyIcon_BalloonTipClicked);
+            this.notifyIcon.Click += new System.EventHandler(this.notifyIcon_Click);
+            // 
             // frmModemStatus1
             // 
             this.frmModemStatus1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -152,6 +174,7 @@
             this.BackLocation = MetroFramework.Forms.BackLocation.BottomRight;
             this.BackMaxSize = 256;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.frmModemStatus1);
             this.Controls.Add(this.frmUserInformation);
             this.Controls.Add(this.frmModemSignal1);
@@ -169,7 +192,6 @@
             this.TextAlign = MetroFramework.Forms.MetroFormTextAlign.Right;
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.MaximizedBoundsChanged += new System.EventHandler(this.frmDashboard_MaximizedBoundsChanged);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -190,5 +212,7 @@
         private UserControls.frmModemSignal frmModemSignal1;
         private UserControls.frmUserInformation frmUserInformation;
         private UserControls.frmModemStatus frmModemStatus1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }

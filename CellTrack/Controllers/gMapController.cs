@@ -54,8 +54,8 @@ namespace CellTrack.Controllers
                 {
                     GMap.NET.CacheProviders.MySQLPureImageCache ch = new GMap.NET.CacheProviders.MySQLPureImageCache();
 
-                    ch.ConnectionString = Properties.Settings.Default.MapCache;
-                    MainMap.Manager.SecondaryCache = ch;
+                    //ch.ConnectionString = Properties.Settings.Default.MapCache;
+                    //MainMap.Manager.SecondaryCache = ch;
 
                     System.Net.IPHostEntry e = System.Net.Dns.GetHostEntry("www.google.com");
                     MainMap.Manager.Mode = AccessMode.ServerAndCache;

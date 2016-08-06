@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ShutDownServer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="sshUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="sshPass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10101011_</Value>
+    </Setting>
+    <Setting Name="sshHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">geo2016.ddns.net</Value>
+    </Setting>
+    <Setting Name="superUserCommand" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

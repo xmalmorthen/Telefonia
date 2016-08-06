@@ -28,18 +28,26 @@ namespace CellTrack.Controllers
             mapdu data = DAL.Db.mapdu.FirstOrDefault(qry => qry.malocalizations.idNotification.Equals(usuarioController.usuarioLogueado.info.id)
                 && qry.toNotify.Equals(true));
 
-            if (data == null) return;
+            if (data == null) {
+                inProc =false;
+                return;
+            }
 
             PDUModel item = new PDUModel()
             {
                 id = data.id,
+                descrip = string.Empty,
                 obj = new malocalizations() { 
                     id = data.malocalizations.id,
                     objetivo = data.malocalizations.objetivo
                 }
             };
 
-            PDUController.PDUFind(item, null,true);
+            markersModel marker = PDUController.PDUFind(item, null,true);
+            if (marker != null) { 
+                string msg = string.Format(Environment.NewLine + "Nombre: {0}{1}Asunto: {2}{3}Objetivo: {4}",data.malocalizations.nombre,Environment.NewLine,data.malocalizations.asunto,Environment.NewLine,data.malocalizations.objetivo);
+                Program.FrmDashboard.showAlert(msg,"Objetivo encontrado", item.id);
+            };
 
             inProc = false;
         }
