@@ -63,6 +63,16 @@ namespace HLR.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1459303405_Find01 {
+            get {
+                object obj = ResourceManager.GetObject("1459303405_Find01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1459304445_101_Warning {
             get {
                 object obj = ResourceManager.GetObject("1459304445_101_Warning", resourceCulture);
@@ -83,6 +93,16 @@ namespace HLR.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1463426130_delete {
+            get {
+                object obj = ResourceManager.GetObject("1463426130_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1463558222_Update {
             get {
                 object obj = ResourceManager.GetObject("1463558222_Update", resourceCulture);
@@ -96,6 +116,16 @@ namespace HLR.Properties {
         internal static System.Drawing.Bitmap _1464210083_target {
             get {
                 object obj = ResourceManager.GetObject("1464210083_target", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loading_gallery {
+            get {
+                object obj = ResourceManager.GetObject("loading-gallery", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

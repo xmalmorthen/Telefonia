@@ -96,13 +96,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\googleApiGeoReference.cs" />
+    <Compile Include="Controllers\submitSyncLookupRequestController.cs" />
+    <Compile Include="Controllers\DoHealthCheckController.cs" />
     <Compile Include="Views\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\HLR.cs" />
+    <Compile Include="Models\HLRModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\UserControls\mapViewer.cs">
@@ -123,6 +126,9 @@
     <Compile Include="Views\UserControls\UCGetBalance.Designer.cs">
       <DependentUpon>UCGetBalance.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\1459303405_Find01.png" />
+    <None Include="Resources\1463426130_delete.png" />
+    <None Include="Resources\loading-gallery.gif" />
     <None Include="Resources\1463558222_Update.png" />
     <None Include="Resources\1464210083_target.png" />
     <None Include="Resources\1459305043_11.png" />
@@ -170,6 +176,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\enums\enums.csproj">
+      <Project>{7119f65c-4fdd-4f4a-bd9b-718f17a2df28}</Project>
+      <Name>enums</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utils\GMap.Net\GMap.NET.Core\GMap.NET.Core.csproj">
       <Project>{d0c39d9d-bed0-418b-9a5e-713176caf40c}</Project>
       <Name>GMap.NET.Core</Name>
@@ -192,9 +202,6 @@
       <Project>{bb41ac8b-cbed-4387-a7e0-4567edb3f57f}</Project>
       <Name>MetroFramework</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

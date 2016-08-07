@@ -73,6 +73,14 @@ namespace HLR.Views.UserControls
                 Map.MaxZoom = 24;
                 Map.Zoom = tkBarZoom.Value;
                 Map.ScaleMode = ScaleModes.Integer;
+                Map.OnMapZoomChanged += () =>
+                {
+                    tkBarZoom.Value = (int)Map.Zoom;
+                };
+                Map.MouseDoubleClick += (s, e) =>
+                {
+                    btnCentrar_Click(null, null);
+                };
             }
 
             this.Controls.Add(Map);
@@ -112,6 +120,11 @@ namespace HLR.Views.UserControls
 
             btnLessZoom.Enabled = tkBarZoom.Value > Map.MinZoom;
             btnMoreZoom.Enabled = tkBarZoom.Value < Map.MaxZoom;
+        }
+
+        private void cmbMapsTypes_DropDownClosed(object sender, EventArgs e)
+        {
+            Map.MapProvider = ((MetroComboBox)sender).SelectedItem as GMapProvider;
         }
 
     }

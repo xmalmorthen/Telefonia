@@ -8,5 +8,32 @@
     <Setting Name="MapInitPointLng" Type="System.Double" Scope="User">
       <Value Profile="(Default)">-103.734932</Value>
     </Setting>
+    <Setting Name="DoHealthCheck" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:03:00</Value>
+    </Setting>
+    <Setting Name="GetBalance" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:03:00</Value>
+    </Setting>
+    <Setting Name="HLRApiUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.hlr-lookups.com/</Value>
+    </Setting>
+    <Setting Name="HLRApiUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sda130868-api-c7d2495d06f1</Value>
+    </Setting>
+    <Setting Name="HLRApiPass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">jWRq-NNjw-J$T@-RNVB-$j!V-s6*d</Value>
+    </Setting>
+    <Setting Name="HLRRoute" Type="System.String" Scope="User">
+      <Value Profile="(Default)">XT5</Value>
+    </Setting>
+    <Setting Name="GoogleApiKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AIzaSyDSigfh6sBddlcVoNcYoV6WNpraYHVMh-A</Value>
+    </Setting>
+    <Setting Name="GoogleApi" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.googleapis.com/</Value>
+    </Setting>
+    <Setting Name="GoogleApiRequest" Type="System.String" Scope="User">
+      <Value Profile="(Default)">geolocation/v1/geolocate?key={key}</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

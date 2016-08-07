@@ -16,7 +16,16 @@ namespace HLR
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+
+            try
+            {
+                //System.Net.IPHostEntry e = System.Net.Dns.GetHostEntry("www.google.com");
+                Application.Run(new frmMain());
+            }
+            catch
+            {
+                MessageBox.Show("Debe estar conectado a internet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

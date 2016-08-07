@@ -53,6 +53,7 @@
             this.cmbMapsTypes.TabIndex = 40;
             this.cmbMapsTypes.UseSelectable = true;
             this.cmbMapsTypes.UseStyleColors = true;
+            this.cmbMapsTypes.DropDownClosed += new System.EventHandler(this.cmbMapsTypes_DropDownClosed);
             // 
             // btnCentrar
             // 
@@ -162,12 +163,12 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroButton btnRefresh;
         private MetroFramework.Controls.MetroComboBox cmbMapsTypes;
         private MetroFramework.Controls.MetroButton btnCentrar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private MetroFramework.Controls.MetroButton btnLessZoom;
         private MetroFramework.Controls.MetroTrackBar tkBarZoom;
         private MetroFramework.Controls.MetroButton btnMoreZoom;
+        public MetroFramework.Controls.MetroButton btnRefresh;
     }
 }
