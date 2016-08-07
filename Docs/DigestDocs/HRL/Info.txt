@@ -1,0 +1,27 @@
+pagina del api hlr
+
+www.hlr-lookups.com
+
+usuario: sda130868
+password: Chava2016
+
+API Username
+sda130868-api-c7d2495d06f1
+
+API Password
+jWRq-NNjw-J$T@-RNVB-$j!V-s6*d
+
+aqui checas el saldo:
+getBalance
+
+y aqui checas el estado de los gateways:
+
+doHealthCheck
+
+y este es donde vamos a trabajarlo para mostrar los datos del celular
+hlr lookups
+utilizar  hlr route xt5 para que nos de el msc (como el rnc de la red) y con eso saber donde esta el celular
+
+entra a hlr lookups -- hlr web client solo
+y pones los datos de numero +52numero con clave lada y en
+hlr route pones XT5 y ese es un reporte al que nos va a contestar
