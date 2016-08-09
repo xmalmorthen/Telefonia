@@ -61,7 +61,7 @@ namespace CellTrack.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("geo2016.ddns.net")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.77")]
         public string sshHost {
             get {
                 return ((string)(this["sshHost"]));
@@ -222,6 +222,18 @@ namespace CellTrack.Properties {
             }
             set {
                 this["MapInitPointLng"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.dotnetperls.com/")]
+        public string SOKANUrl {
+            get {
+                return ((string)(this["SOKANUrl"]));
+            }
+            set {
+                this["SOKANUrl"] = value;
             }
         }
     }

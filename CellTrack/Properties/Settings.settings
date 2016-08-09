@@ -12,7 +12,7 @@
       <Value Profile="(Default)">10101011</Value>
     </Setting>
     <Setting Name="sshHost" Type="System.String" Scope="User">
-      <Value Profile="(Default)">geo2016.ddns.net</Value>
+      <Value Profile="(Default)">192.168.1.77</Value>
     </Setting>
     <Setting Name="mainStyle" Type="MetroFramework.Components.MetroStyleManager" Scope="User">
       <Value Profile="(Default)" />
@@ -57,6 +57,9 @@
     </Setting>
     <Setting Name="MapInitPointLng" Type="System.Double" Scope="User">
       <Value Profile="(Default)">-103.734932</Value>
+    </Setting>
+    <Setting Name="SOKANUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.dotnetperls.com/</Value>
     </Setting>
   </Settings>
 </SettingsFile>

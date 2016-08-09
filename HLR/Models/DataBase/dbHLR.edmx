@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbhlrModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="dbhlrModelStoreContainer">
+          <EntitySet Name="mahlr" EntityType="dbhlrModel.Store.mahlr" store:Type="Tables" Schema="dbhlr" />
+          <EntitySet Name="tbllogs" EntityType="dbhlrModel.Store.tbllogs" store:Type="Tables" Schema="dbhlr" />
+        </EntityContainer>
+        <EntityType Name="mahlr">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="msisdncountrycode" Type="varchar" MaxLength="100" />
+          <Property Name="msisdn" Type="varchar" MaxLength="100" />
+          <Property Name="statuscode" Type="varchar" MaxLength="100" />
+          <Property Name="hlrerrorcodeid" Type="int" />
+          <Property Name="subscriberstatus" Type="varchar" MaxLength="100" />
+          <Property Name="imsi" Type="varchar" MaxLength="100" />
+          <Property Name="mccmnc" Type="varchar" MaxLength="100" />
+          <Property Name="mcc" Type="varchar" MaxLength="100" />
+          <Property Name="mnc" Type="varchar" MaxLength="100" />
+          <Property Name="msin" Type="varchar" MaxLength="100" />
+          <Property Name="servingmsc" Type="varchar" MaxLength="100" />
+          <Property Name="servinghlr" Type="varchar" MaxLength="100" />
+          <Property Name="originalnetworkname" Type="varchar" MaxLength="100" />
+          <Property Name="originalcountryname" Type="varchar" MaxLength="100" />
+          <Property Name="originalcountrycode" Type="varchar" MaxLength="100" />
+          <Property Name="originalcountryprefix" Type="varchar" MaxLength="100" />
+          <Property Name="originalnetworkprefix" Type="varchar" MaxLength="100" />
+          <Property Name="roamingnetworkname" Type="varchar" MaxLength="100" />
+          <Property Name="roamingcountryname" Type="varchar" MaxLength="100" />
+          <Property Name="roamingcountrycode" Type="varchar" MaxLength="100" />
+          <Property Name="roamingcountryprefix" Type="varchar" MaxLength="100" />
+          <Property Name="roamingnetworkprefix" Type="varchar" MaxLength="100" />
+          <Property Name="portednetworkname" Type="varchar" MaxLength="100" />
+          <Property Name="portedcountryname" Type="varchar" MaxLength="100" />
+          <Property Name="portedcountrycode" Type="varchar" MaxLength="100" />
+          <Property Name="portedcountryprefix" Type="varchar" MaxLength="100" />
+          <Property Name="portednetworkprefix" Type="varchar" MaxLength="100" />
+          <Property Name="isvalid" Type="varchar" MaxLength="100" />
+          <Property Name="isroaming" Type="varchar" MaxLength="100" />
+          <Property Name="isported" Type="varchar" MaxLength="100" />
+          <Property Name="usercharge" Type="varchar" MaxLength="100" />
+          <Property Name="inserttime" Type="varchar" MaxLength="100" />
+          <Property Name="storage" Type="varchar" MaxLength="100" />
+          <Property Name="route" Type="varchar" MaxLength="100" />
+          <Property Name="Interface" Type="varchar" MaxLength="100" />
+          <Property Name="latitud" Type="double" />
+          <Property Name="longitud" Type="double" />
+          <Property Name="cellid" Type="double" />
+          <Property Name="lac" Type="double" />
+          <Property Name="fInis" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbllogs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Level" Type="varchar" MaxLength="100" />
+          <Property Name="Message" Type="text" />
+          <Property Name="Exception" Type="text" />
+          <Property Name="DateTime" Type="timestamp" StoreGeneratedPattern="Identity" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbhlrModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbhlrEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tbllogs" EntityType="dbhlrModel.tbllogs" />
+          <EntitySet Name="mahlr" EntityType="dbhlrModel.mahlr" />
+        </EntityContainer>
+        <EntityType Name="tbllogs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Level" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Message" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Exception" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DateTime" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="mahlr">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="msisdncountrycode" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="msisdn" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="statuscode" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="hlrerrorcodeid" />
+          <Property Type="String" Name="subscriberstatus" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="imsi" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mccmnc" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mcc" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="mnc" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="msin" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="servingmsc" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="servinghlr" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="originalnetworkname" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="originalcountryname" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="originalcountrycode" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="originalcountryprefix" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="originalnetworkprefix" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="roamingnetworkname" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="roamingcountryname" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="roamingcountrycode" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="roamingcountryprefix" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="roamingnetworkprefix" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="portednetworkname" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="portedcountryname" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="portedcountrycode" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="portedcountryprefix" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="portednetworkprefix" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="isvalid" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="isroaming" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="isported" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="usercharge" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="inserttime" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="storage" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="route" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Interface" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="latitud" />
+          <Property Type="Double" Name="longitud" />
+          <Property Type="Double" Name="cellid" />
+          <Property Type="Double" Name="lac" />
+          <Property Type="DateTime" Name="fInis" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbhlrModelStoreContainer" CdmEntityContainer="dbhlrEntities">
+          <EntitySetMapping Name="tbllogs">
+            <EntityTypeMapping TypeName="dbhlrModel.tbllogs">
+              <MappingFragment StoreEntitySet="tbllogs">
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mahlr">
+            <EntityTypeMapping TypeName="dbhlrModel.mahlr">
+              <MappingFragment StoreEntitySet="mahlr">
+                <ScalarProperty Name="fInis" ColumnName="fInis" />
+                <ScalarProperty Name="lac" ColumnName="lac" />
+                <ScalarProperty Name="cellid" ColumnName="cellid" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="latitud" ColumnName="latitud" />
+                <ScalarProperty Name="Interface" ColumnName="Interface" />
+                <ScalarProperty Name="route" ColumnName="route" />
+                <ScalarProperty Name="storage" ColumnName="storage" />
+                <ScalarProperty Name="inserttime" ColumnName="inserttime" />
+                <ScalarProperty Name="usercharge" ColumnName="usercharge" />
+                <ScalarProperty Name="isported" ColumnName="isported" />
+                <ScalarProperty Name="isroaming" ColumnName="isroaming" />
+                <ScalarProperty Name="isvalid" ColumnName="isvalid" />
+                <ScalarProperty Name="portednetworkprefix" ColumnName="portednetworkprefix" />
+                <ScalarProperty Name="portedcountryprefix" ColumnName="portedcountryprefix" />
+                <ScalarProperty Name="portedcountrycode" ColumnName="portedcountrycode" />
+                <ScalarProperty Name="portedcountryname" ColumnName="portedcountryname" />
+                <ScalarProperty Name="portednetworkname" ColumnName="portednetworkname" />
+                <ScalarProperty Name="roamingnetworkprefix" ColumnName="roamingnetworkprefix" />
+                <ScalarProperty Name="roamingcountryprefix" ColumnName="roamingcountryprefix" />
+                <ScalarProperty Name="roamingcountrycode" ColumnName="roamingcountrycode" />
+                <ScalarProperty Name="roamingcountryname" ColumnName="roamingcountryname" />
+                <ScalarProperty Name="roamingnetworkname" ColumnName="roamingnetworkname" />
+                <ScalarProperty Name="originalnetworkprefix" ColumnName="originalnetworkprefix" />
+                <ScalarProperty Name="originalcountryprefix" ColumnName="originalcountryprefix" />
+                <ScalarProperty Name="originalcountrycode" ColumnName="originalcountrycode" />
+                <ScalarProperty Name="originalcountryname" ColumnName="originalcountryname" />
+                <ScalarProperty Name="originalnetworkname" ColumnName="originalnetworkname" />
+                <ScalarProperty Name="servinghlr" ColumnName="servinghlr" />
+                <ScalarProperty Name="servingmsc" ColumnName="servingmsc" />
+                <ScalarProperty Name="msin" ColumnName="msin" />
+                <ScalarProperty Name="mnc" ColumnName="mnc" />
+                <ScalarProperty Name="mcc" ColumnName="mcc" />
+                <ScalarProperty Name="mccmnc" ColumnName="mccmnc" />
+                <ScalarProperty Name="imsi" ColumnName="imsi" />
+                <ScalarProperty Name="subscriberstatus" ColumnName="subscriberstatus" />
+                <ScalarProperty Name="hlrerrorcodeid" ColumnName="hlrerrorcodeid" />
+                <ScalarProperty Name="statuscode" ColumnName="statuscode" />
+                <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+                <ScalarProperty Name="msisdncountrycode" ColumnName="msisdncountrycode" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

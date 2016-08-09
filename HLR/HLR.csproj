@@ -37,6 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -86,6 +87,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,9 +100,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\exceptionHandlerCatch.cs" />
     <Compile Include="Classes\googleApiGeoReference.cs" />
     <Compile Include="Controllers\submitSyncLookupRequestController.cs" />
     <Compile Include="Controllers\DoHealthCheckController.cs" />
+    <Compile Include="Models\DataBase\dbHLR.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbHLR.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\dbHLR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbHLR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\dbHLR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbHLR.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\mahlr.cs">
+      <DependentUpon>dbHLR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\tbllogs.cs">
+      <DependentUpon>dbHLR.tt</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +152,13 @@
     <Compile Include="Views\UserControls\UCGetBalance.Designer.cs">
       <DependentUpon>UCGetBalance.cs</DependentUpon>
     </Compile>
+    <EntityDeploy Include="Models\DataBase\dbHLR.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbHLR.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DataBase\dbHLR.edmx.diagram">
+      <DependentUpon>dbHLR.edmx</DependentUpon>
+    </None>
     <None Include="Resources\1459303405_Find01.png" />
     <None Include="Resources\1463426130_delete.png" />
     <None Include="Resources\loading-gallery.gif" />
@@ -146,6 +179,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Content Include="Models\DataBase\dbHLR.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbHLR.edmx</DependentUpon>
+      <LastGenOutput>dbHLR.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataBase\dbHLR.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbHLR.edmx</DependentUpon>
+      <LastGenOutput>dbHLR.cs</LastGenOutput>
+    </Content>
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -179,6 +222,10 @@
     <ProjectReference Include="..\enums\enums.csproj">
       <Project>{7119f65c-4fdd-4f4a-bd9b-718f17a2df28}</Project>
       <Name>enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\DAL\DAL.csproj">
+      <Project>{cc48ec1c-146b-461a-a330-84463ebbe219}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utils\GMap.Net\GMap.NET.Core\GMap.NET.Core.csproj">
       <Project>{d0c39d9d-bed0-418b-9a5e-713176caf40c}</Project>
@@ -219,6 +266,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

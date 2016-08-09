@@ -32,11 +32,13 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -318,6 +320,12 @@
     <Compile Include="Views\UserControls\Admin\usrCtrlUsuarios.Designer.cs">
       <DependentUpon>usrCtrlUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\frmSOKAN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\frmSOKAN.Designer.cs">
+      <DependentUpon>frmSOKAN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\frmModemStatus.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -462,6 +470,9 @@
     <Compile Include="Views\UserControls\Users\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\1470787738_br_next.png" />
+    <None Include="Resources\1470787729_br_prev.png" />
+    <None Include="Resources\1470786806_chart_bar.png" />
     <None Include="CellTrack_ClaveTemporal.pfx" />
     <None Include="Properties\DataSources\CellTrack.Models.BTSDataBaseModel.datasource" />
     <None Include="Properties\DataSources\CellTrack.Models.detalleRecibidosModel.datasource" />
@@ -525,6 +536,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Admin\usrCtrlUsuarios.resx">
       <DependentUpon>usrCtrlUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\frmSOKAN.resx">
+      <DependentUpon>frmSOKAN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\frmModemStatus.resx">
       <DependentUpon>frmModemStatus.cs</DependentUpon>

@@ -71,7 +71,7 @@ namespace HLR.Classes
             }
             catch (Exception ex)
             {
-                //TODO: NLOG
+                exceptionHandlerCatch.registerLogException(ex);
                 throw;
             }
 

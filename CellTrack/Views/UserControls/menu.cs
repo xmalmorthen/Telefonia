@@ -30,11 +30,11 @@ namespace CellTrack.Views.UserControls
             visualStyles.apply(this, msmMain);
             metroToolTip.StyleManager = msmMain;
 
-            //List<reperfilroles> roles = usuarioController.usuarioLogueado.info.caperfiles.reperfilroles.Where(qry => qry.caroles.isDeleted.Equals(false) && qry.caroles.activo.Equals(true)).ToList();
+            List<reperfilroles> roles = usuarioController.usuarioLogueado.info.caperfiles.reperfilroles.Where(qry => qry.caroles.isDeleted.Equals(false) && qry.caroles.activo.Equals(true)).ToList();
 
-            //this.changeAccessRoles(mCMLocalizations.Items, roles);
-            //this.changeAccessRoles(mCMRegs.Items, roles);
-            //this.changeAccessButtonsRoles(this.Controls, roles);
+            this.changeAccessRoles(mCMLocalizations.Items, roles);
+            this.changeAccessRoles(mCMRegs.Items, roles);
+            this.changeAccessButtonsRoles(this.Controls, roles);
         }
 
         private void changeAccessButtonsRoles(ControlCollection ctrl, List<reperfilroles> roles)
@@ -200,6 +200,11 @@ namespace CellTrack.Views.UserControls
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
             this.openFrm<frmBTS>();
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            this.openFrm<frmSOKAN>();
         }
         
     }

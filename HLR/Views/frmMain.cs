@@ -18,6 +18,7 @@ using HLR.Models;
 using HLR.Classes;
 using enums;
 using System.Threading;
+using HLR.Models.DataBase;
 
 namespace HLR
 {
@@ -101,24 +102,73 @@ namespace HLR
                 {
                     if (response.success)
                     {
-                        googleApiGeoReference googleApi = new googleApiGeoReference();
+                        List<googleGeolocApiModel> googleApiResponseList = new List<googleGeolocApiModel>();
+                        foreach (HLR.Models.HLRModel.resultsModel item in response.results)
+	                    {
+                            mahlr dataModel = new mahlr() { 
+                                msisdncountrycode = item.msisdncountrycode,
+                                msisdn = item.msisdn,
+                                statuscode = item.statuscode,
+                                hlrerrorcodeid = item.hlrerrorcodeid,
+                                subscriberstatus = item.subscriberstatus,
+                                imsi = item.imsi,
+                                mccmnc = item.mccmnc,
+                                mcc = item.mcc,
+                                mnc = item.mnc,
+                                msin = item.msin,
+                                servingmsc = item.servingmsc,
+                                servinghlr = item.servinghlr,
+                                originalnetworkname = item.originalnetworkname,
+                                originalcountryname = item.originalcountryname,
+                                originalcountrycode = item.originalcountrycode,
+                                originalcountryprefix = item.originalcountryprefix,
+                                originalnetworkprefix = item.originalnetworkprefix,
+                                roamingnetworkname = item.roamingnetworkname,
+                                roamingcountryname = item.roamingcountryname,
+                                roamingcountrycode = item.roamingcountrycode,
+                                roamingcountryprefix = item.roamingcountryprefix,
+                                roamingnetworkprefix = item.roamingnetworkprefix,
+                                portednetworkname = item.portednetworkname,
+                                portedcountryname = item.portedcountryname,
+                                portedcountrycode = item.portedcountrycode,
+                                portedcountryprefix = item.portedcountryprefix,
+                                portednetworkprefix = item.portednetworkprefix,
+                                isvalid = item.isvalid,
+                                isroaming = item.isroaming,
+                                isported = item.isported,
+                                usercharge = item.usercharge,
+                                inserttime = item.inserttime,
+                                storage = item.storage,
+                                route = item.route,
+                                Interface  = item.Interface,
+                                fInis = DateTime.Now
+                            };
 
-                        Double cellid = 0;
-                        Double lac = 0;
-                        Double mcc = 0;
-                        Double mnc = 0;
-                        string message = string.Empty;
+                            googleApiGeoReference googleApi = new googleApiGeoReference();
 
-                        googleGeolocApiModel googleApiResponse = googleApi.invoque(cellid, lac, mcc, mnc, out message);
+                            Double cellid = 0;
+                            Double lac = 0;
+                            Double mcc = Double.Parse(dataModel.mcc);
+                            Double mnc = Double.Parse(dataModel.mnc);
+                            string message = string.Empty;
 
-                        e.Result = googleApiResponse;
+                            dataModel.cellid = cellid;
+                            dataModel.lac = lac;
+
+                            googleGeolocApiModel googleApiResponse = googleApi.invoque(cellid, lac, mcc, mnc, out message);
+                            if (googleApiResponse == null)
+                                throw new NullReferenceException(message);
+
+                            googleApiResponseList.Add(googleApiResponse);
+                        }
+                        e.Result = googleApiResponseList;
                     }
                     else throw new NullReferenceException("No se obtuvo respuesta del API");
                 }                
             }
             catch (Exception ex)
             {
-                //TODO: NLOG
+                exceptionHandlerCatch.registerLogException(ex);
                 throw;
             }
             wrkr.ReportProgress(100);

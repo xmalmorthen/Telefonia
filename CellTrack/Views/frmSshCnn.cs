@@ -76,13 +76,16 @@ namespace CellTrack.Views
         }
 
         byte iter = 0;
+        Boolean errorShowed = false;
         void wrker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             iter++;
             if (!e.Cancelled)
             {
                 if (e.Error != null)
-                {                    
+                {
+                    if (errorShowed) return;
+                    errorShowed = true;
                     btnCancel_Click(null, null);
                     MessageBox.Show(this, "Error al intentar conectar con los dispositivos !!!", "Error de conección", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.DialogResult = System.Windows.Forms.DialogResult.No;

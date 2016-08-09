@@ -1,4 +1,7 @@
-﻿using HLR.Models;
+﻿using DAL;
+using HLR.Classes;
+using HLR.Models;
+using HLR.Models.DataBase;
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
@@ -9,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace HLR.Controllers
 {
-    public static class submitSyncLookupRequestController
+    public class submitSyncLookupRequestController
     {
         public static HLRModel.submitSyncLookupRequest invoque(string msisdn)
         {
@@ -32,11 +35,28 @@ namespace HLR.Controllers
                 }
                 catch (Exception ex)
                 {
-                    //TODO: Nlog
+                    exceptionHandlerCatch.registerLogException(ex);
                     throw;
                 }
 
                 return response;
+        }
+
+        public Boolean saveData(mahlr data) {
+            Boolean returnResponse = false;
+            try 
+	        {	        
+		        DAL<dbhlrEntities, mahlr, mahlr> DALmahlr = new DAL<dbhlrEntities, mahlr, mahlr>();
+                DALmahlr.InsertFromEntity(data);
+                DALmahlr.Save();
+                returnResponse = true;
+	        }
+	        catch (Exception ex)
+	        {
+                exceptionHandlerCatch.registerLogException(ex);
+                returnResponse = false;
+	        }
+            return returnResponse;
         }
     }
 }

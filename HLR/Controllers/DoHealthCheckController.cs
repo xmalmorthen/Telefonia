@@ -1,4 +1,5 @@
-﻿using HLR.Models;
+﻿using HLR.Classes;
+using HLR.Models;
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
@@ -30,9 +31,9 @@ namespace HLR.Controllers
 
                     response = RESTResponse.Data;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //TODO: Nlog
+                    exceptionHandlerCatch.registerLogException(ex);
                 }
 
                 return response;
