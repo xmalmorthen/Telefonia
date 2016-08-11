@@ -141,6 +141,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\DAL\DAL.cs" />
+    <Compile Include="Classes\DAL\EntityFactory.cs" />
+    <Compile Include="Classes\DAL\GenericDAL.cs" />
+    <Compile Include="Classes\DAL\ModelFactory.cs" />
     <Compile Include="Classes\exceptionHandlerCatch.cs" />
     <Compile Include="Classes\md5.cs" />
     <Compile Include="Classes\modemStatus.cs" />
@@ -172,6 +176,7 @@
     <Compile Include="Controllers\objetivosController.cs" />
     <Compile Include="Controllers\PDUController.cs" />
     <Compile Include="Controllers\usuarioController.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Models\btsModel.cs" />
     <Compile Include="Models\DataBases\cacarriers.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
@@ -770,10 +775,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Utils\DAL\DAL.csproj">
-      <Project>{cc48ec1c-146b-461a-a330-84463ebbe219}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Utils\GMap.Net\GMap.NET.Core\GMap.NET.Core.csproj">
       <Project>{d0c39d9d-bed0-418b-9a5e-713176caf40c}</Project>
       <Name>GMap.NET.Core</Name>
