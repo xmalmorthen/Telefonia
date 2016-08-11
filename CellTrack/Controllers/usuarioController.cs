@@ -14,7 +14,7 @@ namespace CellTrack.Controllers
         public static Boolean verifyLogInUser(string usr, string pwd) {            
             Boolean result = false;
             string md5Pass = md5.Get(pwd);
-            causuarios usuario = DAL.Db.causuarios.SingleOrDefault(qry => qry.usuario.Equals(usr) && qry.contrasenia.Equals(md5Pass) && qry.active.Equals(true));
+            causuarios usuario = DALController.Db.causuarios.SingleOrDefault(qry => qry.usuario.Equals(usr) && qry.contrasenia.Equals(md5Pass) && qry.active.Equals(true));
 
             usuarioLogueado.info = usuario;
 
@@ -24,14 +24,14 @@ namespace CellTrack.Controllers
         }
 
         public static causuarios getUserById(int IdUser, Boolean verifyActive = true) {
-            causuarios usuario = DAL.Db.causuarios.SingleOrDefault(qry => qry.id.Equals(IdUser));
+            causuarios usuario = DALController.Db.causuarios.SingleOrDefault(qry => qry.id.Equals(IdUser));
             return verifyActive == true ? (usuario.active == true ? usuario : null) : usuario;
         }
 
         public static List<vwusernotifications> usersNotifications
         {
             get {
-                return DAL.Db.vwusernotifications.Where(qry => qry.idGpo.Equals(usuarioLogueado.info.idGpo)).ToList();   
+                return DALController.Db.vwusernotifications.Where(qry => qry.idGpo.Equals(usuarioLogueado.info.idGpo)).ToList();   
             }
         }
 
@@ -41,7 +41,7 @@ namespace CellTrack.Controllers
 
         public static List<causuarios> usuarios {
             get {
-                return DAL.Db.causuarios.Where(qry => qry.isDeleted.Equals(false)).ToList();
+                return DALController.Db.causuarios.Where(qry => qry.isDeleted.Equals(false)).ToList();
             }
         }
 
@@ -52,8 +52,8 @@ namespace CellTrack.Controllers
             {
                 newItem.contrasenia = md5.Get(newItem.contrasenia);
                 newItem.fIns = DateTime.Now;
-                DAL.Db.causuarios.Add(newItem);
-                DAL.Db.SaveChanges();
+                DALController.Db.causuarios.Add(newItem);
+                DALController.Db.SaveChanges();
                 returnResult = true;
             }
             catch (Exception ex)
@@ -68,7 +68,7 @@ namespace CellTrack.Controllers
             Boolean returnResult = false;
             try
             {
-                causuarios item = DAL.Db.causuarios.SingleOrDefault(qry => qry.id.Equals(Item.id));
+                causuarios item = DALController.Db.causuarios.SingleOrDefault(qry => qry.id.Equals(Item.id));
 
                 if (item == null) throw new NullReferenceException(string.Format("No se encontró el registro [ {0} | {1} | {2} | {3} ], es posible que se haya eliminado desde otra instancia", Item.id, Item.usuario, Item.fIns, string.Format("{0} {1} {2}",Item.Nombres,Item.PrimerApellido,Item.SegundoApellido)));
 
@@ -84,7 +84,7 @@ namespace CellTrack.Controllers
                 item.esSupervisor = Item.esSupervisor;
                 item.idPerfil = Item.idPerfil;
 
-                DAL.Db.SaveChanges();
+                DALController.Db.SaveChanges();
                 returnResult = true;
             }
             catch (Exception ex)
@@ -99,14 +99,14 @@ namespace CellTrack.Controllers
             Boolean returnResult = false;
             try
             {
-                causuarios item = DAL.Db.causuarios.SingleOrDefault(qry => qry.id.Equals(Item.id));
+                causuarios item = DALController.Db.causuarios.SingleOrDefault(qry => qry.id.Equals(Item.id));
 
                 if (item == null) throw new NullReferenceException(string.Format("No se encontró el registro [ {0} | {1} | {2} | {3} ], es posible que se haya eliminado desde otra instancia", Item.id, Item.usuario, Item.fIns, string.Format("{0} {1} {2}", Item.Nombres, Item.PrimerApellido, Item.SegundoApellido)));
 
                 item.isDeleted = true;
                 item.fAct = DateTime.Now;
 
-                DAL.Db.SaveChanges();
+                DALController.Db.SaveChanges();
                 returnResult = true;
             }
             catch (Exception ex)
@@ -124,7 +124,7 @@ namespace CellTrack.Controllers
                 causuarios user = usuarioLogueado.info;
                 user.contrasenia = md5.Get(pwd);
                 user.fAct = DateTime.Now;
-                DAL.Db.SaveChanges();
+                DALController.Db.SaveChanges();
                 returnResult = true;
             }
             catch (Exception ex)

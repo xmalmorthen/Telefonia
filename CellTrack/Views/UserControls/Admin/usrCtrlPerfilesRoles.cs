@@ -167,7 +167,7 @@ namespace CellTrack.Views.UserControls.Admin
                 if (FrmState.Equals(enums.frmState.Add))
                     btnAdd_Click(null, null);
                 else {
-                    DAL.discardChanges<caperfiles>(((caperfiles)caperfilesBindingSource.Current));
+                    DALController.discardChanges<caperfiles>(((caperfiles)caperfilesBindingSource.Current));
                     caperfilesBindingSource.ResetCurrentItem();
 
                     Roles();
@@ -184,7 +184,7 @@ namespace CellTrack.Views.UserControls.Admin
                     caperfilesBindingSource.CancelEdit();
                 else
                 {
-                    DAL.discardChanges<caperfiles>(((caperfiles)caperfilesBindingSource.Current));
+                    DALController.discardChanges<caperfiles>(((caperfiles)caperfilesBindingSource.Current));
                     caperfilesBindingSource.ResetCurrentItem();
                 }
                 FrmState = enums.frmState.Normal;

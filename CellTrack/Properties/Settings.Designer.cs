@@ -236,5 +236,77 @@ namespace CellTrack.Properties {
                 this["SOKANUrl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:03:00")]
+        public global::System.TimeSpan DoHealthCheck {
+            get {
+                return ((global::System.TimeSpan)(this["DoHealthCheck"]));
+            }
+            set {
+                this["DoHealthCheck"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:03:00")]
+        public global::System.TimeSpan GetBalance {
+            get {
+                return ((global::System.TimeSpan)(this["GetBalance"]));
+            }
+            set {
+                this["GetBalance"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.hlr-lookups.com/")]
+        public string HLRApiUrl {
+            get {
+                return ((string)(this["HLRApiUrl"]));
+            }
+            set {
+                this["HLRApiUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sda130868-api-c7d2495d06f1")]
+        public string HLRApiUser {
+            get {
+                return ((string)(this["HLRApiUser"]));
+            }
+            set {
+                this["HLRApiUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("jWRq-NNjw-J$T@-RNVB-$j!V-s6*d")]
+        public string HLRApiPass {
+            get {
+                return ((string)(this["HLRApiPass"]));
+            }
+            set {
+                this["HLRApiPass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("XT5")]
+        public string HLRRoute {
+            get {
+                return ((string)(this["HLRRoute"]));
+            }
+            set {
+                this["HLRRoute"] = value;
+            }
+        }
     }
 }

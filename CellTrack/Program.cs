@@ -67,7 +67,7 @@ namespace CellTrack
 
             try
             {
-                DAL.Db = new dbgeolocEntities();
+                DALController.Db = new dbgeolocEntities();
                 Properties.Settings.Default.mainStyle = new MetroFramework.Components.MetroStyleManager();
                 Properties.Settings.Default.mainStyle.Style = MetroFramework.MetroColorStyle.Black;
                 Properties.Settings.Default.mainStyle.Theme = MetroFramework.MetroThemeStyle.Light;

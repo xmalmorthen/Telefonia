@@ -8,19 +8,19 @@ using System.Windows.Forms;
 
 namespace CellTrack.Controllers
 {
-    public static class DAL
+    public static class DALController
     {
         private static dbgeolocEntities db;
         public static dbgeolocEntities Db
         {
-            get { return DAL.db; }
-            set { DAL.db = value; }
+            get { return DALController.db; }
+            set { DALController.db = value; }
         }
 
         public static void discardChanges<TEntityes>(TEntityes entity) where TEntityes : class
         {
-            DAL.Db.Entry(entity).CurrentValues.SetValues(DAL.Db.Entry(entity).OriginalValues);
-            DAL.Db.Entry(entity).State = System.Data.Entity.EntityState.Unchanged;
+            DALController.Db.Entry(entity).CurrentValues.SetValues(DALController.Db.Entry(entity).OriginalValues);
+            DALController.Db.Entry(entity).State = System.Data.Entity.EntityState.Unchanged;
         }
 
     }

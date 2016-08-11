@@ -14,7 +14,7 @@ namespace CellTrack.Controllers
         
         public static List<caperfiles> perfiles {
             get {
-                return DAL.Db.caperfiles.Where(qry => qry.isDeleted.Equals(false)).ToList();
+                return DALController.Db.caperfiles.Where(qry => qry.isDeleted.Equals(false)).ToList();
             }
         }
 
@@ -22,13 +22,13 @@ namespace CellTrack.Controllers
         {
             get
             {
-                return DAL.Db.caroles.Where(qry => qry.activo.Equals(true) && qry.isDeleted.Equals(false)).ToList();
+                return DALController.Db.caroles.Where(qry => qry.activo.Equals(true) && qry.isDeleted.Equals(false)).ToList();
             }
         }
 
         public static List<reperfilroles> rolesAsignadosAPerfil(int idPerfil)
         {
-            return DAL.Db.reperfilroles.Where(qry => qry.idPerfil.Equals(idPerfil) && qry.caroles.activo.Equals(true) && qry.caroles.isDeleted.Equals(false) ).ToList();
+            return DALController.Db.reperfilroles.Where(qry => qry.idPerfil.Equals(idPerfil) && qry.caroles.activo.Equals(true) && qry.caroles.isDeleted.Equals(false) ).ToList();
         }
 
         public static bool insert(caperfiles newItem)
@@ -37,7 +37,7 @@ namespace CellTrack.Controllers
             try
             {
                 newItem.fIns = DateTime.Now;
-                DAL.Db.caperfiles.Add(newItem);                
+                DALController.Db.caperfiles.Add(newItem);                
                 returnResult = true;
             }
             catch (Exception ex)
@@ -52,7 +52,7 @@ namespace CellTrack.Controllers
             Boolean returnResult = false;
             try
             {
-                caperfiles item = DAL.Db.caperfiles.SingleOrDefault(qry => qry.id.Equals(Item.id));
+                caperfiles item = DALController.Db.caperfiles.SingleOrDefault(qry => qry.id.Equals(Item.id));
                 if (item == null) throw new NullReferenceException(string.Format("No se encontró el registro [ {0} | {1} | {2} ], es posible que se haya eliminado desde otra instancia", Item.id, Item.perfil, Item.fIns));
                 item.perfil = Item.perfil;
                 item.activo = Item.activo;
@@ -71,11 +71,11 @@ namespace CellTrack.Controllers
             Boolean returnResult = false;
             try
             {
-                caperfiles item = DAL.Db.caperfiles.SingleOrDefault(qry => qry.id.Equals(Item.id));
+                caperfiles item = DALController.Db.caperfiles.SingleOrDefault(qry => qry.id.Equals(Item.id));
                 if (item == null) throw new NullReferenceException(string.Format("No se encontró el registro [ {0} | {1} | {2} ], es posible que se haya eliminado desde otra instancia", Item.id, Item.perfil, Item.fIns));
                 item.isDeleted = true;
                 item.fAct = DateTime.Now;
-                DAL.Db.SaveChanges();
+                DALController.Db.SaveChanges();
                 returnResult = true;
             }
             catch (Exception ex)
@@ -100,9 +100,9 @@ namespace CellTrack.Controllers
                     });
                 }
 
-                DAL.Db.reperfilroles.RemoveRange(DAL.Db.reperfilroles.Where(qry => qry.idPerfil.Equals(idPerfil)).ToList());
-                DAL.Db.reperfilroles.AddRange(entities);
-                DAL.Db.SaveChanges();            
+                DALController.Db.reperfilroles.RemoveRange(DALController.Db.reperfilroles.Where(qry => qry.idPerfil.Equals(idPerfil)).ToList());
+                DALController.Db.reperfilroles.AddRange(entities);
+                DALController.Db.SaveChanges();            
                 returnResult = true;
             }
             catch (Exception ex)

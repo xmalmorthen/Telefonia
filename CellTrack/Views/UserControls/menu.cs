@@ -206,6 +206,11 @@ namespace CellTrack.Views.UserControls
         {
             this.openFrm<frmSOKAN>();
         }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            this.openFrm<frmSS7>();
+        }
         
     }
 }

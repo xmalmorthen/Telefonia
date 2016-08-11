@@ -17,12 +17,12 @@ namespace CellTrack.Controllers
             {
                 foreach (localizationsModel item in Items)
                 {
-                    malocalizations reg = DAL.Db.malocalizations.SingleOrDefault(qry => qry.id.Equals(item.id) && !qry.idNotification.Equals(item.idNotification));
+                    malocalizations reg = DALController.Db.malocalizations.SingleOrDefault(qry => qry.id.Equals(item.id) && !qry.idNotification.Equals(item.idNotification));
                     if (reg == null) continue;
                     reg.idNotification = item.idNotification;
                     reg.fAct = DateTime.Now;
                 }
-                DAL.Db.SaveChanges();
+                DALController.Db.SaveChanges();
             }
             catch (Exception ex)
             {

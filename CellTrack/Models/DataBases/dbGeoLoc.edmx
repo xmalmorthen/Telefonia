@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbgeolocModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="dbgeolocModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="dbgeolocModelStoreContainer">
           <EntitySet Name="cacarriers" EntityType="dbgeolocModel.Store.cacarriers" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="cagrupos" EntityType="dbgeolocModel.Store.cagrupos" store:Type="Tables" Schema="dbgeoloc" />
@@ -13,6 +13,7 @@
           <EntitySet Name="causuarios" EntityType="dbgeolocModel.Store.causuarios" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="desmsrecibidos" EntityType="dbgeolocModel.Store.desmsrecibidos" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="gmapnetcache" EntityType="dbgeolocModel.Store.gmapnetcache" store:Type="Tables" Schema="dbgeoloc" />
+          <EntitySet Name="mahlr" EntityType="dbgeolocModel.Store.mahlr" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="malocalizations" EntityType="dbgeolocModel.Store.malocalizations" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="mapdu" EntityType="dbgeolocModel.Store.mapdu" store:Type="Tables" Schema="dbgeoloc" />
           <EntitySet Name="reperfilroles" EntityType="dbgeolocModel.Store.reperfilroles" store:Type="Tables" Schema="dbgeoloc" />
@@ -41,6 +42,10 @@
           <AssociationSet Name="fk_desmsrecibidos_mapdu_1" Association="dbgeolocModel.Store.fk_desmsrecibidos_mapdu_1">
             <End Role="mapdu" EntitySet="mapdu" />
             <End Role="desmsrecibidos" EntitySet="desmsrecibidos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_mahlr_malocalizations_1" Association="dbgeolocModel.Store.fk_mahlr_malocalizations_1">
+            <End Role="malocalizations" EntitySet="malocalizations" />
+            <End Role="mahlr" EntitySet="mahlr" />
           </AssociationSet>
           <AssociationSet Name="fk_maLocalizations_cacarriers_1" Association="dbgeolocModel.Store.fk_maLocalizations_cacarriers_1">
             <End Role="cacarriers" EntitySet="cacarriers" />
@@ -161,6 +166,53 @@
           <Property Name="Y" Type="int" Nullable="false" />
           <Property Name="Tile" Type="longblob" Nullable="false" />
         </EntityType>
+        <EntityType Name="mahlr">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="msisdncountrycode" Type="varchar" MaxLength="100" />
+          <Property Name="msisdn" Type="varchar" MaxLength="100" />
+          <Property Name="statuscode" Type="varchar" MaxLength="100" />
+          <Property Name="hlrerrorcodeid" Type="int" />
+          <Property Name="subscriberstatus" Type="varchar" MaxLength="100" />
+          <Property Name="imsi" Type="varchar" MaxLength="100" />
+          <Property Name="mccmnc" Type="varchar" MaxLength="100" />
+          <Property Name="mcc" Type="varchar" MaxLength="100" />
+          <Property Name="mnc" Type="varchar" MaxLength="100" />
+          <Property Name="msin" Type="varchar" MaxLength="100" />
+          <Property Name="servingmsc" Type="varchar" MaxLength="100" />
+          <Property Name="servinghlr" Type="varchar" MaxLength="100" />
+          <Property Name="originalnetworkname" Type="varchar" MaxLength="100" />
+          <Property Name="originalcountryname" Type="varchar" MaxLength="100" />
+          <Property Name="originalcountrycode" Type="varchar" MaxLength="100" />
+          <Property Name="originalcountryprefix" Type="varchar" MaxLength="100" />
+          <Property Name="originalnetworkprefix" Type="varchar" MaxLength="100" />
+          <Property Name="roamingnetworkname" Type="varchar" MaxLength="100" />
+          <Property Name="roamingcountryname" Type="varchar" MaxLength="100" />
+          <Property Name="roamingcountrycode" Type="varchar" MaxLength="100" />
+          <Property Name="roamingcountryprefix" Type="varchar" MaxLength="100" />
+          <Property Name="roamingnetworkprefix" Type="varchar" MaxLength="100" />
+          <Property Name="portednetworkname" Type="varchar" MaxLength="100" />
+          <Property Name="portedcountryname" Type="varchar" MaxLength="100" />
+          <Property Name="portedcountrycode" Type="varchar" MaxLength="100" />
+          <Property Name="portedcountryprefix" Type="varchar" MaxLength="100" />
+          <Property Name="portednetworkprefix" Type="varchar" MaxLength="100" />
+          <Property Name="isvalid" Type="varchar" MaxLength="100" />
+          <Property Name="isroaming" Type="varchar" MaxLength="100" />
+          <Property Name="isported" Type="varchar" MaxLength="100" />
+          <Property Name="usercharge" Type="varchar" MaxLength="100" />
+          <Property Name="inserttime" Type="varchar" MaxLength="100" />
+          <Property Name="storage" Type="varchar" MaxLength="100" />
+          <Property Name="route" Type="varchar" MaxLength="100" />
+          <Property Name="Interface" Type="varchar" MaxLength="100" />
+          <Property Name="latitud" Type="double" />
+          <Property Name="longitud" Type="double" />
+          <Property Name="cellid" Type="double" />
+          <Property Name="lac" Type="double" />
+          <Property Name="fInis" Type="datetime" />
+          <Property Name="idLocalizations" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="malocalizations">
           <Key>
             <PropertyRef Name="id" />
@@ -187,7 +239,7 @@
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="tipo" Type="varchar" MaxLength="100" />
           <Property Name="idLocalizations" Type="int" Nullable="false" />
-          <Property Name="fIns" Type="date" Nullable="false" />
+          <Property Name="fIns" Type="datetime" Nullable="false" />
           <Property Name="toNotify" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="reperfilroles">
@@ -207,7 +259,7 @@
           <Property Name="Level" Type="varchar" MaxLength="100" />
           <Property Name="Message" Type="text" />
           <Property Name="Exception" Type="text" />
-          <Property Name="DateTime" Type="timestamp" />
+          <Property Name="DateTime" Type="timestamp" StoreGeneratedPattern="Identity" />
         </EntityType>
         <!--Se encontraron errores durante la generación:
       advertencia 6002: La tabla o vista 'def.dbgeoloc.vwactivecarriers' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
@@ -265,6 +317,18 @@
             </Principal>
             <Dependent Role="desmsrecibidos">
               <PropertyRef Name="idMaPDU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_mahlr_malocalizations_1">
+          <End Role="malocalizations" Type="dbgeolocModel.Store.malocalizations" Multiplicity="1" />
+          <End Role="mahlr" Type="dbgeolocModel.Store.mahlr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="malocalizations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="mahlr">
+              <PropertyRef Name="idLocalizations" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -353,6 +417,7 @@
           <EntitySet Name="causuarios" EntityType="dbgeolocModel.causuarios" />
           <EntitySet Name="desmsrecibidos" EntityType="dbgeolocModel.desmsrecibidos" />
           <EntitySet Name="gmapnetcache" EntityType="dbgeolocModel.gmapnetcache" />
+          <EntitySet Name="mahlr" EntityType="dbgeolocModel.mahlr" />
           <EntitySet Name="malocalizations" EntityType="dbgeolocModel.malocalizations" />
           <EntitySet Name="mapdu" EntityType="dbgeolocModel.mapdu" />
           <EntitySet Name="reperfilroles" EntityType="dbgeolocModel.reperfilroles" />
@@ -390,6 +455,10 @@
           <AssociationSet Name="fk_desmsrecibidos_mapdu_1" Association="dbgeolocModel.fk_desmsrecibidos_mapdu_1">
             <End Role="mapdu" EntitySet="mapdu" />
             <End Role="desmsrecibidos" EntitySet="desmsrecibidos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_mahlr_malocalizations_1" Association="dbgeolocModel.fk_mahlr_malocalizations_1">
+            <End Role="malocalizations" EntitySet="malocalizations" />
+            <End Role="mahlr" EntitySet="mahlr" />
           </AssociationSet>
           <AssociationSet Name="fk_mapdu_malocalizations_1" Association="dbgeolocModel.fk_mapdu_malocalizations_1">
             <End Role="malocalizations" EntitySet="malocalizations" />
@@ -500,6 +569,54 @@
           <Property Name="Y" Type="Int32" Nullable="false" />
           <Property Name="Tile" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="mahlr">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="msisdncountrycode" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="msisdn" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="statuscode" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="hlrerrorcodeid" Type="Int32" />
+          <Property Name="subscriberstatus" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="imsi" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="mccmnc" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="mcc" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="mnc" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="msin" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="servingmsc" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="servinghlr" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="originalnetworkname" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="originalcountryname" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="originalcountrycode" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="originalcountryprefix" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="originalnetworkprefix" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="roamingnetworkname" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="roamingcountryname" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="roamingcountrycode" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="roamingcountryprefix" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="roamingnetworkprefix" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="portednetworkname" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="portedcountryname" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="portedcountrycode" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="portedcountryprefix" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="portednetworkprefix" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="isvalid" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="isroaming" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="isported" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="usercharge" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="inserttime" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="storage" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="route" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Interface" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="latitud" Type="Double" />
+          <Property Name="longitud" Type="Double" />
+          <Property Name="cellid" Type="Double" />
+          <Property Name="lac" Type="Double" />
+          <Property Name="fInis" Type="DateTime" />
+          <Property Name="idLocalizations" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="malocalizations" Relationship="dbgeolocModel.fk_mahlr_malocalizations_1" FromRole="mahlr" ToRole="malocalizations" />
+        </EntityType>
         <EntityType Name="malocalizations">
           <Key>
             <PropertyRef Name="id" />
@@ -521,6 +638,7 @@
           <NavigationProperty Name="cacarriers" Relationship="dbgeolocModel.fk_maLocalizations_cacarriers_1" FromRole="malocalizations" ToRole="cacarriers" />
           <NavigationProperty Name="causuarios" Relationship="dbgeolocModel.fk_malocalizations_causuarios_1" FromRole="malocalizations" ToRole="causuarios" />
           <NavigationProperty Name="causuarios1" Relationship="dbgeolocModel.fk_malocalizations_causuarios_2" FromRole="malocalizations" ToRole="causuarios" />
+          <NavigationProperty Name="mahlr" Relationship="dbgeolocModel.fk_mahlr_malocalizations_1" FromRole="malocalizations" ToRole="mahlr" />
           <NavigationProperty Name="mapdu" Relationship="dbgeolocModel.fk_mapdu_malocalizations_1" FromRole="malocalizations" ToRole="mapdu" />
         </EntityType>
         <EntityType Name="mapdu">
@@ -554,7 +672,7 @@
           <Property Name="Level" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="Message" Type="String" MaxLength="65535" Unicode="false" FixedLength="false" />
           <Property Name="Exception" Type="String" MaxLength="65535" Unicode="false" FixedLength="false" />
-          <Property Name="DateTime" Type="DateTime" />
+          <Property Name="DateTime" Type="DateTime" p1:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="vwactivecarriers">
           <Key>
@@ -666,6 +784,18 @@
             </Principal>
             <Dependent Role="desmsrecibidos">
               <PropertyRef Name="idMaPDU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_mahlr_malocalizations_1">
+          <End Role="malocalizations" Type="dbgeolocModel.malocalizations" Multiplicity="1" />
+          <End Role="mahlr" Type="dbgeolocModel.mahlr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="malocalizations">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="mahlr">
+              <PropertyRef Name="idLocalizations" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -782,6 +912,54 @@
                 <ScalarProperty Name="X" ColumnName="X" />
                 <ScalarProperty Name="Y" ColumnName="Y" />
                 <ScalarProperty Name="Tile" ColumnName="Tile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mahlr">
+            <EntityTypeMapping TypeName="dbgeolocModel.mahlr">
+              <MappingFragment StoreEntitySet="mahlr">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="msisdncountrycode" ColumnName="msisdncountrycode" />
+                <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+                <ScalarProperty Name="statuscode" ColumnName="statuscode" />
+                <ScalarProperty Name="hlrerrorcodeid" ColumnName="hlrerrorcodeid" />
+                <ScalarProperty Name="subscriberstatus" ColumnName="subscriberstatus" />
+                <ScalarProperty Name="imsi" ColumnName="imsi" />
+                <ScalarProperty Name="mccmnc" ColumnName="mccmnc" />
+                <ScalarProperty Name="mcc" ColumnName="mcc" />
+                <ScalarProperty Name="mnc" ColumnName="mnc" />
+                <ScalarProperty Name="msin" ColumnName="msin" />
+                <ScalarProperty Name="servingmsc" ColumnName="servingmsc" />
+                <ScalarProperty Name="servinghlr" ColumnName="servinghlr" />
+                <ScalarProperty Name="originalnetworkname" ColumnName="originalnetworkname" />
+                <ScalarProperty Name="originalcountryname" ColumnName="originalcountryname" />
+                <ScalarProperty Name="originalcountrycode" ColumnName="originalcountrycode" />
+                <ScalarProperty Name="originalcountryprefix" ColumnName="originalcountryprefix" />
+                <ScalarProperty Name="originalnetworkprefix" ColumnName="originalnetworkprefix" />
+                <ScalarProperty Name="roamingnetworkname" ColumnName="roamingnetworkname" />
+                <ScalarProperty Name="roamingcountryname" ColumnName="roamingcountryname" />
+                <ScalarProperty Name="roamingcountrycode" ColumnName="roamingcountrycode" />
+                <ScalarProperty Name="roamingcountryprefix" ColumnName="roamingcountryprefix" />
+                <ScalarProperty Name="roamingnetworkprefix" ColumnName="roamingnetworkprefix" />
+                <ScalarProperty Name="portednetworkname" ColumnName="portednetworkname" />
+                <ScalarProperty Name="portedcountryname" ColumnName="portedcountryname" />
+                <ScalarProperty Name="portedcountrycode" ColumnName="portedcountrycode" />
+                <ScalarProperty Name="portedcountryprefix" ColumnName="portedcountryprefix" />
+                <ScalarProperty Name="portednetworkprefix" ColumnName="portednetworkprefix" />
+                <ScalarProperty Name="isvalid" ColumnName="isvalid" />
+                <ScalarProperty Name="isroaming" ColumnName="isroaming" />
+                <ScalarProperty Name="isported" ColumnName="isported" />
+                <ScalarProperty Name="usercharge" ColumnName="usercharge" />
+                <ScalarProperty Name="inserttime" ColumnName="inserttime" />
+                <ScalarProperty Name="storage" ColumnName="storage" />
+                <ScalarProperty Name="route" ColumnName="route" />
+                <ScalarProperty Name="Interface" ColumnName="Interface" />
+                <ScalarProperty Name="latitud" ColumnName="latitud" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="cellid" ColumnName="cellid" />
+                <ScalarProperty Name="lac" ColumnName="lac" />
+                <ScalarProperty Name="fInis" ColumnName="fInis" />
+                <ScalarProperty Name="idLocalizations" ColumnName="idLocalizations" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

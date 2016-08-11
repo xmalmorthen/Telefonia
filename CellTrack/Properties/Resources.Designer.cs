@@ -63,6 +63,26 @@ namespace CellTrack.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1459304445_101_Warning {
+            get {
+                object obj = ResourceManager.GetObject("_1459304445_101_Warning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1459305043_11 {
+            get {
+                object obj = ResourceManager.GetObject("_1459305043_11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1463426130_delete {
             get {
                 object obj = ResourceManager.GetObject("1463426130_delete", resourceCulture);

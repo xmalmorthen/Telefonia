@@ -199,7 +199,7 @@ namespace CellTrack.Views.UserControls.Admin
                 if (FrmState.Equals(enums.frmState.Add))
                     btnAdd_Click(null, null);
                 else {
-                    DAL.discardChanges<causuarios>(((causuarios)causuariosBindingSource.Current));
+                    DALController.discardChanges<causuarios>(((causuarios)causuariosBindingSource.Current));
                     causuariosBindingSource.ResetCurrentItem();
                 }
             }
@@ -213,7 +213,7 @@ namespace CellTrack.Views.UserControls.Admin
                     causuariosBindingSource.CancelEdit();
                 else
                 {
-                    DAL.discardChanges<causuarios>(((causuarios)causuariosBindingSource.Current));
+                    DALController.discardChanges<causuarios>(((causuarios)causuariosBindingSource.Current));
                     causuariosBindingSource.ResetCurrentItem();
                 }
                 FrmState = enums.frmState.Normal;

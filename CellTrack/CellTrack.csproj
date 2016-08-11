@@ -150,7 +150,9 @@
     <Compile Include="Classes\visualStyles.cs" />
     <Compile Include="Controllers\catalogosController.cs" />
     <Compile Include="Controllers\btsController.cs" />
+    <Compile Include="Controllers\DoHealthCheckController.cs" />
     <Compile Include="Controllers\investigacionController.cs" />
+    <Compile Include="Controllers\submitSyncLookupRequestController.cs" />
     <Compile Include="Controllers\toNotifyController.cs" />
     <Compile Include="Controllers\modemSignalController.cs" />
     <Compile Include="Controllers\RegistrosControllers\CFEController.cs" />
@@ -171,22 +173,6 @@
     <Compile Include="Controllers\PDUController.cs" />
     <Compile Include="Controllers\usuarioController.cs" />
     <Compile Include="Models\btsModel.cs" />
-    <Compile Include="Models\investigationModel.cs" />
-    <Compile Include="Models\DataBases\bdRegistros.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bdRegistros.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataBases\bdRegistros.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bdRegistros.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataBases\bdRegistros.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bdRegistros.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\DataBases\cacarriers.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
@@ -223,6 +209,9 @@
     <Compile Include="Models\DataBases\gmapnetcache.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataBases\mahlr.cs">
+      <DependentUpon>dbGeoLoc.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataBases\malocalizations.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
     </Compile>
@@ -240,6 +229,23 @@
     </Compile>
     <Compile Include="Models\DataBases\vwusernotifications.cs">
       <DependentUpon>dbGeoLoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HLRModel.cs" />
+    <Compile Include="Models\investigationModel.cs" />
+    <Compile Include="Models\DataBases\bdRegistros.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdRegistros.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\bdRegistros.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdRegistros.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBases\bdRegistros.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdRegistros.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\googleGeolocApiModel.cs" />
     <Compile Include="Models\MapInfo.cs" />
@@ -392,6 +398,12 @@
     <Compile Include="Views\UserControls\gMapView.Designer.cs">
       <DependentUpon>gMapView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\Localizacion\frmSS7.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Localizacion\frmSS7.Designer.cs">
+      <DependentUpon>frmSS7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Localizacion\frmBTS.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -421,6 +433,12 @@
     </Compile>
     <Compile Include="Views\UserControls\Localizacion\frmObjetivos.Designer.cs">
       <DependentUpon>frmObjetivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\Localizacion\HLR\UCDoHealthCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\Localizacion\HLR\UCDoHealthCheck.designer.cs">
+      <DependentUpon>UCDoHealthCheck.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\menu.cs">
       <SubType>UserControl</SubType>
@@ -470,6 +488,15 @@
     <Compile Include="Views\UserControls\Users\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\1459305043_11.png" />
+    <None Include="Resources\1459304445_101_Warning.png" />
+    <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbGeoLoc.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DataBases\dbGeoLoc.edmx.diagram">
+      <DependentUpon>dbGeoLoc.edmx</DependentUpon>
+    </None>
     <None Include="Resources\1470787738_br_next.png" />
     <None Include="Resources\1470787729_br_prev.png" />
     <None Include="Resources\1470786806_chart_bar.png" />
@@ -482,13 +509,6 @@
     <None Include="Resources\1467326716_brush.png" />
     <None Include="Resources\1467326406_padlock_closed.png" />
     <None Include="Resources\1467326378_padlock_open.png" />
-    <EntityDeploy Include="Models\DataBases\dbGeoLoc.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbGeoLoc.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Models\DataBases\dbGeoLoc.edmx.diagram">
-      <DependentUpon>dbGeoLoc.edmx</DependentUpon>
-    </None>
     <None Include="Resources\p_spinner.gif" />
     <None Include="Resources\hexloader2.gif" />
     <EntityDeploy Include="Models\DataBases\bdRegistros.edmx">
@@ -549,6 +569,9 @@
     <EmbeddedResource Include="Views\UserControls\gMapView.resx">
       <DependentUpon>gMapView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Localizacion\frmSS7.resx">
+      <DependentUpon>frmSS7.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Localizacion\frmBTS.resx">
       <DependentUpon>frmBTS.cs</DependentUpon>
     </EmbeddedResource>
@@ -557,6 +580,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Localizacion\frmRecibidos.resx">
       <DependentUpon>frmRecibidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\Localizacion\HLR\UCDoHealthCheck.resx">
+      <DependentUpon>UCDoHealthCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\Registros\frmRENAUT.resx">
       <DependentUpon>frmRENAUT.cs</DependentUpon>
@@ -744,6 +770,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Utils\DAL\DAL.csproj">
+      <Project>{cc48ec1c-146b-461a-a330-84463ebbe219}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utils\GMap.Net\GMap.NET.Core\GMap.NET.Core.csproj">
       <Project>{d0c39d9d-bed0-418b-9a5e-713176caf40c}</Project>
       <Name>GMap.NET.Core</Name>

@@ -15,7 +15,7 @@ namespace CellTrack.Controllers
         public static List<recibidosModel> smsRecibidos
         {
             get {
-                List<mapdu> data = DAL.Db.mapdu.Where(qry => qry.malocalizations.idNotification.Equals(usuarioController.usuarioLogueado.info.id) && qry.toNotify.Equals(true)).ToList();
+                List<mapdu> data = DALController.Db.mapdu.Where(qry => qry.malocalizations.idNotification.Equals(usuarioController.usuarioLogueado.info.id) && qry.toNotify.Equals(true)).ToList();
                 //List<masmsrecibidos> data = DAL.Db.masmsrecibidos.ToList();                
                 List<recibidosModel> recibidos = new List<recibidosModel>(data.Count());
                 foreach (mapdu item in data)

@@ -20,7 +20,7 @@ namespace CellTrack.Controllers
             List<investigationModel> returnResult = null;
             try
             {
-                List<mapdu> regs = DAL.Db.mapdu.Where(qry => qry.malocalizations.isDeleted.Equals(false) && qry.malocalizations.objetivo.Equals(item.obj.objetivo) ).ToList();
+                List<mapdu> regs = DALController.Db.mapdu.Where(qry => qry.malocalizations.isDeleted.Equals(false) && qry.malocalizations.objetivo.Equals(item.obj.objetivo) ).ToList();
 
                 if (regs.Count > 0) returnResult = new List<investigationModel>();
 

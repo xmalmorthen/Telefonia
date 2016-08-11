@@ -16,6 +16,7 @@ namespace CellTrack.Models.DataBases
     {
         public malocalizations()
         {
+            this.mahlr = new HashSet<mahlr>();
             this.mapdu = new HashSet<mapdu>();
         }
     
@@ -37,6 +38,7 @@ namespace CellTrack.Models.DataBases
         public virtual cacarriers cacarriers { get; set; }
         public virtual causuarios causuarios { get; set; }
         public virtual causuarios causuarios1 { get; set; }
+        public virtual ICollection<mahlr> mahlr { get; set; }
         public virtual ICollection<mapdu> mapdu { get; set; }
     }
 }

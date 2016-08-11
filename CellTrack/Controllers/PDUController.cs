@@ -171,15 +171,15 @@ namespace CellTrack.Controllers
 
                             if (!onlyCheckSMS)
                             {
-                                DAL.Db.mapdu.Add(target);
-                                DAL.Db.SaveChanges();
+                                DALController.Db.mapdu.Add(target);
+                                DALController.Db.SaveChanges();
                             }
                             else if (finded)
                             {
-                                mapdu reg = DAL.Db.mapdu.FirstOrDefault(qrySel => qrySel.id.Equals(item.id));
+                                mapdu reg = DALController.Db.mapdu.FirstOrDefault(qrySel => qrySel.id.Equals(item.id));
                                 reg.toNotify = false;
                                 reg.desmsrecibidos = target.desmsrecibidos;
-                                DAL.Db.SaveChanges();
+                                DALController.Db.SaveChanges();
                             }
                         return marker;
                     }
@@ -216,15 +216,15 @@ namespace CellTrack.Controllers
 
             if (!onlyCheckSMS)
             {
-                DAL.Db.mapdu.Add(target);
-                DAL.Db.SaveChanges();
+                DALController.Db.mapdu.Add(target);
+                DALController.Db.SaveChanges();
             }
             else if (finded)
             {
-                mapdu reg = DAL.Db.mapdu.FirstOrDefault(qrySel => qrySel.id.Equals(item.id));
+                mapdu reg = DALController.Db.mapdu.FirstOrDefault(qrySel => qrySel.id.Equals(item.id));
                 reg.toNotify = false;
                 reg.desmsrecibidos = target.desmsrecibidos;
-                DAL.Db.SaveChanges();
+                DALController.Db.SaveChanges();
             }
 
             return marker;

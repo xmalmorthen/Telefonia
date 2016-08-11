@@ -121,7 +121,7 @@ namespace CellTrack.Views.UserControls.Admin
                 if (FrmState.Equals(enums.frmState.Add))
                     btnAdd_Click(null, null);
                 else {
-                    DAL.discardChanges<cagrupos>(((cagrupos)cagruposBindingSource.Current));
+                    DALController.discardChanges<cagrupos>(((cagrupos)cagruposBindingSource.Current));
                     cagruposBindingSource.ResetCurrentItem();
                 }
             }
@@ -135,7 +135,7 @@ namespace CellTrack.Views.UserControls.Admin
                     cagruposBindingSource.CancelEdit();
                 else
                 {
-                    DAL.discardChanges<cagrupos>(((cagrupos)cagruposBindingSource.Current));
+                    DALController.discardChanges<cagrupos>(((cagrupos)cagruposBindingSource.Current));
                     cagruposBindingSource.ResetCurrentItem();
                 }
                 FrmState = enums.frmState.Normal;

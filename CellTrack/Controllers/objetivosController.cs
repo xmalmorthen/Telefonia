@@ -13,7 +13,7 @@ namespace CellTrack.Controllers
     {
         public static List<malocalizations> getTargets()
         {
-            return DAL.Db.malocalizations.Where(qry => qry.isDeleted.Equals(false)).ToList();
+            return DALController.Db.malocalizations.Where(qry => qry.isDeleted.Equals(false)).ToList();
         }
 
         public static List<malocalizations> getTargets(int idUser) 
@@ -40,8 +40,8 @@ namespace CellTrack.Controllers
                     active = true
                 };
 
-                DAL.Db.malocalizations.Add(item);
-                DAL.Db.SaveChanges();
+                DALController.Db.malocalizations.Add(item);
+                DALController.Db.SaveChanges();
                 returnResult = true;
             }
             catch (Exception ex)
@@ -56,7 +56,7 @@ namespace CellTrack.Controllers
             Boolean returnResult = false;
             try
             {
-                malocalizations item = DAL.Db.malocalizations.SingleOrDefault(qry => qry.id.Equals(Item.id));
+                malocalizations item = DALController.Db.malocalizations.SingleOrDefault(qry => qry.id.Equals(Item.id));
 
                 if (item == null) throw new NullReferenceException(string.Format("No se encontró el registro [ {0} | {1} | {2} | {3} ], es posible que se haya eliminado desde otra instancia",Item.id,Item.nombre,Item.Carrier, Item.objetivo));
 
@@ -70,7 +70,7 @@ namespace CellTrack.Controllers
                 item.agendaFrecuencia = Item.agendaFrecuencia;
                 item.fAct = DateTime.Now;
                                 
-                DAL.Db.SaveChanges();
+                DALController.Db.SaveChanges();
                 returnResult = true;
             }
             catch (Exception ex)
@@ -85,14 +85,14 @@ namespace CellTrack.Controllers
             Boolean returnResult = false;
             try
             {
-                malocalizations item = DAL.Db.malocalizations.SingleOrDefault(qry => qry.id.Equals(Item.id));
+                malocalizations item = DALController.Db.malocalizations.SingleOrDefault(qry => qry.id.Equals(Item.id));
 
                 if (item == null) throw new NullReferenceException(string.Format("No se encontró el registro [ {0} | {1} | {2} | {3} ], es posible que se haya eliminado desde otra instancia", Item.id, Item.nombre, Item.Carrier, Item.objetivo));
 
                 item.isDeleted = true;
                 item.fAct = DateTime.Now;
 
-                DAL.Db.SaveChanges();
+                DALController.Db.SaveChanges();
                 returnResult = true;
             }
             catch (Exception ex)
