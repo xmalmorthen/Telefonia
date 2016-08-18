@@ -50,9 +50,6 @@
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <DelaySign>true</DelaySign>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -114,7 +111,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\1464400316_target.png" />
     <Content Include="Resources\arrow.png" />
     <Content Include="Resources\arrowshadow.png" />
     <Content Include="Resources\black_small.png" />
@@ -150,7 +146,6 @@
     <Content Include="Resources\red-pushpin.png" />
     <Content Include="Resources\red.png" />
     <Content Include="Resources\red_small.png" />
-    <None Include="Resources\shadow.png" />
     <Content Include="Resources\shadow_small.png" />
     <Content Include="Resources\stop-big-red.png" />
     <Content Include="Resources\white_small.png" />

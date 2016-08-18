@@ -190,7 +190,7 @@
             this.toolStripMenuItem6,
             this.supervisiónToolStripMenuItem});
             this.mCMLocalizations.Name = "metroContextMenu1";
-            this.mCMLocalizations.Size = new System.Drawing.Size(174, 186);
+            this.mCMLocalizations.Size = new System.Drawing.Size(174, 164);
             // 
             // toolStripMenuItem1
             // 
@@ -367,7 +367,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "menu";
-            this.Size = new System.Drawing.Size(528, 77);
+            this.Size = new System.Drawing.Size(315, 77);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.mCMLocalizations.ResumeLayout(false);
             this.mCMRegs.ResumeLayout(false);

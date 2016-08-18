@@ -2,6 +2,7 @@
 using GenDAL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
@@ -15,7 +16,7 @@ namespace DAL
     /// <typeparam name="TEntity"> Tabla del Entity Framework a la que se hará referencia</typeparam>
     /// <typeparam name="TModel"> Clase modelo </typeparam>
     public sealed class DAL<DbEntity, TEntity, TModel> : GenericDAL<DbEntity>, IRepository<TEntity, TModel>
-        where DbEntity : System.Data.Entity.DbContext, new()
+        where DbEntity : DbContext, new()
         where TEntity : class, new()
         where TModel : class, new ()
     {

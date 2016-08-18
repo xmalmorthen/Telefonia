@@ -169,6 +169,11 @@ namespace CellTrack.Views.UserControls.Localización
             FrmState = enums.frmState.Normal;
             if (!e.Cancelled)
             {
+                if (e.Error != null) {
+                    MessageBox.Show(e.Error.Message, "Error al GeoUbicar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 if (((markersModel)e.Result) != null)
                 {
                     result = (markersModel)e.Result;

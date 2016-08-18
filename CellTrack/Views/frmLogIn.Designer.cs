@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogIn));
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.btnCancel = new MetroFramework.Controls.MetroButton();
             this.btnAccept = new MetroFramework.Controls.MetroButton();
@@ -40,8 +41,10 @@
             this.metroProgressSpinner3 = new MetroFramework.Controls.MetroProgressSpinner();
             this.tlpProc = new System.Windows.Forms.TableLayoutPanel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.tlpProc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // msmMain
@@ -57,7 +60,7 @@
             this.btnCancel.BackgroundImage = global::CellTrack.Properties.Resources._1463426130_delete;
             this.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(287, 185);
+            this.btnCancel.Location = new System.Drawing.Point(413, 185);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(35, 36);
             this.btnCancel.TabIndex = 3;
@@ -72,7 +75,7 @@
             this.btnAccept.BackgroundImage = global::CellTrack.Properties.Resources._1463434201_checkmark;
             this.btnAccept.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAccept.Location = new System.Drawing.Point(246, 185);
+            this.btnAccept.Location = new System.Drawing.Point(372, 185);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(35, 36);
             this.btnAccept.TabIndex = 2;
@@ -94,7 +97,7 @@
             // 
             // 
             this.txtUsr.CustomButton.Image = null;
-            this.txtUsr.CustomButton.Location = new System.Drawing.Point(270, 2);
+            this.txtUsr.CustomButton.Location = new System.Drawing.Point(396, 2);
             this.txtUsr.CustomButton.Name = "";
             this.txtUsr.CustomButton.Size = new System.Drawing.Size(25, 25);
             this.txtUsr.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -103,8 +106,7 @@
             this.txtUsr.CustomButton.UseSelectable = true;
             this.txtUsr.CustomButton.Visible = false;
             this.txtUsr.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtUsr.Lines = new string[] {
-        "xmalmorthen"};
+            this.txtUsr.Lines = new string[0];
             this.txtUsr.Location = new System.Drawing.Point(24, 89);
             this.txtUsr.MaxLength = 32767;
             this.txtUsr.Name = "txtUsr";
@@ -113,9 +115,9 @@
             this.txtUsr.SelectedText = "";
             this.txtUsr.SelectionLength = 0;
             this.txtUsr.SelectionStart = 0;
-            this.txtUsr.Size = new System.Drawing.Size(298, 30);
+            this.txtUsr.ShortcutsEnabled = true;
+            this.txtUsr.Size = new System.Drawing.Size(424, 30);
             this.txtUsr.TabIndex = 0;
-            this.txtUsr.Text = "xmalmorthen";
             this.txtUsr.UseSelectable = true;
             this.txtUsr.UseStyleColors = true;
             this.txtUsr.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -153,7 +155,7 @@
             // 
             // 
             this.txtPwd.CustomButton.Image = null;
-            this.txtPwd.CustomButton.Location = new System.Drawing.Point(270, 2);
+            this.txtPwd.CustomButton.Location = new System.Drawing.Point(396, 2);
             this.txtPwd.CustomButton.Name = "";
             this.txtPwd.CustomButton.Size = new System.Drawing.Size(25, 25);
             this.txtPwd.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -162,8 +164,7 @@
             this.txtPwd.CustomButton.UseSelectable = true;
             this.txtPwd.CustomButton.Visible = false;
             this.txtPwd.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtPwd.Lines = new string[] {
-        "..121212qw"};
+            this.txtPwd.Lines = new string[0];
             this.txtPwd.Location = new System.Drawing.Point(24, 147);
             this.txtPwd.MaxLength = 32767;
             this.txtPwd.Name = "txtPwd";
@@ -172,9 +173,9 @@
             this.txtPwd.SelectedText = "";
             this.txtPwd.SelectionLength = 0;
             this.txtPwd.SelectionStart = 0;
-            this.txtPwd.Size = new System.Drawing.Size(298, 30);
+            this.txtPwd.ShortcutsEnabled = true;
+            this.txtPwd.Size = new System.Drawing.Size(424, 30);
             this.txtPwd.TabIndex = 1;
-            this.txtPwd.Text = "..121212qw";
             this.txtPwd.UseSelectable = true;
             this.txtPwd.UseStyleColors = true;
             this.txtPwd.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -217,6 +218,17 @@
             this.metroLabel3.Text = "Validando usuario ...";
             this.metroLabel3.UseStyleColors = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::CellTrack.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(286, 33);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(162, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 37;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmLogIn
             // 
             this.AcceptButton = this.btnAccept;
@@ -226,7 +238,8 @@
             this.BackImagePadding = new System.Windows.Forms.Padding(10, 11, 0, 0);
             this.BackMaxSize = 48;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(337, 228);
+            this.ClientSize = new System.Drawing.Size(463, 228);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tlpProc);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.txtPwd);
@@ -234,6 +247,7 @@
             this.Controls.Add(this.txtUsr);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnCancel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Movable = false;
@@ -246,6 +260,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.tlpProc.ResumeLayout(false);
             this.tlpProc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,6 +279,7 @@
         private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner3;
         private System.Windows.Forms.TableLayoutPanel tlpProc;
         private MetroFramework.Controls.MetroLabel metroLabel3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -59,7 +59,7 @@ namespace CellTrack.Views
             
             frmUserInformation.refreshUserName();
             frmState = FrmState.Normal;
-            renderControl(new frmUserAdmin());
+            //renderControl(new frmUserAdmin());
         }
 
         private UserControl FrmActive;

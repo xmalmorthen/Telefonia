@@ -25,7 +25,7 @@ namespace CellTrack.Controllers
 
             inProc = true;
 
-            mapdu data = DALController.Db.mapdu.FirstOrDefault(qry => qry.malocalizations.idNotification.Equals(usuarioController.usuarioLogueado.info.id)
+            mapdu data = DALController.Db.mapdu.OrderByDescending (m => m.fIns).FirstOrDefault(qry => qry.malocalizations.idNotification.Equals(usuarioController.usuarioLogueado.info.id)
                 && qry.toNotify.Equals(true));
 
             if (data == null) {

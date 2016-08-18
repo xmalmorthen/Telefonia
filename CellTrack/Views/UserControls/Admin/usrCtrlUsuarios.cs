@@ -156,7 +156,8 @@ namespace CellTrack.Views.UserControls.Admin
                 {
                     case enums.frmState.Add:
                         newItem.contrasenia = txtPwd.Text.Trim();
-                        newItem.cantidadLocalizaciones = int.Parse(txtCantLoc.Text);
+                        newItem.cantidadLocalizaciones = null;
+                        if (!string.IsNullOrEmpty(txtCantLoc.Text)) newItem.cantidadLocalizaciones = int.Parse(txtCantLoc.Text);
 
                         if (!usuarioController.insert(newItem))
                             throw new Exception("Ocurrió un error al guardar, favor de intentarlo de nuevo." + Environment.NewLine + "Si el problema persiste ponerse en contacto con el administrador del sistema");

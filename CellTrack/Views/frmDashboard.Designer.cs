@@ -39,12 +39,14 @@
             this.panel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.frmModemStatus1 = new CellTrack.Views.UserControls.frmModemStatus();
             this.frmUserInformation = new CellTrack.Views.UserControls.frmUserInformation();
             this.frmModemSignal1 = new CellTrack.Views.UserControls.frmModemSignal();
             this.frmSaldo = new CellTrack.Views.UserControls.frmSaldo();
             this.mainMenu = new CellTrack.Views.UserControls.menu();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // msmMain
@@ -91,6 +93,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel.BackColor = System.Drawing.Color.Transparent;
+            this.panel.BackgroundImage = global::CellTrack.Properties.Resources.logo;
+            this.panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel.Location = new System.Drawing.Point(30, 97);
             this.panel.Margin = new System.Windows.Forms.Padding(10);
             this.panel.Name = "panel";
@@ -117,6 +121,17 @@
             this.notifyIcon.Visible = true;
             this.notifyIcon.BalloonTipClicked += new System.EventHandler(this.notifyIcon_BalloonTipClicked);
             this.notifyIcon.Click += new System.EventHandler(this.notifyIcon_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::CellTrack.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(653, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(162, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 36;
+            this.pictureBox1.TabStop = false;
             // 
             // frmModemStatus1
             // 
@@ -162,7 +177,7 @@
             this.mainMenu.BackColor = System.Drawing.Color.Transparent;
             this.mainMenu.Location = new System.Drawing.Point(26, 16);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(240, 79);
+            this.mainMenu.Size = new System.Drawing.Size(305, 79);
             this.mainMenu.TabIndex = 27;
             // 
             // frmDashboard
@@ -175,6 +190,7 @@
             this.BackLocation = MetroFramework.Forms.BackLocation.BottomRight;
             this.BackMaxSize = 256;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.frmModemStatus1);
             this.Controls.Add(this.frmUserInformation);
@@ -182,6 +198,7 @@
             this.Controls.Add(this.frmSaldo);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.mainMenu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1024, 736);
@@ -194,6 +211,7 @@
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,5 +233,6 @@
         private UserControls.frmModemStatus frmModemStatus1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

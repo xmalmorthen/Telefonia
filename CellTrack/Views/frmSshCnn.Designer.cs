@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSshCnn));
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.pbSshCnn = new MetroFramework.Controls.MetroProgressBar();
             this.lblInfo = new MetroFramework.Controls.MetroLabel();
@@ -94,6 +95,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.pbSshCnn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Movable = false;

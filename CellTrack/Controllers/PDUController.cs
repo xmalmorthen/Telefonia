@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CellTrack.Controllers
 {
@@ -211,7 +212,7 @@ namespace CellTrack.Controllers
             catch (Exception ex)
             {
                 exceptionHandlerCatch.registerLogException(ex);
-                return null;
+                throw;                
             }
 
             if (!onlyCheckSMS)
