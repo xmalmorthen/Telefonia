@@ -17,6 +17,7 @@ namespace CellTrack.Views
         private List<string> cnns = new List<string>(new string[]{
             "PDU",
             "modemSignal",
+            "modemStatus",
             "recibidosDaemond"
         });
 

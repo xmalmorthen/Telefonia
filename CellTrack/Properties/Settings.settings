@@ -5,25 +5,8 @@
     <Setting Name="superUserCommand" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="sshUser" Type="System.String" Scope="User">
-      <Value Profile="(Default)">geo</Value>
-    </Setting>
-    <Setting Name="sshPass" Type="System.String" Scope="User">
-      <Value Profile="(Default)">10101011</Value>
-    </Setting>
-    <Setting Name="sshHost" Type="System.String" Scope="User">
-      <Value Profile="(Default)">192.168.1.77</Value>
-    </Setting>
     <Setting Name="mainStyle" Type="MetroFramework.Components.MetroStyleManager" Scope="User">
       <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="MapCache" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=localhost;user id=root;persistsecurityinfo=True;database=dbgeoloc;password=""&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=localhost;user id=root;persistsecurityinfo=True;database=dbgeoloc;password=""</Value>
     </Setting>
     <Setting Name="mapRadioCircle" Type="System.Double" Scope="User">
       <Value Profile="(Default)">8</Value>
@@ -78,6 +61,26 @@
     </Setting>
     <Setting Name="HLRRoute" Type="System.String" Scope="User">
       <Value Profile="(Default)">XT5</Value>
+    </Setting>
+    <Setting Name="MapCache" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;server=127.0.0.1;user id=root;persistsecurityinfo=True;database=dbgeoloc;password=&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">server=127.0.0.1;user id=root;persistsecurityinfo=True;database=dbgeoloc;password=</Value>
+    </Setting>
+    <Setting Name="sshUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="sshPass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">121212qw</Value>
+    </Setting>
+    <Setting Name="sshHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.10.20.196</Value>
+    </Setting>
+    <Setting Name="modemStatusFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">modemStatus.ini</Value>
     </Setting>
   </Settings>
 </SettingsFile>

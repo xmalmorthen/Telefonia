@@ -37,59 +37,12 @@ namespace CellTrack.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("geo")]
-        public string sshUser {
-            get {
-                return ((string)(this["sshUser"]));
-            }
-            set {
-                this["sshUser"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10101011")]
-        public string sshPass {
-            get {
-                return ((string)(this["sshPass"]));
-            }
-            set {
-                this["sshPass"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.77")]
-        public string sshHost {
-            get {
-                return ((string)(this["sshHost"]));
-            }
-            set {
-                this["sshHost"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::MetroFramework.Components.MetroStyleManager mainStyle {
             get {
                 return ((global::MetroFramework.Components.MetroStyleManager)(this["mainStyle"]));
             }
             set {
                 this["mainStyle"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;persistsecurityinfo=True;database=dbgeoloc;password" +
-            "=\"\"")]
-        public string MapCache {
-            get {
-                return ((string)(this["MapCache"]));
             }
         }
         
@@ -306,6 +259,65 @@ namespace CellTrack.Properties {
             }
             set {
                 this["HLRRoute"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=127.0.0.1;user id=root;persistsecurityinfo=True;database=dbgeoloc;password" +
+            "=")]
+        public string MapCache {
+            get {
+                return ((string)(this["MapCache"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("admin")]
+        public string sshUser {
+            get {
+                return ((string)(this["sshUser"]));
+            }
+            set {
+                this["sshUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("121212qw")]
+        public string sshPass {
+            get {
+                return ((string)(this["sshPass"]));
+            }
+            set {
+                this["sshPass"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10.10.20.196")]
+        public string sshHost {
+            get {
+                return ((string)(this["sshHost"]));
+            }
+            set {
+                this["sshHost"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("modemStatus.ini")]
+        public string modemStatusFileName {
+            get {
+                return ((string)(this["modemStatusFileName"]));
+            }
+            set {
+                this["modemStatusFileName"] = value;
             }
         }
     }

@@ -239,7 +239,7 @@ namespace CellTrack.Controllers
                 Boolean result = false;
                 message = null;
                 
-                if (Program.SshCnn.TryGetValue("PDU", out ssh));
+                if (Program.SshCnn.TryGetValue("PDU", out ssh))
                 try
                 {
                     if (!onlyCheckSMS)
