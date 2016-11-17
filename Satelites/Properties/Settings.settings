@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Satelites.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="sshTimeOut" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:30:00</Value>
+    </Setting>
+    <Setting Name="sshSendKeepAliveTime" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:25:00</Value>
+    </Setting>
+    <Setting Name="superUserCommand" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="mainStyle" Type="MetroFramework.Components.MetroStyleManager" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="sshUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="sshPass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">121212qw</Value>
+    </Setting>
+    <Setting Name="sshHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.10.20.196</Value>
+    </Setting>
+    <Setting Name="MapInitPointLat" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">19.255207</Value>
+    </Setting>
+    <Setting Name="MapInitPointLng" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">-103.689535</Value>
+    </Setting>
+    <Setting Name="mapRadioCircle" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="mapSegments" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

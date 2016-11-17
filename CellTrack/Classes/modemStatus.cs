@@ -15,7 +15,7 @@ namespace CellTrack.Classes
         }
 
         private static sshCnn ssh;
-        private void changeStatus() {
+        private static void changeStatus() {
             if (Program.SshCnn.TryGetValue("modemSignal", out ssh))
             try
             {

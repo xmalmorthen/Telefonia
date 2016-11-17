@@ -30,7 +30,7 @@ namespace CellTrack.Controllers
                 }
 
                 modemStatus.Occupied();
-                StringBuilder output = ssh.script("senal.sh");
+                StringBuilder output = ssh.script("senalCellTracker.sh");
                 modemStatus.Vacant();
 
                 if (output != null)

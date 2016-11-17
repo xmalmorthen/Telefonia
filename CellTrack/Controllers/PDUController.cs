@@ -279,7 +279,7 @@ namespace CellTrack.Controllers
 
             private static string checkSMS(string objetivo) {
                 string returnResult = string.Empty;
-                string cmnd = string.Format("checksms0.sh");
+                string cmnd = string.Format("checksmsCellTracker.sh");
 
                 while (!modemStatus.Free)
                 {

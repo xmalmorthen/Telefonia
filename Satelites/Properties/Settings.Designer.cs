@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GSMApplication.Properties {
+namespace Satelites.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -23,47 +23,50 @@ namespace GSMApplication.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("GSM Pasive Interceptor")]
-        public string MCWG_Cnn_lblTitle {
+        [global::System.Configuration.DefaultSettingValueAttribute("00:30:00")]
+        public global::System.TimeSpan sshTimeOut {
             get {
-                return ((string)(this["MCWG_Cnn_lblTitle"]));
+                return ((global::System.TimeSpan)(this["sshTimeOut"]));
+            }
+            set {
+                this["sshTimeOut"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("GPI")]
-        public string MCWG_Cnn_lblTitle2 {
+        [global::System.Configuration.DefaultSettingValueAttribute("00:25:00")]
+        public global::System.TimeSpan sshSendKeepAliveTime {
             get {
-                return ((string)(this["MCWG_Cnn_lblTitle2"]));
+                return ((global::System.TimeSpan)(this["sshSendKeepAliveTime"]));
             }
             set {
-                this["MCWG_Cnn_lblTitle2"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=GSMPI;Persist Security Info=True;User ID=sa;Passwor" +
-            "d=as;Connect Timeout=5;ConnectRetryCount=3;ConnectRetryInterval=5")]
-        public string GSMPIConnectionString {
-            get {
-                return ((string)(this["GSMPIConnectionString"]));
+                this["sshSendKeepAliveTime"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Traffic")]
-        public string OutputBasePath {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string superUserCommand {
             get {
-                return ((string)(this["OutputBasePath"]));
+                return ((string)(this["superUserCommand"]));
             }
             set {
-                this["OutputBasePath"] = value;
+                this["superUserCommand"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::MetroFramework.Components.MetroStyleManager mainStyle {
+            get {
+                return ((global::MetroFramework.Components.MetroStyleManager)(this["mainStyle"]));
+            }
+            set {
+                this["mainStyle"] = value;
             }
         }
         
@@ -105,37 +108,49 @@ namespace GSMApplication.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public string NLogMinutesAfter {
+        [global::System.Configuration.DefaultSettingValueAttribute("19.255207")]
+        public double MapInitPointLat {
             get {
-                return ((string)(this["NLogMinutesAfter"]));
+                return ((double)(this["MapInitPointLat"]));
             }
             set {
-                this["NLogMinutesAfter"] = value;
+                this["MapInitPointLat"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2")]
-        public string NlogCountErrorRecords {
+        [global::System.Configuration.DefaultSettingValueAttribute("-103.689535")]
+        public double MapInitPointLng {
             get {
-                return ((string)(this["NlogCountErrorRecords"]));
+                return ((double)(this["MapInitPointLng"]));
             }
             set {
-                this["NlogCountErrorRecords"] = value;
+                this["MapInitPointLng"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sudo")]
-        public string superUserCommand {
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public double mapRadioCircle {
             get {
-                return ((string)(this["superUserCommand"]));
+                return ((double)(this["mapRadioCircle"]));
             }
             set {
-                this["superUserCommand"] = value;
+                this["mapRadioCircle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int mapSegments {
+            get {
+                return ((int)(this["mapSegments"]));
+            }
+            set {
+                this["mapSegments"] = value;
             }
         }
     }
