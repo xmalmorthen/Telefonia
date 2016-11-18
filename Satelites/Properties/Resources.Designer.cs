@@ -83,9 +83,49 @@ namespace Satelites.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1463558060_playback_reload {
+            get {
+                object obj = ResourceManager.GetObject("1463558060_playback_reload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1463558222_Update {
             get {
                 object obj = ResourceManager.GetObject("_1463558222_Update", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap antena {
+            get {
+                object obj = ResourceManager.GetObject("antena", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hexloader2 {
+            get {
+                object obj = ResourceManager.GetObject("hexloader2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loading_gallery {
+            get {
+                object obj = ResourceManager.GetObject("loading-gallery", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

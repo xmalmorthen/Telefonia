@@ -15,6 +15,7 @@ namespace enums
         Edit,
         Delete,
         Find,
-        Finded
+        Finded,
+        Proccessing
     }
 }

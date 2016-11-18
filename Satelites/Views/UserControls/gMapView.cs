@@ -29,7 +29,7 @@ namespace Satelites.Views.UserControls
         internal readonly GMapOverlay polygons = new GMapOverlay("polygons");
 
         // marker
-        GMapMarker currentMarker;
+        GMapMarker currentMarker, tmpMarker;
 
         // polygons
         GMapPolygon polygon;
@@ -52,12 +52,32 @@ namespace Satelites.Views.UserControls
 
         void MainMap_OnTileLoadStart()
         {
-            
+            MethodInvoker m = delegate()
+            {
+                ((frmDashboard)this.ParentForm).frmState = enums.frmState.Proccessing;                
+            };
+            try
+            {
+                BeginInvoke(m);
+            }
+            catch
+            {
+            }
         }
 
         void MainMap_OnTileLoadComplete(long ElapsedMilliseconds)
         {
-            
+            MethodInvoker m = delegate()
+            {
+                ((frmDashboard)this.ParentForm).frmState = enums.frmState.Normal;
+            };
+            try
+            {
+                BeginInvoke(m);
+            }
+            catch
+            {
+            }
         }
 
         void MainMap_OnMapZoomChanged()
@@ -78,6 +98,7 @@ namespace Satelites.Views.UserControls
         }
 
         GMapMarker currentTransport;
+        int? CurentRectMarkerTag = null;
         void MainMap_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
@@ -109,6 +130,10 @@ namespace Satelites.Views.UserControls
                     }
                 }
             }
+            else {
+                CurentRectMarkerTag = (int)CurentRectMarker.Tag;
+                mnuTarget.Show(e.Location.X + 30,e.Location.Y + 30);
+            }
         }
 
         void MainMap_OnMarkerEnter(GMapMarker item)
@@ -126,10 +151,10 @@ namespace Satelites.Views.UserControls
         {
             if (item is GMapMarkerRect)
             {
-                CurentRectMarker = null;
+                if (!isMouseDown) CurentRectMarker = null;
 
                 GMapMarkerRect rc = item as GMapMarkerRect;
-                rc.Pen.Color = Color.Blue;
+                rc.Pen.Color = Color.DarkGray;
             }
         }
 
@@ -159,13 +184,17 @@ namespace Satelites.Views.UserControls
             item.Stroke.Color = Color.MidnightBlue;
         }
 
+        Boolean mnuTagetShow = false;
         void MainMap_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && isMouseDown)
             {
-                if (CurentRectMarker == null) {
+                if (CurentRectMarker == null || mnuTagetShow)
+                {
                     if (currentMarker != null && currentMarker.IsVisible)
                         currentMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);
+                    mnuTagetShow = false;
+                    CurentRectMarker = null;
                 }
                 else // move rect marker
                 {
@@ -194,6 +223,11 @@ namespace Satelites.Views.UserControls
                 }
 
                 MainMap.Refresh(); // force instant invalidation
+
+            }
+            else {
+                if (isMouseDown)
+                    ClickDrag = true;            
             }
         }
 
@@ -211,6 +245,7 @@ namespace Satelites.Views.UserControls
                     var tile = MainMap.MapProvider.Projection.FromPixelToTileXY(px);
                 }
             }
+            isMouseDown = true;
         }
 
         void MainMap_MouseUp(object sender, MouseEventArgs e)
@@ -219,55 +254,18 @@ namespace Satelites.Views.UserControls
             {
                 isMouseDown = false;
             }
+            isMouseDown = false;
         }
 
         void MainMap_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             //var cc = new GMapMarkerCircle(MainMap.FromLocalToLatLng(e.X, e.Y));
             //objects.Markers.Add(cc);
-
-            Bitmap pin = Properties.Resources.ResourceManager.GetObject("target_black", Properties.Resources.Culture) as Bitmap;
-
-            GMarkerGoogle m = new GMarkerGoogle(currentMarker.Position, pin);            
-            
-            GMapMarkerRect mBorders = new GMapMarkerRect(currentMarker.Position);
-            {
-                mBorders.InnerMarker = m;
-                if (polygon != null)
-                {
-                    mBorders.Tag = polygon.Points.Count;
-                }
-                mBorders.ToolTipMode = MarkerTooltipMode.OnMouseOver;
-            }
-
-            Placemark? p = null;
-            
-                GeoCoderStatusCode status;
-                var ret = GMapProviders.GoogleMap.GetPlacemark(currentMarker.Position, out status);
-                if (status == GeoCoderStatusCode.G_GEO_SUCCESS && ret != null)
-                {
-                    p = ret;
-                }
-
-            if (p != null)
-            {
-                mBorders.ToolTipText = p.Value.Address;
-            }
-            else
-            {
-                mBorders.ToolTipText = currentMarker.Position.ToString();
-            }
-
-            objects.Markers.Add(m);
-
-            objects.Markers.Add(mBorders);
-
-            RegeneratePolygon();
         }
 
         #endregion EVENTS
 
-        #region FUNCTIONS
+#region FUNCTIONS
         void RegeneratePolygon()
         {
             List<PointLatLng> polygonPoints = new List<PointLatLng>();
@@ -276,7 +274,7 @@ namespace Satelites.Views.UserControls
             {
                 if (m is GMapMarkerRect)
                 {
-                    m.Tag = polygonPoints.Count;
+                    //m.Tag = polygonPoints.Count;
                     polygonPoints.Add(m.Position);
                 }
             }
@@ -302,9 +300,59 @@ namespace Satelites.Views.UserControls
                 }
             }
         }
-        #endregion FUNCTIONS
 
+        public void AddTarget() {
+            Bitmap pin = Properties.Resources.ResourceManager.GetObject("target_black", Properties.Resources.Culture) as Bitmap;
 
+            GMarkerGoogle m = new GMarkerGoogle(currentMarker.Position, pin);            
+            
+            GMapMarkerRect mBorders = new GMapMarkerRect(currentMarker.Position);
+            {
+                mBorders.InnerMarker = m;
+                if (polygon != null)
+                    mBorders.Tag = polygon.Points.Count;
+                else
+                    mBorders.Tag = 0;
+                mBorders.ToolTipMode = MarkerTooltipMode.Always;
+            }
+
+            Placemark? p = null;
+
+            GeoCoderStatusCode status;
+            var ret = GMapProviders.GoogleMap.GetPlacemark(currentMarker.Position, out status);
+            if (status == GeoCoderStatusCode.G_GEO_SUCCESS && ret != null)
+            {
+                p = ret;
+            }
+
+            if (p != null)
+            {
+                mBorders.ToolTipText = p.Value.Address;
+            }
+            else
+            {
+                mBorders.ToolTipText = currentMarker.Position.ToString();
+            }
+
+            m.Tag = mBorders.Tag;
+
+            objects.Markers.Add(m);
+
+            objects.Markers.Add(mBorders);
+
+            RegeneratePolygon();
+
+            changeVisibilityMenuOpc();         
+        }
+
+        void changeVisibilityMenuOpc() {
+            tsmiQuitarTodasAntenas.Visible = objects.Markers.Count() > 0;
+            tsmiActionAllAntenas.Visible = objects.Markers.Count() > 0;
+
+            toolStripSeparator1.Visible = !(tsmiQuitarTodasAntenas.Visible && !tsmiActionAllAntenas.Visible);
+        }
+        
+#endregion FUNCTIONS
 
         private void init()
         {
@@ -348,6 +396,7 @@ namespace Satelites.Views.UserControls
 
                     MainMap.MouseMove += new MouseEventHandler(MainMap_MouseMove);
                     MainMap.MouseDown += new MouseEventHandler(MainMap_MouseDown);
+                    MainMap.MouseClick += new MouseEventHandler(MainMap_MouseClick);
                     MainMap.MouseUp += new MouseEventHandler(MainMap_MouseUp);
                     MainMap.MouseDoubleClick += new MouseEventHandler(MainMap_MouseDoubleClick);
 
@@ -374,6 +423,17 @@ namespace Satelites.Views.UserControls
                 currentMarker.IsHitTestVisible = false;
                 top.Markers.Add(currentMarker);
             }
+
+            changeVisibilityMenuOpc();            
+        }
+
+        private Boolean ClickDrag = false;
+        void MainMap_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && !ClickDrag)
+                if (!mnuTarget.Visible)
+                    mnuMain.Show(e.Location.X + 30, e.Location.Y + 30);
+            ClickDrag = false;
         }
 
         private void cmbMapsType_DropDownClosed(object sender, EventArgs e)
@@ -385,7 +445,50 @@ namespace Satelites.Views.UserControls
         {
             MainMap.Zoom = zoomTrackBar.Value / 100.0;
         }
-        
+
+        private void mnuTarget_Opened(object sender, EventArgs e)
+        {
+            mnuTagetShow = true;
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            MainMap.ReloadMap();
+        }
+
+        private void tsmiQuitarAntena_Click(object sender, EventArgs e)
+        {
+            List<GMapMarker> items = new List<GMapMarker>();
+
+            items = objects.Markers.Where(qry => qry.Tag.Equals(CurentRectMarkerTag)).ToList();
+
+            foreach (GMapMarker item in items)
+            {
+                objects.Markers.Remove(item);
+            }
+
+            RegeneratePolygon();
+
+            changeVisibilityMenuOpc();
+        }
+
+        private void tsmiActionAntena_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsmiAddAntena_Click(object sender, EventArgs e)
+        {
+            AddTarget();
+        }
+
+        private void tsmiQuitarTodasAntenas_Click(object sender, EventArgs e)
+        {
+            objects.Markers.Clear();
+            RegeneratePolygon();
+
+            changeVisibilityMenuOpc();
+        }
         
     }
 }

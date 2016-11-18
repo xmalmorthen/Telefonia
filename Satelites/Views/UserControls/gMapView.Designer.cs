@@ -33,19 +33,32 @@
             this.cmbMapsType = new MetroFramework.Controls.MetroComboBox();
             this.MainMap = new GMap.NET.WindowsForms.GMapControl();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
+            this.btnReload = new MetroFramework.Controls.MetroButton();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.mnuTarget = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiActionAntena = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiQuitarAntena = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMain = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiAddAntena = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiQuitarTodasAntenas = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiActionAllAntenas = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
+            this.mnuTarget.SuspendLayout();
+            this.mnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // zoomTrackBar
             // 
             this.zoomTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.zoomTrackBar.BackColor = System.Drawing.Color.Transparent;
-            this.zoomTrackBar.Location = new System.Drawing.Point(887, 676);
+            this.zoomTrackBar.Location = new System.Drawing.Point(813, 678);
             this.zoomTrackBar.Name = "zoomTrackBar";
-            this.zoomTrackBar.Size = new System.Drawing.Size(275, 23);
+            this.zoomTrackBar.Size = new System.Drawing.Size(351, 23);
             this.zoomTrackBar.TabIndex = 40;
             this.zoomTrackBar.Text = "metroTrackBar1";
+            this.zoomTrackBar.Theme = MetroFramework.MetroThemeStyle.Light;
             this.zoomTrackBar.ValueChanged += new System.EventHandler(this.zoomTrackBar_ValueChanged);
             // 
             // cmbMapsType
@@ -56,11 +69,12 @@
             this.cmbMapsType.FontWeight = MetroFramework.MetroComboBoxWeight.Light;
             this.cmbMapsType.FormattingEnabled = true;
             this.cmbMapsType.ItemHeight = 19;
-            this.cmbMapsType.Location = new System.Drawing.Point(887, 3);
+            this.cmbMapsType.Location = new System.Drawing.Point(813, 3);
             this.cmbMapsType.Name = "cmbMapsType";
-            this.cmbMapsType.Size = new System.Drawing.Size(275, 25);
+            this.cmbMapsType.Size = new System.Drawing.Size(318, 25);
             this.cmbMapsType.Style = MetroFramework.MetroColorStyle.Black;
             this.cmbMapsType.TabIndex = 39;
+            this.cmbMapsType.Theme = MetroFramework.MetroThemeStyle.Light;
             this.cmbMapsType.UseSelectable = true;
             this.cmbMapsType.UseStyleColors = true;
             this.cmbMapsType.DropDownClosed += new System.EventHandler(this.cmbMapsType_DropDownClosed);
@@ -88,7 +102,7 @@
             this.MainMap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.MainMap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.MainMap.ShowTileGridLines = false;
-            this.MainMap.Size = new System.Drawing.Size(1165, 702);
+            this.MainMap.Size = new System.Drawing.Size(1167, 704);
             this.MainMap.TabIndex = 0;
             this.MainMap.Zoom = 0D;
             // 
@@ -98,24 +112,111 @@
             this.metroToolTip.StyleManager = null;
             this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
+            // btnReload
+            // 
+            this.btnReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReload.AutoSize = true;
+            this.btnReload.BackgroundImage = global::Satelites.Properties.Resources._1463558060_playback_reload;
+            this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnReload.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnReload.Location = new System.Drawing.Point(1139, 3);
+            this.btnReload.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(25, 25);
+            this.btnReload.TabIndex = 41;
+            this.btnReload.Tag = "0";
+            this.metroToolTip.SetToolTip(this.btnReload, "Recargar mapa...");
+            this.btnReload.UseSelectable = true;
+            this.btnReload.UseStyleColors = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
             // msmMain
             // 
             this.msmMain.Owner = this;
             this.msmMain.Style = MetroFramework.MetroColorStyle.Black;
+            // 
+            // mnuTarget
+            // 
+            this.mnuTarget.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiActionAntena,
+            this.toolStripMenuItem1,
+            this.tsmiQuitarAntena});
+            this.mnuTarget.Name = "mnuTarget";
+            this.mnuTarget.ShowImageMargin = false;
+            this.mnuTarget.Size = new System.Drawing.Size(87, 54);
+            this.mnuTarget.Opened += new System.EventHandler(this.mnuTarget_Opened);
+            // 
+            // tsmiActionAntena
+            // 
+            this.tsmiActionAntena.Name = "tsmiActionAntena";
+            this.tsmiActionAntena.Size = new System.Drawing.Size(86, 22);
+            this.tsmiActionAntena.Text = "Activar";
+            this.tsmiActionAntena.Click += new System.EventHandler(this.tsmiActionAntena_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(83, 6);
+            // 
+            // tsmiQuitarAntena
+            // 
+            this.tsmiQuitarAntena.Name = "tsmiQuitarAntena";
+            this.tsmiQuitarAntena.Size = new System.Drawing.Size(86, 22);
+            this.tsmiQuitarAntena.Text = "Quitar";
+            this.tsmiQuitarAntena.Click += new System.EventHandler(this.tsmiQuitarAntena_Click);
+            // 
+            // mnuMain
+            // 
+            this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiAddAntena,
+            this.toolStripSeparator1,
+            this.tsmiQuitarTodasAntenas,
+            this.tsmiActionAllAntenas});
+            this.mnuMain.Name = "mnuTarget";
+            this.mnuMain.ShowImageMargin = false;
+            this.mnuMain.Size = new System.Drawing.Size(192, 76);
+            // 
+            // tsmiAddAntena
+            // 
+            this.tsmiAddAntena.Name = "tsmiAddAntena";
+            this.tsmiAddAntena.Size = new System.Drawing.Size(191, 22);
+            this.tsmiAddAntena.Text = "Agragar antena";
+            this.tsmiAddAntena.Click += new System.EventHandler(this.tsmiAddAntena_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(188, 6);
+            // 
+            // tsmiQuitarTodasAntenas
+            // 
+            this.tsmiQuitarTodasAntenas.Name = "tsmiQuitarTodasAntenas";
+            this.tsmiQuitarTodasAntenas.Size = new System.Drawing.Size(191, 22);
+            this.tsmiQuitarTodasAntenas.Text = "Quitar todas las antenas";
+            this.tsmiQuitarTodasAntenas.Click += new System.EventHandler(this.tsmiQuitarTodasAntenas_Click);
+            // 
+            // tsmiActionAllAntenas
+            // 
+            this.tsmiActionAllAntenas.Name = "tsmiActionAllAntenas";
+            this.tsmiActionAllAntenas.Size = new System.Drawing.Size(191, 22);
+            this.tsmiActionAllAntenas.Text = "Encender todas las antenas";
             // 
             // gMapView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.zoomTrackBar);
             this.Controls.Add(this.cmbMapsType);
             this.Controls.Add(this.MainMap);
             this.Name = "gMapView";
-            this.Size = new System.Drawing.Size(1165, 702);
+            this.Size = new System.Drawing.Size(1167, 704);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
+            this.mnuTarget.ResumeLayout(false);
+            this.mnuMain.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -126,5 +227,15 @@
         internal GMap.NET.WindowsForms.GMapControl MainMap;
         private MetroFramework.Controls.MetroComboBox cmbMapsType;
         private MetroFramework.Controls.MetroTrackBar zoomTrackBar;
+        private System.Windows.Forms.ContextMenuStrip mnuTarget;
+        private System.Windows.Forms.ToolStripMenuItem tsmiQuitarAntena;
+        private System.Windows.Forms.ToolStripMenuItem tsmiActionAntena;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private MetroFramework.Controls.MetroButton btnReload;
+        private System.Windows.Forms.ContextMenuStrip mnuMain;
+        private System.Windows.Forms.ToolStripMenuItem tsmiAddAntena;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiQuitarTodasAntenas;
+        private System.Windows.Forms.ToolStripMenuItem tsmiActionAllAntenas;
     }
 }

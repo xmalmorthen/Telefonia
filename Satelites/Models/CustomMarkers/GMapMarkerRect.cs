@@ -21,7 +21,7 @@ namespace Satelites.Models.CustomMarkers
       public GMapMarkerRect(PointLatLng p)
          : base(p)
       {
-         Pen = new Pen(Brushes.DarkOrange,2);
+         Pen = new Pen(Brushes.DarkGray,2);
 
          // do not forget set Size of the marker
          // if so, you shall have no event on it ;}

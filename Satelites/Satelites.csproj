@@ -145,6 +145,10 @@
     <Compile Include="Views\UserControls\gMapView.Designer.cs">
       <DependentUpon>gMapView.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\1463558060_playback_reload.png" />
+    <None Include="Resources\loading-gallery.gif" />
+    <None Include="Resources\hexloader2.gif" />
+    <None Include="Resources\antena.png" />
     <None Include="Resources\target_red.png" />
     <None Include="Resources\target_green.png" />
     <None Include="Resources\target_black.png" />

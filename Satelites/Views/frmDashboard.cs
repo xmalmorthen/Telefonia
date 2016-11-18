@@ -19,14 +19,15 @@ namespace Satelites.Views
         public gMapView gMapViewRender;
 
         private enums.frmState _frmState;
-        private enums.frmState frmState
+        public enums.frmState frmState
         {
             get { return _frmState; }
             set
             {
                 _frmState = value;
 
-                this.Enabled = value == enums.frmState.Normal;
+                //this.Enabled = value == enums.frmState.Normal;
+                this.pnlProc.Visible = value == enums.frmState.Proccessing;
             }
         }
 
@@ -49,6 +50,7 @@ namespace Satelites.Views
         public void renderControl(UserControl ctrl)
         {
             Application.DoEvents();
+            ctrl.Parent = this;
             ctrl.Dock = System.Windows.Forms.DockStyle.Fill;
             ctrl.Location = new System.Drawing.Point(0, 0);
             ctrl.MinimumSize = new Size(0, 0);
@@ -76,6 +78,11 @@ namespace Satelites.Views
             gMapViewRender = new gMapView(Properties.Settings.Default.MapInitPointLat, Properties.Settings.Default.MapInitPointLng);
 
             renderControl(gMapViewRender);
+        }
+
+        private void btnLocalizations_Click(object sender, EventArgs e)
+        {
+            gMapViewRender.AddTarget();
         }
     }
 }
