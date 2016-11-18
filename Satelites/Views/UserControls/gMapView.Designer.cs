@@ -33,6 +33,7 @@
             this.cmbMapsType = new MetroFramework.Controls.MetroComboBox();
             this.MainMap = new GMap.NET.WindowsForms.GMapControl();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
+            this.btnCenter = new MetroFramework.Controls.MetroButton();
             this.btnReload = new MetroFramework.Controls.MetroButton();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
             this.mnuTarget = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -111,6 +112,24 @@
             this.metroToolTip.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroToolTip.StyleManager = null;
             this.metroToolTip.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // btnCenter
+            // 
+            this.btnCenter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCenter.AutoSize = true;
+            this.btnCenter.BackgroundImage = global::Satelites.Properties.Resources._1464210083_target;
+            this.btnCenter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCenter.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCenter.Location = new System.Drawing.Point(1104, 610);
+            this.btnCenter.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.btnCenter.Name = "btnCenter";
+            this.btnCenter.Size = new System.Drawing.Size(60, 60);
+            this.btnCenter.TabIndex = 42;
+            this.btnCenter.Tag = "0";
+            this.metroToolTip.SetToolTip(this.btnCenter, "Centrar antenas en el mapa...");
+            this.btnCenter.UseSelectable = true;
+            this.btnCenter.UseStyleColors = true;
+            this.btnCenter.Click += new System.EventHandler(this.btnCenter_Click);
             // 
             // btnReload
             // 
@@ -206,6 +225,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.btnCenter);
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.zoomTrackBar);
             this.Controls.Add(this.cmbMapsType);
@@ -237,5 +257,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem tsmiQuitarTodasAntenas;
         private System.Windows.Forms.ToolStripMenuItem tsmiActionAllAntenas;
+        private MetroFramework.Controls.MetroButton btnCenter;
     }
 }

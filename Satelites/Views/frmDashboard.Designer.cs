@@ -36,6 +36,9 @@
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.pnlProc = new MetroFramework.Controls.MetroPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.btnClose = new MetroFramework.Controls.MetroButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLocalizations = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
@@ -52,9 +55,9 @@
             this.pnlMain.HorizontalScrollbarBarColor = true;
             this.pnlMain.HorizontalScrollbarHighlightOnWheel = false;
             this.pnlMain.HorizontalScrollbarSize = 10;
-            this.pnlMain.Location = new System.Drawing.Point(23, 33);
+            this.pnlMain.Location = new System.Drawing.Point(23, 91);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(848, 513);
+            this.pnlMain.Size = new System.Drawing.Size(848, 455);
             this.pnlMain.TabIndex = 0;
             this.pnlMain.VerticalScrollbarBarColor = true;
             this.pnlMain.VerticalScrollbarHighlightOnWheel = false;
@@ -101,6 +104,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(4, 306);
@@ -109,8 +113,59 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Procesando, favor de esperar...";
             // 
+            // metroButton2
+            // 
+            this.metroButton2.AutoSize = true;
+            this.metroButton2.BackgroundImage = global::Satelites.Properties.Resources._1479528015_ic_folder_open_48px;
+            this.metroButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.metroButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.metroButton2.Location = new System.Drawing.Point(27, 23);
+            this.metroButton2.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(60, 60);
+            this.metroButton2.TabIndex = 6;
+            this.metroButton2.Tag = "0";
+            this.metroToolTip.SetToolTip(this.metroButton2, "Cargar configuración...");
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.UseStyleColors = true;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.AutoSize = true;
+            this.metroButton1.BackgroundImage = global::Satelites.Properties.Resources._1464227257_save;
+            this.metroButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.metroButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.metroButton1.Location = new System.Drawing.Point(92, 23);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(60, 60);
+            this.metroButton1.TabIndex = 5;
+            this.metroButton1.Tag = "0";
+            this.metroToolTip.SetToolTip(this.metroButton1, "Guardar configuración...");
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.UseStyleColors = true;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.AutoSize = true;
+            this.btnClose.BackgroundImage = global::Satelites.Properties.Resources._1463426130_delete;
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(811, 23);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(60, 60);
+            this.btnClose.TabIndex = 4;
+            this.btnClose.Tag = "0";
+            this.metroToolTip.SetToolTip(this.btnClose, "Cerrar sistema...");
+            this.btnClose.UseSelectable = true;
+            this.btnClose.UseStyleColors = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Satelites.Properties.Resources.loading_gallery;
             this.pictureBox1.Location = new System.Drawing.Point(10, 3);
             this.pictureBox1.Name = "pictureBox1";
@@ -125,7 +180,7 @@
             this.btnLocalizations.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLocalizations.BackgroundImage")));
             this.btnLocalizations.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnLocalizations.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnLocalizations.Location = new System.Drawing.Point(29, 39);
+            this.btnLocalizations.Location = new System.Drawing.Point(27, 94);
             this.btnLocalizations.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
             this.btnLocalizations.Name = "btnLocalizations";
             this.btnLocalizations.Size = new System.Drawing.Size(60, 60);
@@ -141,6 +196,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(894, 569);
+            this.Controls.Add(this.metroButton2);
+            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pnlProc);
             this.Controls.Add(this.btnLocalizations);
             this.Controls.Add(this.pnlMain);
@@ -174,5 +232,8 @@
         private MetroFramework.Controls.MetroPanel pnlProc;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private MetroFramework.Controls.MetroButton btnClose;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton metroButton2;
     }
 }

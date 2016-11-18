@@ -489,6 +489,11 @@ namespace Satelites.Views.UserControls
 
             changeVisibilityMenuOpc();
         }
-        
+
+        private void btnCenter_Click(object sender, EventArgs e)
+        {
+            MainMap.ZoomAndCenterMarkers("objects");
+        }
+
     }
 }

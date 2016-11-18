@@ -103,6 +103,46 @@ namespace Satelites.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1464210083_target {
+            get {
+                object obj = ResourceManager.GetObject("1464210083_target", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1464227257_save {
+            get {
+                object obj = ResourceManager.GetObject("1464227257_save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1479528004_ic_folder_open_48px {
+            get {
+                object obj = ResourceManager.GetObject("1479528004_ic_folder_open_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1479528015_ic_folder_open_48px {
+            get {
+                object obj = ResourceManager.GetObject("1479528015_ic_folder_open_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap antena {
             get {
                 object obj = ResourceManager.GetObject("antena", resourceCulture);
