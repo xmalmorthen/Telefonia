@@ -349,7 +349,7 @@ namespace Satelites.Views.UserControls
             tsmiQuitarTodasAntenas.Visible = objects.Markers.Count() > 0;
             tsmiActionAllAntenas.Visible = objects.Markers.Count() > 0;
 
-            toolStripSeparator1.Visible = !(tsmiQuitarTodasAntenas.Visible && !tsmiActionAllAntenas.Visible);
+            toolStripSeparator1.Visible = !(!tsmiQuitarTodasAntenas.Visible && !tsmiActionAllAntenas.Visible);
         }
         
 #endregion FUNCTIONS
