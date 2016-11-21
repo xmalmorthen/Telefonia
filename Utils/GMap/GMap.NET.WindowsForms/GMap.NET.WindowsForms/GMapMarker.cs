@@ -234,6 +234,8 @@ namespace GMap.NET.WindowsForms
          }
       }
 
+      public bool isActive { get; set; }
+
       /// <summary>
       /// if true, marker will be rendered even if it's outside current view
       /// </summary>

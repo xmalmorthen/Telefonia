@@ -151,7 +151,8 @@ namespace Satelites.Views.UserControls
         {
             if (item is GMapMarkerRect)
             {
-                if (!isMouseDown) CurentRectMarker = null;
+                //if (!isMouseDown) 
+                    //CurentRectMarker = null;
 
                 GMapMarkerRect rc = item as GMapMarkerRect;
                 rc.Pen.Color = Color.DarkGray;
@@ -194,7 +195,7 @@ namespace Satelites.Views.UserControls
                     if (currentMarker != null && currentMarker.IsVisible)
                         currentMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);
                     mnuTagetShow = false;
-                    CurentRectMarker = null;
+                    //CurentRectMarker = null;
                 }
                 else // move rect marker
                 {
@@ -314,6 +315,7 @@ namespace Satelites.Views.UserControls
                 else
                     mBorders.Tag = 0;
                 mBorders.ToolTipMode = MarkerTooltipMode.Always;
+                mBorders.isActive = false;
             }
 
             Placemark? p = null;
@@ -338,6 +340,8 @@ namespace Satelites.Views.UserControls
 
             objects.Markers.Add(m);
 
+            
+
             objects.Markers.Add(mBorders);
 
             RegeneratePolygon();
@@ -347,9 +351,13 @@ namespace Satelites.Views.UserControls
 
         void changeVisibilityMenuOpc() {
             tsmiQuitarTodasAntenas.Visible = objects.Markers.Count() > 0;
-            tsmiActionAllAntenas.Visible = objects.Markers.Count() > 0;
+            tsmiActivateAllAntenas.Visible = objects.Markers.Count() > 0;
+            tsmiDeactivateAllAntenas.Visible = objects.Markers.Count() > 0;
+            leerTodasLasAntenasToolStripMenuItem.Visible = objects.Markers.Count() > 0;
 
-            toolStripSeparator1.Visible = !(!tsmiQuitarTodasAntenas.Visible && !tsmiActionAllAntenas.Visible);
+            toolStripSeparator1.Visible = objects.Markers.Count() > 0;
+            toolStripMenuItem2.Visible = objects.Markers.Count() > 0;
+            toolStripMenuItem3.Visible = objects.Markers.Count() > 0;
         }
         
 #endregion FUNCTIONS
@@ -367,7 +375,7 @@ namespace Satelites.Views.UserControls
                 MainMap.Manager.SecondaryCache = ch;
                 
                 GMapProvider.UserAgent = "SATÉLITES";
-                MainMap.Manager.Mode = AccessMode.ServerOnly;
+                MainMap.Manager.Mode = AccessMode.ServerAndCache;
                 MainMap.MapProvider = GMapProviders.OpenStreetMap;
                 MainMap.Position = new PointLatLng(Properties.Settings.Default.MapInitPointLat, Properties.Settings.Default.MapInitPointLng);
                 MainMap.MinZoom = 0;
@@ -474,7 +482,17 @@ namespace Satelites.Views.UserControls
 
         private void tsmiActionAntena_Click(object sender, EventArgs e)
         {
+            Bitmap pin = Properties.Resources.ResourceManager.GetObject(((ToolStripMenuItem)sender).Tag.Equals(1) ? "target_green" : "target_red", Properties.Resources.Culture) as Bitmap;
+            GMapMarkerRect itemGMapMarkerRect = objects.Markers[objects.Markers.IndexOf(CurentRectMarker)] as GMapMarkerRect;
+            GMarkerGoogle m = new GMarkerGoogle(itemGMapMarkerRect.Position, pin);
+            GMarkerGoogle itemGMarkerGoogle = objects.Markers.FirstOrDefault(qry => qry.Tag.Equals(itemGMapMarkerRect.Tag) && qry.GetType().Equals(typeof(GMap.NET.WindowsForms.Markers.GMarkerGoogle))) as GMarkerGoogle;
 
+            m.Tag = itemGMapMarkerRect.Tag;
+            m.isActive = ((ToolStripMenuItem)sender).Tag.Equals(1) ? true : false;
+
+            ((GMapMarkerRect)objects.Markers[objects.Markers.IndexOf(CurentRectMarker)]).isActive = m.isActive;
+            ((GMapMarkerRect)objects.Markers[objects.Markers.IndexOf(CurentRectMarker)]).InnerMarker = m;
+            objects.Markers[objects.Markers.IndexOf(itemGMarkerGoogle)] = m;            
         }
 
         private void tsmiAddAntena_Click(object sender, EventArgs e)
@@ -493,6 +511,61 @@ namespace Satelites.Views.UserControls
         private void btnCenter_Click(object sender, EventArgs e)
         {
             MainMap.ZoomAndCenterMarkers("objects");
+        }
+
+        private void mnuTarget_Opening(object sender, CancelEventArgs e)
+        {
+            GMapMarkerRect item = objects.Markers[objects.Markers.IndexOf(CurentRectMarker)] as GMapMarkerRect;
+            tsmiActionAntena.Text = item.isActive ? "Desactivar" : "Activar";
+            tsmiActionAntena.Tag = item.isActive ? 0 : 1;
+
+            leerAntenaToolStripMenuItem.Visible = item.isActive;
+        }
+
+        private void tsmiDeactivateAllAntenas_Click(object sender, EventArgs e)
+        {
+            changeStatusAntena(false);
+        }
+
+        private void tsmiActivateAllAntenas_Click(object sender, EventArgs e)
+        {
+            changeStatusAntena(true);
+        }
+
+        private void changeStatusAntena(Boolean status) {
+            List<GMapMarker> lst = objects.Markers.Where(qry => qry.isActive.Equals(!status) && qry.GetType().Equals(typeof(Satelites.Models.CustomMarkers.GMapMarkerRect))).ToList();
+            foreach (GMapMarker item in lst)
+            {
+                Bitmap pin = Properties.Resources.ResourceManager.GetObject(status.Equals(true) ? "target_green" : "target_red", Properties.Resources.Culture) as Bitmap;
+                GMapMarkerRect itemGMapMarkerRect = objects.Markers[objects.Markers.IndexOf(item)] as GMapMarkerRect;
+                GMarkerGoogle m = new GMarkerGoogle(itemGMapMarkerRect.Position, pin);
+                GMarkerGoogle itemGMarkerGoogle = objects.Markers.FirstOrDefault(qry => qry.Tag.Equals(itemGMapMarkerRect.Tag) && qry.GetType().Equals(typeof(GMap.NET.WindowsForms.Markers.GMarkerGoogle))) as GMarkerGoogle;
+
+                m.Tag = itemGMapMarkerRect.Tag;
+
+                ((GMapMarkerRect)objects.Markers[objects.Markers.IndexOf(item)]).isActive = status;
+                ((GMapMarkerRect)objects.Markers[objects.Markers.IndexOf(item)]).InnerMarker = m;
+                objects.Markers[objects.Markers.IndexOf(itemGMarkerGoogle)] = m;
+            }
+        }
+
+        private void leerAntenaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<GMapMarker> mrkrs = new List<GMapMarker>();
+            mrkrs.Add(CurentRectMarker);
+            openReadForm(mrkrs);
+        }
+
+        private void leerTodasLasAntenasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<GMapMarker> mrkrs = objects.Markers.Where(qry => qry.isActive.Equals(true) && qry.GetType().Equals(typeof(GMapMarkerRect))).ToList();
+            openReadForm(mrkrs);
+        }
+
+        private void openReadForm(List<GMapMarker> markers)
+        {
+            frmMain frm = new frmMain(markers);
+            frm.ShowDialog(this);
         }
 
     }

@@ -74,8 +74,8 @@ namespace Satelites
                 Properties.Settings.Default.mainStyle.Style = MetroFramework.MetroColorStyle.Black;
                 Properties.Settings.Default.mainStyle.Theme = MetroFramework.MetroThemeStyle.Light;
 
-                frmSshCnn FrmSshCnn = new frmSshCnn();
-                if (FrmSshCnn.ShowDialog() == DialogResult.Yes)
+                //frmSshCnn FrmSshCnn = new frmSshCnn();
+                //if (FrmSshCnn.ShowDialog() == DialogResult.Yes)
                 {
                     /*frmLogIn FrmLogIn = new frmLogIn();
                     Application.Run(FrmLogIn);

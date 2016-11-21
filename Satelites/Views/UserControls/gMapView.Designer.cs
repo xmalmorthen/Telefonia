@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.zoomTrackBar = new MetroFramework.Controls.MetroTrackBar();
             this.cmbMapsType = new MetroFramework.Controls.MetroComboBox();
-            this.MainMap = new GMap.NET.WindowsForms.GMapControl();
             this.metroToolTip = new MetroFramework.Components.MetroToolTip();
             this.btnCenter = new MetroFramework.Controls.MetroButton();
             this.btnReload = new MetroFramework.Controls.MetroButton();
@@ -40,11 +39,17 @@
             this.tsmiActionAntena = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiQuitarAntena = new System.Windows.Forms.ToolStripMenuItem();
+            this.leerAntenaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiAddAntena = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiQuitarTodasAntenas = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiActionAllAntenas = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiActivateAllAntenas = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDeactivateAllAntenas = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.leerTodasLasAntenasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainMap = new GMap.NET.WindowsForms.GMapControl();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.mnuTarget.SuspendLayout();
             this.mnuMain.SuspendLayout();
@@ -79,33 +84,6 @@
             this.cmbMapsType.UseSelectable = true;
             this.cmbMapsType.UseStyleColors = true;
             this.cmbMapsType.DropDownClosed += new System.EventHandler(this.cmbMapsType_DropDownClosed);
-            // 
-            // MainMap
-            // 
-            this.MainMap.BackColor = System.Drawing.Color.AliceBlue;
-            this.MainMap.Bearing = 0F;
-            this.MainMap.CanDragMap = true;
-            this.MainMap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainMap.EmptyTileColor = System.Drawing.Color.Navy;
-            this.MainMap.GrayScaleMode = false;
-            this.MainMap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            this.MainMap.LevelsKeepInMemmory = 5;
-            this.MainMap.Location = new System.Drawing.Point(0, 0);
-            this.MainMap.MarkersEnabled = true;
-            this.MainMap.MaxZoom = 17;
-            this.MainMap.MinZoom = 2;
-            this.MainMap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionWithoutCenter;
-            this.MainMap.Name = "MainMap";
-            this.MainMap.NegativeMode = false;
-            this.MainMap.PolygonsEnabled = true;
-            this.MainMap.RetryLoadTile = 0;
-            this.MainMap.RoutesEnabled = true;
-            this.MainMap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
-            this.MainMap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.MainMap.ShowTileGridLines = false;
-            this.MainMap.Size = new System.Drawing.Size(1167, 704);
-            this.MainMap.TabIndex = 0;
-            this.MainMap.Zoom = 0D;
             // 
             // metroToolTip
             // 
@@ -159,30 +137,39 @@
             this.mnuTarget.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiActionAntena,
             this.toolStripMenuItem1,
-            this.tsmiQuitarAntena});
+            this.tsmiQuitarAntena,
+            this.leerAntenaToolStripMenuItem});
             this.mnuTarget.Name = "mnuTarget";
             this.mnuTarget.ShowImageMargin = false;
-            this.mnuTarget.Size = new System.Drawing.Size(87, 54);
+            this.mnuTarget.Size = new System.Drawing.Size(113, 76);
+            this.mnuTarget.Opening += new System.ComponentModel.CancelEventHandler(this.mnuTarget_Opening);
             this.mnuTarget.Opened += new System.EventHandler(this.mnuTarget_Opened);
             // 
             // tsmiActionAntena
             // 
             this.tsmiActionAntena.Name = "tsmiActionAntena";
-            this.tsmiActionAntena.Size = new System.Drawing.Size(86, 22);
-            this.tsmiActionAntena.Text = "Activar";
+            this.tsmiActionAntena.Size = new System.Drawing.Size(127, 22);
+            this.tsmiActionAntena.Text = "---";
             this.tsmiActionAntena.Click += new System.EventHandler(this.tsmiActionAntena_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(83, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(124, 6);
             // 
             // tsmiQuitarAntena
             // 
             this.tsmiQuitarAntena.Name = "tsmiQuitarAntena";
-            this.tsmiQuitarAntena.Size = new System.Drawing.Size(86, 22);
+            this.tsmiQuitarAntena.Size = new System.Drawing.Size(127, 22);
             this.tsmiQuitarAntena.Text = "Quitar";
             this.tsmiQuitarAntena.Click += new System.EventHandler(this.tsmiQuitarAntena_Click);
+            // 
+            // leerAntenaToolStripMenuItem
+            // 
+            this.leerAntenaToolStripMenuItem.Name = "leerAntenaToolStripMenuItem";
+            this.leerAntenaToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.leerAntenaToolStripMenuItem.Text = "Leer Antena";
+            this.leerAntenaToolStripMenuItem.Click += new System.EventHandler(this.leerAntenaToolStripMenuItem_Click);
             // 
             // mnuMain
             // 
@@ -190,35 +177,91 @@
             this.tsmiAddAntena,
             this.toolStripSeparator1,
             this.tsmiQuitarTodasAntenas,
-            this.tsmiActionAllAntenas});
+            this.toolStripMenuItem2,
+            this.tsmiActivateAllAntenas,
+            this.tsmiDeactivateAllAntenas,
+            this.toolStripMenuItem3,
+            this.leerTodasLasAntenasToolStripMenuItem});
             this.mnuMain.Name = "mnuTarget";
             this.mnuMain.ShowImageMargin = false;
-            this.mnuMain.Size = new System.Drawing.Size(192, 76);
+            this.mnuMain.Size = new System.Drawing.Size(204, 154);
             // 
             // tsmiAddAntena
             // 
             this.tsmiAddAntena.Name = "tsmiAddAntena";
-            this.tsmiAddAntena.Size = new System.Drawing.Size(191, 22);
+            this.tsmiAddAntena.Size = new System.Drawing.Size(196, 22);
             this.tsmiAddAntena.Text = "Agragar antena";
             this.tsmiAddAntena.Click += new System.EventHandler(this.tsmiAddAntena_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(188, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(193, 6);
             // 
             // tsmiQuitarTodasAntenas
             // 
             this.tsmiQuitarTodasAntenas.Name = "tsmiQuitarTodasAntenas";
-            this.tsmiQuitarTodasAntenas.Size = new System.Drawing.Size(191, 22);
+            this.tsmiQuitarTodasAntenas.Size = new System.Drawing.Size(196, 22);
             this.tsmiQuitarTodasAntenas.Text = "Quitar todas las antenas";
             this.tsmiQuitarTodasAntenas.Click += new System.EventHandler(this.tsmiQuitarTodasAntenas_Click);
             // 
-            // tsmiActionAllAntenas
+            // toolStripMenuItem2
             // 
-            this.tsmiActionAllAntenas.Name = "tsmiActionAllAntenas";
-            this.tsmiActionAllAntenas.Size = new System.Drawing.Size(191, 22);
-            this.tsmiActionAllAntenas.Text = "Encender todas las antenas";
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(193, 6);
+            // 
+            // tsmiActivateAllAntenas
+            // 
+            this.tsmiActivateAllAntenas.Name = "tsmiActivateAllAntenas";
+            this.tsmiActivateAllAntenas.Size = new System.Drawing.Size(196, 22);
+            this.tsmiActivateAllAntenas.Text = "Activar todas las antenas";
+            this.tsmiActivateAllAntenas.Click += new System.EventHandler(this.tsmiActivateAllAntenas_Click);
+            // 
+            // tsmiDeactivateAllAntenas
+            // 
+            this.tsmiDeactivateAllAntenas.Name = "tsmiDeactivateAllAntenas";
+            this.tsmiDeactivateAllAntenas.Size = new System.Drawing.Size(196, 22);
+            this.tsmiDeactivateAllAntenas.Text = "Desactivar todas las antenas";
+            this.tsmiDeactivateAllAntenas.Click += new System.EventHandler(this.tsmiDeactivateAllAntenas_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(193, 6);
+            // 
+            // leerTodasLasAntenasToolStripMenuItem
+            // 
+            this.leerTodasLasAntenasToolStripMenuItem.Name = "leerTodasLasAntenasToolStripMenuItem";
+            this.leerTodasLasAntenasToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.leerTodasLasAntenasToolStripMenuItem.Text = "Leer todas las antenas activas";
+            this.leerTodasLasAntenasToolStripMenuItem.Click += new System.EventHandler(this.leerTodasLasAntenasToolStripMenuItem_Click);
+            // 
+            // MainMap
+            // 
+            this.MainMap.BackColor = System.Drawing.Color.AliceBlue;
+            this.MainMap.Bearing = 0F;
+            this.MainMap.CanDragMap = true;
+            this.MainMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainMap.EmptyTileColor = System.Drawing.Color.Navy;
+            this.MainMap.GrayScaleMode = false;
+            this.MainMap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.MainMap.LevelsKeepInMemmory = 5;
+            this.MainMap.Location = new System.Drawing.Point(0, 0);
+            this.MainMap.MarkersEnabled = true;
+            this.MainMap.MaxZoom = 17;
+            this.MainMap.MinZoom = 2;
+            this.MainMap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionWithoutCenter;
+            this.MainMap.Name = "MainMap";
+            this.MainMap.NegativeMode = false;
+            this.MainMap.PolygonsEnabled = true;
+            this.MainMap.RetryLoadTile = 0;
+            this.MainMap.RoutesEnabled = true;
+            this.MainMap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.MainMap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.MainMap.ShowTileGridLines = false;
+            this.MainMap.Size = new System.Drawing.Size(1167, 704);
+            this.MainMap.TabIndex = 0;
+            this.MainMap.Zoom = 0D;
             // 
             // gMapView
             // 
@@ -256,7 +299,12 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiAddAntena;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem tsmiQuitarTodasAntenas;
-        private System.Windows.Forms.ToolStripMenuItem tsmiActionAllAntenas;
+        private System.Windows.Forms.ToolStripMenuItem tsmiActivateAllAntenas;
         private MetroFramework.Controls.MetroButton btnCenter;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDeactivateAllAntenas;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem leerAntenaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem leerTodasLasAntenasToolStripMenuItem;
     }
 }
