@@ -48,11 +48,25 @@ namespace Satelites.Views
             metroToolTip.StyleManager = msmMain;
 
             frmState = enums.frmState.Normal;
+
+            gMapViewRender = new gMapView(Properties.Settings.Default.MapInitPointLat, Properties.Settings.Default.MapInitPointLng);
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void pnlMain_Resize(object sender, EventArgs e)
+        {
+            metroGrid2.Width = pnlMain.Size.Width / 2;
+            metroGrid1.Size = new Size(pnlMain.Size.Width / 2 - 5, pnlMain.Size.Height / 2 - 5);
+            metroGrid1.Location = new Point(metroGrid2.Width + 5, 3);
+            pnlMap.Size = new Size(pnlMain.Size.Width / 2 - 5, pnlMain.Size.Height / 2 - 5);
+            pnlMap.Location = new Point(metroGrid2.Width + 5, metroGrid1.Height + 5);
+        }
+
+        
     }
 }

@@ -153,6 +153,7 @@
     <Compile Include="Views\UserControls\gMapView.Designer.cs">
       <DependentUpon>gMapView.cs</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\Satelites.Models.cellsModel.datasource" />
     <None Include="Resources\1479528015_ic_folder_open_48px.png" />
     <None Include="Resources\1479528004_ic_folder_open_48px.png" />
     <None Include="Resources\1464227257_save.png" />
