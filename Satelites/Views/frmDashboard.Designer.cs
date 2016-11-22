@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.pnlProc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,6 +55,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMain.Controls.Add(this.pnlProc);
             this.pnlMain.HorizontalScrollbarBarColor = true;
             this.pnlMain.HorizontalScrollbarHighlightOnWheel = false;
             this.pnlMain.HorizontalScrollbarSize = 10;
@@ -163,7 +165,7 @@
             this.pnlProc.HorizontalScrollbarBarColor = true;
             this.pnlProc.HorizontalScrollbarHighlightOnWheel = false;
             this.pnlProc.HorizontalScrollbarSize = 10;
-            this.pnlProc.Location = new System.Drawing.Point(27, 414);
+            this.pnlProc.Location = new System.Drawing.Point(3, 322);
             this.pnlProc.Name = "pnlProc";
             this.pnlProc.Size = new System.Drawing.Size(238, 128);
             this.pnlProc.TabIndex = 3;
@@ -210,7 +212,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(894, 569);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.pnlProc);
             this.Controls.Add(this.btnLocalizations);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -225,6 +226,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Panel de Antenas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.pnlMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.pnlProc.ResumeLayout(false);
             this.pnlProc.PerformLayout();

@@ -147,6 +147,12 @@
     <Compile Include="Views\frmSshCnn.Designer.cs">
       <DependentUpon>frmSshCnn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\gMapViewLite.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControls\gMapViewLite.Designer.cs">
+      <DependentUpon>gMapViewLite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\gMapView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmSshCnn.resx">
       <DependentUpon>frmSshCnn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControls\gMapViewLite.resx">
+      <DependentUpon>gMapViewLite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControls\gMapView.resx">
       <DependentUpon>gMapView.cs</DependentUpon>

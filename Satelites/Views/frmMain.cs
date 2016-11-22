@@ -18,7 +18,7 @@ namespace Satelites.Views
     public partial class frmMain : MetroForm
     {
         public DialogResult dlgRes = DialogResult.No;
-        public gMapView gMapViewRender;
+        public gMapViewLite gMapViewRender;
 
         private List<GMapMarker> markers {get; set;}
 
@@ -29,7 +29,7 @@ namespace Satelites.Views
             set
             {
                 _frmState = value;
-
+                this.pnlProc.Visible = value == enums.frmState.Proccessing;
             }
         }
 
@@ -49,8 +49,16 @@ namespace Satelites.Views
 
             frmState = enums.frmState.Normal;
 
-            gMapViewRender = new gMapView(Properties.Settings.Default.MapInitPointLat, Properties.Settings.Default.MapInitPointLng);
-            
+            gMapViewRender = new gMapViewLite(markers);
+            Application.DoEvents();
+            gMapViewRender.Parent = this;
+            gMapViewRender.Dock = System.Windows.Forms.DockStyle.Fill;
+            gMapViewRender.Location = new System.Drawing.Point(0, 0);
+            gMapViewRender.MinimumSize = new Size(0, 0);
+            gMapViewRender.Margin = new Padding(3);
+            gMapViewRender.TabIndex = 0;            
+            pnlMap.Controls.Clear();
+            pnlMap.Controls.Add(gMapViewRender);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
