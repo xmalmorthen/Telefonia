@@ -71,11 +71,11 @@ namespace Satelites.Models
             set { provider = value; }
         }
 
-        private string comment;
-        public string Comment
+        private string imei;
+        public string IMEI
         {
-            get { return comment; }
-            set { comment = value; }
+            get { return imei; }
+            set { imei = value; }
         }
 
     }

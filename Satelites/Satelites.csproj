@@ -105,8 +105,11 @@
     <Compile Include="Classes\OwnSshClient.cs" />
     <Compile Include="Classes\sshCnn.cs" />
     <Compile Include="Classes\visualStyles.cs" />
+    <Compile Include="Controllers\CellsModel.cs" />
     <Compile Include="Controllers\DALController.cs" />
+    <Compile Include="Controllers\Populate.cs" />
     <Compile Include="Models\cellsModel.cs" />
+    <Compile Include="Models\receiversModel.cs" />
     <Compile Include="Models\CustomMarkers\GMapMarkerCircle.cs" />
     <Compile Include="Models\CustomMarkers\GMapMarkerRect.cs" />
     <Compile Include="Models\CustomMarkers\GMarkerArrow.cs" />
@@ -125,7 +128,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbSatelites.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\decryptedTraffic.cs" />
     <Compile Include="Models\markersModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,7 +161,9 @@
     <Compile Include="Views\UserControls\gMapView.Designer.cs">
       <DependentUpon>gMapView.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\tower.png" />
     <None Include="Properties\DataSources\Satelites.Models.cellsModel.datasource" />
+    <None Include="Properties\DataSources\Satelites.Models.receiversModel.datasource" />
     <None Include="Resources\1479528015_ic_folder_open_48px.png" />
     <None Include="Resources\1479528004_ic_folder_open_48px.png" />
     <None Include="Resources\1464227257_save.png" />
@@ -286,6 +290,7 @@
       <Name>MetroFramework</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

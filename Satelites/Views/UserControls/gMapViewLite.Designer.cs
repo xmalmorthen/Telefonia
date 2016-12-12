@@ -81,7 +81,6 @@
             this.btnCenter.AutoSize = true;
             this.btnCenter.BackgroundImage = global::Satelites.Properties.Resources._1464210083_target;
             this.btnCenter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCenter.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCenter.Location = new System.Drawing.Point(1104, 610);
             this.btnCenter.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
             this.btnCenter.Name = "btnCenter";
@@ -99,7 +98,6 @@
             this.btnReload.AutoSize = true;
             this.btnReload.BackgroundImage = global::Satelites.Properties.Resources._1463558060_playback_reload;
             this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnReload.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnReload.Location = new System.Drawing.Point(1139, 3);
             this.btnReload.Margin = new System.Windows.Forms.Padding(5, 5, 0, 5);
             this.btnReload.Name = "btnReload";

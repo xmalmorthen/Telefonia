@@ -105,7 +105,7 @@ namespace Satelites.Views.UserControls
             {
                 if (item is GMapMarkerRect)
                 {
-                    GeoCoderStatusCode status;
+                    /*GeoCoderStatusCode status;
                     var pos = GMapProviders.GoogleMap.GetPlacemark(item.Position, out status);
                     if (status == GeoCoderStatusCode.G_GEO_SUCCESS && pos != null)
                     {
@@ -114,7 +114,7 @@ namespace Satelites.Views.UserControls
                             v.ToolTipText = pos.Value.Address;
                         }
                         MainMap.Invalidate(false);
-                    }
+                    }*/
                 }
                 else
                 {
@@ -329,18 +329,16 @@ namespace Satelites.Views.UserControls
 
             if (p != null)
             {
-                mBorders.ToolTipText = p.Value.Address;
+                mBorders.ToolTipText = string.Format("Antena {0}{1}{2}",mBorders.Tag,Environment.NewLine,p.Value.Address);
             }
             else
-            {
-                mBorders.ToolTipText = currentMarker.Position.ToString();
+            {                
+                mBorders.ToolTipText = string.Format("Antena {0}{1}{2}", mBorders.Tag, Environment.NewLine, currentMarker.Position.ToString());
             }
 
             m.Tag = mBorders.Tag;
 
             objects.Markers.Add(m);
-
-            
 
             objects.Markers.Add(mBorders);
 
@@ -381,6 +379,9 @@ namespace Satelites.Views.UserControls
                 MainMap.MinZoom = 0;
                 MainMap.MaxZoom = 24;
                 MainMap.Zoom = 16;
+
+                GMapToolTip.DefaultFormat.Alignment = StringAlignment.Near;
+                GMapToolTip.DefaultStroke.Color = Color.Silver;
 
                 // map events
                 {

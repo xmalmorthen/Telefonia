@@ -1,6 +1,10 @@
-﻿using GMap.NET.WindowsForms;
+﻿using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
 using MetroFramework.Forms;
 using Satelites.Classes;
+using Satelites.Controllers;
 using Satelites.Models.CustomMarkers;
 using Satelites.Views.UserControls;
 using System;
@@ -59,8 +63,24 @@ namespace Satelites.Views
             gMapViewRender.TabIndex = 0;            
             pnlMap.Controls.Clear();
             pnlMap.Controls.Add(gMapViewRender);
+
+            gdCells.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            gdReceivers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pnlMap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+
+            populate();
         }
 
+        private void populate()
+        {
+            cellsModelBindingSource.DataSource = Populate.Cells(markers.Count());
+
+            Random rnd = new Random();
+            foreach (GMapMarker mrkr in markers)
+                foreach (PointLatLng item in Populate.MapMarkerModel(mrkr.Position,rnd.Next(100,200)))
+                    gMapViewRender.AddTarjet(item);
+        }
+        
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -68,11 +88,11 @@ namespace Satelites.Views
 
         private void pnlMain_Resize(object sender, EventArgs e)
         {
-            metroGrid2.Width = pnlMain.Size.Width / 2;
-            metroGrid1.Size = new Size(pnlMain.Size.Width / 2 - 5, pnlMain.Size.Height / 2 - 5);
-            metroGrid1.Location = new Point(metroGrid2.Width + 5, 3);
-            pnlMap.Size = new Size(pnlMain.Size.Width / 2 - 5, pnlMain.Size.Height / 2 - 5);
-            pnlMap.Location = new Point(metroGrid2.Width + 5, metroGrid1.Height + 5);
+            gdCells.Width = pnlMain.Size.Width / 2;
+            gdReceivers.Size = new Size(pnlMain.Size.Width / 2 - 10, pnlMain.Size.Height / 2 - 5);
+            gdReceivers.Location = new Point(gdCells.Width + 5, 3);
+            pnlMap.Size = new Size(pnlMain.Size.Width / 2 - 10, pnlMain.Size.Height / 2 - 5);
+            pnlMap.Location = new Point(gdCells.Width + 5, gdReceivers.Height + 5);
         }
 
         

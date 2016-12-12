@@ -48,7 +48,7 @@ namespace Satelites.Views.UserControls
                 AddTarget(item);    
 	        }
 
-            MainMap.ZoomAndCenterMarkers(null);
+            MainMap.ZoomAndCenterMarkers("objects");
         }
 
 #region EVENTS
@@ -105,7 +105,6 @@ namespace Satelites.Views.UserControls
         }
 
         GMapMarker currentTransport;
-        int? CurentRectMarkerTag = null;
         void MainMap_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
@@ -185,46 +184,9 @@ namespace Satelites.Views.UserControls
             item.Stroke.Color = Color.MidnightBlue;
         }
 
-        Boolean mnuTagetShow = false;
         void MainMap_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left && isMouseDown)
-            {
-                if (CurentRectMarker == null || mnuTagetShow)
-                {
-                    if (currentMarker != null && currentMarker.IsVisible)
-                        currentMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);
-                    mnuTagetShow = false;
-                }
-                else // move rect marker
-                {
-                    PointLatLng pnew = MainMap.FromLocalToLatLng(e.X, e.Y);
 
-                    int? pIndex = (int?)CurentRectMarker.Tag;
-                    if (pIndex.HasValue)
-                    {
-                        if (pIndex < polygon.Points.Count)
-                        {
-                            polygon.Points[pIndex.Value] = pnew;
-                            MainMap.UpdatePolygonLocalPosition(polygon);
-                        }
-                    }
-
-                    if (currentMarker.IsVisible)
-                    {
-                        currentMarker.Position = pnew;
-                    }
-                    CurentRectMarker.Position = pnew;
-
-                    if (CurentRectMarker.InnerMarker != null)
-                    {
-                        CurentRectMarker.InnerMarker.Position = pnew;
-                    }
-                }
-
-                MainMap.Refresh(); // force instant invalidation
-
-            }
         }
 
         void MainMap_MouseDown(object sender, MouseEventArgs e)
@@ -347,6 +309,33 @@ namespace Satelites.Views.UserControls
             RegeneratePolygon();
         }
 
+        public void AddTarjet(PointLatLng position)
+        {
+            Bitmap pin = Properties.Resources.ResourceManager.GetObject("tower_black", Properties.Resources.Culture) as Bitmap;
+
+            GMarkerGoogle m = new GMarkerGoogle(position, pin);
+
+            Placemark? p = null;
+
+            GeoCoderStatusCode status;
+            var ret = GMapProviders.GoogleMap.GetPlacemark(position, out status);
+            if (status == GeoCoderStatusCode.G_GEO_SUCCESS && ret != null)
+            {
+                p = ret;
+            }
+
+            if (p != null)
+            {
+                m.ToolTipText = p.Value.Address;
+            }
+            else
+            {
+                m.ToolTipText = position.ToString();
+            }
+
+            objects.Markers.Add(m);
+        }
+
 #endregion FUNCTIONS
 
         private void init()
@@ -368,6 +357,9 @@ namespace Satelites.Views.UserControls
                 MainMap.MinZoom = 0;
                 MainMap.MaxZoom = 24;
                 MainMap.Zoom = 16;
+
+                GMapToolTip.DefaultFormat.Alignment = StringAlignment.Near;
+                GMapToolTip.DefaultStroke.Color = Color.Silver;
 
                 // map events
                 {

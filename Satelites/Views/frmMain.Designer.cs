@@ -41,21 +41,13 @@
             this.btnClose = new MetroFramework.Controls.MetroButton();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.pnlMain = new MetroFramework.Controls.MetroPanel();
-            this.metroGrid2 = new MetroFramework.Controls.MetroGrid();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cellsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gdCells = new MetroFramework.Controls.MetroGrid();
             this.pnlMap = new MetroFramework.Controls.MetroPanel();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
-            this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
+            this.gdReceivers = new MetroFramework.Controls.MetroGrid();
+            this.pnlProc = new MetroFramework.Controls.MetroPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aRFCNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cellIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,18 +57,24 @@
             this.mCCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mNCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.providerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlProc = new MetroFramework.Controls.MetroPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.iMEIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellsModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aRFCNDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rxLevelDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.eRRDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receiversModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
             this.pnlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cellsModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gdCells)).BeginInit();
             this.pnlMap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gdReceivers)).BeginInit();
             this.pnlProc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cellsModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiversModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // msmMain
@@ -122,9 +120,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMain.Controls.Add(this.metroGrid2);
+            this.pnlMain.Controls.Add(this.gdCells);
             this.pnlMain.Controls.Add(this.pnlMap);
-            this.pnlMain.Controls.Add(this.metroGrid1);
+            this.pnlMain.Controls.Add(this.gdReceivers);
             this.pnlMain.HorizontalScrollbarBarColor = true;
             this.pnlMain.HorizontalScrollbarHighlightOnWheel = false;
             this.pnlMain.HorizontalScrollbarSize = 10;
@@ -137,141 +135,69 @@
             this.pnlMain.VerticalScrollbarSize = 10;
             this.pnlMain.Resize += new System.EventHandler(this.pnlMain_Resize);
             // 
-            // metroGrid2
+            // gdCells
             // 
-            this.metroGrid2.AllowUserToAddRows = false;
-            this.metroGrid2.AllowUserToDeleteRows = false;
-            this.metroGrid2.AllowUserToOrderColumns = true;
-            this.metroGrid2.AllowUserToResizeRows = false;
-            this.metroGrid2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gdCells.AllowUserToAddRows = false;
+            this.gdCells.AllowUserToDeleteRows = false;
+            this.gdCells.AllowUserToOrderColumns = true;
+            this.gdCells.AllowUserToResizeRows = false;
+            this.gdCells.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.metroGrid2.AutoGenerateColumns = false;
-            this.metroGrid2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.metroGrid2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.metroGrid2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gdCells.AutoGenerateColumns = false;
+            this.gdCells.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gdCells.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gdCells.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gdCells.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(81)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(100)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.metroGrid2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.metroGrid2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-            this.metroGrid2.DataSource = this.cellsModelBindingSource;
+            this.gdCells.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.gdCells.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gdCells.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.aRFCNDataGridViewTextBoxColumn,
+            this.cellIdDataGridViewTextBoxColumn,
+            this.bandDataGridViewTextBoxColumn,
+            this.rxLevelDataGridViewTextBoxColumn,
+            this.lACDataGridViewTextBoxColumn,
+            this.mCCDataGridViewTextBoxColumn,
+            this.mNCDataGridViewTextBoxColumn,
+            this.providerDataGridViewTextBoxColumn,
+            this.iMEIDataGridViewTextBoxColumn});
+            this.gdCells.DataSource = this.cellsModelBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(100)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.metroGrid2.EnableHeadersVisualStyles = false;
-            this.metroGrid2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.metroGrid2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid2.Location = new System.Drawing.Point(3, 3);
-            this.metroGrid2.Name = "metroGrid2";
-            this.metroGrid2.ReadOnly = true;
-            this.metroGrid2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gdCells.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gdCells.EnableHeadersVisualStyles = false;
+            this.gdCells.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.gdCells.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gdCells.Location = new System.Drawing.Point(3, 3);
+            this.gdCells.Name = "gdCells";
+            this.gdCells.ReadOnly = true;
+            this.gdCells.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(81)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(100)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.metroGrid2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.metroGrid2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid2.Size = new System.Drawing.Size(393, 447);
-            this.metroGrid2.TabIndex = 4;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ARFCN";
-            this.dataGridViewTextBoxColumn2.HeaderText = "ARFCN";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CellId";
-            this.dataGridViewTextBoxColumn3.HeaderText = "CellId";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Band";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Band";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "RxLevel";
-            this.dataGridViewTextBoxColumn5.HeaderText = "RxLevel";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "LAC";
-            this.dataGridViewTextBoxColumn6.HeaderText = "LAC";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "MCC";
-            this.dataGridViewTextBoxColumn7.HeaderText = "MCC";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "MNC";
-            this.dataGridViewTextBoxColumn8.HeaderText = "MNC";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Provider";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Provider";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Comment";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Comment";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // cellsModelBindingSource
-            // 
-            this.cellsModelBindingSource.DataSource = typeof(Satelites.Models.cellsModel);
+            this.gdCells.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.gdCells.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gdCells.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gdCells.Size = new System.Drawing.Size(393, 447);
+            this.gdCells.Style = MetroFramework.MetroColorStyle.Brown;
+            this.gdCells.TabIndex = 4;
+            this.gdCells.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // pnlMap
             // 
@@ -314,66 +240,106 @@
             this.gMapControl1.TabIndex = 2;
             this.gMapControl1.Zoom = 0D;
             // 
-            // metroGrid1
+            // gdReceivers
             // 
-            this.metroGrid1.AllowUserToAddRows = false;
-            this.metroGrid1.AllowUserToDeleteRows = false;
-            this.metroGrid1.AllowUserToOrderColumns = true;
-            this.metroGrid1.AllowUserToResizeRows = false;
-            this.metroGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroGrid1.AutoGenerateColumns = false;
-            this.metroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gdReceivers.AllowUserToAddRows = false;
+            this.gdReceivers.AllowUserToDeleteRows = false;
+            this.gdReceivers.AllowUserToOrderColumns = true;
+            this.gdReceivers.AllowUserToResizeRows = false;
+            this.gdReceivers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gdReceivers.AutoGenerateColumns = false;
+            this.gdReceivers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gdReceivers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gdReceivers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gdReceivers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(81)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(100)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.aRFCNDataGridViewTextBoxColumn,
-            this.cellIdDataGridViewTextBoxColumn,
-            this.bandDataGridViewTextBoxColumn,
-            this.rxLevelDataGridViewTextBoxColumn,
-            this.lACDataGridViewTextBoxColumn,
-            this.mCCDataGridViewTextBoxColumn,
-            this.mNCDataGridViewTextBoxColumn,
-            this.providerDataGridViewTextBoxColumn,
-            this.commentDataGridViewTextBoxColumn});
-            this.metroGrid1.DataSource = this.cellsModelBindingSource;
+            this.gdReceivers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.gdReceivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gdReceivers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.aRFCNDataGridViewTextBoxColumn1,
+            this.cellIdDataGridViewTextBoxColumn1,
+            this.rxLevelDataGridViewTextBoxColumn1,
+            this.eRRDataGridViewTextBoxColumn,
+            this.modeDataGridViewTextBoxColumn});
+            this.gdReceivers.DataSource = this.receiversModelBindingSource;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(100)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.metroGrid1.EnableHeadersVisualStyles = false;
-            this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid1.Location = new System.Drawing.Point(402, 3);
-            this.metroGrid1.Name = "metroGrid1";
-            this.metroGrid1.ReadOnly = true;
-            this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gdReceivers.DefaultCellStyle = dataGridViewCellStyle5;
+            this.gdReceivers.EnableHeadersVisualStyles = false;
+            this.gdReceivers.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.gdReceivers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gdReceivers.Location = new System.Drawing.Point(402, 3);
+            this.gdReceivers.Name = "gdReceivers";
+            this.gdReceivers.ReadOnly = true;
+            this.gdReceivers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(81)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(100)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid1.Size = new System.Drawing.Size(441, 236);
-            this.metroGrid1.TabIndex = 2;
+            this.gdReceivers.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.gdReceivers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gdReceivers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gdReceivers.Size = new System.Drawing.Size(441, 236);
+            this.gdReceivers.Style = MetroFramework.MetroColorStyle.Brown;
+            this.gdReceivers.TabIndex = 2;
+            this.gdReceivers.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // pnlProc
+            // 
+            this.pnlProc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlProc.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlProc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlProc.Controls.Add(this.label1);
+            this.pnlProc.Controls.Add(this.pictureBox1);
+            this.pnlProc.HorizontalScrollbarBarColor = true;
+            this.pnlProc.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlProc.HorizontalScrollbarSize = 10;
+            this.pnlProc.Location = new System.Drawing.Point(27, 414);
+            this.pnlProc.Name = "pnlProc";
+            this.pnlProc.Size = new System.Drawing.Size(238, 128);
+            this.pnlProc.TabIndex = 6;
+            this.pnlProc.VerticalScrollbarBarColor = true;
+            this.pnlProc.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlProc.VerticalScrollbarSize = 10;
+            this.pnlProc.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(-2, 107);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Procesando, favor de esperar...";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Satelites.Properties.Resources.loading_gallery;
+            this.pictureBox1.Location = new System.Drawing.Point(68, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -392,7 +358,7 @@
             // cellIdDataGridViewTextBoxColumn
             // 
             this.cellIdDataGridViewTextBoxColumn.DataPropertyName = "CellId";
-            this.cellIdDataGridViewTextBoxColumn.HeaderText = "CellId";
+            this.cellIdDataGridViewTextBoxColumn.HeaderText = "Cell-Id";
             this.cellIdDataGridViewTextBoxColumn.Name = "cellIdDataGridViewTextBoxColumn";
             this.cellIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -438,54 +404,62 @@
             this.providerDataGridViewTextBoxColumn.Name = "providerDataGridViewTextBoxColumn";
             this.providerDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // commentDataGridViewTextBoxColumn
+            // iMEIDataGridViewTextBoxColumn
             // 
-            this.commentDataGridViewTextBoxColumn.DataPropertyName = "Comment";
-            this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
-            this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
-            this.commentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iMEIDataGridViewTextBoxColumn.DataPropertyName = "IMEI";
+            this.iMEIDataGridViewTextBoxColumn.HeaderText = "IMEI";
+            this.iMEIDataGridViewTextBoxColumn.Name = "iMEIDataGridViewTextBoxColumn";
+            this.iMEIDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // pnlProc
+            // cellsModelBindingSource
             // 
-            this.pnlProc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlProc.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlProc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlProc.Controls.Add(this.label1);
-            this.pnlProc.Controls.Add(this.pictureBox1);
-            this.pnlProc.HorizontalScrollbarBarColor = true;
-            this.pnlProc.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnlProc.HorizontalScrollbarSize = 10;
-            this.pnlProc.Location = new System.Drawing.Point(432, 411);
-            this.pnlProc.Name = "pnlProc";
-            this.pnlProc.Size = new System.Drawing.Size(238, 128);
-            this.pnlProc.TabIndex = 6;
-            this.pnlProc.VerticalScrollbarBarColor = true;
-            this.pnlProc.VerticalScrollbarHighlightOnWheel = false;
-            this.pnlProc.VerticalScrollbarSize = 10;
-            this.pnlProc.Visible = false;
+            this.cellsModelBindingSource.DataSource = typeof(Satelites.Models.cellsModel);
             // 
-            // label1
+            // idDataGridViewTextBoxColumn1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(-2, 107);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Procesando, favor de esperar...";
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // pictureBox1
+            // aRFCNDataGridViewTextBoxColumn1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Satelites.Properties.Resources.loading_gallery;
-            this.pictureBox1.Location = new System.Drawing.Point(68, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.aRFCNDataGridViewTextBoxColumn1.DataPropertyName = "ARFCN";
+            this.aRFCNDataGridViewTextBoxColumn1.HeaderText = "ARFCN";
+            this.aRFCNDataGridViewTextBoxColumn1.Name = "aRFCNDataGridViewTextBoxColumn1";
+            this.aRFCNDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // cellIdDataGridViewTextBoxColumn1
+            // 
+            this.cellIdDataGridViewTextBoxColumn1.DataPropertyName = "CellId";
+            this.cellIdDataGridViewTextBoxColumn1.HeaderText = "Cell-Id";
+            this.cellIdDataGridViewTextBoxColumn1.Name = "cellIdDataGridViewTextBoxColumn1";
+            this.cellIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // rxLevelDataGridViewTextBoxColumn1
+            // 
+            this.rxLevelDataGridViewTextBoxColumn1.DataPropertyName = "RxLevel";
+            this.rxLevelDataGridViewTextBoxColumn1.HeaderText = "RxLevel";
+            this.rxLevelDataGridViewTextBoxColumn1.Name = "rxLevelDataGridViewTextBoxColumn1";
+            this.rxLevelDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // eRRDataGridViewTextBoxColumn
+            // 
+            this.eRRDataGridViewTextBoxColumn.DataPropertyName = "ERR";
+            this.eRRDataGridViewTextBoxColumn.HeaderText = "Err%";
+            this.eRRDataGridViewTextBoxColumn.Name = "eRRDataGridViewTextBoxColumn";
+            this.eRRDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // modeDataGridViewTextBoxColumn
+            // 
+            this.modeDataGridViewTextBoxColumn.DataPropertyName = "Mode";
+            this.modeDataGridViewTextBoxColumn.HeaderText = "Mode";
+            this.modeDataGridViewTextBoxColumn.Name = "modeDataGridViewTextBoxColumn";
+            this.modeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // receiversModelBindingSource
+            // 
+            this.receiversModelBindingSource.DataSource = typeof(Satelites.Models.receiversModel);
             // 
             // frmMain
             // 
@@ -508,13 +482,14 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
             this.pnlMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cellsModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gdCells)).EndInit();
             this.pnlMap.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gdReceivers)).EndInit();
             this.pnlProc.ResumeLayout(false);
             this.pnlProc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cellsModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.receiversModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,20 +502,13 @@
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private MetroFramework.Controls.MetroButton btnClose;
         private MetroFramework.Controls.MetroPanel pnlMain;
-        private MetroFramework.Controls.MetroGrid metroGrid2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.BindingSource cellsModelBindingSource;
+        private MetroFramework.Controls.MetroGrid gdCells;
         private MetroFramework.Controls.MetroPanel pnlMap;
-        private MetroFramework.Controls.MetroGrid metroGrid1;
+        private MetroFramework.Controls.MetroGrid gdReceivers;
+        private GMap.NET.WindowsForms.GMapControl gMapControl1;
+        private MetroFramework.Controls.MetroPanel pnlProc;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aRFCNDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cellIdDataGridViewTextBoxColumn;
@@ -550,10 +518,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mCCDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mNCDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn providerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentDataGridViewTextBoxColumn;
-        private GMap.NET.WindowsForms.GMapControl gMapControl1;
-        private MetroFramework.Controls.MetroPanel pnlProc;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iMEIDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource cellsModelBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aRFCNDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rxLevelDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn eRRDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource receiversModelBindingSource;
     }
 }

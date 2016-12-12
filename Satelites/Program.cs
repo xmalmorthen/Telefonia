@@ -58,9 +58,6 @@ namespace Satelites
 
         public static Dictionary<string, UserControl> frmsOpenned = new Dictionary<string, UserControl>();
 
-        private static BackgroundWorker wrkertoNotify = new BackgroundWorker();
-
-
         [STAThread]
         static void Main()
         {

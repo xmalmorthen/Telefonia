@@ -6,7 +6,7 @@ namespace GMap.NET.WindowsForms
    using System.Drawing.Drawing2D;
    using System.Runtime.Serialization;
 using System.Collections;
-    using System.Collections.Generic;
+   using System.Collections.Generic;
 
    /// <summary>
    /// GMap.NET marker
@@ -66,7 +66,7 @@ using System.Collections;
       public Pen Stroke = DefaultStroke;
 
 #if !PocketPC
-      public static readonly Brush DefaultFill = new SolidBrush(Color.FromArgb(222, Color.AliceBlue));
+      public static readonly Brush DefaultFill = new SolidBrush(Color.WhiteSmoke);
 #else
       public static readonly Brush DefaultFill = new System.Drawing.SolidBrush(Color.AliceBlue);
 #endif
